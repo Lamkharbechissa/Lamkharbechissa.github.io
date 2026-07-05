@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://issa-lamkharbech.github.io/sitemap.xml

@@ -1,0 +1,802 @@
+// Généré automatiquement par chatbot/jesus_chatbot.py --export
+// Source unique : chatbot/knowledge_base.json — NE PAS ÉDITER À LA MAIN.
+window.JESUS_KB = {
+  "meta": {
+    "owner": "Issa Lamkharbech",
+    "generated_from": "Dossier 'Develop_website_with_chatbot' (CV, rapports de projets, rapports de stages, READMEs, code source)",
+    "languages": [
+      "fr",
+      "en"
+    ]
+  },
+  "profile": {
+    "name": "Issa Lamkharbech",
+    "title": {
+      "fr": "Élève ingénieur Arts et Métiers (ENSAM) — Intelligence Artificielle, IA Générative & LLMs, Robotique et Industrie 4.0",
+      "en": "Arts et Métiers (ENSAM) engineering student — Artificial Intelligence, Generative AI & LLMs, Robotics and Industry 4.0"
+    },
+    "objective": {
+      "fr": "Recherche une alternance d'un an en IA, Data Science et Industrie 4.0 à partir de septembre 2026.",
+      "en": "Looking for a one-year apprenticeship (alternance) in AI, Data Science and Industry 4.0 starting September 2026."
+    },
+    "summary": {
+      "fr": "Élève ingénieur Arts et Métiers spécialisé en Intelligence Artificielle, robotique et systèmes industriels intelligents, avec une expertise opérationnelle en RAG pipelines, fine-tuning de modèles et agent-based workflows appliqués à l'ingénierie. Il a conçu, prototypé et déployé des solutions GenAI dans des contextes industriels complexes (Machine Learning appliqué, jumeaux numériques, systèmes temps réel), en collaborant avec des architectes et des équipes métiers pour identifier et concrétiser des cas d'usage à fort impact. Maîtrise de Python avancé (async, performance), expérience en data ingestion, preprocessing et evaluation pipelines. Passionné par la veille technologique et l'écosystème Mistral/LLM open-source.",
+      "en": "Arts et Métiers engineering student specialized in Artificial Intelligence, robotics and intelligent industrial systems, with hands-on expertise in RAG pipelines, model fine-tuning and agent-based workflows applied to engineering. He has designed, prototyped and deployed GenAI solutions in complex industrial contexts (applied Machine Learning, digital twins, real-time systems), collaborating with architects and business teams to identify and deliver high-impact use cases. Advanced Python proficiency (async, performance), experience in data ingestion, preprocessing and evaluation pipelines. Passionate about technology watch and the Mistral / open-source LLM ecosystem."
+    },
+    "contact": {
+      "email": "issa.alternance@gmail.com",
+      "phone": "0743670864",
+      "location": {
+        "fr": "13100, Aix-en-Provence, France",
+        "en": "13100, Aix-en-Provence, France"
+      },
+      "linkedin": "https://www.linkedin.com/in/issa-lamkharbech-6a5ba6305/",
+      "github": "GitHub (lien disponible sur le CV)"
+    },
+    "languages_spoken": [
+      {
+        "name": {
+          "fr": "Arabe",
+          "en": "Arabic"
+        },
+        "level": {
+          "fr": "Langue maternelle",
+          "en": "Native language"
+        }
+      },
+      {
+        "name": {
+          "fr": "Français",
+          "en": "French"
+        },
+        "level": {
+          "fr": "Niveau C1 (excellent)",
+          "en": "C1 level (excellent)"
+        }
+      },
+      {
+        "name": {
+          "fr": "Anglais",
+          "en": "English"
+        },
+        "level": {
+          "fr": "Niveau B2 (professionnel)",
+          "en": "B2 level (professional)"
+        }
+      },
+      {
+        "name": {
+          "fr": "Espagnol",
+          "en": "Spanish"
+        },
+        "level": {
+          "fr": "Niveau A1",
+          "en": "A1 level"
+        }
+      }
+    ],
+    "hobbies": {
+      "fr": [
+        "Lecture (recherche en IA & LLMs)",
+        "Projets personnels GenAI"
+      ],
+      "en": [
+        "Reading (AI & LLMs research)",
+        "Personal GenAI projects"
+      ]
+    }
+  },
+  "education": [
+    {
+      "id": "ensam_aix",
+      "degree": {
+        "fr": "Cycle d'ingénieur — Double diplôme",
+        "en": "Engineering cycle — Double degree"
+      },
+      "school": {
+        "fr": "École Nationale Supérieure d'Arts et Métiers (ENSAM), Aix-en-Provence, France",
+        "en": "École Nationale Supérieure d'Arts et Métiers (ENSAM), Aix-en-Provence, France"
+      },
+      "period": {
+        "fr": "2025 – Aujourd'hui",
+        "en": "2025 – Present"
+      }
+    },
+    {
+      "id": "ensam_meknes_ing",
+      "degree": {
+        "fr": "Cycle d'ingénieur (filière GIIA — Génie Informatique et Intelligence Artificielle)",
+        "en": "Engineering cycle (GIIA track — Computer Engineering and Artificial Intelligence)"
+      },
+      "school": {
+        "fr": "ENSAM Meknès, Maroc",
+        "en": "ENSAM Meknès, Morocco"
+      },
+      "period": {
+        "fr": "2023 – Aujourd'hui",
+        "en": "2023 – Present"
+      }
+    },
+    {
+      "id": "ensam_meknes_prepa",
+      "degree": {
+        "fr": "Cycle préparatoire intégré",
+        "en": "Integrated preparatory cycle"
+      },
+      "school": {
+        "fr": "ENSAM Meknès, Maroc",
+        "en": "ENSAM Meknès, Morocco"
+      },
+      "period": {
+        "fr": "2021 – 2023",
+        "en": "2021 – 2023"
+      }
+    },
+    {
+      "id": "bac",
+      "degree": {
+        "fr": "Baccalauréat Sciences Mathématiques option B",
+        "en": "Baccalaureate in Mathematical Sciences, option B"
+      },
+      "school": {
+        "fr": "Lycée technique Errazi, El Jadida, Maroc",
+        "en": "Errazi Technical High School, El Jadida, Morocco"
+      },
+      "period": {
+        "fr": "2020 – 2021",
+        "en": "2020 – 2021"
+      }
+    }
+  ],
+  "internships": [
+    {
+      "id": "capgemini",
+      "type": {
+        "fr": "Stage ingénieur (stage d'ingénieur AI)",
+        "en": "Engineering internship (AI engineer internship)"
+      },
+      "title": {
+        "fr": "Développement d'un agent IA GenAI pour la mécanique computationnelle",
+        "en": "Development of a GenAI AI agent for computational mechanics"
+      },
+      "company": {
+        "fr": "Capgemini Engineering (entité MG2 Engineering), Casablanca, Maroc",
+        "en": "Capgemini Engineering (MG2 Engineering entity), Casablanca, Morocco"
+      },
+      "company_details": {
+        "fr": "Capgemini Engineering est une filiale du groupe Capgemini (services d'ingénierie et R&D, ~16 milliards d'euros de chiffre d'affaires, plus de 52 000 ingénieurs dans plus de 30 pays). MG2 Engineering est sa filiale marocaine spécialisée en ingénierie automobile, intégrée après l'acquisition d'Altran.",
+        "en": "Capgemini Engineering is a subsidiary of the Capgemini Group (engineering and R&D services, ~€16 billion revenue, 52,000+ engineers in 30+ countries). MG2 Engineering is its Moroccan subsidiary specialized in automotive engineering, integrated after the Altran acquisition."
+      },
+      "period": {
+        "fr": "Juillet – Août 2025",
+        "en": "July – August 2025"
+      },
+      "duration": {
+        "fr": "2 mois",
+        "en": "2 months"
+      },
+      "description": {
+        "fr": "Conception et déploiement d'une plateforme intelligente dédiée à l'analyse mécanique basée sur la méthode des éléments finis (FEM), intégrant des techniques avancées d'intelligence artificielle et des modèles de Machine Learning pour prédire des déplacements et analyser les modes de défaillance des matériaux. Le système combine un réseau PointNet pour la compréhension de géométries 3D (nuages de points, jusqu'à 10 000 points), des modèles RandomForest pour la prédiction rapide des déplacements, une architecture RAG pipeline (retrieval, chunking, vectorisation) pour l'interrogation intelligente des bases de simulations numériques, et un assistant intelligent basé sur un LLM (Google Gemini) pour l'interprétation des résultats et la génération automatique de rapports. La plateforme web (Streamlit) a été validée sur des composants automobiles réels de la Peugeot 3008 (2024). Participation à des workshops techniques avec les équipes métiers pour la définition des cas d'usage et la présentation des démonstrations.",
+        "en": "Design and deployment of an intelligent platform dedicated to mechanical analysis based on the Finite Element Method (FEM), integrating advanced AI techniques and Machine Learning models to predict displacements and analyze material failure modes. The system combines a PointNet network for 3D geometry understanding (point clouds, up to 10,000 points), RandomForest models for fast displacement prediction, a RAG pipeline architecture (retrieval, chunking, vectorization) for intelligent querying of numerical simulation databases, and an LLM-based intelligent assistant (Google Gemini) for result interpretation and automated report generation. The web platform (Streamlit) was validated on real automotive components from the Peugeot 3008 (2024). Participated in technical workshops with business teams to define use cases and present demonstrations."
+      },
+      "technologies": [
+        "Python",
+        "Streamlit",
+        "Deep Learning (PyTorch)",
+        "PointNet",
+        "RandomForest / Scikit-learn",
+        "RAG",
+        "LLMs (Google Gemini)",
+        "API REST",
+        "NumPy / SciPy",
+        "Trimesh / PyMeshLab",
+        "Plotly"
+      ],
+      "metrics": {
+        "fr": [
+          "Accélération du calcul ×1000 par rapport au FEM traditionnel",
+          "82% de précision (accuracy / R²) en prédiction de déplacements",
+          "Inférence < 50 ms",
+          "98% d'automatisation du maillage",
+          "Temps de réponse de l'interface < 1 seconde",
+          "Base de 35 matériaux automobiles"
+        ],
+        "en": [
+          "×1000 computation speed-up vs traditional FEM",
+          "82% accuracy (R²) in displacement prediction",
+          "Inference < 50 ms",
+          "98% mesh generation automation",
+          "UI response time < 1 second",
+          "Database of 35 automotive materials"
+        ]
+      }
+    },
+    {
+      "id": "jesa",
+      "type": {
+        "fr": "Stage d'observation (stage d'initiation)",
+        "en": "Observation internship (introductory internship)"
+      },
+      "title": {
+        "fr": "Assistance à la gestion de la construction de l'usine d'Acide Fluorhydrique Anhydre (AHF)",
+        "en": "Assistance in construction management of the Anhydrous Hydrofluoric Acid (AHF) plant"
+      },
+      "company": {
+        "fr": "JESA S.A., site de Jorf Lasfar, El Jadida, Maroc",
+        "en": "JESA S.A., Jorf Lasfar site, El Jadida, Morocco"
+      },
+      "company_details": {
+        "fr": "JESA est une société anonyme d'ingénierie, construction et livraison de projets, créée en 2010, détenue par OCP et WORLEY. Siège à Casablanca (Sidi Maarouf), ~1 700 employés, bureaux au Maroc, aux États-Unis, en Côte d'Ivoire, en Éthiopie, au Bénin et au Sénégal. Capital social : 45 000 000 MAD ; chiffre d'affaires : 600 000 000 MAD.",
+        "en": "JESA is an engineering, construction and project delivery company (S.A.), founded in 2010, owned by OCP and WORLEY. Headquartered in Casablanca (Sidi Maarouf), ~1,700 employees, offices in Morocco, the USA, Ivory Coast, Ethiopia, Benin and Senegal. Share capital: 45,000,000 MAD; revenue: 600,000,000 MAD."
+      },
+      "period": {
+        "fr": "Du 1er au 31 août 2024",
+        "en": "August 1–31, 2024"
+      },
+      "duration": {
+        "fr": "1 mois",
+        "en": "1 month"
+      },
+      "description": {
+        "fr": "Assistance à la gestion de la construction de l'usine d'Acide Fluorhydrique Anhydre (projet AHF, clients INNOVX et FLUORALPHA) : contribution à la rédaction de rapports techniques (rapport journalier de construction, rapport hebdomadaire), suivi des sous-traitants (SOGEA, PHILEAS, GTR, SCIF, ASTRI, SMARTCOMPOSIT) et réalisation de Safety Walk-downs pour garantir la conformité HSE. Prise d'induction sécurité (port des EPI, consignes chantier), visites de chantier (zones de stockage SA/FSA, installation de filtration SiO2, piping), analyse de l'avancement du site, identification des non-conformités et mise en place d'actions correctives. Encadrement : chef de projet Hallaoui Achraf, parrain El Biyaali Haythame.",
+        "en": "Assisted in the construction management of the Anhydrous Hydrofluoric Acid plant (AHF project, clients INNOVX and FLUORALPHA): contributed to drafting technical reports (daily construction report, weekly report), monitored subcontractors (SOGEA, PHILEAS, GTR, SCIF, ASTRI, SMARTCOMPOSIT), and conducted Safety Walk-downs to ensure HSE compliance. Safety induction (PPE, site safety rules), site visits (SA/FSA storage areas, SiO2 filtration facility, piping), analysis of site progress, identification of non-conformities and implementation of corrective actions. This experience strengthened planning, communication and problem-solving abilities in an industrial environment. Supervision: project manager Hallaoui Achraf, mentor El Biyaali Haythame."
+      },
+      "technologies": [
+        "Back-office",
+        "Gestion de projet / Project management",
+        "HSE",
+        "Rapports techniques / Technical reporting"
+      ],
+      "metrics": {
+        "fr": [
+          "Rapports journaliers et hebdomadaires transmis au client INNOVX",
+          "Safety Walk-downs hebdomadaires avec les équipes construction et HSE"
+        ],
+        "en": [
+          "Daily and weekly reports delivered to client INNOVX",
+          "Weekly Safety Walk-downs with construction and HSE teams"
+        ]
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "drone",
+      "name": {
+        "fr": "Drone bi-rotor — Banc d'essai et maintenance prédictive par IA",
+        "en": "Bi-rotor drone — Test bench and AI-based predictive maintenance"
+      },
+      "context": {
+        "fr": "Projet académique (PJT) — ENSAM Aix-en-Provence",
+        "en": "Academic project (PJT) — ENSAM Aix-en-Provence"
+      },
+      "period": {
+        "fr": "Mars 2026 – En cours",
+        "en": "March 2026 – Ongoing"
+      },
+      "duration": {
+        "fr": "Démarré en mars 2026, toujours en cours",
+        "en": "Started March 2026, still ongoing"
+      },
+      "team_type": {
+        "fr": "Projet de groupe (6 étudiants)",
+        "en": "Group project (6 students)"
+      },
+      "in_cv": true,
+      "team": [
+        "Ayman Ben Daoud",
+        "Amine Machaar",
+        "Oumaima Echiguer",
+        "Karim El Mounla",
+        "Youssef Charmaqe",
+        "Issa Lamkharbech"
+      ],
+      "supervisors": [
+        "Philippe Véron",
+        "Valeria Croce"
+      ],
+      "description": {
+        "fr": "Conception et réalisation d'un banc d'essai de drone bi-rotor instrumenté, avec un agent-based workflow intégrant un LLM pour la maintenance prédictive. Partie physique : montage des composants (2 moteurs brushless + ESC, 3 gyroscopes MPU6050, capteurs de courant ACS712, capteur ultrason HC-SR04), câblage avec batteries et carte Raspberry/Pico, tests dynamiques (diagnostic de panne moteur et remplacement d'ESC 40A, analyse d'asymétrie de poussée). Partie IA : data ingestion temps réel (Arduino, synchronisation à 10 Hz, scripts Node-RED), génération d'un dataset simulé de 21 classes (1 état normal + 20 défauts répartis en 7 catégories : moteurs/ESC, hélices, balancier & bras, glissière linéaire, capteurs, alimentation/batterie, structure mécanique), pipeline ML complet (EDA, prétraitement IQR, normalisation comparée Min-Max/Z-score, feature engineering physique et temporel, split 70/10/20) et entraînement de 4 modèles (Régression Logistique, Random Forest, Gradient Boosting, SVM). La Régression Logistique est privilégiée pour son faible overfitting. Déploiement d'une application web Streamlit (interfaces de test, d'amélioration continue et de contexte projet). Partie numérique : modification du CAO sous 3DEXPERIENCE.",
+        "en": "Design and construction of an instrumented bi-rotor drone test bench, with an agent-based workflow integrating an LLM for predictive maintenance. Physical part: component assembly (2 brushless motors + ESC, 3 MPU6050 gyroscopes, ACS712 current sensors, HC-SR04 ultrasonic sensor), wiring with batteries and Raspberry/Pico board, dynamic testing (motor failure diagnosis and 40A ESC replacement, thrust asymmetry analysis). AI part: real-time data ingestion (Arduino, 10 Hz synchronization, Node-RED scripts), generation of a simulated dataset with 21 classes (1 normal state + 20 faults in 7 categories: motors/ESC, propellers, balance arm, linear slide, sensors, power/battery, mechanical structure), a complete ML pipeline (EDA, IQR preprocessing, compared Min-Max/Z-score normalization, physical and temporal feature engineering, 70/10/20 split) and training of 4 models (Logistic Regression, Random Forest, Gradient Boosting, SVM). Logistic Regression is preferred for its low overfitting. Deployment of a Streamlit web application (test, continuous improvement and project context interfaces). Digital part: CAD modification in 3DEXPERIENCE."
+      },
+      "technologies": [
+        "Python",
+        "Machine Learning (Scikit-learn)",
+        "LLMs / Agent workflow",
+        "Arduino",
+        "Raspberry Pi Pico",
+        "Node-RED",
+        "Streamlit",
+        "3DEXPERIENCE",
+        "Capteurs embarqués / Embedded sensors"
+      ],
+      "metrics": {
+        "fr": [
+          "Accuracy : 92,17%",
+          "F1-score : 90%",
+          "Recall : 89%",
+          "F1-score pondéré : 92%",
+          "21 classes de défauts",
+          "Meilleure classe : vibration (recall jusqu'à 0,98)"
+        ],
+        "en": [
+          "Accuracy: 92.17%",
+          "F1-score: 90%",
+          "Recall: 89%",
+          "Weighted F1-score: 92%",
+          "21 fault classes",
+          "Best class: vibration (recall up to 0.98)"
+        ]
+      }
+    },
+    {
+      "id": "mir100",
+      "name": {
+        "fr": "Jumeau numérique pour l'optimisation logistique d'un AGV MiR100",
+        "en": "Digital twin for logistics optimization of a MiR100 AGV"
+      },
+      "context": {
+        "fr": "Projet académique (PJT) — ENSAM Aix-en-Provence, usine pédagogique",
+        "en": "Academic project (PJT) — ENSAM Aix-en-Provence, teaching factory"
+      },
+      "period": {
+        "fr": "Septembre – Décembre 2025",
+        "en": "September – December 2025"
+      },
+      "duration": {
+        "fr": "4 mois",
+        "en": "4 months"
+      },
+      "team_type": {
+        "fr": "Projet de groupe (5 étudiants)",
+        "en": "Group project (5 students)"
+      },
+      "in_cv": true,
+      "team": [
+        "Mehdi Bahir",
+        "Youssef Akbib Bukraba",
+        "Issa Lamkharbech",
+        "Haitam Azzal",
+        "Youssef Charmaqe"
+      ],
+      "supervisors": [
+        "Lionel Roucoules",
+        "Esma Yahia"
+      ],
+      "description": {
+        "fr": "Conception et mise en œuvre d'un jumeau numérique d'un robot mobile autonome (AGV) MiR100 assurant l'approvisionnement logistique de 4 postes de production depuis un stock central, dans une usine pédagogique. Architecture Python modulaire : gestion des demandes, modélisation de l'usine, calcul de priorités, communication avec le robot via son API REST (Basic Auth base64, requêtes GET/POST vers /status et /mission_queue), et interaction opérateur par scan de QR codes (scannette USB, format POSTE_1|PIECE|NIVEAU_STOCK, écoute dans un thread parallèle). Algorithme de priorisation multi-critères : Priority = ωu·U + ωa·A − ωd·D (urgence liée au stock, temps d'attente, distance), avec 3 modes de pondération — Flux tendu (0,7/0,2/0,1), Économie d'énergie (0,2/0,2/0,6), Anti-blocage (0,3/0,5/0,2). Exécution des missions avec bras cobot UR (programmes pick and place programmés par l'équipe). Le jumeau numérique agit comme système décisionnel central connecté au robot réel.",
+        "en": "Design and implementation of a digital twin of a MiR100 autonomous mobile robot (AGV) handling logistics supply for 4 production stations from a central storage in a teaching factory. Modular Python architecture: request management, factory modeling, priority computation, robot communication via its REST API (base64 Basic Auth, GET/POST requests to /status and /mission_queue), and operator interaction via QR code scanning (USB scanner, POSTE_1|PART|STOCK_LEVEL format, listening in a parallel thread). Multi-criteria prioritization algorithm: Priority = ωu·U + ωa·A − ωd·D (stock-based urgency, waiting time, distance), with 3 weighting modes — Just-in-time (0.7/0.2/0.1), Energy saving (0.2/0.2/0.6), Anti-blocking (0.3/0.5/0.2). Mission execution with a UR cobot arm (pick and place programs written by the team). The digital twin acts as the central decision-making system connected to the real robot."
+      },
+      "technologies": [
+        "Python",
+        "API REST (requests)",
+        "Robotique industrielle (MiR100 + bras UR)",
+        "Threading",
+        "QR codes / scannette USB",
+        "Systèmes cyber-physiques"
+      ],
+      "metrics": {
+        "fr": [
+          "Précision de classification des priorités : ~88%",
+          "Détection des demandes urgentes : ~90%",
+          "Temps de calcul de décision : < 10 ms",
+          "Réduction des déplacements inutiles : 25–35%",
+          "Amélioration du temps de réponse logistique : 20–30%"
+        ],
+        "en": [
+          "Priority classification precision: ~88%",
+          "Urgent request detection: ~90%",
+          "Decision computation time: < 10 ms",
+          "Reduction of unnecessary trips: 25–35%",
+          "Logistics response time improvement: 20–30%"
+        ]
+      }
+    },
+    {
+      "id": "salle_connectee",
+      "name": {
+        "fr": "Jumeau numérique intelligent d'une salle connectée (IoT + AI)",
+        "en": "Intelligent digital twin of a connected classroom (IoT + AI)"
+      },
+      "context": {
+        "fr": "Projet Industrie 4.0 — salle GI-IADS, ENSAM Meknès",
+        "en": "Industry 4.0 project — GI-IADS classroom, ENSAM Meknès"
+      },
+      "period": {
+        "fr": "Mai – Juin 2025",
+        "en": "May – June 2025"
+      },
+      "duration": {
+        "fr": "2 mois",
+        "en": "2 months"
+      },
+      "team_type": {
+        "fr": "Projet de groupe (8 étudiants)",
+        "en": "Group project (8 students)"
+      },
+      "in_cv": true,
+      "team": [
+        "Adnane Azami Hassani",
+        "Zakaria Naji",
+        "Mohamed Ouhadda",
+        "Issa Lamkharbech",
+        "Nouha Hamdaoui",
+        "Mouad Boulaid",
+        "Hajar EL Hadri",
+        "Amine EL Hend"
+      ],
+      "supervisors": [
+        "Prof. Hosni"
+      ],
+      "description": {
+        "fr": "Mise en œuvre d'un jumeau numérique intelligent de gestion d'une salle informatique (salle GI-IADS), basé sur des microcontrôleurs ESP32/ESP8266 connectés à une plateforme Laravel. Architecture full-stack IoT : API REST Laravel sécurisée (authentification par tokens Laravel Sanctum, contrôle d'accès par rôles Admin/User, mots de passe bcrypt, protection CSRF, journaux d'audit), frontend React/Vue.js avec visualisation 2D interactive de la salle (plan avec états colorés des équipements, contrôle par clic), dashboard temps réel, système de rapports d'incidents, et contrôle physique des lampes via GPIO (polling HTTP de l'ESP8266 vers l'API, endpoints GET /api/leds/{id} et POST /api/leds/{id}/toggle avec Axios). Data ingestion temps réel : collecte de 4 000 à 5 000 données/minute, préprocessing et analyse des flux environnementaux. Architecture distribuée intégrant MQTT, WebSocket et API sécurisée — composants modulaires déployés sous Docker, bases MySQL et MongoDB.",
+        "en": "Implementation of an intelligent digital twin for managing a computer classroom (GI-IADS room), based on ESP32/ESP8266 microcontrollers connected to a Laravel platform. Full-stack IoT architecture: secured Laravel REST API (Laravel Sanctum token authentication, Admin/User role-based access control, bcrypt passwords, CSRF protection, audit logs), React/Vue.js frontend with an interactive 2D visualization of the room (floor plan with color-coded device states, click-to-control), real-time dashboard, incident reporting system, and physical lamp control via GPIO (ESP8266 HTTP polling to the API, GET /api/leds/{id} and POST /api/leds/{id}/toggle endpoints with Axios). Real-time data ingestion: 4,000–5,000 data points/minute, preprocessing and analysis of environmental flows. Distributed architecture integrating MQTT, WebSocket and a secured API — modular components deployed with Docker, MySQL and MongoDB databases."
+      },
+      "technologies": [
+        "ESP32 / ESP8266",
+        "MQTT",
+        "Python",
+        "Laravel (PHP)",
+        "Node.js",
+        "React.js",
+        "Vue.js",
+        "WebSocket",
+        "MySQL",
+        "MongoDB",
+        "Docker",
+        "Git",
+        "Axios"
+      ],
+      "metrics": {
+        "fr": [
+          "API REST : temps de réponse 100–300 ms",
+          "Traitement temps réel : 4 000–5 000 données/min",
+          "Dashboards affichant 12 KPIs"
+        ],
+        "en": [
+          "REST API: 100–300 ms response time",
+          "Real-time processing: 4,000–5,000 data points/min",
+          "Dashboards displaying 12 KPIs"
+        ]
+      }
+    },
+    {
+      "id": "multi_agents",
+      "name": {
+        "fr": "Cartographie et surveillance coopérative multi-agents (SLAM + Vision)",
+        "en": "Cooperative multi-agent mapping and surveillance (SLAM + Vision)"
+      },
+      "context": {
+        "fr": "Projet Métier — ENSAM Meknès",
+        "en": "Professional project (Projet Métier) — ENSAM Meknès"
+      },
+      "period": {
+        "fr": "Mars – Juin 2025",
+        "en": "March – June 2025"
+      },
+      "duration": {
+        "fr": "4 mois",
+        "en": "4 months"
+      },
+      "team_type": {
+        "fr": "Projet en binôme (2 étudiants)",
+        "en": "Two-person project (2 students)"
+      },
+      "in_cv": true,
+      "team": [
+        "Adnane Azami Hassani",
+        "Issa Lamkharbech"
+      ],
+      "supervisors": [
+        "Pr. Tarik Hajji"
+      ],
+      "description": {
+        "fr": "Développement d'un système multi-agents de cartographie et de surveillance collaborative basé sur des robots e-puck dans l'environnement de simulation Webots. Les robots explorent en équipe un environnement inconnu : SLAM collaboratif avec exploration par frontières et grille d'occupation 2D temps réel, fusion de données distribuées pour générer une carte globale, suivi du pourcentage de couverture (retour à la base au-delà de 90% de couverture). Détection d'objets en temps réel par YOLOv8 (dataset COCO, 80 classes) avec génération d'alertes (type et position de l'objet étranger). Coordination par architecture maître-esclave via sockets TCP : le maître centralise les données, assigne les cibles et visualise la carte globale ; les esclaves transmettent position/orientation toutes les 0,5 s. Navigation autonome avec évitement d'obstacles (capteurs de proximité, seuil 100 unités), détection de blocage (> 30 pas) et récupération autonome (recul de 10 pas). Code organisé en 5 modules : my_controllerf.py (point d'entrée), roomba_mapper.py (cœur du système), mapping.py (SLAM), navigation.py (mouvements), networking.py (communication).",
+        "en": "Development of a multi-agent collaborative mapping and surveillance system based on e-puck robots in the Webots simulation environment. Robots explore an unknown environment as a team: collaborative SLAM with frontier-based exploration and real-time 2D occupancy grid, distributed data fusion to generate a global map, coverage percentage tracking (return to base beyond 90% coverage). Real-time object detection with YOLOv8 (COCO dataset, 80 classes) with alert generation (type and position of foreign objects). Master-slave coordination via TCP sockets: the master centralizes data, assigns targets and visualizes the global map; slaves transmit position/orientation every 0.5 s. Autonomous navigation with obstacle avoidance (proximity sensors, 100-unit threshold), stuck detection (> 30 steps) and autonomous recovery (10-step backup). Code organized in 5 modules: my_controllerf.py (entry point), roomba_mapper.py (system core), mapping.py (SLAM), navigation.py (movement), networking.py (communication)."
+      },
+      "technologies": [
+        "Python",
+        "Computer Vision (YOLOv8)",
+        "SLAM collaboratif",
+        "Systèmes multi-agents",
+        "Sockets TCP",
+        "Webots (e-puck)",
+        "OpenCV",
+        "Ultralytics"
+      ],
+      "metrics": {
+        "fr": [
+          "YOLOv8 : précision 90,5%, recall 88,3%, mAP@0.5 : 89,7%, mAP@0.5:0.95 : 73,4%, inférence 25 ms",
+          "Latence réseau maître-esclave : ≈ 0,5 s",
+          "Détection de blocage > 30 pas, reprise autonome en 10 pas",
+          "Couverture de carte > 90% avant retour à la base"
+        ],
+        "en": [
+          "YOLOv8: 90.5% precision, 88.3% recall, mAP@0.5: 89.7%, mAP@0.5:0.95: 73.4%, 25 ms inference",
+          "Master-slave network latency: ≈ 0.5 s",
+          "Stuck detection > 30 steps, autonomous recovery in 10 steps",
+          "Map coverage > 90% before returning to base"
+        ]
+      }
+    },
+    {
+      "id": "cat_emotion",
+      "name": {
+        "fr": "Reconnaissance des émotions et de la santé des chats (Deep Learning)",
+        "en": "Cat emotion and health recognition (Deep Learning)"
+      },
+      "context": {
+        "fr": "Projet personnel de Deep Learning",
+        "en": "Personal Deep Learning project"
+      },
+      "period": {
+        "fr": "Non précisé dans le dossier",
+        "en": "Not specified in the folder"
+      },
+      "duration": {
+        "fr": "Non précisée dans le dossier",
+        "en": "Not specified in the folder"
+      },
+      "team_type": {
+        "fr": "Projet individuel (d'après les fichiers du dossier)",
+        "en": "Individual project (based on the folder files)"
+      },
+      "in_cv": false,
+      "team": [
+        "Issa Lamkharbech"
+      ],
+      "supervisors": [],
+      "description": {
+        "fr": "Application complète de reconnaissance des émotions et de l'état de santé des chats combinant trois modèles de Deep Learning : un CNN de classification d'émotions sur images (11 classes : angry, beg, annoyed, frightened, happy, normal, sad, scared, under the weather, curious, playful — images 128×128), un CNN de détection de maladie (classes normal/sick) et un modèle audio de classification des vocalisations (10 classes : Angry, Defence, Fighting, Happy, HuntingMind, Mating, MotherCall, Paining, Resting, Warning) basé sur l'extraction de caractéristiques audio avec librosa. Interface graphique Tkinter permettant de charger une image ou un enregistrement audio du chat et générant des messages conviviaux personnalisés selon l'émotion, l'état de santé et l'humeur détectés (avec seuil de confiance). Modèles entraînés avec TensorFlow/Keras (fichiers .h5), traitement d'images avec OpenCV et PIL.",
+        "en": "Complete application for recognizing cat emotions and health status combining three Deep Learning models: an image emotion classification CNN (11 classes: angry, beg, annoyed, frightened, happy, normal, sad, scared, under the weather, curious, playful — 128×128 images), a sickness detection CNN (normal/sick classes) and an audio model classifying vocalizations (10 classes: Angry, Defence, Fighting, Happy, HuntingMind, Mating, MotherCall, Paining, Resting, Warning) based on audio feature extraction with librosa. A Tkinter GUI lets the user upload a cat image or audio recording and generates friendly, personalized messages based on the detected emotion, health status and mood (with a confidence threshold). Models trained with TensorFlow/Keras (.h5 files), image processing with OpenCV and PIL."
+      },
+      "technologies": [
+        "Python",
+        "TensorFlow / Keras",
+        "CNN",
+        "librosa (audio)",
+        "OpenCV",
+        "PIL",
+        "Tkinter",
+        "NumPy"
+      ],
+      "metrics": {
+        "fr": [
+          "3 modèles combinés : émotions (11 classes), santé (2 classes), audio (10 classes)"
+        ],
+        "en": [
+          "3 combined models: emotions (11 classes), health (2 classes), audio (10 classes)"
+        ]
+      }
+    }
+  ],
+  "skills": {
+    "genai_llms": {
+      "label": {
+        "fr": "IA Générative & LLMs",
+        "en": "Generative AI & LLMs"
+      },
+      "items": [
+        "RAG Pipelines",
+        "Fine-tuning LLMs",
+        "Mistral / OpenAI",
+        "LangChain",
+        "Agents IA",
+        "Model Optimization",
+        "Chunking / Retrieval",
+        "Hybrid Search",
+        "Embeddings",
+        "Evaluation Pipelines",
+        "Agent-based Workflows",
+        "Workflow Automation"
+      ]
+    },
+    "data_ml": {
+      "label": {
+        "fr": "Data Science & Machine Learning",
+        "en": "Data Science & Machine Learning"
+      },
+      "items": [
+        "Machine Learning",
+        "Deep Learning",
+        "Computer Vision",
+        "Data Analysis",
+        "Model Evaluation",
+        "Web Scraping",
+        "Power BI"
+      ]
+    },
+    "data_engineering": {
+      "label": {
+        "fr": "Data Engineering",
+        "en": "Data Engineering"
+      },
+      "items": [
+        "ETL Pipelines",
+        "Apache Spark",
+        "Apache Kafka",
+        "Apache Airflow",
+        "SQL",
+        "Data Ingestion",
+        "Preprocessing"
+      ]
+    },
+    "dev": {
+      "label": {
+        "fr": "Développement logiciel",
+        "en": "Software Development"
+      },
+      "items": [
+        "Python (avancé, async, performance)",
+        "C++",
+        "Java",
+        "SQL",
+        "HTML/CSS",
+        "JavaScript / TypeScript",
+        "React Native",
+        "Spring Boot",
+        "API REST",
+        "Debugging",
+        "Performance Optimization",
+        "System Design"
+      ]
+    },
+    "cloud_devops": {
+      "label": {
+        "fr": "Cloud & DevOps",
+        "en": "Cloud & DevOps"
+      },
+      "items": [
+        "Azure",
+        "Docker",
+        "Kubernetes",
+        "GitHub",
+        "Streamlit",
+        "Jupyter / Google Colab",
+        "Agile / Scrum",
+        "Kaggle",
+        "Trello",
+        "Slack",
+        "Notion",
+        "Zenhub"
+      ]
+    },
+    "industry40": {
+      "label": {
+        "fr": "Industrie 4.0 & Robotique",
+        "en": "Industry 4.0 & Robotics"
+      },
+      "items": [
+        "Digital Twin (jumeaux numériques)",
+        "Systèmes multi-agents",
+        "IoT (MQTT)",
+        "ROS2 / SLAM",
+        "Simulation industrielle",
+        "Webots",
+        "MATLAB",
+        "Catia",
+        "3DEXPERIENCE"
+      ]
+    },
+    "management": {
+      "label": {
+        "fr": "Gestion de projet & Gouvernance",
+        "en": "Project Management & Governance"
+      },
+      "items": [
+        "Pilotage de projets AI/GenAI",
+        "Client workshops & demos",
+        "KPI & performance tracking",
+        "Gouvernance & industrialisation",
+        "Transformation digitale",
+        "Lean Six Sigma",
+        "Minitab",
+        "SPSS",
+        "Weka"
+      ]
+    },
+    "soft_skills": {
+      "label": {
+        "fr": "Soft Skills",
+        "en": "Soft Skills"
+      },
+      "items_fr": [
+        "Travail en équipe autonome",
+        "Esprit analytique",
+        "Communication technique (FR/EN)",
+        "Gestion du temps & livraison",
+        "Adaptabilité",
+        "Autonomie"
+      ],
+      "items_en": [
+        "Autonomous teamwork",
+        "Analytical mindset",
+        "Technical communication (FR/EN)",
+        "Time management & delivery",
+        "Adaptability",
+        "Autonomy"
+      ],
+      "items": [
+        "Travail en équipe / Teamwork",
+        "Esprit analytique / Analytical mindset",
+        "Communication technique FR-EN / Technical communication",
+        "Gestion du temps / Time management",
+        "Adaptabilité / Adaptability",
+        "Autonomie / Autonomy"
+      ]
+    }
+  },
+  "certifications": [
+    {
+      "name": "Introduction to Computational Thinking and Data Science",
+      "issuer": {
+        "fr": "edX — MITx 6.00.2x (certificat de formation)",
+        "en": "edX — MITx 6.00.2x (course certificate)"
+      },
+      "date": {
+        "fr": "Mai 2025",
+        "en": "May 2025"
+      }
+    },
+    {
+      "name": "Introduction to Agile and Scrum",
+      "issuer": {
+        "fr": "Coursera — IBM (certificat de formation)",
+        "en": "Coursera — IBM (course certificate)"
+      },
+      "date": {
+        "fr": "Avril 2025",
+        "en": "April 2025"
+      }
+    },
+    {
+      "name": "Lean Six Sigma Yellow Belt",
+      "issuer": {
+        "fr": "ECLEE (European Center for Leadership and Entrepreneurship Education)",
+        "en": "ECLEE (European Center for Leadership and Entrepreneurship Education)"
+      },
+      "date": {
+        "fr": "Avril 2025",
+        "en": "April 2025"
+      }
+    }
+  ],
+  "extracurricular": [
+    {
+      "role": {
+        "fr": "Responsable de projet — Pompage solaire",
+        "en": "Project manager — Solar pumping"
+      },
+      "org": {
+        "fr": "Club ALHAYAT Caravan",
+        "en": "ALHAYAT Caravan Club"
+      },
+      "date": {
+        "fr": "Mai 2025",
+        "en": "May 2025"
+      },
+      "description": {
+        "fr": "Pilotage et coordination d'équipe pour le déploiement d'un système de pompage solaire en zone isolée.",
+        "en": "Team leadership and coordination for deploying a solar pumping system in an isolated area."
+      }
+    },
+    {
+      "role": {
+        "fr": "Membre actif",
+        "en": "Active member"
+      },
+      "org": {
+        "fr": "Club informatique ENSAM Meknès",
+        "en": "ENSAM Meknès Computer Science Club"
+      },
+      "date": {
+        "fr": "Octobre – Novembre 2023",
+        "en": "October – November 2023"
+      },
+      "description": {
+        "fr": "Développement d'une plateforme web de réservation des places d'étude (full-stack).",
+        "en": "Development of a full-stack web platform for booking study spots."
+      }
+    }
+  ]
+};
