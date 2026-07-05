@@ -28,12 +28,12 @@ website_issa/
 
 ### Étape 1 — Créer un compte GitHub (si besoin)
 https://github.com/signup — choisissez idéalement le pseudo **issa-lamkharbech**
-(l'URL du site sera alors `https://issa-lamkharbech.github.io/`, déjà configurée
+(l'URL du site sera alors `https://lamkharbechissa.github.io/`, déjà configurée
 dans les balises SEO du site).
 
 ### Étape 2 — Créer le dépôt
 1. https://github.com/new
-2. Nom du dépôt : **`issa-lamkharbech.github.io`** (exactement : `VOTRE-PSEUDO.github.io`)
+2. Nom du dépôt : **`lamkharbechissa.github.io`** (exactement : `Lamkharbechissa.github.io`)
 3. Public → « Create repository »
 
 ### Étape 3 — Pousser le site (le dépôt git local est déjà prêt !)
@@ -41,7 +41,7 @@ Dans PowerShell, depuis ce dossier :
 
 ```powershell
 cd "C:\Users\hp\Desktop\Develop_website_with_chatbot\website_issa"
-git remote add origin https://github.com/VOTRE-PSEUDO/VOTRE-PSEUDO.github.io.git
+git remote add origin https://github.com/Lamkharbechissa/Lamkharbechissa.github.io.git
 git push -u origin main
 ```
 (GitHub vous demandera de vous connecter la première fois.)
@@ -50,10 +50,19 @@ git push -u origin main
 Sur GitHub : dépôt → **Settings → Pages** → Source : `Deploy from a branch`,
 branche `main`, dossier `/ (root)` → Save.
 ⏱ 2 à 3 minutes plus tard, le site est en ligne sur
-`https://VOTRE-PSEUDO.github.io/`.
+`https://Lamkharbechissa.github.io/`.
 
 > ⚠️ Si votre pseudo n'est pas `issa-lamkharbech`, remplacez l'URL dans :
 > `index.html` (balises `canonical`, `og:url`, JSON-LD), `robots.txt` et `sitemap.xml`.
+
+---
+
+## ✝️ Jesus 2.0 — mode LLM conversationnel (RAG + Groq)
+
+Jesus peut devenir un vrai chatbot conversationnel type ChatGPT (LLM distant
+gratuit + RAG), strictement réservé au dossier d\'Issa. Suivez le guide dédié :
+**GUIDE_JESUS_LLM.md** (clé Groq gratuite + worker Cloudflare gratuit).
+Sans configuration, le moteur local instantané répond à sa place.
 
 ---
 

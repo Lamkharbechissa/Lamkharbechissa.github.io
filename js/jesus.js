@@ -348,17 +348,45 @@
       messages.scrollTop = messages.scrollHeight;
     }
 
-    function botReply(q) {
-      /* petite animation « écrit… » pour le confort, la réponse est instantanée */
+    async function botReply(q) {
+      /* indicateur « écrit… » */
       const typing = document.createElement("div");
       typing.className = "jw-msg bot";
       typing.innerHTML = `<div class="jw-msg-avatar">J</div><div class="jw-bubble jw-typing"><span></span><span></span><span></span></div>`;
       messages.appendChild(typing);
       messages.scrollTop = messages.scrollHeight;
+
+      /* MODE LLM + RAG (conversationnel) si configuré, sinon moteur local */
+      const rag = window.JesusRAG;
+      if (rag && rag.llmAvailable()) {
+        const lang = detectLanguage(q);
+        /* bulle vide remplie au fil du streaming */
+        const div = document.createElement("div");
+        div.className = "jw-msg bot";
+        div.innerHTML = `<div class="jw-msg-avatar">J</div><div class="jw-bubble"></div>`;
+        const bubble = div.querySelector(".jw-bubble");
+        let started = false, full = "";
+        try {
+          full = await rag.ask(q, lang, delta => {
+            if (!started) { typing.remove(); messages.appendChild(div); started = true; }
+            bubble.textContent += delta;
+            messages.scrollTop = messages.scrollHeight;
+          });
+          bubble.innerHTML = mdToHtml(full);   /* mise en forme finale */
+          messages.scrollTop = messages.scrollHeight;
+          return;
+        } catch (err) {
+          /* échec LLM → repli transparent sur le moteur local */
+          console.warn("Jesus : LLM indisponible, repli local —", err.message);
+          if (started) div.remove();
+        }
+      }
+
+      /* MOTEUR LOCAL (instantané, toujours disponible) */
       setTimeout(() => {
         typing.remove();
         addMessage(reply(q), "bot");
-      }, 350);
+      }, 300);
     }
 
     let opened = false;
@@ -396,7 +424,7 @@
     document.addEventListener("jesus:langchange", renderSuggestions);
   }
 
-  window.Jesus = { reply, detectLanguage };
+  window.Jesus = { reply, detectLanguage, findEntities, normalize, greeting };
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", buildWidget);
   } else {

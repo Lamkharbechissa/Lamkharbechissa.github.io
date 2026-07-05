@@ -31,7 +31,7 @@ window.JESUS_KB = {
         "en": "13100, Aix-en-Provence, France"
       },
       "linkedin": "https://www.linkedin.com/in/issa-lamkharbech-6a5ba6305/",
-      "github": "GitHub (lien disponible sur le CV)"
+      "github": "https://github.com/Lamkharbechissa"
     },
     "languages_spoken": [
       {
