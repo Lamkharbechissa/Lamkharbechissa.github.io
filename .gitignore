@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 .venv/
+
+# clé API locale — ne doit JAMAIS partir sur GitHub
+js/config.local.js
