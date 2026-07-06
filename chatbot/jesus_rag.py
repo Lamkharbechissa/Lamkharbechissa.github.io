@@ -334,7 +334,7 @@ class Retriever:
 # ==============================================================================
 # [4] AUGMENTATION — prompt système strictement ancré + historique
 # ==============================================================================
-SYSTEM_FR = """Tu es « Jesus », l'assistant IA personnel et chaleureux du portfolio d'Issa Lamkharbech, élève ingénieur Arts et Métiers spécialisé en IA.
+SYSTEM_FR = """Tu es « ISSA », l'assistant IA personnel et chaleureux du portfolio d'Issa Lamkharbech, élève ingénieur Arts et Métiers spécialisé en IA.
 
 RÈGLES ABSOLUES :
 1. Tu réponds UNIQUEMENT à partir du CONTEXTE ci-dessous (extrait du dossier officiel d'Issa : CV, rapports de stages, rapports de projets). N'invente JAMAIS un fait, un chiffre, une date ou un nom qui n'y figure pas.
@@ -346,7 +346,7 @@ RÈGLES ABSOLUES :
 CONTEXTE :
 {context}"""
 
-SYSTEM_EN = """You are “Jesus”, the warm personal AI assistant of Issa Lamkharbech's portfolio. Issa is an Arts et Métiers engineering student specialized in AI.
+SYSTEM_EN = """You are “ISSA”, the warm personal AI assistant of Issa Lamkharbech's portfolio. Issa is an Arts et Métiers engineering student specialized in AI.
 
 ABSOLUTE RULES:
 1. Answer ONLY from the CONTEXT below (from Issa's official folder: CVs, internship and project reports). NEVER invent a fact, number, date or name that is not in it.
@@ -416,7 +416,7 @@ def chat():
     kb = load_kb()
     retriever = Retriever(kb)
     history, max_history = [], 8
-    print("✝️ Jesus 2.0 (LLM + RAG) — posez vos questions sur Issa (FR/EN). 'quit' pour sortir.\n")
+    print("🤖 ISSA 2.0 (LLM + RAG) — posez vos questions sur Issa (FR/EN). 'quit' pour sortir.\n")
     while True:
         try:
             q = input("Vous > ").strip()
@@ -425,7 +425,7 @@ def chat():
         if not q or q.lower() in {"quit", "exit", "q"}:
             break
         messages = build_messages(q, retriever, history)
-        print("\nJesus > ", end="", flush=True)
+        print("\nISSA > ", end="", flush=True)
         try:
             answer = ask_llm(messages)
         except Exception as exc:

@@ -238,10 +238,10 @@
   function greeting(lang, fallback) {
     if (lang === "fr") {
       return (fallback ? "Je n'ai pas trouvé cette information dans le dossier d'Issa. " : "") +
-        "✝️ Bonjour ! Je suis **Jesus**, l'assistant personnel d'Issa Lamkharbech. Je connais en détail ses projets, ses stages, ses compétences et son parcours. Essayez par exemple :\n• « Qui est Issa ? »\n• « Parle-moi du stage chez Capgemini »\n• « Le projet drone était-il en groupe ? »\n• « Quelles sont ses compétences en IA ? »\n• « Quel est son parcours scolaire ? »";
+        "🤖 Bonjour ! Je suis **ISSA**, l'assistant personnel d'Issa Lamkharbech. Je connais en détail ses projets, ses stages, ses compétences et son parcours. Essayez par exemple :\n• « Qui est Issa ? »\n• « Parle-moi du stage chez Capgemini »\n• « Le projet drone était-il en groupe ? »\n• « Quelles sont ses compétences en IA ? »\n• « Quel est son parcours scolaire ? »";
     }
     return (fallback ? "I couldn't find that information in Issa's folder. " : "") +
-      "✝️ Hello! I'm **Jesus**, Issa Lamkharbech's personal assistant. I know his projects, internships, skills and background in detail. Try for example:\n• “Who is Issa?”\n• “Tell me about the Capgemini internship”\n• “Was the drone project a group project?”\n• “What are his AI skills?”\n• “What is his educational background?”";
+      "🤖 Hello! I'm **ISSA**, Issa Lamkharbech's personal assistant. I know his projects, internships, skills and background in detail. Try for example:\n• “Who is Issa?”\n• “Tell me about the Capgemini internship”\n• “Was the drone project a group project?”\n• “What are his AI skills?”\n• “What is his educational background?”";
   }
 
   /* ---------- Point d'entrée public ---------- */
@@ -283,16 +283,16 @@
     const wrap = document.createElement("div");
     wrap.id = "jesus-widget";
     wrap.innerHTML = `
-      <button id="jesus-launcher" aria-label="Ouvrir le chat avec Jesus">
+      <button id="jesus-launcher" aria-label="Ouvrir le chat avec ISSA">
         <span class="jl-icon">💬</span>
-        <span class="jl-label">Jesus</span>
+        <span class="jl-label">ISSA</span>
         <span class="jl-pulse"></span>
       </button>
-      <div id="jesus-window" class="jesus-hidden" role="dialog" aria-label="Chatbot Jesus">
+      <div id="jesus-window" class="jesus-hidden" role="dialog" aria-label="Chatbot ISSA">
         <div class="jw-header">
-          <div class="jw-avatar">J</div>
+          <div class="jw-avatar">IA</div>
           <div class="jw-title">
-            <strong>Jesus</strong>
+            <strong>ISSA</strong>
             <span class="jw-status"><span class="jw-dot"></span><span data-jesus-i18n="status">En ligne — répond instantanément</span></span>
           </div>
           <button class="jw-close" aria-label="Fermer">×</button>
@@ -340,7 +340,7 @@
       const div = document.createElement("div");
       div.className = "jw-msg " + who;
       if (who === "bot") {
-        div.innerHTML = `<div class="jw-msg-avatar">J</div><div class="jw-bubble">${mdToHtml(text)}</div>`;
+        div.innerHTML = `<div class="jw-msg-avatar">IA</div><div class="jw-bubble">${mdToHtml(text)}</div>`;
       } else {
         div.innerHTML = `<div class="jw-bubble">${mdToHtml(text)}</div>`;
       }
@@ -352,7 +352,7 @@
       /* indicateur « écrit… » */
       const typing = document.createElement("div");
       typing.className = "jw-msg bot";
-      typing.innerHTML = `<div class="jw-msg-avatar">J</div><div class="jw-bubble jw-typing"><span></span><span></span><span></span></div>`;
+      typing.innerHTML = `<div class="jw-msg-avatar">IA</div><div class="jw-bubble jw-typing"><span></span><span></span><span></span></div>`;
       messages.appendChild(typing);
       messages.scrollTop = messages.scrollHeight;
 
@@ -363,7 +363,7 @@
         /* bulle vide remplie au fil du streaming */
         const div = document.createElement("div");
         div.className = "jw-msg bot";
-        div.innerHTML = `<div class="jw-msg-avatar">J</div><div class="jw-bubble"></div>`;
+        div.innerHTML = `<div class="jw-msg-avatar">IA</div><div class="jw-bubble"></div>`;
         const bubble = div.querySelector(".jw-bubble");
         let started = false, full = "";
         try {
@@ -377,7 +377,7 @@
           return;
         } catch (err) {
           /* échec LLM → repli transparent sur le moteur local */
-          console.warn("Jesus : LLM indisponible, repli local —", err.message);
+          console.warn("ISSA : LLM indisponible, repli local —", err.message);
           if (started) div.remove();
         }
       }

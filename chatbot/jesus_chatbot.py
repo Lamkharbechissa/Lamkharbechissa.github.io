@@ -4,7 +4,7 @@
  JESUS — Chatbot personnel d'Issa Lamkharbech
 ================================================================================
 
-Ce fichier détaille la CONSTRUCTION COMPLÈTE du chatbot « Jesus », l'assistant
+Ce fichier détaille la CONSTRUCTION COMPLÈTE du chatbot « ISSA », l'assistant
 intelligent intégré au site web d'Issa Lamkharbech. Il répond, en français et
 en anglais, à toute question sur les projets, les stages, les compétences, le
 parcours scolaire, les certifications, les langues et la vie associative
@@ -208,7 +208,7 @@ INTENT_KEYWORDS = {
 
 
 class JesusChatbot:
-    """Le moteur du chatbot Jesus : rapide, bilingue, 100% fidèle au dossier."""
+    """Le moteur du chatbot ISSA : rapide, bilingue, 100% fidèle au dossier."""
 
     def __init__(self, kb: dict = None):
         self.kb = kb or load_kb()
@@ -487,7 +487,7 @@ class JesusChatbot:
         if lang == "fr":
             intro = ("Je n'ai pas trouvé cette information dans le dossier d'Issa. "
                      if fallback else "")
-            return (f"{intro}✝️ Bonjour ! Je suis **Jesus**, l'assistant personnel d'Issa Lamkharbech. "
+            return (f"{intro}🤖 Bonjour ! Je suis **ISSA**, l'assistant personnel d'Issa Lamkharbech. "
                     "Je connais en détail ses projets, ses stages, ses compétences et son parcours. "
                     "Essayez par exemple :\n"
                     "• « Qui est Issa ? »\n"
@@ -496,7 +496,7 @@ class JesusChatbot:
                     "• « Quelles sont ses compétences en IA ? »\n"
                     "• « Quel est son parcours scolaire ? »")
         intro = ("I couldn't find that information in Issa's folder. " if fallback else "")
-        return (f"{intro}✝️ Hello! I'm **Jesus**, Issa Lamkharbech's personal assistant. "
+        return (f"{intro}🤖 Hello! I'm **ISSA**, Issa Lamkharbech's personal assistant. "
                 "I know his projects, internships, skills and background in detail. "
                 "Try for example:\n"
                 "• “Who is Issa?”\n"
@@ -532,7 +532,7 @@ def serve_api():
     import uvicorn
 
     bot = JesusChatbot()
-    app = FastAPI(title="Jesus — chatbot d'Issa Lamkharbech")
+    app = FastAPI(title="ISSA — chatbot d'Issa Lamkharbech")
     app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
     class Msg(BaseModel):
@@ -604,7 +604,7 @@ def main():
             break
         if q.lower() in {"quit", "exit", "q"}:
             break
-        print("\nJesus >", bot.reply(q))
+        print("\nISSA >", bot.reply(q))
 
 
 if __name__ == "__main__":
