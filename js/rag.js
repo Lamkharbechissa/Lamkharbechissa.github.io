@@ -199,8 +199,14 @@ ${ctx}`;
     while (history.length > max) history.shift();
   }
 
+  /* La clé peut venir de config.js OU du navigateur (localStorage, posée via
+     la commande « /key gsk_... » dans le chat — pratique pour tester sans
+     éditer de fichier ; elle reste sur CETTE machine uniquement). */
+  function localKey() {
+    try { return (localStorage.getItem("jesus_groq_key") || "").trim(); } catch (_) { return ""; }
+  }
   function llmAvailable() {
-    return Boolean((CFG.apiUrl && CFG.apiUrl.trim()) || (CFG.groqApiKey && CFG.groqApiKey.trim()));
+    return Boolean((CFG.apiUrl && CFG.apiUrl.trim()) || (CFG.groqApiKey && CFG.groqApiKey.trim()) || localKey());
   }
 
   /**
@@ -225,7 +231,7 @@ ${ctx}`;
       ? "https://api.groq.com/openai/v1/chat/completions"
       : CFG.apiUrl.replace(/\/$/, "") + "/chat";
     const headers = { "Content-Type": "application/json" };
-    if (direct) headers["Authorization"] = "Bearer " + CFG.groqApiKey;
+    if (direct) headers["Authorization"] = "Bearer " + ((CFG.groqApiKey && CFG.groqApiKey.trim()) || localKey());
 
     const res = await fetch(url, {
       method: "POST",

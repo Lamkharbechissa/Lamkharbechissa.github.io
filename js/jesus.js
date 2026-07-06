@@ -411,6 +411,27 @@
       e.preventDefault();
       const q = input.value.trim();
       if (!q) return;
+
+      /* Commande secrète « /key » : active le mode LLM sans éditer de fichier.
+         La clé est stockée dans le localStorage de CE navigateur uniquement
+         (jamais envoyée ailleurs qu'à l'API). « /key off » la supprime. */
+      if (q.toLowerCase().startsWith("/key")) {
+        input.value = "";
+        const val = q.slice(4).trim();
+        try {
+          if (!val || val === "off") {
+            localStorage.removeItem("jesus_groq_key");
+            addMessage("🔌 Mode LLM désactivé — je repasse sur mon moteur local instantané.", "bot");
+          } else {
+            localStorage.setItem("jesus_groq_key", val);
+            addMessage("🧠 **Mode LLM activé !** Je discute maintenant comme ChatGPT (Llama 3.3 70B via Groq), toujours strictement fidèle au dossier d'Issa. Posez-moi une question ! ✨", "bot");
+          }
+        } catch (_) {
+          addMessage("⚠️ Impossible d'enregistrer la clé dans ce navigateur.", "bot");
+        }
+        return;
+      }
+
       addMessage(q, "user");
       input.value = "";
       botReply(q);
