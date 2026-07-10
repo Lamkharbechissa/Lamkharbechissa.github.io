@@ -18,7 +18,8 @@ window.JESUS_CONFIG = {
   apiUrl: "",
   groqApiKey: "",
   model: "llama-3.3-70b-versatile",
-  maxHistory: 8,        /* nombre de messages de conversation conservés */
-  topK: 5,              /* nombre de passages RAG injectés dans le prompt */
-  timeoutMs: 12000      /* au-delà : repli automatique sur le moteur local */
+  temperature: 0.75,    /* 0 = toujours pareil, 1 = très varié. 0.75 = vivant + fidèle */
+  maxHistory: 10,       /* nombre de messages de conversation conservés (mémoire) */
+  topK: 6,              /* nombre de passages RAG injectés dans le prompt */
+  timeoutMs: 15000      /* au-delà : repli automatique sur le moteur local */
 };

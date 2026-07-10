@@ -60,8 +60,12 @@ export default {
       body: JSON.stringify({
         model: env.MODEL || "llama-3.3-70b-versatile",
         messages,
-        temperature: 0.3,
-        max_tokens: 800,
+        /* réponses vivantes et variées, tout en restant factuel (RAG) */
+        temperature: 0.75,
+        top_p: 0.95,
+        presence_penalty: 0.5,
+        frequency_penalty: 0.4,
+        max_tokens: 900,
         stream: true,
       }),
     });
