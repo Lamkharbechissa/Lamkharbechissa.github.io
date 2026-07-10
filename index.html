@@ -3,6 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===================== SÉCURITÉ ===================== -->
+  <!-- Content-Security-Policy : liste blanche stricte des ressources autorisées.
+       script-src 'self' (SANS unsafe-inline) = un pirate ne peut PAS exécuter
+       de script injecté → protection anti-XSS forte. connect-src limite les
+       appels réseau au site, à Groq et au worker Cloudflare. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    object-src 'none';
+    img-src 'self' data:;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    script-src 'self';
+    connect-src 'self' https://api.groq.com https://*.workers.dev;
+    upgrade-insecure-requests;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- forçage HTTPS + anti-clickjacking : voir js/security.js (chargé en 1er) -->
+  <script src="js/security.js?v=5"></script>
+
   <title>Issa Lamkharbech — Élève ingénieur Arts et Métiers | AI Engineer, GenAI & Industrie 4.0</title>
 
   <!-- ===================== SEO ===================== -->
@@ -275,11 +297,11 @@
   </div>
 
   <!-- Scripts : base de connaissances → chatbot ISSA → site -->
-  <script src="js/config.js?v=4"></script>
+  <script src="js/config.js?v=5"></script>
   <script src="js/config.local.js"></script> <!-- clé locale, absente en production (404 sans gravité) -->
-  <script src="js/kb.js?v=4"></script>
-  <script src="js/rag.js?v=4"></script>
-  <script src="js/jesus.js?v=4"></script>
-  <script src="js/main.js?v=4"></script>
+  <script src="js/kb.js?v=5"></script>
+  <script src="js/rag.js?v=5"></script>
+  <script src="js/jesus.js?v=5"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>

@@ -1,0 +1,21 @@
+## En-têtes de sécurité HTTP (lus par Netlify et Cloudflare Pages).
+## GitHub Pages ne lit PAS ce fichier, mais fournit déjà HTTPS + HSTS sur *.github.io.
+## Pour une protection maximale, héberger via Cloudflare Pages/Netlify OU
+## placer Cloudflare (gratuit) devant le domaine — voir SECURITY.md.
+
+/*
+  ## Force HTTPS pendant 2 ans, sous-domaines inclus, éligible preload
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  ## Interdit l'affichage du site dans une iframe (anti-clickjacking)
+  X-Frame-Options: DENY
+  ## Empêche le navigateur de "deviner" un type de fichier (anti-MIME-sniffing)
+  X-Content-Type-Options: nosniff
+  ## Ne fuite pas l'URL de provenance vers les autres sites
+  Referrer-Policy: strict-origin-when-cross-origin
+  ## Coupe l'accès aux capteurs/caméra/micro/géoloc : le site n'en a pas besoin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), usb=(), payment=(), interest-cohort=()
+  ## Politique de sécurité du contenu (identique au meta d'index.html)
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self' https://api.groq.com https://*.workers.dev; upgrade-insecure-requests
+  ## Isole le site des autres onglets (anti-Spectre)
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin

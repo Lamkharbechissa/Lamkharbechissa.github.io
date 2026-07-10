@@ -268,11 +268,22 @@
   }
 
   /* ---------- Markdown minimal (gras + puces + liens) → HTML sûr ---------- */
+  /* Rendu Markdown minimal → HTML SÛR (protection XSS).
+     On échappe TOUS les caractères dangereux (& < > " ') AVANT toute mise en
+     forme, de sorte qu'aucune entrée (même une réponse LLM manipulée par un
+     visiteur malveillant) ne puisse injecter de balise ou casser un attribut. */
   function mdToHtml(text) {
-    const esc = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const esc = String(text)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
     return esc
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-      .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
+      /* liens : uniquement http/https, caractères d'URL sûrs (jamais de quote) */
+      .replace(/(https?:\/\/[^\s<>"']+)/g,
+        '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
       .replace(/\n/g, "<br>");
   }
 
