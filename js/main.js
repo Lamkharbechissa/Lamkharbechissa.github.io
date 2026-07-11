@@ -53,6 +53,16 @@
       contact_tag: "Contact", contact_title: "Travaillons ensemble !",
       contact_sub: "Je recherche une alternance d'un an en IA, Data Science et Industrie 4.0 à partir de septembre 2026. Discutons de vos projets — ou posez vos questions à ISSA, mon assistant IA.",
       contact_chat: "Poser une question à ISSA",
+      form_title: "✉️ Laissez-moi un message",
+      form_sub: "Écrivez-moi directement depuis le site : je reçois votre message et vous réponds vite.",
+      form_name: "Votre nom", form_email: "Votre email", form_message: "Votre message…",
+      form_send: "Envoyer le message",
+      form_sending: "Envoi en cours…",
+      form_ok: "✅ Merci ! Votre message a bien été envoyé. Je vous répondrai vite.",
+      form_err: "⚠️ L'envoi a échoué. Réessayez ou écrivez-moi directement par email.",
+      form_fill: "Merci de remplir votre nom, un email valide et un message.",
+      form_or: "ou contactez-moi directement",
+      form_quick_mail: "Par email", form_quick_sms: "Par SMS",
       cc_mail: "Email", cc_phone: "Téléphone", cc_loc: "Localisation", cc_li: "LinkedIn",
       footer_made: "Conçu avec", footer_by: "— Portfolio d'Issa Lamkharbech",
       jesus_status: "En ligne — répond instantanément",
@@ -94,6 +104,16 @@
       contact_tag: "Contact", contact_title: "Let's work together!",
       contact_sub: "I'm looking for a one-year apprenticeship in AI, Data Science and Industry 4.0 starting September 2026. Let's talk — or ask ISSA, my AI assistant, anything about me.",
       contact_chat: "Ask ISSA a question",
+      form_title: "✉️ Leave me a message",
+      form_sub: "Write to me directly from the site: I receive your message and reply quickly.",
+      form_name: "Your name", form_email: "Your email", form_message: "Your message…",
+      form_send: "Send message",
+      form_sending: "Sending…",
+      form_ok: "✅ Thank you! Your message has been sent. I'll reply soon.",
+      form_err: "⚠️ Sending failed. Please retry or email me directly.",
+      form_fill: "Please fill in your name, a valid email and a message.",
+      form_or: "or reach me directly",
+      form_quick_mail: "By email", form_quick_sms: "By SMS",
       cc_mail: "Email", cc_phone: "Phone", cc_loc: "Location", cc_li: "LinkedIn",
       footer_made: "Built with", footer_by: "— Issa Lamkharbech's portfolio",
       jesus_status: "Online — instant answers",
@@ -111,6 +131,10 @@
     $$("[data-i18n]").forEach(el => {
       const k = el.getAttribute("data-i18n");
       if (dict[k] !== undefined) el.innerHTML = dict[k];
+    });
+    $$("[data-i18n-ph]").forEach(el => {
+      const k = el.getAttribute("data-i18n-ph");
+      if (dict[k] !== undefined) el.setAttribute("placeholder", dict[k]);
     });
     document.documentElement.setAttribute("lang", LANG);
     document.documentElement.setAttribute("data-lang", LANG);
@@ -299,6 +323,12 @@
     $("#cc-mail").setAttribute("href", "mailto:" + c.email);
     $("#cc-phone").setAttribute("href", "tel:" + c.phone.replace(/\s/g, ""));
     $("#cc-li").setAttribute("href", c.linkedin);
+    /* boutons rapides email / SMS directement depuis le site */
+    const phoneIntl = c.phone.replace(/\s/g, "").replace(/^0/, "+33");
+    const qm = $("#cf-quick-mail"), qs = $("#cf-quick-sms");
+    if (qm) qm.setAttribute("href", "mailto:" + c.email + "?subject=" +
+      encodeURIComponent(LANG === "fr" ? "Contact depuis votre portfolio" : "Contact from your portfolio"));
+    if (qs) qs.setAttribute("href", "sms:" + phoneIntl);
   }
 
   function renderAll() {
@@ -409,7 +439,76 @@
     $("#modal-close").addEventListener("click", closeModal);
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
 
+    setupContactForm();
     renderAll();
     animateCounters();
   });
+
+  /* -------------------------------------------------- formulaire de contact */
+  function setupContactForm() {
+    const form = $("#contact-form");
+    if (!form) return;
+    const status = $("#cf-status");
+    const CFG = window.JESUS_CONFIG || {};
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      const dict = I18N[LANG];
+      const name = $("#cf-name").value.trim();
+      const email = $("#cf-email").value.trim();
+      const message = $("#cf-message").value.trim();
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!name || !emailOk || !message) {
+        status.className = "cf-status err"; status.textContent = dict.form_fill; return;
+      }
+
+      const btn = form.querySelector(".cf-submit");
+      const prev = btn.textContent;
+      btn.disabled = true; btn.textContent = dict.form_sending;
+      status.className = "cf-status"; status.textContent = "";
+
+      let delivered = false;
+
+      /* (1) Boîte de réception intégrée au site (Supabase) : le message est
+             enregistré et consultable par Issa depuis la boîte admin in-site. */
+      const HIST = window.ISSAHistory;
+      if (HIST && HIST.enabled && HIST.sendInboxMessage) {
+        const r = await HIST.sendInboxMessage(name, email, message);
+        if (r.ok) delivered = true;
+      }
+
+      /* (2) Email (optionnel) via Web3Forms si une clé est configurée. */
+      const key = (CFG.web3formsKey || "").trim();
+      if (key) {
+        try {
+          const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify({
+              access_key: key, name, email, message,
+              subject: `Nouveau message portfolio — ${name}`,
+              from_name: "Portfolio Issa Lamkharbech"
+            })
+          });
+          const data = await res.json();
+          if (data.success) delivered = true;
+        } catch (_) { /* on garde le repli mailto ci-dessous */ }
+      }
+
+      btn.disabled = false; btn.textContent = prev;
+
+      if (delivered) {
+        status.className = "cf-status ok"; status.textContent = dict.form_ok;
+        form.reset();
+        return;
+      }
+
+      /* (3) Repli universel : ouvre le logiciel de messagerie du visiteur. */
+      const to = CFG.contactEmail || "issa.alternance@gmail.com";
+      const subject = encodeURIComponent(`Message de ${name} — portfolio`);
+      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      status.className = "cf-status ok"; status.textContent = dict.form_ok;
+    });
+  }
 })();

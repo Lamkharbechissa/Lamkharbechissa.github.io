@@ -19,7 +19,7 @@
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
     script-src 'self';
-    connect-src 'self' https://api.groq.com https://*.workers.dev https://*.supabase.co wss://*.supabase.co;
+    connect-src 'self' https://api.groq.com https://*.workers.dev https://*.supabase.co wss://*.supabase.co https://api.web3forms.com;
     upgrade-insecure-requests;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- forçage HTTPS + anti-clickjacking : voir js/security.js (chargé en 1er) -->
@@ -108,7 +108,6 @@
         <button data-lang="fr" class="on">FR</button>
         <button data-lang="en">EN</button>
       </div>
-      <button class="nav-cta" data-open-jesus data-i18n="nav_chat">Parler à ISSA 💬</button>
       <button class="burger" id="burger" aria-label="Menu">☰</button>
     </div>
   </nav>
@@ -279,6 +278,27 @@
             <span><strong>GitHub</strong><small>github.com/Lamkharbechissa</small></span>
           </a>
         </div>
+
+        <!-- Formulaire d'envoi de message par email (depuis le site) -->
+        <form class="contact-form" id="contact-form" novalidate>
+          <h3 data-i18n="form_title">✉️ Envoyez-moi un message</h3>
+          <p class="cf-sub" data-i18n="form_sub">Écrivez-moi directement depuis le site : votre message m'arrive par email.</p>
+          <div class="cf-row">
+            <input type="text" id="cf-name" name="name" required autocomplete="name"
+                   data-i18n-ph="form_name" placeholder="Votre nom">
+            <input type="email" id="cf-email" name="email" required autocomplete="email"
+                   data-i18n-ph="form_email" placeholder="Votre email">
+          </div>
+          <textarea id="cf-message" name="message" rows="4" required
+                    data-i18n-ph="form_message" placeholder="Votre message…"></textarea>
+          <button type="submit" class="btn btn-primary cf-submit" data-i18n="form_send">Envoyer le message</button>
+          <div class="cf-status" id="cf-status" role="status" aria-live="polite"></div>
+          <div class="cf-or"><span data-i18n="form_or">ou contactez-moi directement</span></div>
+          <div class="cf-quick">
+            <a class="cf-quick-btn" id="cf-quick-mail" href="#"><span>📧</span><span data-i18n="form_quick_mail">Par email</span></a>
+            <a class="cf-quick-btn" id="cf-quick-sms" href="#"><span>📱</span><span data-i18n="form_quick_sms">Par SMS</span></a>
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -297,13 +317,14 @@
   </div>
 
   <!-- Scripts : base de connaissances → chatbot ISSA → site -->
-  <script src="js/config.js?v=6"></script>
+  <script src="js/config.js?v=8"></script>
   <script src="js/config.local.js"></script> <!-- clé locale, absente en production (404 sans gravité) -->
   <script src="js/vendor/supabase.min.js"></script> <!-- client Supabase (historique, optionnel) -->
-  <script src="js/kb.js?v=6"></script>
-  <script src="js/history.js?v=6"></script>
-  <script src="js/rag.js?v=6"></script>
-  <script src="js/jesus.js?v=6"></script>
-  <script src="js/main.js?v=6"></script>
+  <script src="js/kb.js?v=8"></script>
+  <script src="js/history.js?v=8"></script>
+  <script src="js/rag.js?v=8"></script>
+  <script src="js/jesus.js?v=8"></script>
+  <script src="js/main.js?v=8"></script>
+  <script src="js/admin.js?v=8"></script>
 </body>
 </html>

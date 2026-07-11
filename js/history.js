@@ -121,5 +121,22 @@ window.ISSAHistory = (function () {
     if (store.currentId === conversationId) store.currentId = null;
   };
 
+  /* ---- Dépose un message dans la boîte de réception de l'admin ----------
+     Utilise la session anonyme du visiteur : il peut écrire, jamais lire. */
+  store.sendInboxMessage = async function (name, email, message) {
+    if (!store.enabled) return { ok: false, reason: "disabled" };
+    try {
+      const { error } = await store._client.from("inbox").insert({
+        user_id: store._uid,
+        name: String(name).slice(0, 120),
+        email: String(email || "").slice(0, 200),
+        message: String(message).slice(0, 4000),
+      });
+      return { ok: !error, error: error && error.message };
+    } catch (e) {
+      return { ok: false, error: e.message || String(e) };
+    }
+  };
+
   return store;
 })();

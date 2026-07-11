@@ -72,11 +72,48 @@ create trigger trg_touch_conversation
   for each row execute function public.touch_conversation();
 
 -- ============================================================================
+--  5) BOÎTE DE RÉCEPTION (messages laissés par les visiteurs via le formulaire)
+-- ----------------------------------------------------------------------------
+--  Un visiteur (anonyme) peut LAISSER un message ; il ne peut PAS lire la boîte.
+--  SEUL l'admin (vous, identifié par votre email) peut lire/supprimer les
+--  messages — depuis la boîte de réception intégrée au site (voir js/admin.js)
+--  OU depuis le dashboard Supabase.
+--
+--  ⚠️ Remplacez 'issa.alternance@gmail.com' par VOTRE email admin (le même que
+--     vous utiliserez pour vous connecter à la boîte in-site).
+-- ============================================================================
+create table if not exists public.inbox (
+  id          bigint generated always as identity primary key,
+  user_id     uuid default auth.uid(),
+  name        text not null check (char_length(name) <= 120),
+  email       text check (char_length(email) <= 200),
+  message     text not null check (char_length(message) <= 4000),
+  is_read     boolean not null default false,
+  created_at  timestamptz not null default now()
+);
+create index if not exists idx_inbox_created on public.inbox(created_at desc);
+
+alter table public.inbox enable row level security;
+
+-- N'importe quel visiteur (anonyme authentifié) peut DÉPOSER un message…
+create policy "anyone_insert_inbox" on public.inbox
+  for insert with check (auth.uid() = user_id);
+
+-- …mais SEUL l'admin (par email) peut LIRE, MARQUER LU et SUPPRIMER.
+create policy "admin_select_inbox" on public.inbox
+  for select using ((auth.jwt() ->> 'email') = 'issa.alternance@gmail.com');
+create policy "admin_update_inbox" on public.inbox
+  for update using ((auth.jwt() ->> 'email') = 'issa.alternance@gmail.com');
+create policy "admin_delete_inbox" on public.inbox
+  for delete using ((auth.jwt() ->> 'email') = 'issa.alternance@gmail.com');
+
+-- ============================================================================
 --  CONSOLE ADMIN (vous)
---  → Dashboard Supabase → Table Editor → tables « conversations » et
---    « messages » : vous voyez toutes les conversations, par visiteur (user_id
---    anonyme), avec dates et contenu. Vous pouvez aussi lancer des requêtes
---    SQL, par ex. :
+--  → Boîte in-site : ouvrez votre site avec #boite-issa à la fin de l'URL
+--    (ex. https://lamkharbechissa.github.io/#boite-issa), connectez-vous avec
+--    votre email/mot de passe admin → vous voyez tous les messages.
+--  → OU Dashboard Supabase → Table Editor → tables « conversations »,
+--    « messages » et « inbox ». Exemple de requête :
 --
 --    select c.user_id, c.title, c.updated_at, count(m.*) as nb_messages
 --    from conversations c left join messages m on m.conversation_id = c.id

@@ -1,13 +1,23 @@
-# 💾 Historique des conversations + console admin (Supabase — gratuit)
+# 💾 Historique + 📬 Boîte de réception + console admin (Supabase — gratuit)
 
-ISSA peut **mémoriser les conversations** : chaque visiteur retrouve et
-**continue** ses échanges, et **vous (admin)** consultez toutes les
-conversations. Modèle **anonyme strict** : aucun email ni donnée personnelle —
-chaque visiteur est juste un identifiant anonyme (UUID) mémorisé sur son
-navigateur.
+Avec Supabase (gratuit), le site gagne **deux fonctions** :
+1. **Historique des conversations** : chaque visiteur retrouve et **continue**
+   ses échanges avec ISSA (modèle *anonyme strict* : aucun email, juste un UUID
+   mémorisé sur son navigateur).
+2. **Boîte de réception** : les visiteurs peuvent vous **laisser un message**
+   depuis le site (formulaire de contact), que **vous seul** consultez dans une
+   **boîte admin intégrée au site** (voir plus bas).
 
-> Tant que ce n'est pas configuré, le chat fonctionne normalement (sans
-> historique) : les boutons d'historique restent simplement masqués.
+> Tant que ce n'est pas configuré, tout fonctionne quand même : le chat marche
+> sans historique, et le formulaire de contact ouvre le logiciel de messagerie
+> du visiteur (mailto) en repli.
+
+## 📇 Contact : email, SMS, ou message in-site
+La section Contact propose 3 canaux, **tous depuis le site** :
+- **Formulaire « Laissez-moi un message »** → enregistré dans votre boîte admin
+  (et, si vous configurez une clé Web3Forms optionnelle, aussi envoyé par email).
+- **Bouton 📧 Par email** → ouvre un email pré-rempli vers vous (`mailto:`).
+- **Bouton 📱 Par SMS** → ouvre un SMS pré-rempli vers vous (`sms:`, sur mobile).
 
 ---
 
@@ -73,6 +83,35 @@ Votre tableau de bord Supabase **EST** la console admin (rien à coder) :
 > nom/email (aucune donnée personnelle n'est collectée, conforme RGPD par
 > défaut). Si un jour vous voulez capturer un prénom/email, dites-le-moi : on
 > ajoute un petit champ optionnel « Laissez vos coordonnées ».
+
+---
+
+## 📬 Boîte de réception admin **intégrée au site** (innovation)
+
+Vous pouvez lire les messages laissés par les visiteurs **sans quitter votre
+site** :
+
+1. **Activez la connexion par email** dans Supabase : menu
+   **Authentication → Providers → Email** → Enable. Puis créez VOTRE compte
+   admin : **Authentication → Users → Add user** (email = votre email admin +
+   un mot de passe). *(Vous pouvez décocher « confirm email ».)*
+2. **Déclarez votre email admin** dans `supabase/schema.sql` : remplacez
+   `issa.alternance@gmail.com` par le vôtre dans les 3 policies `admin_*_inbox`,
+   puis ré-exécutez ces lignes dans le SQL Editor (si vous aviez déjà lancé le
+   script avec un autre email).
+3. **Ouvrez la boîte** : ajoutez `#boite-issa` à la fin de l'URL de votre site
+   → `https://lamkharbechissa.github.io/#boite-issa`. Un panneau discret
+   s'ouvre : connectez-vous avec votre email/mot de passe admin → vous voyez
+   **tous les messages**, avec « ✓ marquer lu », « ↩ répondre » (email) et
+   « 🗑 supprimer ». Ce lien n'est visible nulle part sur le site : gardez-le
+   pour vous (c'est votre porte d'entrée admin).
+
+> Sécurité : la boîte n'est lisible que par votre email (policy
+> `admin_select_inbox`). Les visiteurs peuvent **déposer** un message mais
+> **jamais lire** la boîte. La console admin utilise un client Supabase séparé,
+> sans jamais toucher la session anonyme des visiteurs.
+
+Vous pouvez aussi tout consulter dans **Table Editor → `inbox`** du dashboard.
 
 ---
 

@@ -31,5 +31,14 @@ window.JESUS_CONFIG = {
      peuvent rester dans ce fichier publié sans danger.
      → Tant qu'ils sont vides, le chat fonctionne normalement, sans historique. */
   supabaseUrl: "",
-  supabaseAnonKey: ""
+  supabaseAnonKey: "",
+
+  /* ---- Formulaire de contact par email (Web3Forms, gratuit, sans serveur) ----
+     Collez ici votre « Access Key » Web3Forms (obtenue en 2 min sur
+     https://web3forms.com avec votre email — voir GUIDE_CONTACT_EMAIL.md).
+     Les messages du formulaire vous arrivent alors directement par email.
+     → Tant que ce champ est vide, le formulaire ouvre le logiciel de messagerie
+       du visiteur (mailto:) en repli, donc il fonctionne quand même. */
+  web3formsKey: "",
+  contactEmail: "issa.alternance@gmail.com"
 };

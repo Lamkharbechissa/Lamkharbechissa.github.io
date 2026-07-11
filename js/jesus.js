@@ -297,7 +297,7 @@
     wrap.innerHTML = `
       <button id="jesus-launcher" aria-label="Ouvrir le chat avec ISSA">
         <span class="jl-icon">💬</span>
-        <span class="jl-label">ISSA</span>
+        <span class="jl-label">Discuter avec ISSA</span>
         <span class="jl-pulse"></span>
       </button>
       <div id="jesus-window" class="jesus-hidden" role="dialog" aria-label="Chatbot ISSA">
@@ -354,6 +354,9 @@
     }
 
     function renderSuggestions() {
+      /* le label du bouton flottant suit la langue du site */
+      const lbl = wrap.querySelector(".jl-label");
+      if (lbl) lbl.textContent = currentLang() === "fr" ? "Discuter avec ISSA" : "Chat with ISSA";
       suggestions.innerHTML = "";
       for (const s of SUGG[currentLang()]) {
         const b = document.createElement("button");
@@ -467,6 +470,17 @@
       addMessage(q, "user");
       input.value = "";
       persist("user", q);
+
+      /* GARDE-FOU : demande de tâche hors-sujet (code, poème, traduction…)
+         → refus immédiat, sans appeler le LLM (fiable à 100%). */
+      const rag = window.JesusRAG;
+      if (rag && rag.isOffTopicTask && rag.isOffTopicTask(q)) {
+        const ans = rag.refusal(detectLanguage(q));
+        addMessage(ans, "bot");
+        persist("assistant", ans);
+        return;
+      }
+
       botReply(q);
     });
 
