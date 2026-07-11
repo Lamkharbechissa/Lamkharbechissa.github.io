@@ -62,6 +62,37 @@ Gmail** reste le canal principal.
 - Logique d'envoi : `setupContactForm()` dans [`js/main.js`](js/main.js).
 - La CSP autorise déjà `formsubmit.co` et `api.web3forms.com`.
 
+## 🔔 Notifications automatiques (visites + conversations)
+
+Le site vous **prévient par email** (dans votre Gmail, même mécanisme FormSubmit) :
+
+- **À chaque visite** : vous recevez « 🔔 Nouvelle visite sur votre portfolio »
+  (date, provenance, langue). **Anti-flood** : au plus **1 email par visiteur
+  toutes les 24 h** — sinon un site populaire noierait votre boîte.
+- **À chaque conversation avec ISSA** : la **conversation complète** vous est
+  envoyée (« 💬 Nouvelle conversation… ») quand le visiteur ferme le chat, quitte
+  la page, ou après un moment d'inactivité. Chaque conversation n'est envoyée
+  qu'une fois (pas de doublon).
+
+➡️ **Toutes les conversations s'archivent ainsi dans votre Gmail** : vous les
+consultez à tout moment (recherchez « conversation ISSA » dans Gmail),
+**sans exception**.
+
+**Réglages** (dans [`js/config.js`](js/config.js)) :
+```js
+notifyOnVisit: true,   // false pour ne PAS être notifié des visites
+notifyOnChat:  true,   // false pour ne PAS recevoir les conversations
+notifyEmail:   "",     // vide = votre contactEmail
+```
+
+> ⚠️ Ces notifications utilisent FormSubmit : elles ne marchent **qu'après** avoir
+> confirmé votre email une fois (étape ci-dessus). Volume : si votre site
+> devient très visité, désactivez `notifyOnVisit` (gardez `notifyOnChat`) pour ne
+> recevoir que les vraies conversations.
+> Pour un archivage 100 % fiable et une vue centralisée (indépendante de Gmail),
+> activez Supabase : toutes les conversations y sont stockées et consultables via
+> `#boite-issa` (voir GUIDE_HISTORIQUE_ADMIN.md).
+
 ## 🛡️ Anti-spam
 FormSubmit filtre déjà pas mal de spam. Si besoin, je peux ajouter un champ
 « honeypot » invisible au formulaire (bloque les robots) — dites-le-moi.
