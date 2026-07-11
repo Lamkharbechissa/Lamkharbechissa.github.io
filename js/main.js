@@ -405,8 +405,15 @@
 
   /* -------------------------------------------------------------- démarrage */
   document.addEventListener("DOMContentLoaded", () => {
-    /* preloader */
-    setTimeout(() => $("#preloader").classList.add("done"), 700);
+    /* preloader : on le masque PUIS on le retire complètement du DOM, sinon il
+       resterait un calque invisible (pointer-events) qui bloque les clics et la
+       saisie — notamment dans le chat. */
+    setTimeout(() => {
+      const pl = $("#preloader");
+      if (!pl) return;
+      pl.classList.add("done");
+      setTimeout(() => { if (pl && pl.parentNode) pl.remove(); }, 800);
+    }, 700);
 
     /* nav : ombre + progression + section active */
     const nav = $(".nav");
