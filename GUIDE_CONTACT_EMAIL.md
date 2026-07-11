@@ -64,19 +64,20 @@ Gmail** reste le canal principal.
 
 ## 🔔 Notifications automatiques (visites + conversations)
 
-Le site vous **prévient par email** (dans votre Gmail, même mécanisme FormSubmit) :
+Le site vous **prévient par email** (dans votre Gmail, même mécanisme FormSubmit),
+de façon **consolidée pour ne pas noyer votre boîte** :
 
-- **À chaque visite** : vous recevez « 🔔 Nouvelle visite sur votre portfolio »
-  (date, provenance, langue). **Anti-flood** : au plus **1 email par visiteur
-  toutes les 24 h** — sinon un site populaire noierait votre boîte.
-- **À chaque conversation avec ISSA** : la **conversation complète** vous est
-  envoyée (« 💬 Nouvelle conversation… ») quand le visiteur ferme le chat, quitte
-  la page, ou après un moment d'inactivité. Chaque conversation n'est envoyée
-  qu'une fois (pas de doublon).
+- **Un seul email « résumé » par visiteur** (au plus **1 / 24 h**), envoyé quand
+  le visiteur **quitte** le site. Il contient : la **durée de visite**, les
+  **sections consultées**, la **provenance**, la **langue**, s'il a **discuté
+  avec ISSA**, et **toute la conversation** le cas échéant.
+  → Sujet : « 🔔 Nouvelle visite… » ou « 💬 Visite + conversation ISSA… ».
+- Si le visiteur **relance une conversation plus tard** (après le résumé du
+  jour), cette nouvelle conversation vous est quand même envoyée (jamais de
+  doublon).
 
 ➡️ **Toutes les conversations s'archivent ainsi dans votre Gmail** : vous les
-consultez à tout moment (recherchez « conversation ISSA » dans Gmail),
-**sans exception**.
+consultez à tout moment (recherchez « ISSA » dans Gmail), **sans exception**.
 
 **Réglages** (dans [`js/config.js`](js/config.js)) :
 ```js
@@ -94,5 +95,7 @@ notifyEmail:   "",     // vide = votre contactEmail
 > `#boite-issa` (voir GUIDE_HISTORIQUE_ADMIN.md).
 
 ## 🛡️ Anti-spam
-FormSubmit filtre déjà pas mal de spam. Si besoin, je peux ajouter un champ
-« honeypot » invisible au formulaire (bloque les robots) — dites-le-moi.
+Le formulaire contient un **champ honeypot invisible** (`#cf-honey`) : les vrais
+visiteurs ne le voient pas, mais les robots spammeurs le remplissent
+automatiquement → leur message est **silencieusement ignoré** (aucun email
+envoyé). FormSubmit filtre en plus une partie du spam de son côté.
