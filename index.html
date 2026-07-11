@@ -19,11 +19,11 @@
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
     script-src 'self';
-    connect-src 'self' https://api.groq.com https://*.workers.dev;
+    connect-src 'self' https://api.groq.com https://*.workers.dev https://*.supabase.co wss://*.supabase.co;
     upgrade-insecure-requests;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- forçage HTTPS + anti-clickjacking : voir js/security.js (chargé en 1er) -->
-  <script src="js/security.js?v=5"></script>
+  <script src="js/security.js?v=6"></script>
 
   <title>Issa Lamkharbech — Élève ingénieur Arts et Métiers | AI Engineer, GenAI & Industrie 4.0</title>
 
@@ -133,7 +133,7 @@
           <button class="btn btn-ghost" data-open-jesus data-i18n="hero_btn_chat">Discuter avec ISSA 💬</button>
         </div>
         <div class="hero-stats">
-          <div class="stat"><div class="num" data-target="5">0</div><div class="lbl" data-i18n="stat_projects">Projets réalisés</div></div>
+          <div class="stat"><div class="num" data-target="6">0</div><div class="lbl" data-i18n="stat_projects">Projets réalisés</div></div>
           <div class="stat"><div class="num" data-target="2">0</div><div class="lbl" data-i18n="stat_stages">Stages en entreprise</div></div>
           <div class="stat"><div class="num" data-target="3">0</div><div class="lbl" data-i18n="stat_certifs">Certifications</div></div>
           <div class="stat"><div class="num" data-target="4">0</div><div class="lbl" data-i18n="stat_langs">Langues parlées</div></div>
@@ -297,11 +297,13 @@
   </div>
 
   <!-- Scripts : base de connaissances → chatbot ISSA → site -->
-  <script src="js/config.js?v=5"></script>
+  <script src="js/config.js?v=6"></script>
   <script src="js/config.local.js"></script> <!-- clé locale, absente en production (404 sans gravité) -->
-  <script src="js/kb.js?v=5"></script>
-  <script src="js/rag.js?v=5"></script>
-  <script src="js/jesus.js?v=5"></script>
-  <script src="js/main.js?v=5"></script>
+  <script src="js/vendor/supabase.min.js"></script> <!-- client Supabase (historique, optionnel) -->
+  <script src="js/kb.js?v=6"></script>
+  <script src="js/history.js?v=6"></script>
+  <script src="js/rag.js?v=6"></script>
+  <script src="js/jesus.js?v=6"></script>
+  <script src="js/main.js?v=6"></script>
 </body>
 </html>

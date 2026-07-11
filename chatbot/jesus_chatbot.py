@@ -158,6 +158,10 @@ ENTITY_ALIASES = {
                        "e puck", "epuck", "swarm", "robots cooperatifs"],
     "cat_emotion":    ["chat", "chats", "cat", "cats", "emotion", "emotions", "felin",
                        "miaulement", "meow", "cat emotion", "sante des chats", "tkinter"],
+    "portfolio_ia":   ["portfolio", "site web", "website", "ce site", "this site", "ce chatbot",
+                       "this chatbot", "toi meme", "yourself", "supabase", "groq", "cloudflare",
+                       "assistant ia", "ai assistant", "comment tu es fait", "how are you built",
+                       "ce projet", "this project", "site actuel"],
     # ---- Sections du profil ----
     "education":      ["parcours", "etudes", "formation", "formations", "scolaire", "ecole",
                        "education", "school", "studies", "background", "ensam", "arts et metiers",

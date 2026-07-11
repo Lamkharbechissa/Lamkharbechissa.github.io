@@ -101,7 +101,7 @@
     }
   };
 
-  const PROJ_ICONS = { drone: "🚁", mir100: "🤖", salle_connectee: "🏫", multi_agents: "🛰️", cat_emotion: "🐱" };
+  const PROJ_ICONS = { drone: "🚁", mir100: "🤖", salle_connectee: "🏫", multi_agents: "🛰️", cat_emotion: "🐱", portfolio_ia: "💬" };
   const SKILL_ICONS = { genai_llms: "🧠", data_ml: "📊", data_engineering: "🔧", dev: "💻", cloud_devops: "☁️", industry40: "🏭", management: "📋", soft_skills: "🤝" };
   const LANG_PCT = { "Langue maternelle": 100, "Native language": 100, "Niveau C1 (excellent)": 88, "C1 level (excellent)": 88, "Niveau B2 (professionnel)": 72, "B2 level (professional)": 72, "Niveau A1": 25, "A1 level": 25 };
 

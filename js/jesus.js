@@ -35,6 +35,7 @@
     salle_connectee: ["salle connectee", "salle informatique", "connected classroom", "classroom", "gi iads", "giads", "esp32", "esp8266", "laravel", "salle intelligente", "smart room", "industrie 4 0 salle", "lampe", "lamp"],
     multi_agents: ["multi agents", "multi agent", "multiagents", "cartographie", "mapping", "surveillance", "slam", "yolo", "yolov8", "webots", "e puck", "epuck", "swarm", "robots cooperatifs"],
     cat_emotion: ["chat", "chats", "cat", "cats", "emotion", "emotions", "felin", "miaulement", "meow", "cat emotion", "sante des chats", "tkinter"],
+    portfolio_ia: ["portfolio", "site web", "website", "ce site", "this site", "ce chatbot", "this chatbot", "toi meme", "yourself", "supabase", "groq", "cloudflare", "assistant ia", "ai assistant", "comment tu es fait", "how are you built", "ce projet", "this project", "site actuel"],
     education: ["parcours", "etudes", "formation", "formations", "scolaire", "ecole", "education", "school", "studies", "background", "ensam", "arts et metiers", "bac", "baccalaureat", "prepa", "preparatoire", "diplome", "degree", "aix en provence", "meknes"],
     skills: ["competences", "skills", "maitrise", "technologies", "stack", "outils", "tools", "langages", "sait faire", "capable"],
     languages: ["langues", "languages", "arabe", "arabic", "francais", "french", "anglais", "english", "espagnol", "spanish", "parle quelles"],
@@ -306,7 +307,13 @@
             <strong>ISSA</strong>
             <span class="jw-status"><span class="jw-dot"></span><span data-jesus-i18n="status">En ligne — répond instantanément</span></span>
           </div>
+          <button class="jw-icon-btn jw-history-btn" aria-label="Historique des conversations" title="Historique" hidden>🕑</button>
+          <button class="jw-icon-btn jw-new-btn" aria-label="Nouvelle conversation" title="Nouvelle conversation" hidden>✚</button>
           <button class="jw-close" aria-label="Fermer">×</button>
+        </div>
+        <div class="jw-history-panel" id="jw-history-panel" hidden>
+          <div class="jw-history-head"><span class="jw-history-title">Mes conversations</span><button class="jw-history-close" aria-label="Fermer l'historique">×</button></div>
+          <div class="jw-history-list" id="jw-history-list"></div>
         </div>
         <div class="jw-messages" id="jw-messages"></div>
         <div class="jw-suggestions" id="jw-suggestions"></div>
@@ -325,6 +332,17 @@
     const form = wrap.querySelector("#jw-form");
     const input = wrap.querySelector("#jw-input");
     const suggestions = wrap.querySelector("#jw-suggestions");
+    const historyBtn = wrap.querySelector(".jw-history-btn");
+    const newBtn = wrap.querySelector(".jw-new-btn");
+    const historyPanel = wrap.querySelector("#jw-history-panel");
+    const historyList = wrap.querySelector("#jw-history-list");
+    const historyCloseBtn = wrap.querySelector(".jw-history-close");
+    const HIST = window.ISSAHistory;
+
+    /* persistance (Supabase) — silencieuse si non configurée */
+    function persist(role, content) {
+      if (HIST && HIST.enabled) HIST.addMessage(role, content, currentLang());
+    }
 
     const SUGG = {
       fr: ["Qui est Issa ?", "Ses stages", "Ses projets", "Ses compétences", "Son parcours scolaire", "Le contacter"],
@@ -385,6 +403,7 @@
           });
           bubble.innerHTML = mdToHtml(full);   /* mise en forme finale */
           messages.scrollTop = messages.scrollHeight;
+          persist("assistant", full);
           return;
         } catch (err) {
           /* échec LLM → repli transparent sur le moteur local */
@@ -396,7 +415,9 @@
       /* MOTEUR LOCAL (instantané, toujours disponible) */
       setTimeout(() => {
         typing.remove();
-        addMessage(reply(q), "bot");
+        const ans = reply(q);
+        addMessage(ans, "bot");
+        persist("assistant", ans);
       }, 300);
     }
 
@@ -445,8 +466,87 @@
 
       addMessage(q, "user");
       input.value = "";
+      persist("user", q);
       botReply(q);
     });
+
+    /* ===================== HISTORIQUE DES CONVERSATIONS ===================== */
+    function fmtDate(iso) {
+      try {
+        const d = new Date(iso);
+        return d.toLocaleDateString(currentLang() === "fr" ? "fr-FR" : "en-US",
+          { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
+      } catch (_) { return ""; }
+    }
+
+    async function refreshHistoryList() {
+      if (!(HIST && HIST.enabled)) return;
+      const L = currentLang() === "fr";
+      const convos = await HIST.list();
+      historyList.innerHTML = "";
+      if (!convos.length) {
+        historyList.innerHTML = `<div class="jw-history-empty">${L ? "Aucune conversation pour l'instant." : "No conversation yet."}</div>`;
+        return;
+      }
+      for (const c of convos) {
+        const row = document.createElement("div");
+        row.className = "jw-history-item" + (c.id === HIST.currentId ? " active" : "");
+        row.innerHTML = `<div class="jw-hi-main"><div class="jw-hi-title"></div>
+          <div class="jw-hi-date">${fmtDate(c.updated_at)}</div></div>
+          <button class="jw-hi-del" aria-label="Supprimer" title="${L ? "Supprimer" : "Delete"}">🗑</button>`;
+        row.querySelector(".jw-hi-title").textContent = c.title || (L ? "Conversation" : "Conversation");
+        row.querySelector(".jw-hi-main").addEventListener("click", () => openConversation(c.id));
+        row.querySelector(".jw-hi-del").addEventListener("click", async (e) => {
+          e.stopPropagation();
+          await HIST.remove(c.id);
+          if (HIST.currentId === c.id) startNewConversation(true);
+          refreshHistoryList();
+        });
+        historyList.appendChild(row);
+      }
+    }
+
+    async function openConversation(id) {
+      if (!(HIST && HIST.enabled)) return;
+      const msgs = await HIST.open(id);
+      messages.innerHTML = "";
+      for (const m of msgs) addMessage(m.content, m.role === "user" ? "user" : "bot");
+      /* restaure la mémoire du LLM pour pouvoir CONTINUER la conversation */
+      if (window.JesusRAG && window.JesusRAG.setHistory) window.JesusRAG.setHistory(msgs);
+      historyPanel.hidden = true;
+      suggestions.style.display = "none";
+      input.focus();
+    }
+
+    function startNewConversation(silent) {
+      if (HIST) HIST.currentId = null;
+      if (window.JesusRAG && window.JesusRAG.resetConversation) window.JesusRAG.resetConversation();
+      messages.innerHTML = "";
+      addMessage(greeting(currentLang(), false), "bot");
+      renderSuggestions();
+      suggestions.style.display = "";
+      historyPanel.hidden = true;
+      if (!silent) input.focus();
+    }
+
+    if (historyBtn) historyBtn.addEventListener("click", async () => {
+      const willShow = historyPanel.hidden;
+      historyPanel.hidden = !willShow;
+      if (willShow) await refreshHistoryList();
+    });
+    if (historyCloseBtn) historyCloseBtn.addEventListener("click", () => { historyPanel.hidden = true; });
+    if (newBtn) newBtn.addEventListener("click", () => startNewConversation());
+
+    /* Initialise la persistance : si Supabase est configuré, on montre les
+       boutons historique/nouveau ; sinon le chat reste tel quel (sans DB). */
+    (async function initHistory() {
+      if (!HIST) return;
+      const ok = await HIST.init();
+      if (ok) {
+        historyBtn.hidden = false;
+        newBtn.hidden = false;
+      }
+    })();
 
     /* Ouvre le chat depuis n'importe quel élément [data-open-jesus] de la page */
     document.querySelectorAll("[data-open-jesus]").forEach(el =>

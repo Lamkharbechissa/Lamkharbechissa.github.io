@@ -315,5 +315,14 @@ ${ctx}`;
 
   function resetConversation() { history.length = 0; }
 
-  window.JesusRAG = { ask, retrieve, llmAvailable, resetConversation, chunks: CHUNKS };
+  /* Restaure la mémoire du LLM à partir de messages chargés depuis la base
+     (utilisé quand le visiteur rouvre une ancienne conversation pour la
+     continuer). On ne garde que les derniers messages pour rester borné. */
+  function setHistory(msgs) {
+    history.length = 0;
+    const max = CFG.maxHistory || 10;
+    (msgs || []).slice(-max).forEach(m => history.push({ role: m.role, content: m.content }));
+  }
+
+  window.JesusRAG = { ask, retrieve, llmAvailable, resetConversation, setHistory, chunks: CHUNKS };
 })();

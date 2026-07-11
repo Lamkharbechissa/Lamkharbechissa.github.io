@@ -227,6 +227,29 @@
         "fr": ["3 modèles combinés : émotions (11 classes), santé (2 classes), audio (10 classes)"],
         "en": ["3 combined models: emotions (11 classes), health (2 classes), audio (10 classes)"]
       }
+    },
+    {
+      "id": "portfolio_ia",
+      "name": {
+        "fr": "Portfolio web intelligent avec assistant IA « ISSA » (RAG + LLM)",
+        "en": "Intelligent web portfolio with an AI assistant “ISSA” (RAG + LLM)"
+      },
+      "context": { "fr": "Projet personnel — développement web full-stack & IA générative", "en": "Personal project — full-stack web development & generative AI" },
+      "period": { "fr": "2026", "en": "2026" },
+      "duration": { "fr": "Projet personnel continu", "en": "Ongoing personal project" },
+      "team_type": { "fr": "Projet individuel", "en": "Individual project" },
+      "in_cv": true,
+      "team": ["Issa Lamkharbech"],
+      "supervisors": [],
+      "description": {
+        "fr": "Conception et déploiement d'un portfolio web personnel haut de gamme, bilingue (FR/EN), intégrant « ISSA », un assistant IA conversationnel de type ChatGPT mais strictement réservé au parcours d'Issa grâce au RAG (Retrieval-Augmented Generation). Pipeline RAG complet développé de bout en bout : chunking de la base de connaissances, indexation lexicale BM25 (Okapi) et reconnaissance d'entités NLP, retrieval hybride, puis génération par un LLM distant (Llama 3.3 70B via l'API Groq) en streaming token par token avec mémoire conversationnelle multi-tours et repli automatique sur un moteur local (haute disponibilité). Persistance des conversations dans une base PostgreSQL (Supabase) avec authentification anonyme et Row Level Security : chaque visiteur retrouve et poursuit ses anciennes conversations, et une console d'administration permet de superviser les échanges. Clé API protégée par un proxy serverless (Cloudflare Worker). Sécurité renforcée : HTTPS forcé, Content-Security-Policy stricte (anti-XSS), anti-clickjacking, anti-injection de prompt, en-têtes de sécurité. Site optimisé SEO (données structurées JSON-LD, sitemap) et déployé gratuitement (GitHub Pages), indexable par Google.",
+        "en": "Design and deployment of a premium, bilingual (FR/EN) personal web portfolio featuring “ISSA”, a ChatGPT-like conversational AI assistant strictly scoped to Issa's background through RAG (Retrieval-Augmented Generation). Complete end-to-end RAG pipeline: knowledge-base chunking, BM25 (Okapi) lexical indexing and NLP entity recognition, hybrid retrieval, then generation by a remote LLM (Llama 3.3 70B via the Groq API) with token-by-token streaming, multi-turn conversational memory and automatic fallback to a local engine (high availability). Conversation persistence in a PostgreSQL database (Supabase) with anonymous authentication and Row Level Security: each visitor retrieves and continues their past conversations, and an admin console supervises the exchanges. API key protected by a serverless proxy (Cloudflare Worker). Hardened security: forced HTTPS, strict Content-Security-Policy (anti-XSS), anti-clickjacking, prompt-injection protection, security headers. SEO-optimized site (JSON-LD structured data, sitemap), deployed for free (GitHub Pages) and indexable by Google."
+      },
+      "technologies": ["Python", "JavaScript", "RAG", "LLM (Llama 3.3 70B / Groq)", "NLP", "BM25", "Prompt Engineering", "Supabase / PostgreSQL", "Row Level Security", "Cloudflare Workers", "HTML/CSS", "SEO", "Git / GitHub Pages"],
+      "metrics": {
+        "fr": ["Coût d'infrastructure : 0 €", "Précision du retrieval : 10/10 sur le jeu de test", "Réponses en streaming quasi temps réel", "Bilingue FR/EN", "Persistance des conversations + console admin", "Haute disponibilité (repli local)"],
+        "en": ["Infrastructure cost: €0", "Retrieval accuracy: 10/10 on the test set", "Near real-time streaming responses", "Bilingual FR/EN", "Conversation persistence + admin console", "High availability (local fallback)"]
+      }
     }
   ],
   "skills": {
