@@ -41,5 +41,19 @@ window.JESUS_CONFIG = {
      web3formsKey : OPTIONNEL (autre service email). Laissez vide si vous
        utilisez FormSubmit (recommandé). */
   contactEmail: "issa.alternance@gmail.com",
-  web3formsKey: ""
+  web3formsKey: "",
+
+  /* ---- Notifications par email (visites + conversations) ----
+     Vous êtes prévenu par email (dans votre Gmail, via FormSubmit) :
+       • notifyOnVisit : quand quelqu'un VISITE le site (throttlé : 1 email max
+         par visiteur toutes les 24 h, pour ne pas noyer votre boîte).
+       • notifyOnChat  : quand quelqu'un DISCUTE avec ISSA, la conversation vous
+         est envoyée (à la fermeture / au départ / après inactivité).
+     Ainsi toutes les conversations s'archivent dans votre Gmail (consultables à
+     tout moment). Mettez à false pour désactiver. notifyEmail = destinataire
+     (par défaut contactEmail). Nécessite d'avoir confirmé FormSubmit une fois
+     (voir GUIDE_CONTACT_EMAIL.md). */
+  notifyOnVisit: true,
+  notifyOnChat: true,
+  notifyEmail: ""
 };
