@@ -15,7 +15,7 @@
   ## Coupe l'accès aux capteurs/caméra/micro/géoloc : le site n'en a pas besoin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), usb=(), payment=(), interest-cohort=()
   ## Politique de sécurité du contenu (identique au meta d'index.html)
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self' https://api.groq.com https://*.workers.dev https://*.supabase.co wss://*.supabase.co https://api.web3forms.com; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self' https://api.groq.com https://*.workers.dev https://*.supabase.co wss://*.supabase.co https://api.web3forms.com https://formsubmit.co; upgrade-insecure-requests
   ## Isole le site des autres onglets (anti-Spectre)
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin

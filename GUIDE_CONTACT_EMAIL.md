@@ -1,48 +1,67 @@
-# ✉️ Formulaire de contact par email (Web3Forms — gratuit, sans serveur)
+# ✉️ Recevoir les messages du site dans votre Gmail (gratuit, sans clé)
 
-Le site contient un **formulaire de contact** (section « Contact ») : chaque
-visiteur peut vous écrire directement depuis le site, et **le message vous
-arrive par email**. Aucun serveur, aucune base à gérer.
+La section **Contact** du site propose 3 façons de vous joindre, **toutes
+depuis le site** :
 
-- **Sans configuration** : le formulaire fonctionne déjà en mode « repli » — il
-  ouvre le logiciel de messagerie du visiteur (mailto:) pré-rempli vers votre
-  adresse. Simple, mais dépend du client mail du visiteur.
-- **Avec Web3Forms (recommandé)** : le message est envoyé **directement** dans
-  votre boîte mail, sans que le visiteur ait à ouvrir quoi que ce soit.
+1. **Formulaire « Laissez-moi un message »** → le message arrive
+   **directement dans votre Gmail** (via FormSubmit.co, gratuit, sans clé).
+2. **Bouton 📧 Par email** → ouvre un email pré-rempli vers vous.
+3. **Bouton 📱 Par SMS** → ouvre un SMS pré-rempli vers vous (sur mobile).
 
 ---
 
-## Activer l'envoi direct (2 minutes, 0 €)
+## ✅ Étape UNIQUE à faire : activer FormSubmit (1 minute)
 
-1. Allez sur **https://web3forms.com** → entrez votre email
-   (`issa.alternance@gmail.com`) → vous recevez une **Access Key** par email.
-2. Ouvrez [`js/config.js`](js/config.js) et collez-la :
-   ```js
-   web3formsKey: "votre-access-key-ici",
-   contactEmail: "issa.alternance@gmail.com",
-   ```
-3. Poussez :
-   ```powershell
-   cd "C:\Users\hp\Desktop\Develop_website_with_chatbot\website_issa"
-   git add -A
-   git commit -m "Activation du formulaire de contact email"
-   git push
-   ```
+Le formulaire envoie les messages à **votre email** (`contactEmail` dans
+`js/config.js`, déjà réglé sur `issa.alternance@gmail.com`) grâce au service
+gratuit **FormSubmit.co**. Aucune clé, aucun compte à créer.
 
-C'est tout ✅ — chaque message envoyé depuis le site arrive dans votre boîte.
+**La toute première fois seulement**, FormSubmit doit vérifier que l'email vous
+appartient :
 
-> La clé Web3Forms est **publique par conception** (elle ne fait qu'autoriser
-> l'envoi vers VOTRE email) : sans danger dans le code publié. La CSP du site
-> autorise déjà `api.web3forms.com`.
+1. Mettez le site en ligne (ou testez-le en local).
+2. Depuis la section Contact, **envoyez-vous un premier message test**.
+3. Vous recevez un email de **FormSubmit** intitulé « Confirm your email » à
+   `issa.alternance@gmail.com` → cliquez sur le **bouton de confirmation**.
+4. C'est fait ✅ — **à partir de là, TOUS les messages du formulaire arrivent
+   automatiquement dans votre boîte Gmail.**
+
+> Astuce : si vous ne voyez pas l'email de confirmation, regardez dans
+> **Spam / Promotions**.
 
 ---
 
-## Anti-spam (recommandé, gratuit)
-Dans le tableau de bord Web3Forms, activez le **reCAPTCHA** ou le champ
-**honeypot** pour bloquer les robots spammeurs. Je peux aussi ajouter un
-honeypot invisible au formulaire si vous le souhaitez.
+## 👀 Comment consulter les messages reçus
 
-## Où ça se trouve dans le code
-- Formulaire : section `#contact` de [`index.html`](index.html)
-- Logique d'envoi : fonction `setupContactForm()` dans [`js/main.js`](js/main.js)
-- Style : `.contact-form` dans [`css/style.css`](css/style.css)
+**Tout simplement dans votre Gmail** (`issa.alternance@gmail.com`) : chaque
+message envoyé depuis le site arrive comme un email normal, avec le **nom**,
+l'**email** et le **message** du visiteur. Vous répondez directement depuis
+Gmail. Rien d'autre à installer.
+
+*(Option avancée : si vous configurez Supabase, vous avez aussi une boîte de
+réception intégrée au site via `#boite-issa` — voir GUIDE_HISTORIQUE_ADMIN.md.
+Mais pour recevoir les messages, Gmail via FormSubmit suffit largement.)*
+
+---
+
+## 📱 À propos du SMS
+
+Le bouton **« Par SMS »** ouvre l'application SMS du visiteur avec votre numéro
+pré-rempli : il vous envoie un vrai SMS depuis son téléphone. C'est la seule
+méthode **gratuite** (l'envoi automatique de SMS depuis un site web nécessite
+un service payant type Twilio). Pour un contact fiable, le **formulaire →
+Gmail** reste le canal principal.
+
+---
+
+## 🔧 Où changer l'adresse / le numéro
+
+- **Email de réception** : `contactEmail` dans [`js/config.js`](js/config.js).
+- **Numéro (SMS/téléphone)** : `chatbot/knowledge_base.json` → `profile.contact.phone`,
+  puis régénérez avec `python chatbot/jesus_chatbot.py --export`.
+- Logique d'envoi : `setupContactForm()` dans [`js/main.js`](js/main.js).
+- La CSP autorise déjà `formsubmit.co` et `api.web3forms.com`.
+
+## 🛡️ Anti-spam
+FormSubmit filtre déjà pas mal de spam. Si besoin, je peux ajouter un champ
+« honeypot » invisible au formulaire (bloque les robots) — dites-le-moi.

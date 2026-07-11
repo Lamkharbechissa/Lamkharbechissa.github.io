@@ -474,19 +474,30 @@
       btn.disabled = true; btn.textContent = dict.form_sending;
       status.className = "cf-status"; status.textContent = "";
 
+      const to = CFG.contactEmail || "issa.alternance@gmail.com";
       let delivered = false;
 
-      /* (1) Boîte de réception intégrée au site (Supabase) : le message est
-             enregistré et consultable par Issa depuis la boîte admin in-site. */
-      const HIST = window.ISSAHistory;
-      if (HIST && HIST.enabled && HIST.sendInboxMessage) {
-        const r = await HIST.sendInboxMessage(name, email, message);
-        if (r.ok) delivered = true;
-      }
+      /* (1) EMAIL DIRECT vers la boîte Gmail d'Issa — via FormSubmit.co :
+             gratuit, AUCUNE clé requise (juste l'email). Le message arrive
+             directement dans la boîte de réception d'Issa. (La toute première
+             fois, Issa reçoit un email de confirmation à valider une fois.) */
+      try {
+        const res = await fetch("https://formsubmit.co/ajax/" + encodeURIComponent(to), {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            name, email, message,
+            _subject: `📬 Nouveau message portfolio — ${name}`,
+            _template: "table",
+          }),
+        });
+        const data = await res.json();
+        if (data && (data.success === true || data.success === "true")) delivered = true;
+      } catch (_) { /* réseau indisponible : replis ci-dessous */ }
 
-      /* (2) Email (optionnel) via Web3Forms si une clé est configurée. */
+      /* (2) Web3Forms en plus, si une clé est configurée (optionnel). */
       const key = (CFG.web3formsKey || "").trim();
-      if (key) {
+      if (!delivered && key) {
         try {
           const res = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
@@ -494,12 +505,19 @@
             body: JSON.stringify({
               access_key: key, name, email, message,
               subject: `Nouveau message portfolio — ${name}`,
-              from_name: "Portfolio Issa Lamkharbech"
-            })
+              from_name: "Portfolio Issa Lamkharbech",
+            }),
           });
           const data = await res.json();
           if (data.success) delivered = true;
-        } catch (_) { /* on garde le repli mailto ci-dessous */ }
+        } catch (_) {}
+      }
+
+      /* (3) Boîte de réception in-site (Supabase) si configurée : Issa la
+             consulte aussi via #boite-issa. */
+      const HIST = window.ISSAHistory;
+      if (HIST && HIST.sendInboxMessage) {
+        try { const r = await HIST.sendInboxMessage(name, email, message); if (r.ok) delivered = true; } catch (_) {}
       }
 
       btn.disabled = false; btn.textContent = prev;
@@ -510,8 +528,7 @@
         return;
       }
 
-      /* (3) Repli universel : ouvre le logiciel de messagerie du visiteur. */
-      const to = CFG.contactEmail || "issa.alternance@gmail.com";
+      /* (4) Repli universel : ouvre le logiciel de messagerie du visiteur. */
       const subject = encodeURIComponent(`Message de ${name} — portfolio`);
       const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
       window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;

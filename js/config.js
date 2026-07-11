@@ -23,22 +23,23 @@ window.JESUS_CONFIG = {
   topK: 6,              /* nombre de passages RAG injectés dans le prompt */
   timeoutMs: 15000,     /* au-delà : repli automatique sur le moteur local */
 
-  /* ---- Historique des conversations (Supabase, voir GUIDE_HISTORIQUE_ADMIN.md) ----
-     Remplissez ces 2 champs avec l'URL et la clé « anon public » de votre projet
-     Supabase pour activer l'historique (chaque visiteur retrouve/continue ses
-     conversations, vous les consultez côté admin). Ces valeurs sont PUBLIQUES
-     par conception (la sécurité vient de la Row Level Security côté base) : elles
-     peuvent rester dans ce fichier publié sans danger.
-     → Tant qu'ils sont vides, le chat fonctionne normalement, sans historique. */
+  /* ---- Historique des conversations ----
+     Par DÉFAUT, l'historique fonctionne déjà (stocké dans le navigateur du
+     visiteur) : chaque visiteur voit et continue ses conversations, sans rien
+     configurer. Ces 2 champs Supabase sont OPTIONNELS : les remplir ajoute la
+     synchro multi-appareils + la consultation admin (voir GUIDE_HISTORIQUE_ADMIN.md).
+     Valeurs PUBLIQUES par conception (sécurité assurée par la Row Level Security). */
   supabaseUrl: "",
   supabaseAnonKey: "",
 
-  /* ---- Formulaire de contact par email (Web3Forms, gratuit, sans serveur) ----
-     Collez ici votre « Access Key » Web3Forms (obtenue en 2 min sur
-     https://web3forms.com avec votre email — voir GUIDE_CONTACT_EMAIL.md).
-     Les messages du formulaire vous arrivent alors directement par email.
-     → Tant que ce champ est vide, le formulaire ouvre le logiciel de messagerie
-       du visiteur (mailto:) en repli, donc il fonctionne quand même. */
-  web3formsKey: "",
-  contactEmail: "issa.alternance@gmail.com"
+  /* ---- Formulaire de contact : où arrivent les messages ? ----
+     contactEmail : VOTRE email. Les messages du formulaire y arrivent
+       AUTOMATIQUEMENT via FormSubmit.co (gratuit, AUCUNE clé requise). La toute
+       première fois, vous recevez un email de confirmation à valider une fois ;
+       ensuite tous les messages tombent dans cette boîte. Vous les consultez
+       simplement dans votre Gmail. (voir GUIDE_CONTACT_EMAIL.md)
+     web3formsKey : OPTIONNEL (autre service email). Laissez vide si vous
+       utilisez FormSubmit (recommandé). */
+  contactEmail: "issa.alternance@gmail.com",
+  web3formsKey: ""
 };
