@@ -461,6 +461,12 @@
     form.addEventListener("submit", async e => {
       e.preventDefault();
       const dict = I18N[LANG];
+      /* anti-spam : si le champ honeypot (invisible) est rempli, c'est un robot.
+         On fait comme si tout allait bien, mais on n'envoie rien. */
+      const honey = $("#cf-honey");
+      if (honey && honey.value) {
+        status.className = "cf-status ok"; status.textContent = dict.form_ok; form.reset(); return;
+      }
       const name = $("#cf-name").value.trim();
       const email = $("#cf-email").value.trim();
       const message = $("#cf-message").value.trim();
