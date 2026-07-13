@@ -517,6 +517,9 @@ img { max-width: 100%; }
 footer { padding: 46px 0 100px; text-align: center; color: var(--ink-soft); font-size: .88rem; }
 footer .foot-brand { font-family: var(--font-display); font-weight: 800; color: var(--ink); margin-bottom: 8px; }
 footer .heart { color: var(--warm); }
+footer .foot-site { margin-top: 8px; }
+footer .foot-site a { color: var(--brand); text-decoration: none; font-weight: 600; letter-spacing: .2px; }
+footer .foot-site a:hover { text-decoration: underline; }
 
 /* progression de scroll */
 #scroll-progress {

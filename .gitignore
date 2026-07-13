@@ -7,3 +7,6 @@ js/config.local.js
 
 # documentation technique interne (garder privee par defaut)
 DOCUMENTATION_TECHNIQUE_ISSA.pdf
+
+# Outils locaux (preview)
+.claude/

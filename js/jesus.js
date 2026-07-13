@@ -35,13 +35,13 @@
     salle_connectee: ["salle connectee", "salle informatique", "connected classroom", "classroom", "gi iads", "giads", "esp32", "esp8266", "laravel", "salle intelligente", "smart room", "industrie 4 0 salle", "lampe", "lamp"],
     multi_agents: ["multi agents", "multi agent", "multiagents", "cartographie", "mapping", "surveillance", "slam", "yolo", "yolov8", "webots", "e puck", "epuck", "swarm", "robots cooperatifs"],
     cat_emotion: ["chat", "chats", "cat", "cats", "emotion", "emotions", "felin", "miaulement", "meow", "cat emotion", "sante des chats", "tkinter"],
-    portfolio_ia: ["portfolio", "site web", "website", "ce site", "this site", "ce chatbot", "this chatbot", "toi meme", "yourself", "supabase", "groq", "cloudflare", "assistant ia", "ai assistant", "comment tu es fait", "how are you built", "ce projet", "this project", "site actuel"],
+    portfolio_ia: ["portfolio", "site web", "website", "site", "le site", "ce site", "this site", "comment le site", "comment ce site", "comment est fait le site", "comment il est fait", "comment tu es fait", "construit", "construction", "construction du site", "how are you built", "how is the site", "how the site", "how was the site", "how was it built", "ce chatbot", "this chatbot", "toi meme", "yourself", "supabase", "groq", "cloudflare", "assistant ia", "ai assistant", "ce projet", "this project", "site actuel"],
     education: ["parcours", "etudes", "formation", "formations", "scolaire", "ecole", "education", "school", "studies", "background", "ensam", "arts et metiers", "bac", "baccalaureat", "prepa", "preparatoire", "diplome", "degree", "aix en provence", "meknes"],
     skills: ["competences", "skills", "maitrise", "technologies", "stack", "outils", "tools", "langages", "sait faire", "capable"],
     languages: ["langues", "languages", "arabe", "arabic", "francais", "french", "anglais", "english", "espagnol", "spanish", "parle quelles"],
     certifications: ["certification", "certifications", "certificat", "certificats", "certificate", "mitx", "edx", "coursera", "ibm", "lean six sigma", "yellow belt", "eclee", "agile", "scrum"],
     extracurricular: ["parascolaire", "extrascolaire", "club", "clubs", "associatif", "association", "alhayat", "caravan", "pompage solaire", "solar", "extracurricular", "volunteer", "benevolat"],
-    contact: ["contact", "contacter", "email", "mail", "telephone", "phone", "linkedin", "github", "joindre", "reach", "coordonnees", "adresse"],
+    contact: ["contact", "contacter", "email", "mail", "meil", "emai", "e mail", "adresse mail", "adresse email", "courriel", "gmail", "telephone", "telephon", "telefone", "numero", "numero de tel", "phone", "num", "tel", "tele", "gsm", "portable", "mobile", "whatsapp", "whatsap", "wtsp", "appeler", "call", "linkedin", "linked in", "lkdn", "github", "git hub", "joindre", "reach", "coordonnees", "adresse", "localisation", "ville", "habite", "reside"],
     objective: ["alternance", "apprenticeship", "recherche", "looking for", "disponible", "available", "objectif", "objective", "embauche", "recruter", "hire"],
     about: ["qui est issa", "qui es tu", "who is issa", "presente", "presentation", "profil", "profile", "about", "a propos", "lamkharbech", "issa", "lui", "him"],
     projects_list: ["projets", "projects", "realisations", "portfolio", "travaux", "works"],
@@ -56,7 +56,7 @@
     technologies: ["technologie", "technologies", "technos", "outils", "tools", "stack", "langage", "language utilise", "framework", "librairies", "libraries", "utilise quoi", "built with", "developpe avec"],
     metrics: ["resultat", "resultats", "results", "metriques", "metrics", "performance", "performances", "accuracy", "precision", "score", "kpi", "chiffres"],
     cv_status: ["cv", "resume", "specifie", "mentionne", "figure", "listed", "specified"],
-    description: ["decris", "describe", "detail", "details", "explique", "explain", "parle moi", "tell me about", "contenu", "content", "quoi exactement", "en quoi consiste", "what is", "c est quoi", "raconte"]
+    description: ["decris", "describe", "detail", "details", "explique", "explain", "parle moi", "tell me about", "contenu", "content", "quoi exactement", "en quoi consiste", "what is", "c est quoi", "raconte", "resume", "resumer", "resume moi", "synthese", "synthetise", "en bref", "bref", "en gros", "grandes lignes", "quelques mots", "apercu", "overview", "summarize", "summarise", "sum up", "in short", "in brief"]
   };
 
   const KB = window.JESUS_KB || (typeof JESUS_KB !== "undefined" ? JESUS_KB : null);
@@ -92,6 +92,12 @@
     return out;
   }
 
+  /* Lien du site affiché en Markdown : le texte visible est « lamkharbechissa.com »
+     mais le lien pointe vers l'URL réelle (GitHub Pages). Rendu par mdToHtml. */
+  function siteLink(p) {
+    return `[${p.live_label || "lamkharbechissa.com"}](${p.live_url})`;
+  }
+
   /* ---------- Fiches ---------- */
   function projectCard(p, lang, intents) {
     const L = lang === "fr";
@@ -100,7 +106,10 @@
     lines.push("👥 " + t(p.team_type, lang) + (p.team && p.team.length ? " — " + p.team.join(", ") : ""));
     if (p.supervisors && p.supervisors.length) lines.push((L ? "🎓 Encadré par : " : "🎓 Supervised by: ") + p.supervisors.join(", "));
     lines.push((L ? "📄 Spécifié dans le CV : " : "📄 Listed on the CV: ") + (p.in_cv ? (L ? "oui" : "yes") : (L ? "non" : "no")));
+    if (p.live_url) lines.push((L ? "🌐 Site en ligne : " : "🌐 Live site: ") + siteLink(p));
     if (!intents.length || intents.includes("description")) lines.push("", t(p.description, lang));
+    /* « Comment le site a été construit » (uniquement pour le projet portfolio) */
+    if (p.how_built && (!intents.length || intents.includes("description"))) lines.push("", t(p.how_built, lang));
     lines.push("", (L ? "🛠️ Technologies : " : "🛠️ Technologies: ") + p.technologies.join(", "));
     lines.push((L ? "📊 Résultats : " : "📊 Results: ") + p.metrics[lang].join(" · "));
     return lines.join("\n");
@@ -119,9 +128,26 @@
     return lines.join("\n");
   }
 
+  /* ---------- Quelle coordonnée précise est demandée ? ----------
+     Comprend les abréviations et le langage familier : « num », « tél »,
+     « gsm », « portable », « whatsapp » = numéro de téléphone ; « mail »,
+     « courriel », « gmail » = email ; etc. Renvoie null si l'utilisateur
+     veut TOUTES les coordonnées (ex. « comment te contacter ? »). */
+  function contactField(normQ) {
+    const p = ` ${normQ} `;
+    const any = (...ws) => ws.some(w => p.includes(` ${w} `) || (w.length > 4 && normQ.includes(w)));
+    if (any("numero", "num", "tel", "tele", "telephone", "telephon", "telefone", "gsm", "portable", "mobile", "whatsapp", "whatsap", "wtsp", "appeler", "call", "phone")) return "phone";
+    if (any("email", "e mail", "mail", "meil", "emai", "courriel", "gmail", "ecrire")) return "email";
+    if (any("linkedin", "linked in", "lkdn")) return "linkedin";
+    if (any("github", "git hub")) return "github";
+    if (any("localisation", "adresse", "habite", "ville", "reside", "location", "city", "based")) return "location";
+    return null;
+  }
+
   /* ---------- Réponses ciblées ---------- */
-  function answerFor(entity, lang, intents) {
+  function answerFor(entity, lang, intents, normQ) {
     const L = lang === "fr";
+    normQ = normQ || "";
 
     if (PROJECT_IDS.has(entity)) {
       const p = item("projects", entity);
@@ -196,9 +222,23 @@
       }
       case "contact": {
         const c = KB.profile.contact;
+        /* Si l'utilisateur ne demande QU'UNE seule coordonnée, on ne donne
+           QUE celle-là (rien d'autre), exactement comme demandé. */
+        const field = contactField(normQ);
+        if (field === "phone")
+          return L ? `📞 Le numéro de téléphone d'Issa : **${c.phone}**` : `📞 Issa's phone number: **${c.phone}**`;
+        if (field === "email")
+          return L ? `✉️ L'adresse email d'Issa : **${c.email}**` : `✉️ Issa's email address: **${c.email}**`;
+        if (field === "linkedin")
+          return L ? `🔗 Le profil LinkedIn d'Issa : ${c.linkedin}` : `🔗 Issa's LinkedIn profile: ${c.linkedin}`;
+        if (field === "github")
+          return L ? `💻 Le GitHub d'Issa : ${c.github}` : `💻 Issa's GitHub: ${c.github}`;
+        if (field === "location")
+          return L ? `📍 Localisation d'Issa : **${t(c.location, lang)}**` : `📍 Issa's location: **${t(c.location, lang)}**`;
+        /* Sinon : toutes les coordonnées. */
         return L
-          ? `📫 **Contact :**\n• Email : ${c.email}\n• Téléphone : ${c.phone}\n• Localisation : ${t(c.location, lang)}\n• LinkedIn : ${c.linkedin}`
-          : `📫 **Contact:**\n• Email: ${c.email}\n• Phone: ${c.phone}\n• Location: ${t(c.location, lang)}\n• LinkedIn: ${c.linkedin}`;
+          ? `📫 **Contact :**\n• Email : ${c.email}\n• Téléphone : ${c.phone}\n• Localisation : ${t(c.location, lang)}\n• LinkedIn : ${c.linkedin}${c.github ? `\n• GitHub : ${c.github}` : ""}`
+          : `📫 **Contact:**\n• Email: ${c.email}\n• Phone: ${c.phone}\n• Location: ${t(c.location, lang)}\n• LinkedIn: ${c.linkedin}${c.github ? `\n• GitHub: ${c.github}` : ""}`;
       }
       case "objective":
         return "🎯 " + t(KB.profile.objective, lang);
@@ -237,12 +277,46 @@
   }
 
   function greeting(lang, fallback) {
+    if (fallback) return unknownReply(lang);
     if (lang === "fr") {
-      return (fallback ? "Je n'ai pas trouvé cette information dans le dossier d'Issa. " : "") +
-        "🤖 Bonjour ! Je suis **ISSA**, l'assistant personnel d'Issa Lamkharbech. Je connais en détail ses projets, ses stages, ses compétences et son parcours. Essayez par exemple :\n• « Qui est Issa ? »\n• « Parle-moi du stage chez Capgemini »\n• « Le projet drone était-il en groupe ? »\n• « Quelles sont ses compétences en IA ? »\n• « Quel est son parcours scolaire ? »";
+      return "🤖 Bonjour ! Je suis **ISSA**, l'assistant personnel d'Issa Lamkharbech. Je connais en détail ses projets, ses stages, ses compétences et son parcours. Essayez par exemple :\n• « Qui est Issa ? »\n• « Parle-moi du stage chez Capgemini »\n• « Le projet drone était-il en groupe ? »\n• « Quelles sont ses compétences en IA ? »\n• « Quel est son parcours scolaire ? »";
     }
-    return (fallback ? "I couldn't find that information in Issa's folder. " : "") +
-      "🤖 Hello! I'm **ISSA**, Issa Lamkharbech's personal assistant. I know his projects, internships, skills and background in detail. Try for example:\n• “Who is Issa?”\n• “Tell me about the Capgemini internship”\n• “Was the drone project a group project?”\n• “What are his AI skills?”\n• “What is his educational background?”";
+    return "🤖 Hello! I'm **ISSA**, Issa Lamkharbech's personal assistant. I know his projects, internships, skills and background in detail. Try for example:\n• “Who is Issa?”\n• “Tell me about the Capgemini internship”\n• “Was the drone project a group project?”\n• “What are his AI skills?”\n• “What is his educational background?”";
+  }
+
+  /* ---------- Réponse « je ne sais pas » — VARIÉE à chaque fois ----------
+     Quand l'info demandée n'est pas connue, ISSA répond franchement « aucune
+     idée / je ne sais pas », JAMAIS « je n'ai pas cette info dans le dossier ».
+     On tire une formulation au hasard (sans répéter la précédente) et on
+     propose de rebondir sur ce qu'ISSA connaît. */
+  const UNKNOWN = {
+    fr: [
+      "🤔 Alors là, aucune idée ! Ça ne fait pas partie de ce que je connais sur Issa.",
+      "😅 Honnêtement, je ne sais pas — ce point-là m'échappe complètement.",
+      "🤷 Aucune idée là-dessus, désolé ! Je n'ai rien de fiable à te dire sur ce sujet.",
+      "🙈 Je sèche complètement sur cette question, je préfère être honnête avec toi.",
+      "🤔 Mystère total pour moi ! Je ne voudrais rien inventer.",
+      "😬 Là tu me colles — je n'en ai pas la moindre idée."
+    ],
+    en: [
+      "🤔 No idea, honestly! That's not something I know about Issa.",
+      "😅 I really don't know — that one's beyond me.",
+      "🤷 No clue on that one, sorry! I've got nothing reliable to tell you here.",
+      "🙈 I'm totally drawing a blank on this, I'd rather be honest with you.",
+      "🤔 That's a mystery to me! I don't want to make anything up.",
+      "😬 You've got me there — I genuinely have no idea."
+    ]
+  };
+  let _lastUnknown = -1;
+  function unknownReply(lang) {
+    const pool = UNKNOWN[lang === "fr" ? "fr" : "en"];
+    let i = Math.floor(Math.random() * pool.length);
+    if (i === _lastUnknown) i = (i + 1) % pool.length;
+    _lastUnknown = i;
+    const tail = lang === "fr"
+      ? "\n\nEn revanche, je peux tout te dire sur Issa : ses **projets**, ses **stages**, ses **compétences**, son **parcours** ou son **contact**. Que veux-tu savoir ? 🙂"
+      : "\n\nBut I can tell you anything about Issa: his **projects**, **internships**, **skills**, **education** or **contact**. What would you like to know? 🙂";
+    return pool[i] + tail;
   }
 
   /* ---------- Point d'entrée public ---------- */
@@ -258,9 +332,17 @@
       entities = entities.filter(e => PROJECT_IDS.has(e) || STAGE_IDS.has(e));
     }
 
+    /* Demande de RÉSUMÉ / vue d'ensemble sans sujet précis
+       (« résume », « en bref », « en résumé », « en gros », « tldr »,
+       « encore », « plus »…) → on donne d'emblée un résumé du profil. */
+    const SUMMARY_RE = /\b(resume|resumer|resumes|synthese|syntheses|synthetise|apercu|survol|bref|tldr|recap|recapitule|recapituler|resumons|summary|summarize|summarise|overview|gist|nutshell|encore|davantage|continue|plus)\b/;
+    if (!entities.length && SUMMARY_RE.test(normQ)) {
+      return answerFor("about", lang, [], normQ);
+    }
+
     const answers = [];
     for (const ent of entities.slice(0, 3)) {
-      const a = answerFor(ent, lang, intents);
+      const a = answerFor(ent, lang, intents, normQ);
       if (a) answers.push(a);
     }
     if (answers.length) return answers.join("\n\n———\n\n");
@@ -282,9 +364,15 @@
       .replace(/'/g, "&#39;");
     return esc
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-      /* liens : uniquement http/https, caractères d'URL sûrs (jamais de quote) */
-      .replace(/(https?:\/\/[^\s<>"']+)/g,
-        '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
+      /* liens Markdown [texte](url) : le texte visible peut différer de l'URL
+         (ex. « lamkharbechissa.com » pointant vers l'URL réelle GitHub Pages).
+         Uniquement http/https. À faire AVANT l'auto-lien des URL brutes. */
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^\s()<>"']+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+      /* auto-lien des URL brutes restantes (jamais celles déjà dans un href :
+         le caractère précédent ne doit être ni «"» ni «>» ni «=») */
+      .replace(/(^|[^"'>=])(https?:\/\/[^\s<>"']+)/g,
+        '$1<a href="$2" target="_blank" rel="noopener noreferrer">$2</a>')
       .replace(/\n/g, "<br>");
   }
 
