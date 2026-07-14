@@ -33,7 +33,10 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* scroll-padding : les ancres s'arrêtent SOUS la barre de nav fixe (UX propre) */
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+/* focus clavier soigné et cohérent (accessibilité premium) */
+:focus-visible { outline: 3px solid rgba(37, 99, 255, .5); outline-offset: 3px; border-radius: 6px; }
 body {
   font-family: var(--font-body);
   background: var(--white);
@@ -180,9 +183,16 @@ img { max-width: 100%; }
 @keyframes cardFloat { from { transform: translateY(0) rotate(.4deg); } to { transform: translateY(-16px) rotate(-.6deg); } }
 .hero-card .avatar {
   width: 96px; height: 96px; border-radius: 28px; background: var(--grad);
-  color: #fff; display: grid; place-items: center;
+  color: #fff; display: grid; place-items: center; overflow: hidden;
   font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; margin-bottom: 18px;
-  box-shadow: 0 14px 30px rgba(30, 94, 255, .35);
+  box-shadow: 0 14px 30px rgba(30, 94, 255, .35); position: relative;
+}
+.hero-card .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* fin liseré lumineux autour du portrait (touche premium) */
+.hero-card .avatar::after {
+  content: ""; position: absolute; inset: 0; border-radius: 28px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.55), inset 0 -18px 30px -18px rgba(18,44,86,.5);
+  pointer-events: none;
 }
 .hero-card h3 { font-size: 1.25rem; margin-bottom: 4px; }
 .hero-card .sub { color: var(--ink-soft); font-size: .9rem; margin-bottom: 16px; }
@@ -222,11 +232,20 @@ img { max-width: 100%; }
   aspect-ratio: 1; border-radius: 34px; background: var(--grad);
   display: grid; place-items: center; color: #fff;
   font-family: var(--font-display); font-size: 5rem; font-weight: 800;
-  box-shadow: var(--shadow); position: relative; overflow: hidden;
+  position: relative; overflow: hidden;
+  /* ombre riche + halo coloré (non rogné, contrairement à un ::before interne) */
+  box-shadow: 0 30px 70px -24px rgba(28,62,140,.45),
+              0 0 0 1px rgba(255,255,255,.4) inset,
+              0 18px 50px -20px rgba(0,180,216,.4);
 }
+.about-monogram img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* voile dégradé + éclat : intègre le portrait à la charte, effet magazine */
 .about-monogram::after {
-  content: ""; position: absolute; inset: 0;
-  background: radial-gradient(420px 220px at 20% 15%, rgba(255,255,255,.35), transparent 55%);
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: 34px;
+  background:
+    radial-gradient(460px 240px at 18% 12%, rgba(255,255,255,.30), transparent 55%),
+    linear-gradient(160deg, rgba(37,99,255,.10) 0%, transparent 42%, rgba(18,44,86,.30) 100%);
+  box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.35);
 }
 .about-float {
   position: absolute; background: var(--white); border: 1px solid var(--line);
