@@ -61,12 +61,13 @@ img { max-width: 100%; }
 #preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
 .pre-logo {
   width: 92px; height: 92px; border-radius: 26px;
-  background: var(--grad);
+  background: var(--grad); overflow: hidden;
   display: grid; place-items: center;
   color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 2rem;
   animation: prePulse 1.1s ease-in-out infinite alternate;
   box-shadow: var(--shadow);
 }
+.pre-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @keyframes prePulse { from { transform: scale(.92); } to { transform: scale(1.06); } }
 
 /* --------------------------------------------------------------------- nav */
