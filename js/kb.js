@@ -1,5 +1,5 @@
-// Genere automatiquement par chatbot/jesus_chatbot.py --export
-// Source unique : chatbot/knowledge_base.json - NE PAS EDITER A LA MAIN.
+// Généré automatiquement par chatbot/jesus_chatbot.py --export
+// Source unique : chatbot/knowledge_base.json — NE PAS ÉDITER À LA MAIN.
 window.JESUS_KB = {
   "meta": {
     "owner": "Issa Lamkharbech",
