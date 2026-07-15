@@ -228,9 +228,11 @@ img { max-width: 100%; }
 
 /* ------------------------------------------------------------------- about */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-.about-visual { position: relative; }
+.about-visual { position: relative; max-width: 420px; margin-inline: auto; }
 .about-monogram {
-  aspect-ratio: 1; border-radius: 34px; background: var(--grad);
+  /* ratio de la photo d'origine (1706x2540) → image affichée ENTIÈRE, sans zoom */
+  aspect-ratio: 1706 / 2540; max-width: 100%; margin-inline: auto;
+  border-radius: 34px; background: #eef4ff;
   display: grid; place-items: center; color: #fff;
   font-family: var(--font-display); font-size: 5rem; font-weight: 800;
   position: relative; overflow: hidden;
