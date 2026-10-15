@@ -52,8 +52,29 @@ window.JESUS_CONFIG = {
      Ainsi toutes les conversations s'archivent dans votre Gmail (consultables à
      tout moment). Mettez à false pour désactiver. notifyEmail = destinataire
      (par défaut contactEmail). Nécessite d'avoir confirmé FormSubmit une fois
-     (voir GUIDE_CONTACT_EMAIL.md). */
+     (voir GUIDE_CONTACT_EMAIL.md).
+
+     Chaque résumé de visite indique si le visiteur est probablement un HUMAIN
+     ou un ROBOT (« 🧪 Verdict : 🙂 Humain probable (indice humain : 87/100) »),
+     d'après des signaux anonymes (souris, défilement, marqueurs d'automatisation).
+     C'est un indice, pas une preuve ; rien n'est bloqué pour le visiteur.
+       • notifyBots : true = vous recevez aussi les visites de robots qui
+         EXÉCUTENT JavaScript (rendu Googlebot / bingbot, Lighthouse, navigateurs
+         automatisés…) ; false = seules les visites humaines / indéterminées vous
+         sont envoyées (les conversations restent toujours envoyées). Les aperçus
+         de liens (WhatsApp, LinkedIn, Slack…) et la plupart des robots d'IA / SEO
+         ne lisent que le HTML : ils n'apparaissent jamais dans ces emails.
+       • notifyOnLocalhost : false (recommandé) = AUCUN email pendant vos tests en
+         local (localhost, 127.0.0.1, adresse du réseau local 192.168.x.x /
+         10.x.x.x, nom du PC, fichier ouvert directement…) ; true = envoie aussi
+         en local (pour tester la réception). En local, tapez dans la console
+         ISSAVisit.preview() pour voir l'email qui partirait, sans rien envoyer.
+       • notifyHosts : adresses du site PUBLIÉ, toujours autorisées à envoyer
+         (ajoutez-y votre nom de domaine si vous en prenez un). */
   notifyOnVisit: true,
   notifyOnChat: true,
+  notifyBots: true,
+  notifyOnLocalhost: false,
+  notifyHosts: ["lamkharbechissa.github.io"],
   notifyEmail: ""
 };

@@ -84,6 +84,7 @@
       form_quick_mail: "Par email", form_quick_sms: "Par SMS",
       cc_mail: "Email", cc_phone: "Téléphone", cc_loc: "Localisation", cc_li: "LinkedIn",
       footer_top: "Haut de page", footer_links: "Liens",
+      footer_privacy: "Confidentialité : ce site mesure de façon anonyme la date et la durée de visite, les sections consultées, la provenance, la langue, le type de navigateur et d'appareil (système, ordinateur/mobile) ainsi que l'activité (souris, toucher, défilement, clics, nombre de frappes — jamais leur contenu) afin de distinguer visiteurs humains et robots ; ce résumé et les conversations avec ISSA sont envoyés par email à Issa (via FormSubmit). Aucun cookie publicitaire, aucun accès n'est restreint.",
       jesus_status: "En ligne — répond instantanément"
     },
     en: {
@@ -146,6 +147,7 @@
       form_quick_mail: "By email", form_quick_sms: "By SMS",
       cc_mail: "Email", cc_phone: "Phone", cc_loc: "Location", cc_li: "LinkedIn",
       footer_top: "Back to top", footer_links: "Links",
+      footer_privacy: "Privacy: this site anonymously measures visit date and duration, sections viewed, referring page, language, browser and device type (OS, desktop/mobile), as well as activity (mouse, touch, scrolling, clicks, number of keystrokes — never their content), to tell human visitors from robots; this summary and conversations with ISSA are emailed to Issa (via FormSubmit). No advertising cookies, and no access is restricted.",
       jesus_status: "Online — instant answers"
     }
   };

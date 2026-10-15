@@ -89,7 +89,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=30">
+  <link rel="stylesheet" href="css/style.css?v=31">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%231f55e6'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>IL</text></svg>">
 </head>
 <body>
@@ -369,6 +369,7 @@
         <a href="#accueil" data-i18n="footer_top">Haut de page</a>
       </nav>
       <div class="foot-site">© 2026 · <a href="https://lamkharbechissa.github.io/">lamkharbechissa.github.io</a></div>
+      <p class="foot-privacy" data-i18n="footer_privacy">Confidentialité : ce site mesure de façon anonyme la date et la durée de visite, les sections consultées, la provenance, la langue, le type de navigateur et d'appareil (système, ordinateur/mobile) ainsi que l'activité (souris, toucher, défilement, clics, nombre de frappes — jamais leur contenu) afin de distinguer visiteurs humains et robots ; ce résumé et les conversations avec ISSA sont envoyés par email à Issa (via FormSubmit). Aucun cookie publicitaire, aucun accès n'est restreint.</p>
     </div>
   </footer>
 
@@ -384,15 +385,15 @@
   </div>
 
   <!-- Scripts : base de connaissances → chatbot ISSA → site -->
-  <script src="js/config.js?v=31"></script>
+  <script src="js/config.js?v=33"></script>
   <script src="js/config.local.js"></script> <!-- clé locale, absente en production (404 sans gravité) -->
+  <script src="js/notify.js?v=33"></script> <!-- tôt : capte les premières actions du visiteur -->
   <script src="js/vendor/supabase.min.js"></script> <!-- client Supabase (historique, optionnel) -->
   <script src="js/kb.js?v=32"></script>
   <script src="js/history.js?v=30"></script>
   <script src="js/rag.js?v=31"></script>
   <script src="js/jesus.js?v=38"></script>
-  <script src="js/main.js?v=31"></script>
+  <script src="js/main.js?v=33"></script>
   <script src="js/admin.js?v=30"></script>
-  <script src="js/notify.js?v=30"></script>
 </body>
 </html>
