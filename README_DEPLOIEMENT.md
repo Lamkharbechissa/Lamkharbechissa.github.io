@@ -40,7 +40,7 @@ dans les balises SEO du site).
 Dans PowerShell, depuis ce dossier :
 
 ```powershell
-cd "C:\Users\hp\Desktop\Develop_website_with_chatbot\website_issa"
+cd "C:\Users\hp\Desktop\My_Projects\website_issa"
 git remote add origin https://github.com/Lamkharbechissa/Lamkharbechissa.github.io.git
 git push -u origin main
 ```
@@ -104,7 +104,7 @@ Le site ET le chatbot Jesus sont mis à jour automatiquement (même source de do
 ## 🧪 Tester en local
 
 ```powershell
-cd "C:\Users\hp\Desktop\Develop_website_with_chatbot\website_issa"
+cd "C:\Users\hp\Desktop\My_Projects\website_issa"
 python -m http.server 8765
 # puis ouvrez http://localhost:8765
 ```

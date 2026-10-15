@@ -40,7 +40,7 @@ window.JESUS_CONFIG = {
        simplement dans votre Gmail. (voir GUIDE_CONTACT_EMAIL.md)
      web3formsKey : OPTIONNEL (autre service email). Laissez vide si vous
        utilisez FormSubmit (recommandé). */
-  contactEmail: "issa.alternance@gmail.com",
+  contactEmail: "issa.pfe@gmail.com",
   web3formsKey: "",
 
   /* ---- Notifications par email (visites + conversations) ----

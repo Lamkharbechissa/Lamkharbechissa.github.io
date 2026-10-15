@@ -37,7 +37,7 @@ prompt → génération streaming). Tests : `python chatbot/jesus_rag.py --test-
 ### Tester immédiatement en console (avant même le déploiement)
 
 ```powershell
-cd "C:\Users\hp\Desktop\Develop_website_with_chatbot\website_issa\chatbot"
+cd "C:\Users\hp\Desktop\My_Projects\website_issa\chatbot"
 set GROQ_API_KEY=gsk_votre_cle
 python jesus_rag.py
 ```
@@ -84,7 +84,7 @@ window.JESUS_CONFIG = {
 Puis :
 
 ```powershell
-cd "C:\Users\hp\Desktop\Develop_website_with_chatbot\website_issa"
+cd "C:\Users\hp\Desktop\My_Projects\website_issa"
 git add -A
 git commit -m "Activation du mode LLM de Jesus"
 git push

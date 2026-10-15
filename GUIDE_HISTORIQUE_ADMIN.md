@@ -50,7 +50,7 @@ La section Contact propose 3 canaux, **tous depuis le site** :
    > peut lire QUE ses propres conversations).
 3. Poussez :
    ```powershell
-   cd "C:\Users\hp\Desktop\Develop_website_with_chatbot\website_issa"
+   cd "C:\Users\hp\Desktop\My_Projects\website_issa"
    git add -A
    git commit -m "Activation de l'historique des conversations"
    git push
@@ -96,9 +96,20 @@ site** :
    admin : **Authentication → Users → Add user** (email = votre email admin +
    un mot de passe). *(Vous pouvez décocher « confirm email ».)*
 2. **Déclarez votre email admin** dans `supabase/schema.sql` : remplacez
-   `issa.alternance@gmail.com` par le vôtre dans les 3 policies `admin_*_inbox`,
+   `issa.pfe@gmail.com` par le vôtre dans les 3 policies `admin_*_inbox`,
    puis ré-exécutez ces lignes dans le SQL Editor (si vous aviez déjà lancé le
    script avec un autre email).
+
+   > ⚠️ **Nouvelle adresse admin (octobre 2026)** : les 3 policies
+   > `admin_select_inbox`, `admin_update_inbox` et `admin_delete_inbox` de
+   > `supabase/schema.sql` utilisent maintenant `issa.pfe@gmail.com`, et la
+   > connexion à la boîte `#boite-issa` se fait avec cette adresse. Si Supabase
+   > avait déjà été configuré avec l'ancienne adresse : (a) dans le SQL Editor,
+   > exécutez `drop policy "admin_select_inbox" on public.inbox;` (idem pour
+   > `admin_update_inbox` et `admin_delete_inbox`) puis les 3 `create policy`
+   > du fichier ; (b) dans **Authentication → Users**, créez l'utilisateur admin
+   > `issa.pfe@gmail.com` (ou changez l'email de l'ancien). Sans cela, la
+   > connexion admin réussit mais la liste des messages reste vide.
 3. **Ouvrez la boîte** : ajoutez `#boite-issa` à la fin de l'URL de votre site
    → `https://lamkharbechissa.github.io/#boite-issa`. Un panneau discret
    s'ouvre : connectez-vous avec votre email/mot de passe admin → vous voyez

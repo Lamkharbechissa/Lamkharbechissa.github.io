@@ -79,7 +79,7 @@ create trigger trg_touch_conversation
 --  messages — depuis la boîte de réception intégrée au site (voir js/admin.js)
 --  OU depuis le dashboard Supabase.
 --
---  ⚠️ Remplacez 'issa.alternance@gmail.com' par VOTRE email admin (le même que
+--  ⚠️ Remplacez 'issa.pfe@gmail.com' par VOTRE email admin (le même que
 --     vous utiliserez pour vous connecter à la boîte in-site).
 -- ============================================================================
 create table if not exists public.inbox (
@@ -101,11 +101,11 @@ create policy "anyone_insert_inbox" on public.inbox
 
 -- …mais SEUL l'admin (par email) peut LIRE, MARQUER LU et SUPPRIMER.
 create policy "admin_select_inbox" on public.inbox
-  for select using ((auth.jwt() ->> 'email') = 'issa.alternance@gmail.com');
+  for select using ((auth.jwt() ->> 'email') = 'issa.pfe@gmail.com');
 create policy "admin_update_inbox" on public.inbox
-  for update using ((auth.jwt() ->> 'email') = 'issa.alternance@gmail.com');
+  for update using ((auth.jwt() ->> 'email') = 'issa.pfe@gmail.com');
 create policy "admin_delete_inbox" on public.inbox
-  for delete using ((auth.jwt() ->> 'email') = 'issa.alternance@gmail.com');
+  for delete using ((auth.jwt() ->> 'email') = 'issa.pfe@gmail.com');
 
 -- ============================================================================
 --  CONSOLE ADMIN (vous)

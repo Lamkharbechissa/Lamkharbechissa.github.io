@@ -3,7 +3,8 @@
 window.JESUS_KB = {
   "meta": {
     "owner": "Issa Lamkharbech",
-    "generated_from": "Dossier 'Develop_website_with_chatbot' (CV, rapports de projets, rapports de stages, READMEs, code source)",
+    "generated_from": "Dossier My_Projects (CV, rapports, dossiers de projets, READMEs, code source) — mis à jour le 2026-10-15",
+    "updated": "2026-10-15",
     "languages": [
       "fr",
       "en"
@@ -12,46 +13,45 @@ window.JESUS_KB = {
   "profile": {
     "name": "Issa Lamkharbech",
     "title": {
-      "fr": "Élève ingénieur Arts et Métiers (ENSAM) — Intelligence Artificielle, IA Générative & LLMs, Robotique et Industrie 4.0",
-      "en": "Arts et Métiers (ENSAM) engineering student — Artificial Intelligence, Generative AI & LLMs, Robotics and Industry 4.0"
+      "fr": "Élève-ingénieur Arts et Métiers (Bac+5, grade de Master, dernière année) — à l'interface de l'IA, de l'ingénierie et du conseil",
+      "en": "Arts et Métiers engineering student (Bac+5, Master's level, final year) — at the interface of AI, engineering and consulting"
     },
     "objective": {
-      "fr": "Recherche une alternance d'un an en IA, Data Science et Industrie 4.0 à partir de septembre 2026.",
-      "en": "Looking for a one-year apprenticeship (alternance) in AI, Data Science and Industry 4.0 starting September 2026."
+      "fr": "Recherche un stage de fin d'études de six mois à partir de début février 2027 : stage Adoption de l'intelligence artificielle, à l'interface de l'IA, de l'ingénierie et du conseil.",
+      "en": "Looking for a six-month end-of-studies internship starting early February 2027: an artificial intelligence adoption internship, at the interface of AI, engineering and consulting."
+    },
+    "availability": {
+      "fr": "Stage de fin d'études de six mois à partir de début février 2027",
+      "en": "Six-month end-of-studies internship starting early February 2027"
     },
     "summary": {
-      "fr": "Élève ingénieur Arts et Métiers spécialisé en Intelligence Artificielle, robotique et systèmes industriels intelligents, avec une expertise opérationnelle en RAG pipelines, fine-tuning de modèles et agent-based workflows appliqués à l'ingénierie. Il a conçu, prototypé et déployé des solutions GenAI dans des contextes industriels complexes (Machine Learning appliqué, jumeaux numériques, systèmes temps réel), en collaborant avec des architectes et des équipes métiers pour identifier et concrétiser des cas d'usage à fort impact. Maîtrise de Python avancé (async, performance), expérience en data ingestion, preprocessing et evaluation pipelines. Passionné par la veille technologique et l'écosystème Mistral/LLM open-source.",
-      "en": "Arts et Métiers engineering student specialized in Artificial Intelligence, robotics and intelligent industrial systems, with hands-on expertise in RAG pipelines, model fine-tuning and agent-based workflows applied to engineering. He has designed, prototyped and deployed GenAI solutions in complex industrial contexts (applied Machine Learning, digital twins, real-time systems), collaborating with architects and business teams to identify and deliver high-impact use cases. Advanced Python proficiency (async, performance), experience in data ingestion, preprocessing and evaluation pipelines. Passionate about technology watch and the Mistral / open-source LLM ecosystem."
+      "fr": "Élève-ingénieur Arts et Métiers en dernière année (Bac+5), à l'interface de l'IA, de l'ingénierie et du conseil : double diplôme d'ingénieur en transformation numérique à Arts et Métiers (Aix-en-Provence, puis Paris) depuis 2025, en double diplôme avec le cycle ingénieur génie industriel et intelligence artificielle de l'ENSAM Meknès (depuis 2023). Du cadrage des besoins à la réalisation d'outils utilisables par des non-experts : modèles prédictifs, systèmes multi-agents et mesure de la valeur. Première expérience d'adoption quotidienne de l'IA chez Capgemini Engineering, où il a réalisé en autonomie un outil de substitution au calcul de structure, jusqu'à mille fois plus rapide que le calcul par éléments finis, utilisé au quotidien par des ingénieurs non experts. Avec AegisAI, sa plateforme multi-agents personnelle, il réunit bureau d'études et cabinet de conseil : les données techniques sont reliées aux recommandations, aux business cases et aux livrables, chaque chiffre garde sa source et le modèle de langage rédige sans jamais inventer un nombre. Ses compétences couvrent l'adoption et la valeur de l'IA (diagnostic de maturité, cas d'usage, business case, ROI), la data et l'IA (Python, SQL, scikit-learn, LLM, RAG, systèmes multi-agents) ainsi que le pilotage et la communication (KPI, tableaux de bord, Agile / Scrum, Lean Six Sigma). Curieux, rigoureux et doté d'un vrai esprit d'équipe, il est basé à Paris.",
+      "en": "Final-year Arts et Métiers engineering student (Bac+5, Master's level), at the interface of AI, engineering and consulting: double engineering degree in digital transformation at Arts et Métiers (Aix-en-Provence, then Paris) since 2025, as a double degree with the industrial engineering and artificial intelligence engineering cycle at ENSAM Meknès (since 2023). From scoping the needs to delivering tools that non-experts can use: predictive models, multi-agent systems and value measurement. First experience of daily AI adoption at Capgemini Engineering, where he autonomously built a surrogate tool for structural analysis, up to a thousand times faster than the finite-element computation, used daily by non-expert engineers. With AegisAI, his personal multi-agent platform, he brings an engineering office and a consulting firm together: technical data is linked to recommendations, business cases and deliverables, every figure keeps its source and the language model writes without ever inventing a number. His skills cover AI adoption and value (maturity assessment, use cases, business case, ROI), data and AI (Python, SQL, scikit-learn, LLMs, RAG, multi-agent systems) and steering and communication (KPIs, dashboards, Agile / Scrum, Lean Six Sigma). Curious, rigorous and a genuine team player, he is based in Paris."
     },
     "contact": {
-      "email": "issa.alternance@gmail.com",
+      "email": "issa.pfe@gmail.com",
       "phone": "0743670864",
       "location": {
-        "fr": "13100, Aix-en-Provence, France",
-        "en": "13100, Aix-en-Provence, France"
+        "fr": "Paris (75014), France",
+        "en": "Paris (75014), France"
+      },
+      "mobility": {
+        "fr": "Basé à Paris",
+        "en": "Based in Paris"
       },
       "linkedin": "https://www.linkedin.com/in/issa-lamkharbech-6a5ba6305/",
-      "github": "https://github.com/Lamkharbechissa"
+      "github": "https://github.com/Lamkharbechissa",
+      "website": "https://lamkharbechissa.github.io/"
     },
     "languages_spoken": [
-      {
-        "name": {
-          "fr": "Arabe",
-          "en": "Arabic"
-        },
-        "level": {
-          "fr": "Langue maternelle",
-          "en": "Native language"
-        }
-      },
       {
         "name": {
           "fr": "Français",
           "en": "French"
         },
         "level": {
-          "fr": "Niveau C1 (excellent)",
-          "en": "C1 level (excellent)"
+          "fr": "Niveau C1 (courant)",
+          "en": "C1 level (fluent)"
         }
       },
       {
@@ -66,8 +66,18 @@ window.JESUS_KB = {
       },
       {
         "name": {
-          "fr": "Espagnol",
-          "en": "Spanish"
+          "fr": "Arabe",
+          "en": "Arabic"
+        },
+        "level": {
+          "fr": "Langue maternelle",
+          "en": "Native language"
+        }
+      },
+      {
+        "name": {
+          "fr": "Allemand",
+          "en": "German"
         },
         "level": {
           "fr": "Niveau A1",
@@ -77,44 +87,56 @@ window.JESUS_KB = {
     ],
     "hobbies": {
       "fr": [
-        "Lecture (recherche en IA & LLMs)",
-        "Projets personnels GenAI"
+        "Football",
+        "Natation",
+        "Lecture (science & tech, IA & LLMs)",
+        "Projets personnels IA",
+        "Échecs",
+        "Voyages & cultures"
       ],
       "en": [
-        "Reading (AI & LLMs research)",
-        "Personal GenAI projects"
+        "Football",
+        "Swimming",
+        "Reading (science & tech, AI & LLMs)",
+        "Personal AI projects",
+        "Chess",
+        "Travel & cultures"
       ]
+    },
+    "positioning": {
+      "fr": "Adoption IA · Ingénierie · Conseil",
+      "en": "AI adoption · Engineering · Consulting"
     }
   },
   "education": [
     {
       "id": "ensam_aix",
       "degree": {
-        "fr": "Cycle d'ingénieur — Double diplôme",
-        "en": "Engineering cycle — Double degree"
+        "fr": "Double diplôme d'ingénieur, transformation numérique (grade de Master, Bac+5) — dernière année",
+        "en": "Double engineering degree, digital transformation (Master's level, Bac+5) — final year"
       },
       "school": {
-        "fr": "École Nationale Supérieure d'Arts et Métiers (ENSAM), Aix-en-Provence, France",
-        "en": "École Nationale Supérieure d'Arts et Métiers (ENSAM), Aix-en-Provence, France"
+        "fr": "Arts et Métiers (ENSAM), Aix-en-Provence, puis Paris, France",
+        "en": "Arts et Métiers (ENSAM), Aix-en-Provence, then Paris, France"
       },
       "period": {
-        "fr": "2025 – Aujourd'hui",
-        "en": "2025 – Present"
+        "fr": "2025 – en cours",
+        "en": "2025 – ongoing"
       }
     },
     {
       "id": "ensam_meknes_ing",
       "degree": {
-        "fr": "Cycle d'ingénieur (filière GIIA — Génie Informatique et Intelligence Artificielle)",
-        "en": "Engineering cycle (GIIA track — Computer Engineering and Artificial Intelligence)"
+        "fr": "Cycle ingénieur, génie industriel et intelligence artificielle (GIIA)",
+        "en": "Engineering cycle, industrial engineering and artificial intelligence (GIIA)"
       },
       "school": {
-        "fr": "ENSAM Meknès, Maroc",
-        "en": "ENSAM Meknès, Morocco"
+        "fr": "ENSAM Meknès (Université Moulay Ismaïl), Maroc",
+        "en": "ENSAM Meknès (Moulay Ismaïl University), Morocco"
       },
       "period": {
-        "fr": "2023 – Aujourd'hui",
-        "en": "2023 – Present"
+        "fr": "2023 – en cours",
+        "en": "2023 – ongoing"
       }
     },
     {
@@ -152,20 +174,20 @@ window.JESUS_KB = {
     {
       "id": "capgemini",
       "type": {
-        "fr": "Stage ingénieur (stage d'ingénieur AI)",
-        "en": "Engineering internship (AI engineer internship)"
+        "fr": "Stage ingénieur IA · Ingénierie automobile",
+        "en": "AI engineering internship · Automotive engineering"
       },
       "title": {
-        "fr": "Développement d'un agent IA GenAI pour la mécanique computationnelle",
-        "en": "Development of a GenAI AI agent for computational mechanics"
+        "fr": "Outil IA de substitution au calcul de structure de supports de fixation automobiles (éléments finis)",
+        "en": "AI surrogate tool for the structural analysis of automotive mounting brackets (finite elements)"
       },
       "company": {
         "fr": "Capgemini Engineering (entité MG2 Engineering), Casablanca, Maroc",
         "en": "Capgemini Engineering (MG2 Engineering entity), Casablanca, Morocco"
       },
       "company_details": {
-        "fr": "Capgemini Engineering est une filiale du groupe Capgemini (services d'ingénierie et R&D, ~16 milliards d'euros de chiffre d'affaires, plus de 52 000 ingénieurs dans plus de 30 pays). MG2 Engineering est sa filiale marocaine spécialisée en ingénierie automobile, intégrée après l'acquisition d'Altran.",
-        "en": "Capgemini Engineering is a subsidiary of the Capgemini Group (engineering and R&D services, ~€16 billion revenue, 52,000+ engineers in 30+ countries). MG2 Engineering is its Moroccan subsidiary specialized in automotive engineering, integrated after the Altran acquisition."
+        "fr": "Capgemini Engineering est la branche ingénierie et R&D du groupe Capgemini (~16 milliards d'euros de chiffre d'affaires en 2020, plus de 52 000 ingénieurs et scientifiques dans plus de 30 pays ; le groupe emploie près de 270 000 personnes). Selon la documentation du projet, l'entité marocaine de Capgemini Engineering, basée à Casanearshore (Sidi Maarouf, Casablanca), a été créée en 2014 et compte plus de 2 400 collaborateurs. MG2 Engineering est son entité d'ingénierie automobile (conception CAO, simulation, validation), intégrée après l'acquisition d'Altran.",
+        "en": "Capgemini Engineering is the engineering and R&D arm of the Capgemini Group (~€16 billion revenue in 2020, 52,000+ engineers and scientists in 30+ countries; the group employs nearly 270,000 people). According to the project documentation, Capgemini Engineering's Moroccan entity, based at Casanearshore (Sidi Maarouf, Casablanca), was founded in 2014 and has more than 2,400 employees. MG2 Engineering is its automotive engineering entity (CAD design, simulation, validation), integrated after the Altran acquisition."
       },
       "period": {
         "fr": "Juillet – Août 2025",
@@ -175,39 +197,74 @@ window.JESUS_KB = {
         "fr": "2 mois",
         "en": "2 months"
       },
+      "status": {
+        "key": "done",
+        "fr": "Terminé",
+        "en": "Completed"
+      },
+      "category": {
+        "key": "ml_dl",
+        "fr": "Machine Learning & Deep Learning",
+        "en": "Machine Learning & Deep Learning"
+      },
+      "role": {
+        "fr": "Réalisation autonome : conception et développement de toutes les briques, de la chaîne géométrie 3D au rapport automatique ; 6 objectifs chiffrés définis avec l'équipe.",
+        "en": "Autonomous delivery: design and development of every component, from the 3D geometry chain to the automatic report; 6 quantified objectives defined with the team."
+      },
       "description": {
-        "fr": "Conception et déploiement d'une plateforme intelligente dédiée à l'analyse mécanique basée sur la méthode des éléments finis (FEM), intégrant des techniques avancées d'intelligence artificielle et des modèles de Machine Learning pour prédire des déplacements et analyser les modes de défaillance des matériaux. Le système combine un réseau PointNet pour la compréhension de géométries 3D (nuages de points, jusqu'à 10 000 points), des modèles RandomForest pour la prédiction rapide des déplacements, une architecture RAG pipeline (retrieval, chunking, vectorisation) pour l'interrogation intelligente des bases de simulations numériques, et un assistant intelligent basé sur un LLM (Google Gemini) pour l'interprétation des résultats et la génération automatique de rapports. La plateforme web (Streamlit) a été validée sur des composants automobiles réels de la Peugeot 3008 (2024). Participation à des workshops techniques avec les équipes métiers pour la définition des cas d'usage et la présentation des démonstrations.",
-        "en": "Design and deployment of an intelligent platform dedicated to mechanical analysis based on the Finite Element Method (FEM), integrating advanced AI techniques and Machine Learning models to predict displacements and analyze material failure modes. The system combines a PointNet network for 3D geometry understanding (point clouds, up to 10,000 points), RandomForest models for fast displacement prediction, a RAG pipeline architecture (retrieval, chunking, vectorization) for intelligent querying of numerical simulation databases, and an LLM-based intelligent assistant (Google Gemini) for result interpretation and automated report generation. The web platform (Streamlit) was validated on real automotive components from the Peugeot 3008 (2024). Participated in technical workshops with business teams to define use cases and present demonstrations."
+        "fr": "Enjeu : accélérer le calcul de structure de supports de fixation automobiles chez MG2 Engineering. Chaque variante d'une pièce exigeait un maillage puis une simulation par éléments finis, ce qui limitait l'exploration à deux ou trois variantes et l'accès des non-experts au calcul. Issa a réalisé en autonomie un outil web de substitution au calcul (pré-dimensionnement), organisé en cinq couches (écran Streamlit et Plotly, application, intelligence, calcul, données) : le fichier STL d'une pièce (jusqu'à 200 Mo) est réparé et noté par Trimesh et PyMeshLab, résumé en 23 variables (géométrie, force, matériau, type d'appui), puis une forêt aléatoire de 200 arbres entraînée sur 25 000 simulations par éléments finis estime son déplacement en moins de 50 ms. Un garde-fou de domaine fondé sur la distance de Mahalanobis renvoie vers le calcul exact toute pièce trop éloignée du domaine appris ; un solveur éléments finis maison (tétraèdres, statique linéaire, Scikit-FEM et SciPy, vérifié sur des poutres analytiques) reste accessible en un clic, et une base de 35 matériaux donne un verdict (von Mises, Tresca, contrainte principale, coefficients de sécurité). Un assistant LLM branché sur Google Gemini, qui ne reçoit qu'un résumé texte et les chiffres, explique les résultats en langage clair et génère automatiquement un rapport en six rubriques exporté en PDF, HTML, CSV et JSON. Une fuite de données a été détectée puis corrigée par un découpage par pièce ; les réglages sont choisis par validation croisée à cinq plis et le score est mesuré sur un jeu de test tenu à l'écart (R² = 0,82 sur des pièces inédites, 12,3 % d'erreur rapportée). Sur les six objectifs chiffrés définis avec l'équipe, cinq ont été dépassés et le sixième tenu ; l'outil a été éprouvé sur des composants réels de la Peugeot 3008 et utilisé au quotidien pendant le stage par des ingénieurs non experts en calcul, qui peuvent explorer 30 variantes au lieu de 3. Le business case estime le retour sur investissement à 10 mois (estimation non mesurée : 20 ingénieurs gagnant 2 h par semaine). Il s'agit d'un prototype de pré-dimensionnement limité à la statique linéaire : pas de chaîne RAG, pas d'API exposée, pas de mise en production ; un réseau PointNet (PyTorch) a été entraîné pour lire la forme brute mais n'est pas branché sur la prédiction.",
+        "en": "Challenge: speeding up the structural analysis of automotive mounting brackets at MG2 Engineering. Every variant of a part required meshing and a finite-element simulation, which limited exploration to two or three variants and kept non-experts away from the computation. Issa autonomously built a web surrogate tool for the computation (pre-sizing), organised in five layers (Streamlit and Plotly screen, application, intelligence, computation, data): the part's STL file (up to 200 MB) is repaired and graded by Trimesh and PyMeshLab, summarised into 23 variables (geometry, force, material, support type), then a 200-tree random forest trained on 25,000 finite-element simulations estimates its displacement in under 50 ms. A domain guard based on the Mahalanobis distance sends any part too far from the learned domain back to the exact computation; an in-house finite-element solver (tetrahedra, linear statics, Scikit-FEM and SciPy, verified against analytical beams) stays one click away, and a 35-material database yields a verdict (von Mises, Tresca, principal stress, safety factors). An LLM assistant connected to Google Gemini, which only receives a text summary and the figures, explains the results in plain language and automatically generates a six-section report exported as PDF, HTML, CSV and JSON. A data leak was detected and fixed with a per-part split; settings are tuned by five-fold cross-validation and the score is measured on a held-out test set (R² = 0.82 on unseen parts, 12.3% reported error). Of the six quantified objectives defined with the team, five were exceeded and the sixth met; the tool was exercised on real Peugeot 3008 components and used daily during the internship by engineers who are not experts in structural analysis, who can explore 30 variants instead of 3. The business case estimates the return on investment at 10 months (an unmeasured estimate: 20 engineers saving 2 hours a week). It is a pre-sizing prototype limited to linear statics: no RAG chain, no exposed API, no production deployment; a PointNet network (PyTorch) was trained to read raw shapes but is not wired into the prediction."
+      },
+      "highlights": {
+        "fr": [
+          "Forêt aléatoire de 200 arbres entraînée sur 25 000 simulations : déplacement prédit en moins de 50 ms",
+          "Garde-fou de domaine (Mahalanobis) qui bascule automatiquement vers le calcul éléments finis exact",
+          "Solveur éléments finis maison et base de 35 matériaux avec verdict de tenue",
+          "Assistant Gemini qui explique les résultats et compile un rapport en six rubriques sans calculer un seul chiffre : tous les nombres viennent du code",
+          "30 variantes explorées au lieu de 3 ; usage quotidien par des ingénieurs non experts ; retour sur investissement estimé à 10 mois dans le business case (non mesuré)"
+        ],
+        "en": [
+          "200-tree random forest trained on 25,000 simulations: displacement predicted in under 50 ms",
+          "Domain guard (Mahalanobis) that automatically falls back to the exact finite-element computation",
+          "In-house finite-element solver and 35-material database with a strength verdict",
+          "Gemini assistant that explains results and compiles a six-section report without computing a single figure: every number comes from the code",
+          "30 variants explored instead of 3; daily use by non-expert engineers; return on investment estimated at 10 months in the business case (not measured)"
+        ]
       },
       "technologies": [
         "Python",
         "Streamlit",
-        "Deep Learning (PyTorch)",
-        "PointNet",
-        "RandomForest / Scikit-learn",
-        "RAG",
-        "LLMs (Google Gemini)",
-        "API REST",
-        "NumPy / SciPy",
+        "Plotly",
         "Trimesh / PyMeshLab",
-        "Plotly"
+        "scikit-learn (Random Forest)",
+        "Scikit-FEM / SciPy",
+        "NumPy",
+        "PyTorch (PointNet, non branché / not wired)",
+        "Google Gemini (assistant LLM / LLM assistant)",
+        "Joblib",
+        "Méthode des éléments finis / Finite Element Method",
+        "Distance de Mahalanobis / Mahalanobis distance"
       ],
       "metrics": {
         "fr": [
-          "Accélération du calcul ×1000 par rapport au FEM traditionnel",
-          "82% de précision (accuracy / R²) en prédiction de déplacements",
-          "Inférence < 50 ms",
-          "98% d'automatisation du maillage",
-          "Temps de réponse de l'interface < 1 seconde",
-          "Base de 35 matériaux automobiles"
+          "R² = 0,82 sur des pièces inédites (objectif 0,75)",
+          "Erreur rapportée de 12,3 % (erreur moyenne relative) ; 95 % des prédictions sous 35 % d'erreur",
+          "Prédiction < 50 ms ; jusqu'à ×1000 plus rapide qu'un calcul complet (×30 sur le cas de démonstration)",
+          "98 % de maillages générés automatiquement (objectif 95 %)",
+          "35 matériaux (objectif 20) ; écran sous la seconde (objectif 2 s)",
+          "25 000 simulations d'entraînement, 1 sur 10 contrôlée",
+          "6 objectifs chiffrés définis avec l'équipe : 5 dépassés, le 6e tenu",
+          "30 variantes explorées au lieu de 3 ; retour sur investissement estimé à 10 mois (business case, estimation non mesurée)"
         ],
         "en": [
-          "×1000 computation speed-up vs traditional FEM",
-          "82% accuracy (R²) in displacement prediction",
-          "Inference < 50 ms",
-          "98% mesh generation automation",
-          "UI response time < 1 second",
-          "Database of 35 automotive materials"
+          "R² = 0.82 on parts never seen in training (target 0.75)",
+          "Reported error of 12.3% (mean relative error); 95% of predictions under 35% error",
+          "Prediction < 50 ms; up to 1000x faster than a full computation (30x on the demo case)",
+          "98% of meshes generated automatically (target 95%)",
+          "35 materials (target 20); screen under one second (target 2 s)",
+          "25,000 training simulations, 1 in 10 checked",
+          "6 quantified objectives defined with the team: 5 exceeded, the 6th met",
+          "30 variants explored instead of 3; return on investment estimated at 10 months (business case, unmeasured estimate)"
         ]
       }
     },
@@ -222,12 +279,12 @@ window.JESUS_KB = {
         "en": "Assistance in construction management of the Anhydrous Hydrofluoric Acid (AHF) plant"
       },
       "company": {
-        "fr": "JESA S.A., site de Jorf Lasfar, El Jadida, Maroc",
-        "en": "JESA S.A., Jorf Lasfar site, El Jadida, Morocco"
+        "fr": "JESA S.A. (OCP / Worley), site de Jorf Lasfar, El Jadida, Maroc",
+        "en": "JESA S.A. (OCP / Worley), Jorf Lasfar site, El Jadida, Morocco"
       },
       "company_details": {
-        "fr": "JESA est une société anonyme d'ingénierie, construction et livraison de projets, créée en 2010, détenue par OCP et WORLEY. Siège à Casablanca (Sidi Maarouf), ~1 700 employés, bureaux au Maroc, aux États-Unis, en Côte d'Ivoire, en Éthiopie, au Bénin et au Sénégal. Capital social : 45 000 000 MAD ; chiffre d'affaires : 600 000 000 MAD.",
-        "en": "JESA is an engineering, construction and project delivery company (S.A.), founded in 2010, owned by OCP and WORLEY. Headquartered in Casablanca (Sidi Maarouf), ~1,700 employees, offices in Morocco, the USA, Ivory Coast, Ethiopia, Benin and Senegal. Share capital: 45,000,000 MAD; revenue: 600,000,000 MAD."
+        "fr": "JESA est une société anonyme d'ingénierie, construction et livraison de projets, créée en 2010, détenue par OCP et WORLEY. Siège à Casablanca (Zénith Millenium, Sidi Maarouf), ~1 700 employés, bureaux au Maroc, aux États-Unis, en Côte d'Ivoire, en Éthiopie, au Bénin et au Sénégal. Capital social : 45 000 000 MAD ; chiffre d'affaires : 600 000 000 MAD. Jalons : rachat de Team Maroc (2012), création de JESA Studio (2013), construction de la plus grande laverie de phosphate du monde (2016), bureaux de Cotonou (2018) et Dakar (2020).",
+        "en": "JESA is an engineering, construction and project delivery company (S.A.), founded in 2010, owned by OCP and WORLEY. Headquartered in Casablanca (Zénith Millenium, Sidi Maarouf), ~1,700 employees, offices in Morocco, the USA, Ivory Coast, Ethiopia, Benin and Senegal. Share capital: 45,000,000 MAD; revenue: 600,000,000 MAD. Milestones: acquisition of Team Maroc (2012), creation of JESA Studio (2013), construction of the world's largest phosphate washing plant (2016), offices in Cotonou (2018) and Dakar (2020)."
       },
       "period": {
         "fr": "Du 1er au 31 août 2024",
@@ -237,107 +294,485 @@ window.JESUS_KB = {
         "fr": "1 mois",
         "en": "1 month"
       },
+      "status": {
+        "key": "done",
+        "fr": "Terminé",
+        "en": "Completed"
+      },
+      "category": {
+        "key": "other",
+        "fr": "Gestion de projet industriel & HSE",
+        "en": "Industrial project management & HSE"
+      },
+      "role": {
+        "fr": "Stagiaire d'observation (élève ingénieur, ENSAM Meknès) : participation au suivi de 6 sous-traitants, à la préparation des rapports journaliers et hebdomadaires au client (avancement du chantier, écarts constatés) et aux visites HSE.",
+        "en": "Observation intern (engineering student, ENSAM Meknès): took part in monitoring 6 subcontractors, in preparing the daily and weekly reports to the client (site progress, observed deviations) and in the HSE visits."
+      },
       "description": {
-        "fr": "Assistance à la gestion de la construction de l'usine d'Acide Fluorhydrique Anhydre (projet AHF, clients INNOVX et FLUORALPHA) : contribution à la rédaction de rapports techniques (rapport journalier de construction, rapport hebdomadaire), suivi des sous-traitants (SOGEA, PHILEAS, GTR, SCIF, ASTRI, SMARTCOMPOSIT) et réalisation de Safety Walk-downs pour garantir la conformité HSE. Prise d'induction sécurité (port des EPI, consignes chantier), visites de chantier (zones de stockage SA/FSA, installation de filtration SiO2, piping), analyse de l'avancement du site, identification des non-conformités et mise en place d'actions correctives. Encadrement : chef de projet Hallaoui Achraf, parrain El Biyaali Haythame.",
-        "en": "Assisted in the construction management of the Anhydrous Hydrofluoric Acid plant (AHF project, clients INNOVX and FLUORALPHA): contributed to drafting technical reports (daily construction report, weekly report), monitored subcontractors (SOGEA, PHILEAS, GTR, SCIF, ASTRI, SMARTCOMPOSIT), and conducted Safety Walk-downs to ensure HSE compliance. Safety induction (PPE, site safety rules), site visits (SA/FSA storage areas, SiO2 filtration facility, piping), analysis of site progress, identification of non-conformities and implementation of corrective actions. This experience strengthened planning, communication and problem-solving abilities in an industrial environment. Supervision: project manager Hallaoui Achraf, mentor El Biyaali Haythame."
+        "fr": "Stage d'initiation d'un mois sur le chantier du projet AHF (usine d'acide fluorhydrique anhydre) à Jorf Lasfar, dont les clients sont INNOVX et FLUORALPHA et les contractants GTR, SOGEA, PHILEAS, SCIF, ASTRI et SMARTCOMPOSIT. Après une induction HSE le premier jour (port des EPI, interdiction du téléphone, zones d'engins, cheminements piétons, conduite en cas d'accident), Issa a visité les zones en construction — bâtiment administratif, stockages d'acide sulfurique (SA) et FSA, installation de filtration de SiO2, piping, zones du sous-traitant PHILEAS et entrepôt — en comparant l'état actuel aux vues finales. Il a suivi l'avancement du projet à travers les livrables de JESA : rapport journalier de construction transmis au client INNOVX (état du site, activités par zone, engins, effectifs, avancement), rapport hebdomadaire (suivi par zone, interventions HSE, indicateurs, plan d'actions correctives, réunions et audits) et Safety Walk-downs, inspections sécurité et qualité menées avec les équipes construction et HSE. Ces inspections ont mis en évidence des retards et des travaux mal exécutés chez certains sous-traitants, documentés dans des rapports de walk-down avec actions correctives à reprendre. Issa a ainsi participé au suivi de 6 sous-traitants, à la préparation des rapports journaliers et hebdomadaires au client (avancement du chantier et écarts constatés) et aux visites HSE (Safety Walk-downs), découvrant la coordination d'un grand projet industriel et développant des compétences en gestion de projet de construction, suivi des ressources, identification des non-conformités et communication en environnement industriel à fortes contraintes.",
+        "en": "One-month introductory internship on the construction site of the AHF project (anhydrous hydrofluoric acid plant) in Jorf Lasfar, whose clients are INNOVX and FLUORALPHA and whose contractors are GTR, SOGEA, PHILEAS, SCIF, ASTRI and SMARTCOMPOSIT. After an HSE induction on day one (PPE, no mobile phones, machinery zones, pedestrian paths, accident procedure), Issa visited the areas under construction — administration building, sulfuric acid (SA) and FSA storage areas, SiO2 filtration facility, piping, the PHILEAS subcontractor's areas and the warehouse — comparing the current state with the planned final views. He followed project progress through JESA's deliverables: the daily construction report sent to the client INNOVX (site status, activities by zone, equipment, headcount, progress), the weekly report (follow-up by zone, HSE interventions, indicators, corrective action plan, meetings and audits) and Safety Walk-downs, safety and quality inspections carried out with the construction and HSE teams. These inspections revealed delays and poorly executed work at some subcontractors, documented in walk-down reports with corrective actions to redo. Issa thus took part in monitoring 6 subcontractors, in preparing the daily and weekly reports to the client (site progress and observed deviations) and in the HSE visits (Safety Walk-downs), discovering how a large industrial project is coordinated and developing skills in construction project management, resource tracking, non-conformity identification and communication in a highly constrained industrial environment."
+      },
+      "highlights": {
+        "fr": [
+          "Suivi d'un chantier industriel réel (usine AHF) : participation au suivi de 6 sous-traitants",
+          "Participation à la préparation des rapports journaliers et hebdomadaires au client : avancement du chantier et écarts constatés",
+          "Participation aux visites HSE (Safety Walk-downs) avec les équipes construction et HSE",
+          "Découverte de la coordination d'un grand projet industriel"
+        ],
+        "en": [
+          "Follow-up of a real industrial construction site (AHF plant): took part in monitoring 6 subcontractors",
+          "Took part in preparing the daily and weekly reports to the client: site progress and observed deviations",
+          "Took part in the HSE visits (Safety Walk-downs) with the construction and HSE teams",
+          "Discovered how a large industrial project is coordinated"
+        ]
       },
       "technologies": [
-        "Back-office",
-        "Gestion de projet / Project management",
-        "HSE",
-        "Rapports techniques / Technical reporting"
+        "Gestion de projet de construction / Construction project management",
+        "HSE (induction, visites / visits, Safety Walk-down)",
+        "Reporting technique / Technical reporting",
+        "Suivi de sous-traitants / Subcontractor monitoring",
+        "Suivi des effectifs et ressources / Manpower and resource tracking"
       ],
       "metrics": {
         "fr": [
-          "Rapports journaliers et hebdomadaires transmis au client INNOVX",
-          "Safety Walk-downs hebdomadaires avec les équipes construction et HSE"
+          "1 mois sur site (1er – 31 août 2024)",
+          "Rapport journalier de construction transmis au client INNOVX ; rapport hebdomadaire de construction",
+          "Safety Walk-downs avec les équipes construction et HSE (2 clients, 6 sous-traitants suivis)"
         ],
         "en": [
-          "Daily and weekly reports delivered to client INNOVX",
-          "Weekly Safety Walk-downs with construction and HSE teams"
+          "1 month on site (August 1–31, 2024)",
+          "Daily construction report delivered to client INNOVX; weekly construction report",
+          "Safety Walk-downs with the construction and HSE teams (2 clients, 6 subcontractors monitored)"
         ]
       }
     }
   ],
   "projects": [
     {
-      "id": "drone",
+      "id": "aegisai",
       "name": {
-        "fr": "Drone bi-rotor — Banc d'essai et maintenance prédictive par IA",
-        "en": "Bi-rotor drone — Test bench and AI-based predictive maintenance"
+        "fr": "AegisAI — Autonomous Multi-Agent Platform for Industrial Engineering and AI Transformation Advisory",
+        "en": "AegisAI — Autonomous Multi-Agent Platform for Industrial Engineering and AI Transformation Advisory"
       },
       "context": {
-        "fr": "Projet académique (PJT) — ENSAM Aix-en-Provence",
-        "en": "Academic project (PJT) — ENSAM Aix-en-Provence"
+        "fr": "Projet personnel phare (ni mission cliente ni projet d'école)",
+        "en": "Flagship personal project (neither a client assignment nor a school project)"
       },
       "period": {
-        "fr": "Mars 2026 – En cours",
-        "en": "March 2026 – Ongoing"
+        "fr": "Février 2026 – en cours",
+        "en": "February 2026 – ongoing"
       },
       "duration": {
-        "fr": "Démarré en mars 2026, toujours en cours",
-        "en": "Started March 2026, still ongoing"
+        "fr": "Conception et développement de bout en bout depuis février 2026 ; en évolution continue",
+        "en": "End-to-end design and development since February 2026; still evolving"
       },
       "team_type": {
-        "fr": "Projet de groupe (6 étudiants)",
-        "en": "Group project (6 students)"
+        "fr": "Projet individuel",
+        "en": "Individual project"
       },
+      "team_size": 1,
       "in_cv": true,
-      "team": [
-        "Ayman Ben Daoud",
-        "Amine Machaar",
-        "Oumaima Echiguer",
-        "Karim El Mounla",
-        "Youssef Charmaqe",
-        "Issa Lamkharbech"
-      ],
-      "supervisors": [
-        "Philippe Véron",
-        "Valeria Croce"
-      ],
+      "status": {
+        "key": "ongoing",
+        "fr": "En cours",
+        "en": "Ongoing"
+      },
+      "category": {
+        "key": "genai_agents",
+        "fr": "IA générative & agents",
+        "en": "Generative AI & agents"
+      },
+      "role": {
+        "fr": "Porteur unique du projet, conception et développement de bout en bout : vision, cahier des charges, architecture, choix techniques, pilotage des tests et du benchmark, documentation et configuration de déploiement (Docker, CI) ; code développé avec Claude Code (assistant de programmation IA).",
+        "en": "Sole owner of the project, end-to-end design and development: vision, specification, architecture, technical choices, steering of the tests and benchmark, documentation and deployment configuration (Docker, CI); code developed with Claude Code (AI coding assistant)."
+      },
       "description": {
-        "fr": "Conception et réalisation d'un banc d'essai de drone bi-rotor instrumenté, avec un agent-based workflow intégrant un LLM pour la maintenance prédictive. Partie physique : montage des composants (2 moteurs brushless + ESC, 3 gyroscopes MPU6050, capteurs de courant ACS712, capteur ultrason HC-SR04), câblage avec batteries et carte Raspberry/Pico, tests dynamiques (diagnostic de panne moteur et remplacement d'ESC 40A, analyse d'asymétrie de poussée). Partie IA : data ingestion temps réel (Arduino, synchronisation à 10 Hz, scripts Node-RED), génération d'un dataset simulé de 21 classes (1 état normal + 20 défauts répartis en 7 catégories : moteurs/ESC, hélices, balancier & bras, glissière linéaire, capteurs, alimentation/batterie, structure mécanique), pipeline ML complet (EDA, prétraitement IQR, normalisation comparée Min-Max/Z-score, feature engineering physique et temporel, split 70/10/20) et entraînement de 4 modèles (Régression Logistique, Random Forest, Gradient Boosting, SVM). La Régression Logistique est privilégiée pour son faible overfitting. Déploiement d'une application web Streamlit (interfaces de test, d'amélioration continue et de contexte projet). Partie numérique : modification du CAO sous 3DEXPERIENCE.",
-        "en": "Design and construction of an instrumented bi-rotor drone test bench, with an agent-based workflow integrating an LLM for predictive maintenance. Physical part: component assembly (2 brushless motors + ESC, 3 MPU6050 gyroscopes, ACS712 current sensors, HC-SR04 ultrasonic sensor), wiring with batteries and Raspberry/Pico board, dynamic testing (motor failure diagnosis and 40A ESC replacement, thrust asymmetry analysis). AI part: real-time data ingestion (Arduino, 10 Hz synchronization, Node-RED scripts), generation of a simulated dataset with 21 classes (1 normal state + 20 faults in 7 categories: motors/ESC, propellers, balance arm, linear slide, sensors, power/battery, mechanical structure), a complete ML pipeline (EDA, IQR preprocessing, compared Min-Max/Z-score normalization, physical and temporal feature engineering, 70/10/20 split) and training of 4 models (Logistic Regression, Random Forest, Gradient Boosting, SVM). Logistic Regression is preferred for its low overfitting. Deployment of a Streamlit web application (test, continuous improvement and project context interfaces). Digital part: CAD modification in 3DEXPERIENCE."
+        "fr": "AegisAI est le projet personnel phare d'Issa. Sa finalité : réunir un bureau d'études et un cabinet de conseil dans une même plateforme, relier les données techniques aux recommandations, aux business cases et aux livrables, puis identifier les décisions à revoir lorsqu'une donnée change. C'est une plateforme multi-agents où les agents d'un bureau d'études et ceux d'un cabinet de conseil travaillent sur un même registre typé en ajout seul. Chaque écriture porte sa valeur, son unité, son auteur, ses sources et sa lignée (scellé HMAC-SHA256) ; chaque chiffre vient d'une formule vérifiée en unités, d'une page de document citée ou d'une personne, et le modèle de langage (Claude par API, modèle local via Ollama, ou simple gabarit) n'écrit que des mots, jamais un nombre. Quand un devis, une hypothèse ou une date réglementaire change, la propagation « Ripple » marque ce qui est périmé, ne recalcule que cela et nomme les diapositives à refaire ; les désaccords entre les deux métiers deviennent des tensions qu'une personne tranche. Une mission se déclare dans un fichier TOML (Engagement Definition Language) : la ferrure et le palier n'ont besoin d'aucune ligne de Python, l'étable garde dix calculs en Python ; trois missions d'exemple aux chiffres illustratifs sont livrées : une étable laitière de 200 vaches, une ferrure de cabine d'avion calculée par un solveur éléments finis (poutre Python ou CalculiX, via un registre de solveurs) et vérifiée par GNU Octave contre la formule analytique et un palier de pompe suivi par capteurs, CAO et base de production. La pratique conseil embarque six agents (maturité, cas d'usage, business case, gouvernance AI Act, feuille de route, conduite du changement) et une évaluation DAMA-DMBOK : diagnostic de maturité IA, 8 cas d'usage priorisés, feuille de route et prise en compte de l'AI Act, restitués en PowerPoint / PDF ; trois ponts (valeur, faisabilité, gouvernance) traduisent un métier pour l'autre en mode Intégré, et dix-sept agents IA, orchestrés autour d'un registre de chiffres sourcés, interviennent sur la mission étable. Le noyau (version 1.0.0) tourne sur la seule bibliothèque standard Python, hors ligne, avec des lecteurs PDF, DOCX, CSV et STEP écrits de zéro, une recherche BM25 fusionnée avec des embeddings locaux, une analyse de robustesse Monte-Carlo (2 000 tirages) et un moteur de conformité AI Act / RGPD ; des add-ons optionnels apportent LangGraph, FastAPI, PostgreSQL, python-pptx, reportlab et FAISS, un serveur MCP expose treize outils en lecture seule, et une application web bilingue FR/EN en React 19 / TypeScript (Fluent UI ; une première interface reprenait la structure de Power BI Desktop, et une refonte vers un nouveau tableau de bord est en cours) affiche chaque chiffre avec sa lignée. Le banc de fautes AegisBench et une commande « aegisai metrics » mesurent la plateforme et publient ses manques ; plus de 2 400 fonctions de test Python (4 184 cas collectés) tournent avec pytest, complétées par plus de 500 tests Vitest (508 au 14/10/2026) et 19 tests Playwright avec contrôle d'accessibilité. Limites assumées : aucun utilisateur en production, chiffres d'exemple, sécurité de démonstrateur (pas de TLS), un benchmark écrit par l'auteur lui-même ; la refonte de l'interface est en cours.",
+        "en": "AegisAI is Issa's flagship personal project. Its purpose: to bring an engineering office and a consulting firm together in one platform, link technical data to recommendations, business cases and deliverables, then identify the decisions to revisit when a piece of data changes. It is a multi-agent platform where the agents of an engineering office and those of a consulting firm work on one typed, append-only ledger. Every entry carries its value, unit, author, sources and lineage (HMAC-SHA256 seal); every figure comes from a unit-checked formula, a quoted document page or a person, and the language model (Claude via API, a local model via Ollama, or a plain template) only writes words, never a number. When a quote, an assumption or a regulatory date changes, the « Ripple » propagation marks what is stale, recomputes only that and names the slides to redo; disagreements between the two professions become tensions that a person settles. A mission is declared in a TOML file (Engagement Definition Language): the bracket and the bearing need no Python at all, the barn keeps ten Python calculations; three example missions with illustrative figures ship: a 200-cow dairy barn, an aircraft cabin bracket computed by a finite-element solver (Python beam or CalculiX, through a solver registry) and checked by GNU Octave against the closed form and a pump bearing monitored through sensors, CAD and a production database. The consulting practice embeds six agents (maturity, use cases, business case, AI Act governance, roadmap, change management) and a DAMA-DMBOK assessment: AI maturity diagnostic, 8 prioritised use cases, roadmap and AI Act compliance, delivered as PowerPoint / PDF; three bridges (value, feasibility, governance) translate one profession for the other in Integrated mode, and seventeen AI agents, orchestrated around a ledger of sourced figures, work on the barn mission. The kernel (version 1.0.0) runs on the Python standard library alone, offline, with PDF, DOCX, CSV and STEP readers written from scratch, BM25 search fused with local embeddings, Monte Carlo robustness analysis (2,000 draws) and an AI Act / GDPR compliance engine; optional add-ons bring LangGraph, FastAPI, PostgreSQL, python-pptx, reportlab and FAISS, an MCP server exposes thirteen read-only tools, and a bilingual FR/EN web app in React 19 / TypeScript (Fluent UI; a first interface followed the structure of Power BI Desktop, and a redesign into a new dashboard is in progress) shows every figure with its lineage. The AegisBench fault-injection bench and an « aegisai metrics » command measure the platform and publish its misses; more than 2,400 Python test functions (4,184 collected cases) run with pytest, complemented by more than 500 Vitest tests (508 as of 14 Oct 2026) and 19 Playwright tests with accessibility checks. Acknowledged limits: no production user, illustrative figures, demonstrator-grade security (no TLS), a benchmark written by the author himself; the interface redesign is in progress."
+      },
+      "highlights": {
+        "fr": [
+          "Registre typé en ajout seul : chaque chiffre connaît sa source, son unité et sa lignée ; le LLM rédige sans jamais écrire un nombre",
+          "Propagation « Ripple » : un fait change, seules les écritures dépendantes sont recalculées et les diapositives périmées sont nommées",
+          "Banc d'évaluation AegisBench : 10 erreurs sur 11 détectées (90,9 %) en mode Intégré, contre 6/11 en mode séquentiel (+36,4 points)",
+          "Diagnostic de maturité IA, 8 cas d'usage priorisés, feuille de route et AI Act, restitués en PowerPoint / PDF",
+          "Noyau Python sans dépendance, add-ons LangGraph / FastAPI / PostgreSQL / FAISS, serveur MCP, front-end React 19 bilingue",
+          "Plus de 4 000 tests, 19 tests Playwright avec axe, métriques mesurées et publiées"
+        ],
+        "en": [
+          "Typed append-only ledger: every figure knows its source, unit and lineage; the LLM writes without ever producing a number",
+          "« Ripple » propagation: when a fact changes, only dependent entries are recomputed and stale slides are named",
+          "AegisBench evaluation bench: 10 of 11 errors detected (90.9%) in Integrated mode, versus 6/11 in sequential mode (+36.4 points)",
+          "AI maturity diagnostic, 8 prioritised use cases, roadmap and AI Act, delivered as PowerPoint / PDF",
+          "Dependency-free Python kernel, LangGraph / FastAPI / PostgreSQL / FAISS add-ons, MCP server, bilingual React 19 front end",
+          "More than 4,000 test cases, 19 Playwright tests with axe, measured and published metrics"
+        ]
       },
       "technologies": [
-        "Python",
-        "Machine Learning (Scikit-learn)",
-        "LLMs / Agent workflow",
-        "Arduino",
-        "Raspberry Pi Pico",
-        "Node-RED",
-        "Streamlit",
-        "3DEXPERIENCE",
-        "Capteurs embarqués / Embedded sensors"
+        "Python 3.11+ (bibliothèque standard / standard library)",
+        "LangGraph",
+        "Claude API",
+        "Ollama (LLM local / local LLM)",
+        "MCP (Model Context Protocol)",
+        "pytest",
+        "TOML (Engagement Definition Language)",
+        "JSONL / SQLite / PostgreSQL 17",
+        "HMAC-SHA256",
+        "BM25 + embeddings (Ollama nomic-embed-text, FAISS)",
+        "FastAPI",
+        "python-pptx / reportlab (PowerPoint / PDF)",
+        "Monte-Carlo",
+        "AI Act / RGPD / GDPR / DAMA-DMBOK",
+        "CalculiX / GNU Octave / éléments finis / FEM",
+        "React 19 / TypeScript / Vite",
+        "Fluent UI",
+        "Vitest / Playwright / axe-core",
+        "Docker / GitHub Actions (configuration écrite, non exécutée / written, not run)"
       ],
       "metrics": {
         "fr": [
-          "Accuracy : 92,17%",
-          "F1-score : 90%",
-          "Recall : 89%",
-          "F1-score pondéré : 92%",
-          "21 classes de défauts",
-          "Meilleure classe : vibration (recall jusqu'à 0,98)"
+          "Détection d'erreurs (AegisBench, étable) : 10 sur 11 (90,9 %) en mode Intégré contre 6/11 en mode séquentiel (+36,4 points) et 4 par métier seul ; 11 sur 11 sur la ferrure de cabine",
+          "Tests : plus de 4 000 (4 181 réussis sur 4 184 collectés le 14/10/2026, 0 échec) ; plus de 2 400 fonctions de test Python, plus de 500 tests Vitest (508 au 14/10/2026), 19 tests Playwright",
+          "Traçabilité : 36 citations sur 36 vérifiées ; 52 affirmations chiffrées traçables sur 23 diapositives (0 chiffre non traçable)",
+          "Rapidité : du brief au diaporama exporté en 0,44 s par gabarit, sans appel au modèle ; impact d'un changement sur 10 000 entrées en 98,8 ms ; recherche sur 42 pages de 14 documents en 0,55 ms par question",
+          "Robustesse : critère de retour sur un an tenu dans 90,1 % de 2 000 tirages ; point de bascule à 116,4 €/vache/an",
+          "Recherche : précision@3 de 85 % (BM25) et 95 % (hybride) ; écart du solveur CalculiX à une formule analytique : 1,8 %",
+          "Guide : 71/71 questions hors sujet refusées, 39/40 résultats expliqués ; 883 clés d'interface traduites FR/EN",
+          "17 agents IA ; 115 commits du 26/09/2026 au 14/10/2026, un seul auteur humain, code développé avec Claude Code"
         ],
         "en": [
-          "Accuracy: 92.17%",
-          "F1-score: 90%",
-          "Recall: 89%",
-          "Weighted F1-score: 92%",
-          "21 fault classes",
-          "Best class: vibration (recall up to 0.98)"
+          "Error detection (AegisBench, barn): 10 of 11 (90.9%) in Integrated mode vs 6/11 in sequential mode (+36.4 points) and 4 per profession alone; 11 of 11 on the cabin bracket",
+          "Tests: more than 4,000 (4,181 passed of 4,184 collected on 14 Oct 2026, 0 failed); more than 2,400 Python test functions, more than 500 Vitest tests (508 as of 14 Oct 2026), 19 Playwright tests",
+          "Traceability: 36 of 36 citations verified; 52 traceable quantified claims on 23 slides (0 untraceable figures)",
+          "Speed: brief to exported deck in 0.44 s per template, with no model call; impact of a change over 10,000 entries in 98.8 ms; search over 42 pages of 14 documents in 0.55 ms per question",
+          "Robustness: one-year payback criterion holds in 90.1% of 2,000 draws; tipping point at €116.4 per cow per year",
+          "Search: precision@3 of 85% (BM25) and 95% (hybrid); CalculiX solver deviation from an analytical formula: 1.8%",
+          "Guide: 71/71 off-topic questions refused, 39/40 results explained; 883 UI keys translated FR/EN",
+          "17 AI agents; 115 commits from 26 Sept to 14 Oct 2026, one human author, code developed with Claude Code"
         ]
-      }
+      },
+      "links": [],
+      "image": ""
+    },
+    {
+      "id": "ai_act",
+      "name": {
+        "fr": "AI Act Compliance Assistant — conformité AI Act / RGPD calculée et citée",
+        "en": "AI Act Compliance Assistant — computed and cited AI Act / GDPR compliance"
+      },
+      "context": {
+        "fr": "Projet personnel de gouvernance IA, relié à AegisAI (sans client ni juriste)",
+        "en": "Personal AI-governance project, linked to AegisAI (no client, no lawyer)"
+      },
+      "period": {
+        "fr": "Septembre – Octobre 2026 (moteur de conformité intégré à AegisAI en septembre ; version 1.0.0 développée du 5 au 13 octobre 2026)",
+        "en": "September – October 2026 (compliance engine integrated into AegisAI in September; version 1.0.0 built from 5 to 13 October 2026)"
+      },
+      "duration": {
+        "fr": "Environ 1 mois (fiche projet du 11/09/2026, v1.0.0 livrée le 13/10/2026)",
+        "en": "About 1 month (project brief dated 11 Sept 2026, v1.0.0 delivered on 13 Oct 2026)"
+      },
+      "team_type": {
+        "fr": "Projet individuel",
+        "en": "Individual project"
+      },
+      "team_size": 1,
+      "in_cv": true,
+      "status": {
+        "key": "done",
+        "fr": "Terminé (v1.0.0)",
+        "en": "Completed (v1.0.0)"
+      },
+      "category": {
+        "key": "genai_agents",
+        "fr": "IA générative & agents",
+        "en": "Generative AI & agents"
+      },
+      "role": {
+        "fr": "Seul développeur, avec un assistant de programmation IA : modèle juridique, moteur de règles, extraction de faits, recherche hybride, API REST, serveur MCP, CLI, interface Streamlit, exports, journal d'audit, benchmark et tests.",
+        "en": "Sole developer, working with an AI coding assistant: legal model, rules engine, fact extraction, hybrid retrieval, REST API, MCP server, CLI, Streamlit UI, exports, audit ledger, benchmark and tests."
+      },
+      "description": {
+        "fr": "L'AI Act Compliance Assistant transforme la conformité au règlement européen sur l'IA (règlement (UE) 2024/1689, tel qu'amendé par l'omnibus de juillet 2026) et au RGPD en un calcul vérifiable. L'utilisateur décrit son système d'IA en français ou en anglais ; l'outil le classe dans le bon niveau de risque (interdit, haut risque, limité, minimal, régime des modèles à usage général), génère la liste d'obligations propre à son rôle (fournisseur, déployeur, importateur, distributeur) avec les échéances, signale les points RGPD (21 contrôles et les 9 critères d'analyse d'impact de l'EDPB) et cite la disposition exacte derrière chaque conclusion. Contrairement à un chatbot RAG classique, la décision juridique est prise par un moteur de règles déterministe à logique trivaluée (vrai, faux, inconnu) qui produit un arbre de preuve cité ; le modèle de langage (Claude, ou un mode entièrement hors ligne) ne sert qu'à extraire les faits et à rédiger une prose vérifiée phrase par phrase. Le corpus officiel EUR-Lex est découpé en 2 440 unités adressables reliées par 3 030 renvois ; des questions de clarification classées par valeur d'information font passer les évaluations entièrement correctes de 13 % à 68 % en trois tours, et des chemins de conformité contrefactuels proposent les plus petits changements de conception qui abaissent le risque. Un relecteur humain valide le brief avant qu'il devienne un brief signé (empreinte SHA-256, journal d'audit chaîné) ; exports en PDF, PPTX, Markdown, JSON, documentation Annexe IV, squelettes d'AIPD et de FRIA. Le projet expose une API REST (FastAPI), un serveur MCP, une CLI, une interface Streamlit, un Dockerfile et un workflow CI (GitHub Actions), et sa qualité est mesurée sur 84 scénarios de référence, 16 attaques par injection et 724 tests, après une revue adversariale par trois agents de relecture IA (13 constats corrigés). Un moteur de conformité déterministe allégé (quatorze dispositions citées, quatre règles, onze contrôles, 113 tests) vit aussi dans la plateforme AegisAI : en rejouant l'omnibus de juillet 2026 (échéance haut risque repoussée du 2 août 2026 au 2 décembre 2027), sans changer une ligne de code, une initiative d'exemple passe de 456 jours de retard à 31 jours de marge. Il s'agit d'une aide à la décision, jamais d'un avis juridique : aucun juriste n'a relu les sorties et les versions françaises des textes ne sont pas encore indexées.",
+        "en": "The AI Act Compliance Assistant turns compliance with the EU AI Act (Regulation (EU) 2024/1689, as amended by the July 2026 omnibus) and the GDPR into a verifiable computation. The user describes an AI system in French or English; the tool classifies it into the correct risk tier (prohibited, high-risk, limited, minimal, general-purpose model regime), generates the obligation checklist for the user's role (provider, deployer, importer, distributor) with deadlines, flags GDPR issues (21 checks and the 9 EDPB impact-assessment criteria) and cites the exact provision behind every conclusion. Unlike a typical RAG chatbot, the legal decision is computed by a deterministic three-valued rules engine (true, false, unknown) that produces a cited proof tree; the language model (Claude, or a fully offline mode) only extracts facts and writes prose verified sentence by sentence. The official EUR-Lex corpus is parsed into 2,440 addressable units linked by 3,030 cross-references; clarifying questions ranked by value of information lift fully correct assessments from 13% to 68% in three rounds, and counterfactual compliance paths propose the smallest design changes that lower the risk. A human reviewer validates the brief before it becomes a signed brief (SHA-256 hash, hash-chained audit ledger); exports to PDF, PPTX, Markdown, JSON, Annex IV documentation, DPIA and FRIA skeletons. The project ships a REST API (FastAPI), an MCP server, a CLI, a Streamlit UI, a Dockerfile and a CI workflow (GitHub Actions), and its quality is measured on 84 gold reference scenarios, 16 injection attacks and 724 tests, after an adversarial review by three AI review agents (13 findings fixed). A lighter deterministic compliance engine (fourteen cited provisions, four rules, eleven controls, 113 tests) also lives inside the AegisAI platform: replaying the July 2026 omnibus (high-risk deadline pushed from 2 August 2026 to 2 December 2027), without changing a line of code, a sample initiative goes from 456 days late to a 31-day margin. It is decision support, never legal advice: no lawyer has reviewed the outputs and the French versions of the texts are not indexed yet."
+      },
+      "highlights": {
+        "fr": [
+          "Moteur de règles déterministe à logique trivaluée : mêmes faits, même classe de risque, avec arbre de preuve cité mot pour mot",
+          "Corpus EUR-Lex de 2 440 unités et 3 030 renvois ; 90 obligations par rôle avec dates, actions et preuves",
+          "Questions de clarification par valeur d'information : de 13 % à 68 % d'évaluations entièrement correctes en trois tours",
+          "Garde-fous anti-injection : 100 % de détection et 0 faux positif sur 16 attaques ; brief validé par un humain et journal d'audit chaîné",
+          "Moteur allégé intégré à AegisAI : rejeu de l'amendement de juillet 2026 sans changer une ligne de code"
+        ],
+        "en": [
+          "Deterministic three-valued rules engine: same facts, same risk tier, with a verbatim cited proof tree",
+          "EUR-Lex corpus of 2,440 units and 3,030 cross-references; 90 role-aware obligations with dates, actions and evidence",
+          "Value-of-information clarifying questions: from 13% to 68% fully correct assessments in three rounds",
+          "Prompt-injection guardrails: 100% detection and 0 false positives on 16 attacks; human-validated brief and hash-chained audit ledger",
+          "Lighter engine integrated into AegisAI: replay of the July 2026 amendment without changing a line of code"
+        ]
+      },
+      "technologies": [
+        "Python 3.10+",
+        "Pydantic",
+        "Moteur de règles à logique trivaluée (Kleene) / three-valued rules engine",
+        "Okapi BM25 + LSA (scikit-learn) + Reciprocal Rank Fusion",
+        "BeautifulSoup / lxml (parseur / parser EUR-Lex)",
+        "PyYAML",
+        "Anthropic SDK (Claude)",
+        "Ollama (optionnel / optional)",
+        "FastAPI + Uvicorn",
+        "MCP (Model Context Protocol)",
+        "Typer (CLI)",
+        "Streamlit + Plotly",
+        "ReportLab / python-pptx",
+        "SQLite",
+        "Journal d'audit SHA-256 / hash-chained audit ledger",
+        "pytest (724 tests)",
+        "Docker / GitHub Actions (configuration)",
+        "AI Act (Règl. (UE) / Reg. (EU) 2024/1689) / RGPD / GDPR"
+      ],
+      "metrics": {
+        "fr": [
+          "Mode moteur (faits connus) : 100 % de classes de risque correctes et 100 % d'évaluations entièrement correctes sur 84 scénarios",
+          "Mode description seule : 54,8 % de classes correctes / 13,1 % entièrement correctes ; mode interactif (≈ 5 réponses) : 86,9 % / 67,9 %",
+          "Équipe rouge (16 attaques) : 100 % d'injections détectées, 100 % de stabilité de la classe, 0 % de faux positifs",
+          "Validité des citations : 100 % des dispositions citées résolues vers le texte officiel",
+          "Corpus : 2 440 unités, 3 030 renvois ; 90 obligations ; 21 contrôles RGPD + 9 critères AIPD",
+          "724 tests pytest ; 13 constats consolidés de revue adversariale corrigés (1 critique, 5 élevés, 6 moyens, 1 faible)",
+          "Moteur intégré à AegisAI : 14 dispositions, 4 règles, 11 contrôles, 113 tests ; échéance relue du 2 août 2026 au 2 décembre 2027 (456 jours de retard → 31 jours de marge)",
+          "Livrables d'exemple : brief PDF de 49 pages et deck de 10 diapositives"
+        ],
+        "en": [
+          "Engine mode (known facts): 100% correct risk tiers and 100% fully correct assessments on 84 scenarios",
+          "Description-only mode: 54.8% correct tiers / 13.1% fully correct; interactive mode (≈ 5 answers): 86.9% / 67.9%",
+          "Red team (16 attacks): 100% injection detection, 100% tier stability, 0% false positives",
+          "Citation validity: 100% of cited provisions resolve to the official text",
+          "Corpus: 2,440 units, 3,030 cross-references; 90 obligations; 21 GDPR checks + 9 DPIA criteria",
+          "724 pytest tests; 13 consolidated adversarial-review findings fixed (1 critical, 5 high, 6 medium, 1 low)",
+          "Engine integrated into AegisAI: 14 provisions, 4 rules, 11 controls, 113 tests; deadline re-read from 2 Aug 2026 to 2 Dec 2027 (456 days late → 31-day margin)",
+          "Sample deliverables: 49-page PDF brief and 10-slide deck"
+        ]
+      },
+      "links": [
+        {
+          "label": "Corpus AI Act (EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689"
+        },
+        {
+          "label": "Corpus RGPD / GDPR (EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679"
+        }
+      ],
+      "image": "img/projects/ai_act-decision-path.png"
+    },
+    {
+      "id": "portfolio_ia",
+      "name": {
+        "fr": "Portfolio bilingue — assistant IA documentaire pour les recruteurs (« ISSA » : moteur à règles + chaîne RAG)",
+        "en": "Bilingual portfolio — document-based AI assistant for recruiters (« ISSA »: rules engine + RAG chain)"
+      },
+      "context": {
+        "fr": "Projet personnel — site statique sur GitHub Pages et IA conversationnelle",
+        "en": "Personal project — static site on GitHub Pages and conversational AI"
+      },
+      "period": {
+        "fr": "Mai – juillet 2026 ; en ligne depuis juillet 2026",
+        "en": "May – July 2026; online since July 2026"
+      },
+      "duration": {
+        "fr": "Conçu et développé de mai à juillet 2026, mis en ligne en juillet 2026, évolutions en cours",
+        "en": "Designed and developed from May to July 2026, put online in July 2026, improvements ongoing"
+      },
+      "team_type": {
+        "fr": "Projet individuel",
+        "en": "Individual project"
+      },
+      "team_size": 1,
+      "in_cv": true,
+      "status": {
+        "key": "ongoing",
+        "fr": "En ligne, en évolution",
+        "en": "Online, evolving"
+      },
+      "category": {
+        "key": "genai_agents",
+        "fr": "IA générative & agents",
+        "en": "Generative AI & agents"
+      },
+      "live_url": "https://lamkharbechissa.github.io/",
+      "live_label": "lamkharbechissa.github.io",
+      "role": {
+        "fr": "Conception et développement autonomes, de bout en bout : base de connaissances, site animé, filtre, moteur à règles, recherche BM25, chaîne LLM, relais Cloudflare Worker.",
+        "en": "Autonomous end-to-end design and development: knowledge base, animated site, filter, rules engine, BM25 search, LLM chain, Cloudflare Worker relay."
+      },
+      "description": {
+        "fr": "Portfolio web statique, animé et bilingue (FR/EN) d'Issa, conçu de mai à juillet 2026 et en ligne sur GitHub Pages depuis juillet 2026 : il présente de façon interactive son parcours et ses réalisations et embarque « ISSA », un assistant documentaire qui répond aux questions des recruteurs à partir des seuls documents du portfolio. La page et l'assistant lisent la même base de connaissances JSON bilingue (une seule source de vérité, exportée en kb.js), découpée en passages, un par unité de sens. Sur le site public, c'est un moteur à règles qui répond instantanément dans le navigateur, sans modèle de langage : normalisation du texte, détection de la langue, reconnaissance d'entités (stages, projets, rubriques du profil, plus de 270 alias) et d'intentions (durée, équipe, technologies…), réponses composées à partir des champs de la base ; par construction, il ne peut rien inventer. Avant tout moteur, y compris sur le site public, un filtre hors-sujet à six motifs refuse les demandes de tâche. La chaîne RAG complète est écrite et s'active dès qu'un relais est configuré : recherche BM25 (k1 = 1,5, b = 0,75) avec bonus d'entité sur les passages, puis rédaction par Llama 3.3 70B servi par Groq en streaming, avec une minuterie de 15 secondes et un repli automatique sur le moteur à règles ; la clé d'API est cachée dans un relais serverless Cloudflare Worker de 135 lignes, écrit mais non branché sur le site public. L'historique est conservé dans le navigateur (localStorage) ; un résumé de chaque visite, conversation comprise, est envoyé à Issa par FormSubmit, de même que le formulaire de contact. Une persistance PostgreSQL Supabase avec Row Level Security et une console d'administration sont disponibles en option dans le code, non activées sur le site public. Sécurité : HTTPS forcé, Content-Security-Policy stricte, anti-clickjacking, neutralisation des caractères spéciaux ; référencement par données structurées JSON-LD, sitemap et robots.txt. Coût d'infrastructure : zéro euro. Les tests internes sont présentés honnêtement : sur dix questions de contrôle écrites par l'auteur, la source pertinente est retrouvée dans les trois premiers résultats 10 fois sur 10 et arrive en tête 7 fois sur 10 (mesure en Python) ; le filtre bloque les 10 demandes de tâche testées mais refuse à tort 11 questions légitimes sur 23 ; la fidélité du modèle, la disponibilité et l'usage n'ont pas été mesurés et une mention RGPD pour le visiteur reste à ajouter. Le site est un démonstrateur en ligne, pas une production ; la mise à jour d'octobre 2026 de la base ajoute AegisAI et l'AI Act Compliance Assistant.",
+        "en": "Issa's static, animated, bilingual (FR/EN) web portfolio, designed from May to July 2026 and online on GitHub Pages since July 2026: it presents his background and achievements interactively and embeds « ISSA », a document-based assistant that answers recruiters' questions from the portfolio's own documents only. The page and the assistant read the same bilingual JSON knowledge base (a single source of truth, exported to kb.js), split into passages, one per unit of meaning. On the public site a rules engine answers instantly in the browser, without any language model: text normalisation, language detection, recognition of entities (internships, projects, profile sections, over 270 aliases) and intents (duration, team, technologies…), answers composed from the base's fields; by construction it cannot invent anything. Before any engine, including on the public site, a six-pattern off-topic filter refuses task requests. The full RAG chain is written and activates as soon as a relay is configured: BM25 search (k1 = 1.5, b = 0.75) with an entity bonus over the passages, then generation by Llama 3.3 70B served by Groq in streaming, with a 15-second timer and automatic fallback to the rules engine; the API key is hidden in a 135-line serverless Cloudflare Worker relay, written but not wired on the public site. History is kept in the browser (localStorage); a summary of each visit, conversation included, is sent to Issa through FormSubmit, as is the contact form. Supabase PostgreSQL persistence with Row Level Security and an admin console are available as options in the code, not enabled on the public site. Security: forced HTTPS, strict Content-Security-Policy, anti-clickjacking, neutralised special characters; SEO through JSON-LD structured data, sitemap and robots.txt. Infrastructure cost: zero euros. Internal tests are reported honestly: on ten control questions written by the author, the relevant source is found in the top three results 10 times out of 10 and ranks first 7 times out of 10 (measured in Python); the filter blocks all 10 tested task requests but wrongly refuses 11 legitimate questions out of 23; model faithfulness, availability and usage were not measured and a GDPR notice for visitors remains to be added. The site is an online demonstrator, not a production system; the October 2026 update of the base adds AegisAI and the AI Act Compliance Assistant."
+      },
+      "how_built": {
+        "fr": "Comment le site a été construit, étape par étape : (1) Une seule source de vérité — tout le parcours d'Issa (profil, stages, projets, compétences, formation, contact) est écrit une fois en JSON bilingue (knowledge_base.json), puis exporté en kb.js pour le site ET l'assistant. (2) Le site est 100 % statique : HTML pour la structure (index.html), CSS pour le design et les animations (style.css), JavaScript pur, sans framework ni compilation, pour générer chaque section depuis la base et gérer le bilingue FR/EN (main.js). (3) L'assistant a deux moteurs : un moteur à règles instantané dans le navigateur (jesus.js : normalisation du texte, détection de langue, reconnaissance d'entités et d'intentions, réponses composées depuis la base, incapable d'inventer) et une chaîne RAG (rag.js) qui découpe la base en passages, les classe avec BM25 et un bonus d'entité, puis interroge Llama 3.3 70B via Groq en streaming avec repli automatique sur le moteur à règles après 15 s ou en cas d'erreur ; sur le site public, le relais n'étant pas configuré, c'est le moteur à règles qui répond. (4) L'interface de chat (bouton flottant + fenêtre) est injectée dans la page par JavaScript. (5) L'historique est conservé dans le navigateur (localStorage) ; un résumé de chaque visite, conversation comprise, part vers la boîte d'Issa par FormSubmit ; une base PostgreSQL Supabase avec Row Level Security et une console d'administration sont disponibles en option dans le code, non activées sur le site public. (6) La sécurité est posée en premier : HTTPS forcé, Content-Security-Policy stricte, anti-clickjacking, filtre hors-sujet, neutralisation des caractères spéciaux ; la clé API n'est jamais dans la page mais dans un relais Cloudflare Worker. (7) Le référencement est intégré : titre et méta, données structurées JSON-LD de type Person, sitemap et robots.txt. (8) Le site est publié gratuitement sur GitHub Pages ; chaque mise à jour consiste à modifier la base, réexporter kb.js et pousser le code, le site et l'assistant se mettant à jour ensemble.",
+        "en": "How the site was built, step by step: (1) A single source of truth — Issa's whole background (profile, internships, projects, skills, education, contact) is written once in bilingual JSON (knowledge_base.json), then exported to kb.js for BOTH the site and the assistant. (2) The site is 100% static: HTML for structure (index.html), CSS for design and animations (style.css), pure JavaScript with no framework or build step to generate each section from the base and handle FR/EN (main.js). (3) The assistant has two engines: an instant rules engine in the browser (jesus.js: text normalisation, language detection, entity and intent recognition, answers composed from the base, unable to invent) and a RAG chain (rag.js) that splits the base into passages, ranks them with BM25 plus an entity bonus, then queries Llama 3.3 70B via Groq in streaming with automatic fallback to the rules engine after 15 s or on error; on the public site, since the relay is not configured, the rules engine answers. (4) The chat interface (floating button + window) is injected into the page by JavaScript. (5) History is kept in the browser (localStorage); a summary of each visit, conversation included, goes to Issa's mailbox through FormSubmit; a Supabase PostgreSQL database with Row Level Security and an admin console are available as options in the code, not enabled on the public site. (6) Security comes first: forced HTTPS, strict Content-Security-Policy, anti-clickjacking, off-topic filter, neutralised special characters; the API key is never in the page but in a Cloudflare Worker relay. (7) SEO is built in: title and meta, JSON-LD Person structured data, sitemap and robots.txt. (8) The site is published for free on GitHub Pages; each update means editing the base, re-exporting kb.js and pushing the code, with the site and the assistant updating together."
+      },
+      "highlights": {
+        "fr": [
+          "Une seule base JSON bilingue alimente la page et l'assistant ; passages découpés par unité de sens",
+          "Moteur à règles dans le navigateur (entités, intentions, alias) : réponses instantanées qui ne peuvent rien inventer",
+          "Filtre hors-sujet actif avant tout moteur ; chaîne RAG complète écrite (BM25 + bonus d'entité, Llama 3.3 70B via Groq, repli après 15 s), relais Cloudflare Worker écrit, pas encore branché",
+          "Coût d'infrastructure zéro, HTTPS et CSP stricte, SEO JSON-LD",
+          "Évaluation : source pertinente dans les 3 premiers résultats pour 10 questions de contrôle sur 10 (en tête 7/10) ; filtre 10/10 sur les demandes de tâche mais 11 refus à tort sur 23"
+        ],
+        "en": [
+          "A single bilingual JSON base feeds both the page and the assistant; passages split by unit of meaning",
+          "In-browser rules engine (entities, intents, aliases): instant answers that cannot invent anything",
+          "Off-topic filter active before any engine; full RAG chain written (BM25 + entity bonus, Llama 3.3 70B via Groq, fallback after 15 s), Cloudflare Worker relay written, not yet wired",
+          "Zero infrastructure cost, HTTPS and strict CSP, JSON-LD SEO",
+          "Evaluation: relevant source in the top 3 results for 10 out of 10 control questions (first 7/10); filter 10/10 on task requests but 11 wrong refusals out of 23"
+        ]
+      },
+      "technologies": [
+        "JavaScript (vanilla)",
+        "HTML / CSS (site animé / animated site)",
+        "JSON (base de connaissances bilingue / bilingual knowledge base)",
+        "Moteur à règles (entités, intentions) / Rules engine (entities, intents)",
+        "RAG / BM25",
+        "LLM Llama 3.3 70B via Groq",
+        "Cloudflare Workers",
+        "GitHub Pages",
+        "localStorage",
+        "Content-Security-Policy",
+        "SEO (JSON-LD)",
+        "Supabase / PostgreSQL (option)",
+        "Python (export et tests / export and tests)"
+      ],
+      "metrics": {
+        "fr": [
+          "Coût d'infrastructure : 0 €",
+          "Recherche documentaire : source pertinente dans les 3 premiers résultats pour 10 questions de contrôle sur 10 ; en tête 7/10 (5/10 sans bonus d'entité) — questions écrites par l'auteur, mesure en Python",
+          "Filtre hors-sujet : 10/10 demandes de tâche bloquées ; 11/23 questions légitimes refusées à tort",
+          "Repli automatique sur le moteur à règles après 15 s ; relais Cloudflare Worker de 135 lignes",
+          "Bilingue FR/EN ; conçu de mai à juillet 2026, en ligne depuis juillet 2026"
+        ],
+        "en": [
+          "Infrastructure cost: €0",
+          "Document retrieval: relevant source in the top 3 results for 10 out of 10 control questions; first 7/10 (5/10 without entity bonus) — author-written questions, measured in Python",
+          "Off-topic filter: 10/10 task requests blocked; 11/23 legitimate questions wrongly refused",
+          "Automatic fallback to the rules engine after 15 s; 135-line Cloudflare Worker relay",
+          "Bilingual FR/EN; designed from May to July 2026, online since July 2026"
+        ]
+      },
+      "links": [
+        {
+          "label": "Site en ligne / Live site",
+          "url": "https://lamkharbechissa.github.io/"
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "drone",
+      "name": {
+        "fr": "Maintenance prédictive — diagnostic d'un banc d'essai de drone (DroneSense AI)",
+        "en": "Predictive maintenance — diagnosis of a drone test bench (DroneSense AI)"
+      },
+      "context": {
+        "fr": "Projet académique en équipe de 5 — Arts et Métiers, campus d'Aix-en-Provence (PJT 2026)",
+        "en": "Academic team project (5 students) — Arts et Métiers, Aix-en-Provence campus (PJT 2026)"
+      },
+      "period": {
+        "fr": "Mars – juin 2026",
+        "en": "March – June 2026"
+      },
+      "duration": {
+        "fr": "4 mois",
+        "en": "4 months"
+      },
+      "team_type": {
+        "fr": "Projet de groupe (5 étudiants)",
+        "en": "Group project (5 students)"
+      },
+      "team_size": 5,
+      "in_cv": true,
+      "status": {
+        "key": "done",
+        "fr": "Terminé",
+        "en": "Completed"
+      },
+      "category": {
+        "key": "ml_dl",
+        "fr": "Machine Learning & Deep Learning",
+        "en": "Machine Learning & Deep Learning"
+      },
+      "role": {
+        "fr": "Prise en charge de l'ensemble du volet IA par Issa : préparation des données (générateur de données simulées), construction de 141 indicateurs, entraînement d'une forêt aléatoire et des autres modèles comparés, évaluation du diagnostic et association des prédictions à des recommandations de maintenance (console Streamlit « DroneSense AI ») ; banc monté, câblé et testé en équipe.",
+        "en": "Issa took charge of the whole AI part: data preparation (simulated-data generator), construction of 141 features, training of a random forest and of the other compared models, evaluation of the diagnosis and mapping of predictions to maintenance recommendations (« DroneSense AI » Streamlit console); bench assembled, wired and tested as a team."
+      },
+      "description": {
+        "fr": "Projet PJT 2026 d'Arts et Métiers (campus d'Aix-en-Provence) mené par cinq étudiants de mars à juin 2026 et présenté devant un jury : conception et réalisation d'un banc d'essai instrumenté de drone bi-rotor et d'un diagnostic de défauts par IA qui aide l'opérateur à décider de continuer, surveiller, intervenir ou arrêter le banc d'essai. Partie physique, réalisée en équipe : montage de deux moteurs brushless avec leurs variateurs, de capteurs de courant ACS712, de trois centrales inertielles MPU6050 et d'un capteur ultrason HC-SR04 (monté sur un support conçu pour lui), câblage des batteries et de la commande PWM sur Raspberry Pi Pico ; les essais ont diagnostiqué un variateur défectueux (remplacé par un modèle 40 A), constaté un déséquilibre de vitesse entre les deux moteurs (85 % contre 65 % du régime pour la même commande de 1 200 µs) et constaté que le banc ne décollait pas même à pleine commande. Acquisition : la télémétrie (douze signaux) part en MQTT vers Node-RED, qui l'affiche et la stocke dans une base MySQL, avec une page web de télémétrie en direct ; des données réelles ont été relevées le 13 mai 2026 (relevé présenté en soutenance). Partie IA « DroneSense AI », entièrement prise en charge par Issa, pour identifier les anomalies à partir de 12 signaux capteurs et reconnaître 21 états : faute de panne réelle enregistrée, un générateur a produit 12 000 lignes simulées couvrant 21 classes (état normal et vingt défauts en sept familles : moteurs et variateurs, hélices, balancier et bras, glissière, capteurs, alimentation, structure), avec trois cibles jointes — type de défaut, localisation parmi onze emplacements et sévérité. Le pipeline scikit-learn calcule 141 indicateurs sur une fenêtre glissante de dix mesures (30 retenus par forêt aléatoire dans le pipeline retravaillé), puis compare quatre modèles (régression logistique, forêt aléatoire, gradient boosting, SVM) ; une console Streamlit à trois pages (Diagnostic, Moteur de diagnostic, Aide) fait voter un lot de mesures et traduit le verdict en consigne pour le technicien (poursuivre, surveiller, intervenir, arrêter). Résultats défendus devant le jury : 92,17 % d'exactitude en validation pour la régression logistique et la forêt aléatoire (F1 macro 0,90), la régression logistique étant recommandée pour son faible surapprentissage (93,57 % à l'entraînement contre 100 % pour la forêt). Une version retravaillée du pipeline (fichiers datés de juin 2026) atteint environ 98,6 % en test avec le gradient boosting, sans aucune fausse alarme sur les 300 mesures saines de son jeu de test, mais en déclarant normales 22 mesures de défaut sur 1 500 (dont 17 de coupure d'alimentation) ; dans ce pipeline, la régression logistique pèse 19 Ko contre 62 Mo pour la forêt (argument d'embarquabilité, jamais mesuré sur une carte). Les deux scores sont optimistes, car les fenêtres glissantes sont calculées avant un découpage aléatoire. Limites assumées : la méthode est réelle mais les données sont simulées, et il s'agit d'un diagnostic de défaut présent, non d'une prédiction de durée de vie. La partie numérique a modifié la CAO des supports de capteurs ; un guide d'utilisation et une note d'améliorations (base temps réel, calibration, SHAP, MLflow) ont été rédigés en LaTeX.",
+        "en": "Arts et Métiers PJT 2026 project (Aix-en-Provence campus) carried out by five students from March to June 2026 and defended before a jury: design and construction of an instrumented bi-rotor drone test bench and of an AI fault diagnosis that helps the operator decide to continue, monitor, intervene or stop the test bench. Physical part, done as a team: mounting of two brushless motors with their ESCs, ACS712 current sensors, three MPU6050 inertial units and an HC-SR04 ultrasonic sensor (on a bracket designed for it), wiring of the batteries and of the PWM control on a Raspberry Pi Pico; the tests diagnosed a faulty ESC (replaced by a 40 A unit), observed a speed imbalance between the two motors (85% vs 65% RPM for the same 1,200 µs command) and found that the bench did not lift off even at full command. Acquisition: the telemetry (twelve signals) goes over MQTT to Node-RED, which displays it and stores it in a MySQL database, with a live telemetry web page; real data was recorded on 13 May 2026 (log shown at the defence). AI part « DroneSense AI », entirely handled by Issa, to identify anomalies from 12 sensor signals and recognise 21 states: with no real fault recorded, a generator produced 12,000 simulated rows covering 21 classes (normal state plus twenty faults in seven families: motors and ESCs, propellers, balance arm, slide, sensors, power supply, structure), with three joint targets — fault type, location among eleven positions and severity. The scikit-learn pipeline computes 141 features over a sliding window of ten measurements (30 kept by random forest in the reworked pipeline), then compares four models (logistic regression, random forest, gradient boosting, SVM); a three-page Streamlit console (Diagnosis, Diagnosis engine, Help) lets a batch of measurements vote and turns the verdict into an instruction for the technician (continue, monitor, intervene, stop). Results defended before the jury: 92.17% validation accuracy for logistic regression and random forest (macro F1 0.90), logistic regression being recommended for its low overfitting (93.57% in training vs 100% for the forest). A reworked version of the pipeline (files dated June 2026) reaches about 98.6% on test with gradient boosting, with no false alarm on the 300 healthy measurements of its test split, but 22 fault measurements out of 1,500 declared normal (17 of them from the power cut); in that pipeline the logistic regression weighs 19 KB vs 62 MB for the forest (an embedding argument, never measured on a board). Both scores are optimistic, since the sliding windows are computed before a random split. Acknowledged limits: the method is real but the data is simulated, and this is a diagnosis of a present fault, not a remaining-life prediction. The digital part modified the CAD of the sensor brackets; a user guide and an improvement note (real-time database, calibration, SHAP, MLflow) were written in LaTeX."
+      },
+      "highlights": {
+        "fr": [
+          "Banc bi-rotor instrumenté (2 moteurs, capteurs de courant, 3 IMU, ultrason) piloté par Raspberry Pi Pico, télémétrie MQTT → Node-RED → MySQL",
+          "21 classes de défauts, 3 cibles jointes (type, localisation, sévérité), 12 000 lignes simulées",
+          "141 indicateurs sur fenêtre glissante (30 retenus dans le pipeline retravaillé), forêt aléatoire et 3 autres modèles comparés ; 92,17 % d'exactitude en validation",
+          "Console Streamlit « DroneSense AI » : vote sur un lot et recommandation au technicien (continuer, surveiller, intervenir, arrêter) ; aucune fausse alarme sur 300 mesures saines",
+          "Limites dites : données simulées, diagnostic et non prédiction, fuite de données identifiée"
+        ],
+        "en": [
+          "Instrumented bi-rotor bench (2 motors, current sensors, 3 IMUs, ultrasonic) driven by a Raspberry Pi Pico, MQTT → Node-RED → MySQL telemetry",
+          "21 fault classes, 3 joint targets (type, location, severity), 12,000 simulated rows",
+          "141 sliding-window features (30 kept in the reworked pipeline), random forest and 3 other models compared; 92.17% validation accuracy",
+          "« DroneSense AI » Streamlit console: batch vote and recommendation to the technician (continue, monitor, intervene, stop); no false alarm on 300 healthy measurements",
+          "Stated limits: simulated data, diagnosis not prediction, identified data leakage"
+        ]
+      },
+      "technologies": [
+        "Python",
+        "scikit-learn (forêt aléatoire / random forest)",
+        "pandas / NumPy",
+        "Streamlit",
+        "Plotly",
+        "Raspberry Pi Pico (PWM)",
+        "MQTT / Node-RED",
+        "MySQL",
+        "Capteurs / sensors ACS712 / MPU6050 / HC-SR04",
+        "Moteurs brushless + ESC / brushless motors + ESCs",
+        "CAO des supports capteurs / sensor-bracket CAD",
+        "LaTeX"
+      ],
+      "metrics": {
+        "fr": [
+          "Exactitude en validation : 92,17 % (régression logistique et forêt aléatoire), F1 macro 0,90 ; gradient boosting 92,00 %, SVM 91,50 % (optimiste : fuite de données)",
+          "Version retravaillée, jeu de test : 0 fausse alerte sur 300 mesures saines ; 22 mesures de défaut sur 1 500 déclarées normales (17 de coupure d'alimentation)",
+          "Régression logistique recommandée : 93,57 % à l'entraînement vs 100 % pour la forêt (surapprentissage) ; pipeline retravaillé : 19 Ko vs 62 Mo",
+          "21 classes, 12 signaux, 3 cibles, 11 localisations ; 12 000 lignes simulées (2 000 normales + 20 × 500)",
+          "141 indicateurs → 30 retenus (forêt aléatoire de 250 arbres, pipeline retravaillé)",
+          "Pipeline retravaillé (fichiers datés de juin 2026) : gradient boosting 98,56 % en test — chiffre optimiste (fuite de données)",
+          "Essais : déséquilibre de régime 85 % vs 65 % (RPM) à 1 200 µs ; pas de décollage à 2 000 µs"
+        ],
+        "en": [
+          "Validation accuracy: 92.17% (logistic regression and random forest), macro F1 0.90; gradient boosting 92.00%, SVM 91.50% (optimistic: data leakage)",
+          "Reworked version, test split: 0 false alarms on 300 healthy measurements; 22 fault measurements out of 1,500 declared normal (17 from power cut)",
+          "Logistic regression recommended: 93.57% in training vs 100% for the forest (overfitting); reworked pipeline: 19 KB vs 62 MB",
+          "21 classes, 12 signals, 3 targets, 11 locations; 12,000 simulated rows (2,000 normal + 20 × 500)",
+          "141 features → 30 kept (250-tree random forest, reworked pipeline)",
+          "Reworked pipeline (files dated June 2026): gradient boosting 98.56% on test — optimistic figure (data leakage)",
+          "Tests: speed imbalance 85% vs 65% RPM at 1,200 µs; no lift-off at 2,000 µs"
+        ]
+      },
+      "links": [],
+      "image": ""
     },
     {
       "id": "mir100",
       "name": {
-        "fr": "Jumeau numérique pour l'optimisation logistique d'un AGV MiR100",
-        "en": "Digital twin for logistics optimization of a MiR100 AGV"
+        "fr": "Jumeau décisionnel d'un robot mobile industriel MiR100 (ordonnancement des livraisons par QR code et API REST)",
+        "en": "Decision twin of a MiR100 industrial mobile robot (delivery scheduling via QR codes and REST API)"
       },
       "context": {
-        "fr": "Projet académique (PJT) — ENSAM Aix-en-Provence, usine pédagogique",
-        "en": "Academic project (PJT) — ENSAM Aix-en-Provence, teaching factory"
+        "fr": "Projet académique PJT — Arts et Métiers, campus d'Aix-en-Provence, usine-école (année 2025-2026)",
+        "en": "Academic project PJT — Arts et Métiers, Aix-en-Provence campus, teaching factory (2025-2026)"
       },
       "period": {
         "fr": "Septembre – Décembre 2025",
@@ -351,56 +786,83 @@ window.JESUS_KB = {
         "fr": "Projet de groupe (5 étudiants)",
         "en": "Group project (5 students)"
       },
+      "team_size": 5,
       "in_cv": true,
-      "team": [
-        "Mehdi Bahir",
-        "Youssef Akbib Bukraba",
-        "Issa Lamkharbech",
-        "Haitam Azzal",
-        "Youssef Charmaqe"
-      ],
-      "supervisors": [
-        "Lionel Roucoules",
-        "Esma Yahia"
-      ],
+      "status": {
+        "key": "done",
+        "fr": "Terminé",
+        "en": "Completed"
+      },
+      "category": {
+        "key": "robotics_twins",
+        "fr": "Robotique & jumeaux numériques",
+        "en": "Robotics & digital twins"
+      },
+      "role": {
+        "fr": "Travail d'équipe sur un seul programme et un seul robot ; Issa maîtrise et défend le code ligne par ligne, la création des missions sur le robot et les programmes du bras.",
+        "en": "Team work on a single program and a single robot; Issa knows and defends the code line by line, the mission creation on the robot and the arm programs."
+      },
       "description": {
-        "fr": "Conception et mise en œuvre d'un jumeau numérique d'un robot mobile autonome (AGV) MiR100 assurant l'approvisionnement logistique de 4 postes de production depuis un stock central, dans une usine pédagogique. Architecture Python modulaire : gestion des demandes, modélisation de l'usine, calcul de priorités, communication avec le robot via son API REST (Basic Auth base64, requêtes GET/POST vers /status et /mission_queue), et interaction opérateur par scan de QR codes (scannette USB, format POSTE_1|PIECE|NIVEAU_STOCK, écoute dans un thread parallèle). Algorithme de priorisation multi-critères : Priority = ωu·U + ωa·A − ωd·D (urgence liée au stock, temps d'attente, distance), avec 3 modes de pondération — Flux tendu (0,7/0,2/0,1), Économie d'énergie (0,2/0,2/0,6), Anti-blocage (0,3/0,5/0,2). Exécution des missions avec bras cobot UR (programmes pick and place programmés par l'équipe). Le jumeau numérique agit comme système décisionnel central connecté au robot réel.",
-        "en": "Design and implementation of a digital twin of a MiR100 autonomous mobile robot (AGV) handling logistics supply for 4 production stations from a central storage in a teaching factory. Modular Python architecture: request management, factory modeling, priority computation, robot communication via its REST API (base64 Basic Auth, GET/POST requests to /status and /mission_queue), and operator interaction via QR code scanning (USB scanner, POSTE_1|PART|STOCK_LEVEL format, listening in a parallel thread). Multi-criteria prioritization algorithm: Priority = ωu·U + ωa·A − ωd·D (stock-based urgency, waiting time, distance), with 3 weighting modes — Just-in-time (0.7/0.2/0.1), Energy saving (0.2/0.2/0.6), Anti-blocking (0.3/0.5/0.2). Mission execution with a UR cobot arm (pick and place programs written by the team). The digital twin acts as the central decision-making system connected to the real robot."
+        "fr": "Projet PJT d'Arts et Métiers (campus d'Aix-en-Provence, année 2025-2026) mené par cinq étudiants de septembre à décembre 2025 dans l'usine-école : concevoir le « cerveau de décision » d'un robot mobile autonome MiR100 équipé d'un bras Universal Robots, chargé d'approvisionner quatre postes de production depuis un stock central. Avant le projet, une personne surveillait les voyants Andon (rouge, jaune, vert) de chaque poste et lançait chaque mission à la main dans l'interface web du robot ; aucune logique d'optimisation n'existait. Désormais, chaque QR code scanné par une scannette USB (format POSTE | PIÈCE | NIVEAU_STOCK) devient une demande horodatée ; toutes les deux secondes, si le robot est « Ready », les demandes sont notées selon l'urgence déclarée, le temps d'attente et la distance robot → stock → poste, triées, et la mission du poste en tête est déposée dans la file du robot via son API REST (v2.0.0, GET /status, POST /mission_queue, authentification Basic) — le code 201 confirme l'acceptation. Les missions elles-mêmes (« Move to » à 10 cm près, « Run UR program » pour la prise et la dépose avec la pince RG Grip) sont préparées dans l'interface MiR et sur la tablette du bras. Le programme Python tient en 223 lignes, cinq classes (Demande, Usine, optimiseur, client API et gestionnaire logistique, qui tient la liste des demandes et déroule le cycle de décision) et deux fils d'exécution, l'écoute du scanner étant un jeu de fonctions tournant dans un fil séparé ; l'analyse (bête à cornes, diagrammes de cas d'utilisation, de séquence et de classes) et la conception sont documentées dans un rapport de 18 pages et une soutenance de 32 diapositives. La formule conçue normalise chaque critère entre 0 et 1 avec trois jeux de poids correspondant à trois politiques logistiques — flux tendu, économie d'énergie, anti-blocage — dont le choix revient au responsable de production ; le code livré garde des valeurs brutes et des poids fixes (0,3 / 0,2 / 0,5 dans la version du rapport ; poids d'attente nul dans le fichier conservé), la formule normalisée restant à coder. Il n'y a pas d'IA entraînée : une règle de décision multicritère lisible, choisie faute d'historique. Résultat : le jumeau décisionnel fonctionne connecté au robot réel, qui a accepté la mission (HTTP 201) ; aucun gain chiffré n'est documenté dans les livrables du projet (ni protocole, ni journal, ni tableau de résultats). Limites et suites identifiées : pondération simple, pas d'optimisation de tournées (VRP), pas de visualisation graphique, mission échouée non suivie, liste des demandes en mémoire seulement.",
+        "en": "Arts et Métiers PJT project (Aix-en-Provence campus, 2025-2026) carried out by five students from September to December 2025 in the teaching factory: designing the « decision brain » of a MiR100 autonomous mobile robot fitted with a Universal Robots arm, in charge of supplying four production stations from a central stock. Before the project, a person watched the Andon lights (red, yellow, green) of each station and launched every mission by hand in the robot's web interface; no optimisation logic existed. Now every QR code scanned with a USB scanner (STATION | PART | STOCK_LEVEL format) becomes a time-stamped request; every two seconds, if the robot is « Ready », requests are scored on declared urgency, waiting time and the robot → stock → station distance, sorted, and the top station's mission is posted to the robot's queue through its REST API (v2.0.0, GET /status, POST /mission_queue, Basic authentication) — code 201 confirms acceptance. The missions themselves (« Move to » within 10 cm, « Run UR program » for pick and place with the RG Grip gripper) are prepared in the MiR interface and on the arm's tablet. The Python program is 223 lines, five classes (Request, Factory, optimiser, API client and logistics manager, which holds the request list and runs the decision cycle) and two threads, the scanner listener being a set of functions running in a separate thread; the analysis (needs diagram, use-case, sequence and class diagrams) and the design are documented in an 18-page report and a 32-slide defence. The designed formula normalises each criterion between 0 and 1 with three weight sets matching three logistics policies — just-in-time, energy saving, anti-blocking (congestion avoidance) — whose choice belongs to the production manager; the delivered code keeps raw values and fixed weights (0.3 / 0.2 / 0.5 in the report version; zero waiting weight in the file kept), the normalised formula still to be coded. There is no trained AI: a readable multi-criteria decision rule, chosen for lack of history. Outcome: the decision twin works connected to the real robot, which accepted the mission (HTTP 201); no quantified gain is documented in the project deliverables (no protocol, log or results table). Identified limits and next steps: simple weighting, no vehicle-routing optimisation (VRP), no graphical visualisation, failed mission not tracked, request list in memory only."
+      },
+      "highlights": {
+        "fr": [
+          "Du voyant Andon surveillé à l'œil à une demande scannée et notée automatiquement",
+          "Boucle de décision de 2 s : score urgence / attente / distance, tri, mission envoyée au robot réel par API REST (HTTP 201)",
+          "Missions MiR (Move to, Run UR program) et programmes du bras Universal Robots préparés sur le robot",
+          "Trois politiques logistiques conçues (flux tendu, économie d'énergie, anti-blocage) ; règle lisible, pas de modèle appris",
+          "Résultat honnête : chaîne fonctionnelle sur le robot réel, aucun gain chiffré documenté dans les livrables"
+        ],
+        "en": [
+          "From an Andon light watched by eye to a scanned request scored automatically",
+          "2-second decision loop: urgency / waiting / distance score, sort, mission sent to the real robot via REST API (HTTP 201)",
+          "MiR missions (Move to, Run UR program) and Universal Robots arm programs prepared on the robot",
+          "Three logistics policies designed (just-in-time, energy saving, anti-blocking (congestion avoidance)); readable rule, no learned model",
+          "Honest outcome: working chain on the real robot, no quantified gain documented in the deliverables"
+        ]
       },
       "technologies": [
         "Python",
-        "API REST (requests)",
-        "Robotique industrielle (MiR100 + bras UR)",
+        "requests (API REST / REST API MiR v2.0.0)",
+        "Authentification Basic / Basic auth",
         "Threading",
-        "QR codes / scannette USB",
-        "Systèmes cyber-physiques"
+        "Robot mobile autonome MiR100 / MiR100 autonomous mobile robot",
+        "Bras Universal Robots (URCaps RG Grip) / Universal Robots arm (RG Grip URCap)",
+        "Scannette USB, QR codes / USB scanner, QR codes",
+        "Voyants Andon / Andon lights",
+        "UML (cas d'utilisation, séquences, classes / use-case, sequence, class)",
+        "Règle de priorisation multicritère / multi-criteria scoring rule",
+        "Systèmes cyber-physiques, Industrie 4.0 / Cyber-physical systems, Industry 4.0"
       ],
       "metrics": {
         "fr": [
-          "Précision de classification des priorités : ~88%",
-          "Détection des demandes urgentes : ~90%",
-          "Temps de calcul de décision : < 10 ms",
-          "Réduction des déplacements inutiles : 25–35%",
-          "Amélioration du temps de réponse logistique : 20–30%"
+          "Aucun gain chiffré documenté dans les livrables : résultat observable = mission acceptée par le robot réel (HTTP 201) après scan",
+          "4 postes de production + 1 stock central ; cycle de décision toutes les 2 s si le robot est « Ready »",
+          "223 lignes de Python, 5 classes, 2 fils d'exécution",
+          "3 jeux de poids conçus (flux tendu 0,7/0,2/0,1 ; économie d'énergie 0,2/0,2/0,6 ; anti-blocage 0,3/0,5/0,2) — conception, non codée",
+          "Rapport de 18 pages et soutenance de 32 diapositives"
         ],
         "en": [
-          "Priority classification precision: ~88%",
-          "Urgent request detection: ~90%",
-          "Decision computation time: < 10 ms",
-          "Reduction of unnecessary trips: 25–35%",
-          "Logistics response time improvement: 20–30%"
+          "No quantified gain documented in the deliverables: observable result = mission accepted by the real robot (HTTP 201) after a scan",
+          "4 production stations + 1 central stock; decision cycle every 2 s when the robot is « Ready »",
+          "223 lines of Python, 5 classes, 2 threads",
+          "3 designed weight sets (just-in-time 0.7/0.2/0.1; energy saving 0.2/0.2/0.6; anti-blocking 0.3/0.5/0.2) — design only, not coded",
+          "18-page report and 32-slide defence"
         ]
-      }
+      },
+      "links": [],
+      "image": ""
     },
     {
       "id": "salle_connectee",
       "name": {
-        "fr": "Jumeau numérique intelligent d'une salle connectée (IoT + AI)",
-        "en": "Intelligent digital twin of a connected classroom (IoT + AI)"
+        "fr": "Jumeau numérique IoT d'une salle informatique connectée (ESP32 + Laravel + React)",
+        "en": "IoT digital twin of a connected computer classroom (ESP32 + Laravel + React)"
       },
       "context": {
-        "fr": "Projet Industrie 4.0 — salle GI-IADS, ENSAM Meknès",
-        "en": "Industry 4.0 project — GI-IADS classroom, ENSAM Meknès"
+        "fr": "Projet du module Industrie 4.0 — salle GI-IADS, ENSAM Meknès",
+        "en": "Industry 4.0 module project — GI-IADS classroom, ENSAM Meknès"
       },
       "period": {
         "fr": "Mai – Juin 2025",
@@ -411,68 +873,90 @@ window.JESUS_KB = {
         "en": "2 months"
       },
       "team_type": {
-        "fr": "Projet de groupe (8 étudiants)",
-        "en": "Group project (8 students)"
+        "fr": "Projet de groupe (8 étudiants d'après le rapport ; 9 noms sur la soutenance)",
+        "en": "Group project (8 students per the report; 9 names on the defence deck)"
       },
-      "in_cv": true,
-      "team": [
-        "Adnane Azami Hassani",
-        "Zakaria Naji",
-        "Mohamed Ouhadda",
-        "Issa Lamkharbech",
-        "Nouha Hamdaoui",
-        "Mouad Boulaid",
-        "Hajar EL Hadri",
-        "Amine EL Hend"
-      ],
-      "supervisors": [
-        "Prof. Hosni"
-      ],
+      "team_size": 8,
+      "in_cv": false,
+      "status": {
+        "key": "done",
+        "fr": "Terminé",
+        "en": "Completed"
+      },
+      "category": {
+        "key": "iot_web",
+        "fr": "IoT & web",
+        "en": "IoT & web"
+      },
+      "role": {
+        "fr": "Travail d'équipe (répartition individuelle non détaillée) ; Issa maîtrise et défend la chaîne complète : programme de la carte ESP32, bascule côté serveur, interrupteur de l'interface.",
+        "en": "Team work (individual split not documented); Issa knows and defends the complete chain: ESP32 board program, server-side toggle, interface switch."
+      },
       "description": {
-        "fr": "Mise en œuvre d'un jumeau numérique intelligent de gestion d'une salle informatique (salle GI-IADS), basé sur des microcontrôleurs ESP32/ESP8266 connectés à une plateforme Laravel. Architecture full-stack IoT : API REST Laravel sécurisée (authentification par tokens Laravel Sanctum, contrôle d'accès par rôles Admin/User, mots de passe bcrypt, protection CSRF, journaux d'audit), frontend React/Vue.js avec visualisation 2D interactive de la salle (plan avec états colorés des équipements, contrôle par clic), dashboard temps réel, système de rapports d'incidents, et contrôle physique des lampes via GPIO (polling HTTP de l'ESP8266 vers l'API, endpoints GET /api/leds/{id} et POST /api/leds/{id}/toggle avec Axios). Data ingestion temps réel : collecte de 4 000 à 5 000 données/minute, préprocessing et analyse des flux environnementaux. Architecture distribuée intégrant MQTT, WebSocket et API sécurisée — composants modulaires déployés sous Docker, bases MySQL et MongoDB.",
-        "en": "Implementation of an intelligent digital twin for managing a computer classroom (GI-IADS room), based on ESP32/ESP8266 microcontrollers connected to a Laravel platform. Full-stack IoT architecture: secured Laravel REST API (Laravel Sanctum token authentication, Admin/User role-based access control, bcrypt passwords, CSRF protection, audit logs), React/Vue.js frontend with an interactive 2D visualization of the room (floor plan with color-coded device states, click-to-control), real-time dashboard, incident reporting system, and physical lamp control via GPIO (ESP8266 HTTP polling to the API, GET /api/leds/{id} and POST /api/leds/{id}/toggle endpoints with Axios). Real-time data ingestion: 4,000–5,000 data points/minute, preprocessing and analysis of environmental flows. Distributed architecture integrating MQTT, WebSocket and a secured API — modular components deployed with Docker, MySQL and MongoDB databases."
+        "fr": "Projet de groupe du module Industrie 4.0 de l'ENSAM Meknès (mai – juin 2025) : la réplique numérique de la salle de cours GI-IADS, pensée comme une plateforme de signalement de pannes pour étudiants et enseignants. Dans le navigateur, une interface React 18 (Vite, Axios, environ 2 000 lignes) affiche le plan 2D de la salle — huit tables rondes de six postes, chaque poste rattaché à un ordinateur coloré selon son état (vert si OK, saumon sinon) avec infobulle (table, type, état, adresse IP) ; avec les données de test, peu de postes se colorent et lien vers le tableau de bord —, permet de déposer un rapport d'incident sur un poste (le serveur crée la ligne et répond 201), de le marquer réparé et de commander trois lampes. Côté serveur, une API REST Laravel 9 avec jetons Laravel Sanctum et base MySQL gère les comptes (mots de passe bcrypt), les 48 ordinateurs (données de test) et les signalements ; un second service Laravel 12, avec sa propre base, conserve l'état des trois lampes et expose des points d'accès JSON de statut et de bascule. Les lampes sont trois LED sur plaque d'essai pilotées par un ESP32 programmé sous Arduino (environ 75 lignes) : la carte interroge le service en HTTP chaque seconde et recopie l'état sur ses broches, une quatrième LED signalant la connexion Wi-Fi ; la base de données fait foi et la commande atteint la LED en une seconde au pire. Lors des essais, le serveur répondait en moins de 300 ms en moyenne et les premiers retours d'étudiants ont été positifs. Le projet est qualifié honnêtement : seul le flux descendant (écran → carte) est automatique et rien ne remonte de la salle, ce qui en fait une maquette dotée d'un canal de commande plutôt qu'un jumeau numérique au sens strict ; les routes des lampes ne sont pas authentifiées et il n'y a pas de rôles. L'architecture cible pour passer à l'échelle — capteurs d'ambiance, MQTT dimensionné pour 4 000 à 5 000 mesures par minute, WebSocket, base de séries temporelles (InfluxDB ou TimescaleDB), Docker — a été conçue mais pas construite. Livrables : rapport LaTeX de 14 pages, soutenance de 24 diapositives avec deux vidéos de démonstration, code versionné avec Git.",
+        "en": "Group project of the Industry 4.0 module at ENSAM Meknès (May – June 2025): the digital replica of the GI-IADS classroom, framed as a defect-reporting platform for students and teachers. In the browser, a React 18 interface (Vite, Axios, about 2,000 lines) shows the 2D floor plan — eight round tables of six seats, each seat linked to a computer colour-coded by status (green if OK, salmon otherwise) with a tooltip (table, type, status, IP address); with the test data, few seats are coloured and a link to the dashboard —, lets users file an incident report on a seat (the server creates the row and answers 201), mark it fixed and control three lamps. Server-side, a Laravel 9 REST API with Laravel Sanctum tokens and a MySQL database handles accounts (bcrypt passwords), the 48 computers (test data) and reports; a second Laravel 12 service, with its own database, keeps the state of the three lamps and exposes JSON status and toggle endpoints. The lamps are three LEDs on a breadboard driven by an ESP32 programmed under Arduino (about 75 lines): the board polls the service over HTTP every second and copies the state onto its pins, a fourth LED signalling the Wi-Fi connection; the database is the source of truth and a command reaches the LED within one second at worst. During tests the server answered in under 300 ms on average and the first student feedback was positive. The project is qualified honestly: only the downward flow (screen → board) is automatic and nothing comes back from the room, which makes it a mock-up with a command channel rather than a digital twin in the strict sense; the lamp routes are not authenticated and there are no roles. The target architecture for scaling up — environmental sensors, MQTT sized for 4,000 to 5,000 measurements per minute, WebSocket, a time-series database (InfluxDB or TimescaleDB), Docker — was designed but not built. Deliverables: 14-page LaTeX report, 24-slide defence with two demo videos, code versioned with Git."
+      },
+      "highlights": {
+        "fr": [
+          "Plan 2D interactif de la salle (8 tables × 6 postes) avec signalement d'incident et marquage « réparé »",
+          "Deux services Laravel (API principale Laravel 9 + Sanctum + MySQL ; service des lampes Laravel 12) et interface React 18",
+          "ESP32 sous Arduino interrogeant le serveur chaque seconde : commande des lampes en 1 s au pire, serveur < 300 ms en moyenne",
+          "Limites dites : flux descendant seulement, pas de capteurs ni de rôles ; architecture cible (MQTT, WebSocket, Docker) conçue, non construite"
+        ],
+        "en": [
+          "Interactive 2D floor plan (8 tables × 6 seats) with incident reporting and « fixed » marking",
+          "Two Laravel services (main Laravel 9 API + Sanctum + MySQL; Laravel 12 lamp service) and a React 18 interface",
+          "ESP32 under Arduino polling the server every second: lamps controlled within 1 s at worst, server < 300 ms on average",
+          "Stated limits: downward flow only, no sensors or roles; target architecture (MQTT, WebSocket, Docker) designed, not built"
+        ]
       },
       "technologies": [
-        "ESP32 / ESP8266",
-        "MQTT",
-        "Python",
-        "Laravel (PHP)",
-        "Node.js",
-        "React.js",
-        "Vue.js",
-        "WebSocket",
+        "ESP32 (Arduino C/C++)",
+        "Laravel 9 (API REST / REST API, PHP 8)",
+        "Laravel 12 (service des lampes / lamp service)",
+        "Laravel Sanctum",
         "MySQL",
-        "MongoDB",
-        "Docker",
+        "REST / JSON",
+        "React 18",
+        "React Router",
+        "Axios",
+        "Vite",
+        "JavaScript / JSX",
         "Git",
-        "Axios"
+        "LaTeX"
       ],
       "metrics": {
         "fr": [
-          "API REST : temps de réponse 100–300 ms",
-          "Traitement temps réel : 4 000–5 000 données/min",
-          "Dashboards affichant 12 KPIs"
+          "Temps de réponse serveur < 300 ms en moyenne pour les commandes d'équipement (ordre de grandeur, protocole non enregistré)",
+          "Commande de lampe effective en 1 s au pire (interrogation toutes les 1 000 ms, soit 60 requêtes/min)",
+          "3 LED pilotées + 1 LED témoin Wi-Fi ; plan de 8 tables × 6 postes ; 48 ordinateurs en données de test",
+          "Interface React d'environ 2 000 lignes ; programme ESP32 d'environ 75 lignes",
+          "Architecture cible dimensionnée pour 4 000 à 5 000 mesures/min (conçue, non construite)"
         ],
         "en": [
-          "REST API: 100–300 ms response time",
-          "Real-time processing: 4,000–5,000 data points/min",
-          "Dashboards displaying 12 KPIs"
+          "Server response time < 300 ms on average for equipment commands (order of magnitude, protocol not recorded)",
+          "Lamp command effective within 1 s at worst (polling every 1,000 ms, i.e. 60 requests/min)",
+          "3 controlled LEDs + 1 Wi-Fi status LED; 8 tables × 6 seats on the plan; 48 computers as test data",
+          "React interface of about 2,000 lines; ESP32 program of about 75 lines",
+          "Target architecture sized for 4,000 to 5,000 measurements/min (designed, not built)"
         ]
-      }
+      },
+      "links": [],
+      "image": ""
     },
     {
       "id": "multi_agents",
       "name": {
-        "fr": "Cartographie et surveillance coopérative multi-agents (SLAM + Vision)",
-        "en": "Cooperative multi-agent mapping and surveillance (SLAM + Vision)"
+        "fr": "Cartographie coopérative multi-robots : cinq e-puck sous Webots (positions connues) et détection YOLOv8",
+        "en": "Cooperative multi-robot mapping: five e-pucks in Webots (known positions) and YOLOv8 detection"
       },
       "context": {
-        "fr": "Projet Métier — ENSAM Meknès",
-        "en": "Professional project (Projet Métier) — ENSAM Meknès"
+        "fr": "Projet Métier — ENSAM Meknès (simulation Webots)",
+        "en": "Professional project (Projet Métier) — ENSAM Meknès (Webots simulation)"
       },
       "period": {
-        "fr": "Mars – Juin 2025",
-        "en": "March – June 2025"
+        "fr": "Mars – Juin 2025 (présentation le 19 juin 2025)",
+        "en": "March – June 2025 (presented on 19 June 2025)"
       },
       "duration": {
         "fr": "4 mois",
@@ -482,73 +966,129 @@ window.JESUS_KB = {
         "fr": "Projet en binôme (2 étudiants)",
         "en": "Two-person project (2 students)"
       },
+      "team_size": 2,
       "in_cv": true,
-      "team": [
-        "Adnane Azami Hassani",
-        "Issa Lamkharbech"
-      ],
-      "supervisors": [
-        "Pr. Tarik Hajji"
-      ],
+      "status": {
+        "key": "done",
+        "fr": "Terminé",
+        "en": "Completed"
+      },
+      "category": {
+        "key": "robotics_twins",
+        "fr": "Robotique & jumeaux numériques",
+        "en": "Robotics & digital twins"
+      },
+      "role": {
+        "fr": "Co-développeur au sein du binôme (co-créateur du projet d'après le README) ; la répartition précise des tâches n'est pas documentée.",
+        "en": "Co-developer within the pair (project co-creator according to the README); the precise task split is not documented."
+      },
       "description": {
-        "fr": "Développement d'un système multi-agents de cartographie et de surveillance collaborative basé sur des robots e-puck dans l'environnement de simulation Webots. Les robots explorent en équipe un environnement inconnu : SLAM collaboratif avec exploration par frontières et grille d'occupation 2D temps réel, fusion de données distribuées pour générer une carte globale, suivi du pourcentage de couverture (retour à la base au-delà de 90% de couverture). Détection d'objets en temps réel par YOLOv8 (dataset COCO, 80 classes) avec génération d'alertes (type et position de l'objet étranger). Coordination par architecture maître-esclave via sockets TCP : le maître centralise les données, assigne les cibles et visualise la carte globale ; les esclaves transmettent position/orientation toutes les 0,5 s. Navigation autonome avec évitement d'obstacles (capteurs de proximité, seuil 100 unités), détection de blocage (> 30 pas) et récupération autonome (recul de 10 pas). Code organisé en 5 modules : my_controllerf.py (point d'entrée), roomba_mapper.py (cœur du système), mapping.py (SLAM), navigation.py (mouvements), networking.py (communication).",
-        "en": "Development of a multi-agent collaborative mapping and surveillance system based on e-puck robots in the Webots simulation environment. Robots explore an unknown environment as a team: collaborative SLAM with frontier-based exploration and real-time 2D occupancy grid, distributed data fusion to generate a global map, coverage percentage tracking (return to base beyond 90% coverage). Real-time object detection with YOLOv8 (COCO dataset, 80 classes) with alert generation (type and position of foreign objects). Master-slave coordination via TCP sockets: the master centralizes data, assigns targets and visualizes the global map; slaves transmit position/orientation every 0.5 s. Autonomous navigation with obstacle avoidance (proximity sensors, 100-unit threshold), stuck detection (> 30 steps) and autonomous recovery (10-step backup). Code organized in 5 modules: my_controllerf.py (entry point), roomba_mapper.py (system core), mapping.py (SLAM), navigation.py (movement), networking.py (communication)."
+        "fr": "Projet Métier de l'ENSAM Meknès réalisé en binôme au printemps 2025 et présenté le 19 juin 2025 : une flotte de cinq robots e-puck simulés dans Webots explore et surveille une arène inconnue de 2 m × 2 m (murs, bidons, un chien miniature) sans pilotage humain. Un même contrôleur Python d'environ 750 lignes, organisé en cinq modules (point d'entrée, cœur, cartographie, navigation, réseau), équipe les cinq robots ; celui dont le nom contient « master » devient le maître, ouvre un serveur TCP (port 5555, messages pickle préfixés par leur longueur) et reçoit la position et l'orientation des quatre esclaves (toutes les demi-secondes par un fil dédié, plus une fois à chaque pas). Le maître peint en direct une carte commune de 1 000 × 1 000 cellules (2 mm par cellule, NumPy et OpenCV) — traces, obstacles, zones vues, champs de vision — et en extrait les frontières (dilatation du masque exploré, composantes connexes d'au moins 20 cellules) ; les réflexes de chaque robot (évitement d'obstacle, détection de blocage puis recul et rotation aléatoire) se décident à bord toutes les 128 ms à partir des capteurs de proximité infrarouges, sans lire aucune donnée réseau. Chaque robot passe l'image de sa caméra (500 × 500 px) dans YOLOv8 nano pré-entraîné sur COCO (seuil de confiance 0,5) pour nommer les objets rencontrés (affichage dans la console du robot ; la détection ne part pas vers le maître). Le projet est présenté honnêtement : la position vient du GPS du simulateur, il s'agit donc de cartographie coopérative à positions connues et non de SLAM ; la fonction de score des frontières est écrite mais jamais appelée (les cibles sont tirées au hasard près du maître), aucun critère d'arrêt n'est codé et la seule couverture montrée vaut 2,37 % en début d'essai ; les scores de détection du README ne proviennent d'aucune évaluation de l'équipe et ne sont plus cités. Un bug a été identifié a posteriori (comparaison inversée du seuil des capteurs de proximité). Suites envisagées : brancher l'attribution des frontières, mesurer la couverture avec un, deux puis cinq robots, puis passer à ROS2 sur de vrais robots. Code sous licence MIT (d'après le README).",
+        "en": "Professional project (Projet Métier) at ENSAM Meknès carried out as a pair in spring 2025 and presented on 19 June 2025: a fleet of five e-puck robots simulated in Webots explores and monitors an unknown 2 m × 2 m arena (walls, barrels, a miniature dog) without human piloting. A single Python controller of about 750 lines, organised in five modules (entry point, core, mapping, navigation, networking), runs on all five robots; the one whose name contains « master » becomes the master, opens a TCP server (port 5555, pickle messages prefixed with their length) and receives the position and heading of the four slaves (every half-second from a dedicated thread, plus once at every step). The master paints a shared 1,000 × 1,000-cell map live (2 mm per cell, NumPy and OpenCV) — traces, obstacles, seen areas, fields of view — and extracts frontiers from it (dilation of the explored mask, connected components of at least 20 cells); each robot's reflexes (obstacle avoidance, stuck detection then backing up and a random turn) are decided on board every 128 ms from the infrared proximity sensors, without reading any network data. Each robot runs its camera image (500 × 500 px) through YOLOv8 nano pre-trained on COCO (confidence threshold 0.5) to name the objects it meets (printed in the robot's console; detections are not sent to the master). The project is presented honestly: position comes from the simulator's GPS, so this is cooperative mapping with known positions, not SLAM; the frontier scoring function is written but never called (targets are drawn at random near the master), no stop criterion is coded and the only coverage shown is 2.37% at the start of a run; the README's detection scores come from no evaluation by the team and are no longer quoted. A bug was identified afterwards (inverted comparison of the proximity-sensor threshold). Next steps: wire the frontier assignment, measure coverage with one, two and five robots, then move to ROS2 on real robots. Code under the MIT licence (per the README)."
+      },
+      "highlights": {
+        "fr": [
+          "Cinq e-puck (1 maître + 4 esclaves) coordonnés par sockets TCP dans une arène Webots de 2 m × 2 m",
+          "Carte commune de 1 000 × 1 000 cellules repeinte en direct par le maître ; frontières extraites par morphologie",
+          "Réflexes embarqués toutes les 128 ms (évitement, déblocage) qui ne lisent aucune donnée réseau",
+          "Vision YOLOv8 nano (COCO) pour nommer les objets rencontrés",
+          "Honnêteté : positions connues (pas de SLAM), attribution des frontières non branchée, couverture non mesurée"
+        ],
+        "en": [
+          "Five e-pucks (1 master + 4 slaves) coordinated over TCP sockets in a 2 m × 2 m Webots arena",
+          "Shared 1,000 × 1,000-cell map repainted live by the master; frontiers extracted by morphology",
+          "On-board reflexes every 128 ms (avoidance, unsticking) that read no network data",
+          "YOLOv8 nano vision (COCO) to name the objects encountered",
+          "Honesty: known positions (not SLAM), frontier assignment not wired, coverage not measured"
+        ]
       },
       "technologies": [
         "Python",
-        "Computer Vision (YOLOv8)",
-        "SLAM collaboratif",
-        "Systèmes multi-agents",
-        "Sockets TCP",
-        "Webots (e-puck)",
+        "Webots (robots e-puck / e-puck robots)",
+        "YOLOv8 nano (Ultralytics, poids COCO / COCO weights)",
         "OpenCV",
-        "Ultralytics"
+        "NumPy",
+        "Sockets TCP / TCP sockets (socket, threading, pickle, struct)",
+        "Grille d'occupation 2D / occupancy grid",
+        "Extraction de frontières / frontier extraction",
+        "Architecture maître-esclaves / master-slave",
+        "Capteurs simulés : proximité IR, GPS, caméra / simulated sensors: IR proximity, GPS, camera"
       ],
       "metrics": {
         "fr": [
-          "YOLOv8 : précision 90,5%, recall 88,3%, mAP@0.5 : 89,7%, mAP@0.5:0.95 : 73,4%, inférence 25 ms",
-          "Latence réseau maître-esclave : ≈ 0,5 s",
-          "Détection de blocage > 30 pas, reprise autonome en 10 pas",
-          "Couverture de carte > 90% avant retour à la base"
+          "Aucune métrique de couverture, de latence ou de détection mesurée (dit explicitement par l'auteur)",
+          "5 robots (1 maître + 4 esclaves) ; arène 2 m × 2 m ; grille 1 000 × 1 000 cellules de 2 mm",
+          "Boucle de contrôle 128 ms ; envoi de position toutes les 0,5 s par un fil dédié, plus à chaque pas (période, pas une latence) ; frontières extraites environ toutes les 2 s (boucle serveur d'environ 1 s)",
+          "Déblocage programmé : blocage détecté après 5 pas, recul 20 pas puis rotation 5 pas (≈ 3,2 s simulées)",
+          "Seule couverture observée : 2,37 % en début d'essai (capture d'écran)",
+          "Contrôleur unique d'environ 750 lignes en 5 modules"
         ],
         "en": [
-          "YOLOv8: 90.5% precision, 88.3% recall, mAP@0.5: 89.7%, mAP@0.5:0.95: 73.4%, 25 ms inference",
-          "Master-slave network latency: ≈ 0.5 s",
-          "Stuck detection > 30 steps, autonomous recovery in 10 steps",
-          "Map coverage > 90% before returning to base"
+          "No coverage, latency or detection metric measured (stated explicitly by the author)",
+          "5 robots (1 master + 4 slaves); 2 m × 2 m arena; 1,000 × 1,000 grid of 2 mm cells",
+          "128 ms control loop; position sent every 0.5 s by a dedicated thread, plus at every step (a period, not a latency); frontiers extracted about every 2 s (server loop of about 1 s)",
+          "Programmed unsticking: stuck after 5 steps, back up 20 steps then turn 5 steps (≈ 3.2 simulated seconds)",
+          "Only observed coverage: 2.37% at the start of a run (screenshot)",
+          "Single controller of about 750 lines in 5 modules"
         ]
-      }
+      },
+      "links": [],
+      "image": ""
     },
     {
       "id": "cat_emotion",
       "name": {
-        "fr": "Reconnaissance des émotions et de la santé des chats (Deep Learning)",
-        "en": "Cat emotion and health recognition (Deep Learning)"
+        "fr": "Reconnaissance des émotions et de la santé des chats (CNN image + audio)",
+        "en": "Cat emotion and health recognition (image + audio CNNs)"
       },
       "context": {
-        "fr": "Projet personnel de Deep Learning",
-        "en": "Personal Deep Learning project"
+        "fr": "Projet de Deep Learning (cadre non précisé dans le dossier)",
+        "en": "Deep Learning project (context not specified in the folder)"
       },
       "period": {
-        "fr": "Non précisé dans le dossier",
-        "en": "Not specified in the folder"
+        "fr": "Novembre – Décembre 2024 pour la partie audio (horodatages Colab) ; partie image non datée",
+        "en": "November – December 2024 for the audio part (Colab timestamps); image part undated"
       },
       "duration": {
-        "fr": "Non précisée dans le dossier",
-        "en": "Not specified in the folder"
+        "fr": "Environ 6 semaines documentées (19/11/2024 → 30/12/2024) ; durée totale inconnue",
+        "en": "About 6 documented weeks (19 Nov 2024 → 30 Dec 2024); total duration unknown"
       },
       "team_type": {
-        "fr": "Projet individuel (d'après les fichiers du dossier)",
-        "en": "Individual project (based on the folder files)"
+        "fr": "Taille d'équipe non précisée dans le dossier",
+        "en": "Team size not specified in the folder"
       },
       "in_cv": false,
-      "team": [
-        "Issa Lamkharbech"
-      ],
-      "supervisors": [],
+      "status": {
+        "key": "done",
+        "fr": "Terminé",
+        "en": "Completed"
+      },
+      "category": {
+        "key": "ml_dl",
+        "fr": "Machine Learning & Deep Learning",
+        "en": "Machine Learning & Deep Learning"
+      },
+      "role": {
+        "fr": "Partie audio (préparation des données, entraînement du CNN audio) documentée comme exécutée depuis le compte Colab d'Issa ; l'auteur des scripts image et des interfaces n'est pas identifiable dans le dossier ; aucune répartition des rôles n'est documentée.",
+        "en": "Audio part (data preparation, audio-CNN training) documented as run from Issa's Colab account; the author of the image scripts and interfaces cannot be identified from the folder; no role split is documented."
+      },
       "description": {
-        "fr": "Application complète de reconnaissance des émotions et de l'état de santé des chats combinant trois modèles de Deep Learning : un CNN de classification d'émotions sur images (11 classes : angry, beg, annoyed, frightened, happy, normal, sad, scared, under the weather, curious, playful — images 128×128), un CNN de détection de maladie (classes normal/sick) et un modèle audio de classification des vocalisations (10 classes : Angry, Defence, Fighting, Happy, HuntingMind, Mating, MotherCall, Paining, Resting, Warning) basé sur l'extraction de caractéristiques audio avec librosa. Interface graphique Tkinter permettant de charger une image ou un enregistrement audio du chat et générant des messages conviviaux personnalisés selon l'émotion, l'état de santé et l'humeur détectés (avec seuil de confiance). Modèles entraînés avec TensorFlow/Keras (fichiers .h5), traitement d'images avec OpenCV et PIL.",
-        "en": "Complete application for recognizing cat emotions and health status combining three Deep Learning models: an image emotion classification CNN (11 classes: angry, beg, annoyed, frightened, happy, normal, sad, scared, under the weather, curious, playful — 128×128 images), a sickness detection CNN (normal/sick classes) and an audio model classifying vocalizations (10 classes: Angry, Defence, Fighting, Happy, HuntingMind, Mating, MotherCall, Paining, Resting, Warning) based on audio feature extraction with librosa. A Tkinter GUI lets the user upload a cat image or audio recording and generates friendly, personalized messages based on the detected emotion, health status and mood (with a confidence threshold). Models trained with TensorFlow/Keras (.h5 files), image processing with OpenCV and PIL."
+        "fr": "Application de reconnaissance de l'émotion et de l'état de santé des chats combinant trois modèles de Deep Learning entraînés avec TensorFlow/Keras : un CNN d'émotions sur images 128 × 128 (11 classes), un CNN binaire de détection de maladie (normal / malade) et un CNN audio qui classe les vocalisations en 10 catégories (Angry, Defence, Fighting, Happy, HuntingMind, Mating, MotherCall, Paining, Resting, Warning) à partir de spectrogrammes log-Mel extraits avec librosa. La partie audio a été développée sur Google Colab (TPU) entre le 19 novembre et le 30 décembre 2024, en deux séries d'expériences. En novembre 2024 (script de découpage 80/20 présent mais non exécuté, filtrage passe-bande 200–8 000 Hz, 5 679 spectrogrammes d'entraînement, 2 131 de validation et 100 de test, sans augmentation dans le code du notebook), une variante régularisée (L2, dropout, réduction du taux d'apprentissage) atteint 97,4 % en validation, mais une exécution identique n'a pas convergé, ce qui invite à la prudence. En décembre 2024, un second notebook prépare les données sans filtre passe-bande (découpage 80/20 en 4 735 fichiers d'entraînement, 1 188 de validation et 100 de test ; augmentation par étirement temporel et décalage de hauteur). La version documentée du CNN audio (30 époques ; taille exacte du jeu d'entraînement et usage de l'augmentation non documentés pour cette exécution) atteint 73 % d'exactitude (F1 macro 0,73) sur 100 extraits de test et 80,2 % en validation, pour 110 474 paramètres. Une interface Tkinter « Cat Mood & Health Analyzer » accepte une photo, une vidéo (première image analysée et piste audio extraite via ffmpeg) ou un fichier audio et renvoie des messages conviviaux selon l'émotion, la santé et l'humeur détectées ; un script d'empaquetage PyInstaller (exécutable « CatCompanion ») est prévu. Une application web Streamlit permet aussi de charger un modèle et un fichier audio pour prédire l'émotion avec un graphique de probabilités, et une configuration Read the Docs / Sphinx est présente pour la documentation. Les modèles image n'ont pas de score enregistré dans les sources.",
+        "en": "Application recognising a cat's emotion and health status by combining three Deep Learning models trained with TensorFlow/Keras: an image-emotion CNN on 128 × 128 pictures (11 classes), a binary sickness-detection CNN (normal / sick) and an audio CNN classifying vocalisations into 10 categories (Angry, Defence, Fighting, Happy, HuntingMind, Mating, MotherCall, Paining, Resting, Warning) from log-Mel spectrograms extracted with librosa. The audio part was developed on Google Colab (TPU) between 19 November and 30 December 2024, in two series of experiments. In November 2024 (80/20 split script present but not run, 200–8,000 Hz band-pass filtering, 5,679 training, 2,131 validation and 100 test spectrograms, no augmentation in the notebook code), a regularised variant (L2, dropout, learning-rate reduction) reaches 97.4% validation accuracy, but an identical re-run did not converge, which calls for caution. In December 2024, a second notebook prepares the data without a band-pass filter (80/20 split into 4,735 training, 1,188 validation and 100 test files; time-stretch and pitch-shift augmentation). The documented audio-CNN version (30 epochs; exact training-set size and use of augmentation not documented for that run) reaches 73% accuracy (macro F1 0.73) on 100 test clips and 80.2% validation accuracy, with 110,474 parameters. A Tkinter GUI, « Cat Mood & Health Analyzer », accepts a photo, a video (first frame analysed and audio track extracted with ffmpeg) or an audio file and returns friendly messages based on the detected emotion, health and mood; a PyInstaller packaging script (« CatCompanion » executable) is included. A Streamlit web app also lets the user upload a model and an audio file to predict the emotion with a probability chart, and a Read the Docs / Sphinx configuration is present for documentation. The image models have no recorded score in the sources."
+      },
+      "highlights": {
+        "fr": [
+          "Trois CNN combinés : émotions sur image (11 classes), santé (2 classes), vocalisations audio (10 classes)",
+          "Deux séries d'expériences audio sur Colab TPU : spectrogrammes log-Mel, filtre passe-bande (novembre 2024) ou augmentation de données (décembre 2024)",
+          "Interface Tkinter photo / vidéo / audio (script d'empaquetage PyInstaller prévu), plus une application Streamlit",
+          "Résultat audio documenté : 73 % d'exactitude et F1 macro 0,73 sur 100 extraits"
+        ],
+        "en": [
+          "Three combined CNNs: image emotions (11 classes), health (2 classes), audio vocalisations (10 classes)",
+          "Two series of audio experiments on Colab TPU: log-Mel spectrograms, band-pass filter (November 2024) or data augmentation (December 2024)",
+          "Tkinter photo / video / audio GUI (PyInstaller packaging script included), plus a Streamlit app",
+          "Documented audio result: 73% accuracy and macro F1 0.73 on 100 clips"
+        ]
       },
       "technologies": [
         "Python",
@@ -556,109 +1096,131 @@ window.JESUS_KB = {
         "CNN",
         "librosa (audio)",
         "OpenCV",
-        "PIL",
+        "Pillow (PIL)",
         "Tkinter",
-        "NumPy"
+        "NumPy",
+        "scikit-learn",
+        "moviepy / ffmpeg",
+        "Streamlit",
+        "PyInstaller",
+        "Google Colab (TPU)",
+        "Sphinx / Read the Docs (configuration)"
       ],
       "metrics": {
         "fr": [
-          "3 modèles combinés : émotions (11 classes), santé (2 classes), audio (10 classes)"
+          "CNN audio (version documentée) : 73 % d'exactitude, F1 macro 0,73 sur 100 extraits de test ; 80,2 % en validation après 30 époques ; 110 474 paramètres",
+          "Variante régularisée : 97,4 % en validation (une exécution identique n'a pas convergé — chiffre à prendre avec prudence)",
+          "Jeux de données audio : expériences de novembre 2024, 5 679 spectrogrammes d'entraînement / 2 131 de validation / 100 de test ; préparation de décembre 2024, 4 735 fichiers d'entraînement / 1 188 de validation / 100 de test",
+          "3 modèles : 11 classes d'émotions image, 2 classes de santé, 10 classes audio ; scores des modèles image non enregistrés"
         ],
         "en": [
-          "3 combined models: emotions (11 classes), health (2 classes), audio (10 classes)"
+          "Audio CNN (documented run): 73% accuracy, macro F1 0.73 on 100 test clips; 80.2% validation after 30 epochs; 110,474 parameters",
+          "Regularised variant: 97.4% validation accuracy (an identical re-run did not converge — treat with caution)",
+          "Audio datasets: November 2024 experiments, 5,679 training / 2,131 validation / 100 test spectrograms; December 2024 preparation, 4,735 training / 1,188 validation / 100 test files",
+          "3 models: 11 image emotion classes, 2 health classes, 10 audio classes; image model scores not recorded"
         ]
-      }
+      },
+      "links": [],
+      "image": ""
     },
     {
-      "id": "portfolio_ia",
+      "id": "pa_c27033",
       "name": {
-        "fr": "Portfolio web intelligent avec assistant IA « ISSA » (RAG + LLM)",
-        "en": "Intelligent web portfolio with an AI assistant “ISSA” (RAG + LLM)"
+        "fr": "Systèmes d'information industriels augmentés par l'IA : ERP, WMS et MES (projet PA-C27033)",
+        "en": "AI-augmented industrial information systems: ERP, WMS and MES (project PA-C27033)"
       },
       "context": {
-        "fr": "Projet personnel — développement web full-stack & IA générative",
-        "en": "Personal project — full-stack web development & generative AI"
+        "fr": "Projet académique Arts et Métiers ParisTech 2026-2027 (réf. PA-C27033, centre de Paris, type PJE9, thème Génie industriel)",
+        "en": "Arts et Métiers ParisTech academic project 2026-2027 (ref. PA-C27033, Paris centre, type PJE9, Industrial Engineering theme)"
       },
       "period": {
-        "fr": "2026",
-        "en": "2026"
+        "fr": "Année 2026-2027 — démarré, en cours",
+        "en": "2026-2027 academic year — started, ongoing"
       },
       "duration": {
-        "fr": "Projet personnel continu",
-        "en": "Ongoing personal project"
+        "fr": "En cours depuis le démarrage du projet (année 2026-2027)",
+        "en": "Ongoing since the project started (2026-2027 academic year)"
       },
       "team_type": {
         "fr": "Projet individuel",
         "en": "Individual project"
       },
-      "in_cv": true,
-      "live_url": "https://lamkharbechissa.github.io/",
-      "live_label": "lamkharbechissa.com",
-      "team": [
-        "Issa Lamkharbech"
-      ],
-      "supervisors": [],
-      "description": {
-        "fr": "Conception et déploiement d'un portfolio web personnel haut de gamme, bilingue (FR/EN), intégrant « ISSA », un assistant IA conversationnel de type ChatGPT mais strictement réservé au parcours d'Issa grâce au RAG (Retrieval-Augmented Generation). Pipeline RAG complet développé de bout en bout : chunking de la base de connaissances, indexation lexicale BM25 (Okapi) et reconnaissance d'entités NLP, retrieval hybride, puis génération par un LLM distant (Llama 3.3 70B via l'API Groq) en streaming token par token avec mémoire conversationnelle multi-tours et repli automatique sur un moteur local (haute disponibilité). Persistance des conversations dans une base PostgreSQL (Supabase) avec authentification anonyme et Row Level Security : chaque visiteur retrouve et poursuit ses anciennes conversations, et une console d'administration permet de superviser les échanges. Clé API protégée par un proxy serverless (Cloudflare Worker). Sécurité renforcée : HTTPS forcé, Content-Security-Policy stricte (anti-XSS), anti-clickjacking, anti-injection de prompt, en-têtes de sécurité. Site optimisé SEO (données structurées JSON-LD, sitemap) et déployé gratuitement (GitHub Pages), indexable par Google.",
-        "en": "Design and deployment of a premium, bilingual (FR/EN) personal web portfolio featuring “ISSA”, a ChatGPT-like conversational AI assistant strictly scoped to Issa's background through RAG (Retrieval-Augmented Generation). Complete end-to-end RAG pipeline: knowledge-base chunking, BM25 (Okapi) lexical indexing and NLP entity recognition, hybrid retrieval, then generation by a remote LLM (Llama 3.3 70B via the Groq API) with token-by-token streaming, multi-turn conversational memory and automatic fallback to a local engine (high availability). Conversation persistence in a PostgreSQL database (Supabase) with anonymous authentication and Row Level Security: each visitor retrieves and continues their past conversations, and an admin console supervises the exchanges. API key protected by a serverless proxy (Cloudflare Worker). Hardened security: forced HTTPS, strict Content-Security-Policy (anti-XSS), anti-clickjacking, prompt-injection protection, security headers. SEO-optimized site (JSON-LD structured data, sitemap), deployed for free (GitHub Pages) and indexable by Google."
+      "in_cv": false,
+      "status": {
+        "key": "ongoing",
+        "fr": "En cours",
+        "en": "Ongoing"
       },
-      "how_built": {
-        "fr": "Comment le site a été construit, étape par étape : (1) Une seule source de vérité — tout le CV d'Issa (profil, stages, projets, compétences, parcours, contact) est écrit une fois en JSON bilingue (knowledge_base.json), puis exporté en kb.js pour le site ET le chatbot. (2) Le site lui-même est 100% statique : HTML pour la structure (index.html), CSS pour le design blanc premium et les animations (style.css), JavaScript pour le contenu et le bilingue FR/EN (main.js génère chaque section depuis la base). (3) Le cerveau du chatbot a deux moteurs : un moteur local instantané dans le navigateur (jesus.js : normalisation du texte, détection de langue, reconnaissance d'entités et d'intentions, réponses composées) et un pipeline RAG (rag.js) qui découpe la base en passages, les classe par pertinence avec l'algorithme BM25, puis interroge un vrai LLM (Llama 3.3 70B via Groq) en streaming, avec repli automatique sur le moteur local en cas de souci. (4) L'interface de chat (bouton flottant + fenêtre) est injectée dans la page par JavaScript. (5) Les conversations sont mémorisées (localStorage par défaut, base PostgreSQL Supabase en option avec Row Level Security). (6) La sécurité est posée en premier : HTTPS forcé, Content-Security-Policy stricte anti-XSS, anti-clickjacking, garde-fou anti hors-sujet et anti-injection de prompt ; la clé API est cachée derrière un proxy serverless Cloudflare Worker. (7) Le référencement Google (SEO) est intégré : titre et méta optimisés, données structurées JSON-LD de type Person, sitemap et robots.txt. (8) Enfin le site est publié gratuitement sur GitHub Pages ; chaque mise à jour se fait en modifiant la base puis en poussant le code (git push), et le site comme le chatbot se mettent à jour ensemble car ils partagent la même source de données.",
-        "en": "How the site was built, step by step: (1) A single source of truth — Issa's whole CV (profile, internships, projects, skills, education, contact) is written once in bilingual JSON (knowledge_base.json), then exported to kb.js for BOTH the website and the chatbot. (2) The site itself is 100% static: HTML for structure (index.html), CSS for the premium white design and animations (style.css), JavaScript for content and FR/EN bilingual (main.js builds each section from the base). (3) The chatbot's brain has two engines: an instant local engine in the browser (jesus.js: text normalization, language detection, entity and intent recognition, composed answers) and a RAG pipeline (rag.js) that splits the base into passages, ranks them by relevance with the BM25 algorithm, then queries a real LLM (Llama 3.3 70B via Groq) in streaming, with automatic fallback to the local engine if needed. (4) The chat interface (floating button + window) is injected into the page by JavaScript. (5) Conversations are remembered (localStorage by default, optional Supabase PostgreSQL database with Row Level Security). (6) Security is set up first: forced HTTPS, strict anti-XSS Content-Security-Policy, anti-clickjacking, off-topic and prompt-injection guardrails; the API key is hidden behind a serverless Cloudflare Worker proxy. (7) Google SEO is built in: optimized title and meta, JSON-LD Person structured data, sitemap and robots.txt. (8) Finally the site is published for free on GitHub Pages; each update is done by editing the base then pushing the code (git push), and both the site and the chatbot update together because they share the same data source."
+      "category": {
+        "key": "other",
+        "fr": "Industrie 4.0 & systèmes d'information",
+        "en": "Industry 4.0 & information systems"
+      },
+      "role": {
+        "fr": "Issa mène seul l'ensemble du projet.",
+        "en": "Issa runs the whole project alone."
+      },
+      "description": {
+        "fr": "Projet académique de l'année 2026-2027 à Arts et Métiers ParisTech (réf. PA-C27033, centre de Paris, type PJE9, thème Génie industriel), projet démarré, qu'Issa mène seul et sur lequel il travaille actuellement : la fiche projet a été générée le 10 octobre 2026 et n'indique ni date de début ni lieu de déroulement. L'objectif est de mettre en œuvre un système d'information industriel intégré couvrant les grandes fonctions d'une usine — gestion des données de base, approvisionnements, production, stocks, entreposage et suivi d'exécution — en s'appuyant sur les trois briques ERP, WMS et MES et sur leurs interactions. Le projet comporte une dimension IA qui exploite les données de l'entreprise pour la prévision de la demande, l'analyse des performances, la détection d'anomalies et l'aide à la décision, avec la construction de tableaux de bord de pilotage orientés Supply Chain 4.0. Les tâches prévues vont de la gestion des articles, nomenclatures, postes de charge, gammes et fournisseurs jusqu'au Plan Industriel et Commercial (PIC), au calcul des besoins (MRP), à l'ordonnancement détaillé, au lancement et suivi des ordres de fabrication et à l'analyse des écarts de coûts standards, puis au développement d'un module IA de prévision et d'aide à la décision et à la conception de tableaux de bord Supply Chain. Acquis visés : maîtriser les fonctions industrielles d'un ERP, comprendre le rôle des WMS et MES, piloter un processus industriel intégré de bout en bout et appliquer des techniques d'IA à la prévision et à la détection d'anomalies. Aucun résultat n'est encore publié.",
+        "en": "Academic project of the 2026-2027 year at Arts et Métiers ParisTech (ref. PA-C27033, Paris centre, type PJE9, Industrial Engineering theme), a started project that Issa runs alone and is currently working on: the project sheet was generated on 10 October 2026 and gives neither a start date nor a location. The goal is to implement an integrated industrial information system covering a factory's main functions — master data management, procurement, production, inventory, warehousing and execution tracking — built on the three ERP, WMS and MES building blocks and their interactions. The project includes an AI dimension that uses company data for demand forecasting, performance analysis, anomaly detection and decision support, with the construction of Supply Chain 4.0 management dashboards. Planned tasks range from item, bill-of-materials, work-centre, routing and supplier management to the Sales & Operations Plan (PIC), material requirements planning (MRP), detailed scheduling, launching and tracking manufacturing orders and standard-cost variance analysis, then to the development of an AI forecasting and decision-support module and the design of Supply Chain dashboards. Intended learning outcomes: mastering the industrial functions of an ERP, understanding the role of WMS and MES, running an integrated industrial process end to end and applying AI techniques to forecasting and anomaly detection. No results have been published yet."
+      },
+      "highlights": {
+        "fr": [
+          "Système d'information industriel intégré ERP + WMS + MES, du PIC au suivi des ordres de fabrication",
+          "Module IA prévu : prévision de la demande, détection d'anomalies, aide à la décision",
+          "Tableaux de bord de pilotage Supply Chain 4.0",
+          "Projet en cours : pas encore de résultats publiés"
+        ],
+        "en": [
+          "Integrated ERP + WMS + MES industrial information system, from the S&OP plan to manufacturing-order tracking",
+          "Planned AI module: demand forecasting, anomaly detection, decision support",
+          "Supply Chain 4.0 management dashboards",
+          "Ongoing project: no published results yet"
+        ]
       },
       "technologies": [
-        "Python",
-        "JavaScript",
-        "RAG",
-        "LLM (Llama 3.3 70B / Groq)",
-        "NLP",
-        "BM25",
-        "Prompt Engineering",
-        "Supabase / PostgreSQL",
-        "Row Level Security",
-        "Cloudflare Workers",
-        "HTML/CSS",
-        "SEO",
-        "Git / GitHub Pages"
+        "ERP (Enterprise Resource Planning)",
+        "WMS (Warehouse Management System)",
+        "MES (Manufacturing Execution System)",
+        "Prévision de la demande / Demand forecasting (IA / AI)",
+        "Détection d'anomalies / Anomaly detection",
+        "Tableaux de bord Supply Chain 4.0 / Dashboards",
+        "PIC / S&OP, MRP, ordonnancement / scheduling",
+        "Nomenclatures, gammes, coûts standards / BOMs, routings, standard costs"
       ],
       "metrics": {
         "fr": [
-          "Coût d'infrastructure : 0 €",
-          "Précision du retrieval : 10/10 sur le jeu de test",
-          "Réponses en streaming quasi temps réel",
-          "Bilingue FR/EN",
-          "Persistance des conversations + console admin",
-          "Haute disponibilité (repli local)"
+          "Projet en cours : pas encore de résultats publiés",
+          "Projet individuel ; 14 tâches planifiées dans la fiche projet"
         ],
         "en": [
-          "Infrastructure cost: €0",
-          "Retrieval accuracy: 10/10 on the test set",
-          "Near real-time streaming responses",
-          "Bilingual FR/EN",
-          "Conversation persistence + admin console",
-          "High availability (local fallback)"
+          "Ongoing project: no published results yet",
+          "Individual project; 14 tasks planned in the project sheet"
         ]
-      }
+      },
+      "links": [],
+      "image": ""
     }
   ],
   "skills": {
     "genai_llms": {
       "label": {
-        "fr": "IA Générative & LLMs",
-        "en": "Generative AI & LLMs"
+        "fr": "IA Générative, LLMs & Agents",
+        "en": "Generative AI, LLMs & Agents"
       },
       "items": [
-        "RAG Pipelines",
-        "Fine-tuning LLMs",
-        "Mistral / OpenAI",
-        "LangChain",
-        "Agents IA",
-        "Model Optimization",
+        "RAG Pipelines (BM25, recherche hybride / hybrid search ; reranking — notions / basics)",
         "Chunking / Retrieval",
-        "Hybrid Search",
-        "Embeddings",
-        "Evaluation Pipelines",
-        "Agent-based Workflows",
+        "Embeddings & Vector DB (FAISS)",
+        "Prompt Engineering",
+        "Agents IA & systèmes multi-agents / AI agents & multi-agent systems",
+        "Orchestration d'agents / agent orchestration (LangGraph, MCP)",
+        "LLM & APIs (Claude, Gemini, Llama 3.3 70B via Groq)",
+        "LLM locaux / local LLMs (Ollama)",
+        "Prose verrouillée & garde-fous / claim-locked writing & guardrails",
+        "Anti prompt-injection",
+        "Bancs d'évaluation & red team / evaluation benchmarks & red teaming (prompt injection)",
+        "Fine-tuning LLMs (LoRA / QLoRA — notions / basics)",
         "Workflow Automation"
       ]
     },
@@ -668,13 +1230,16 @@ window.JESUS_KB = {
         "en": "Data Science & Machine Learning"
       },
       "items": [
-        "Machine Learning",
-        "Deep Learning",
-        "Computer Vision",
-        "Data Analysis",
-        "Model Evaluation",
-        "Web Scraping",
-        "Power BI"
+        "Machine Learning, modèles prédictifs / predictive models (scikit-learn ; XGBoost — notions / basics)",
+        "Deep Learning (PyTorch, TensorFlow / Keras)",
+        "Computer Vision (OpenCV, YOLOv8)",
+        "Détection d'anomalies / Anomaly detection",
+        "Feature engineering & Model Evaluation",
+        "Séries temporelles & prévision / Time series & forecasting (notions / basics)",
+        "Simulation de Monte Carlo / Monte Carlo simulation",
+        "Statistiques / Statistics",
+        "Data Analysis (pandas, NumPy)",
+        "Web Scraping"
       ]
     },
     "data_engineering": {
@@ -684,12 +1249,12 @@ window.JESUS_KB = {
       },
       "items": [
         "ETL Pipelines",
-        "Apache Spark",
-        "Apache Kafka",
-        "Apache Airflow",
-        "SQL",
+        "SQL (MySQL, PostgreSQL, SQLite)",
+        "Apache Spark / Kafka / Airflow (notions / basics)",
+        "MQTT",
         "Data Ingestion",
-        "Preprocessing"
+        "Preprocessing",
+        "Qualité des données & gouvernance / Data quality & governance (DAMA-DMBOK)"
       ]
     },
     "dev": {
@@ -698,38 +1263,40 @@ window.JESUS_KB = {
         "en": "Software Development"
       },
       "items": [
-        "Python (avancé, async, performance)",
-        "C++",
-        "Java",
-        "SQL",
-        "HTML/CSS",
+        "Python (avancé / advanced)",
         "JavaScript / TypeScript",
-        "React Native",
-        "Spring Boot",
-        "API REST",
-        "Debugging",
-        "Performance Optimization",
-        "System Design"
+        "React",
+        "Node.js",
+        "FastAPI / Flask",
+        "Streamlit",
+        "HTML/CSS",
+        "C++",
+        "Java / Spring Boot (bases / basics)",
+        "PHP (Laravel)",
+        "API REST / REST API",
+        "Tests automatisés / Automated testing (pytest, Vitest, Playwright)",
+        "Architecture logicielle / Software architecture",
+        "Debugging & Performance"
       ]
     },
     "cloud_devops": {
       "label": {
-        "fr": "Cloud & DevOps",
-        "en": "Cloud & DevOps"
+        "fr": "Cloud, DevOps & Outils",
+        "en": "Cloud, DevOps & Tools"
       },
       "items": [
-        "Azure",
-        "Docker",
-        "Kubernetes",
-        "GitHub",
-        "Streamlit",
+        "Docker / Docker Compose",
+        "CI/CD (GitHub Actions)",
+        "Git / GitHub",
+        "Kubernetes (notions / basics)",
+        "Azure (notions / basics)",
+        "Cloudflare Workers",
+        "GitHub Pages",
+        "Supabase / PostgreSQL",
+        "DevSecOps & sécurité applicative / application security (OWASP, CSP)",
         "Jupyter / Google Colab",
-        "Agile / Scrum",
-        "Kaggle",
-        "Trello",
-        "Slack",
-        "Notion",
-        "Zenhub"
+        "VS Code / LaTeX",
+        "Développement assisté par IA / AI-assisted development (Claude Code, GitHub Copilot)"
       ]
     },
     "industry40": {
@@ -738,29 +1305,59 @@ window.JESUS_KB = {
         "en": "Industry 4.0 & Robotics"
       },
       "items": [
-        "Digital Twin (jumeaux numériques)",
-        "Systèmes multi-agents",
-        "IoT (MQTT)",
-        "ROS2 / SLAM",
-        "Simulation industrielle",
-        "Webots",
+        "Jumeaux numériques / Digital twins",
+        "Systèmes multi-robots / multi-robot systems (Webots, e-puck)",
+        "IoT (ESP32, MQTT, Node-RED)",
+        "Robotique industrielle / Industrial robotics (MiR100, bras UR / UR arm)",
+        "ROS2 / SLAM (notions / basics)",
+        "Maintenance prédictive (diagnostic de défauts) / Predictive maintenance (fault diagnosis)",
+        "Mécanique computationnelle & éléments finis / Computational mechanics & FEM (Scikit-FEM, CalculiX, Octave)",
+        "Capteurs & acquisition temps réel / Sensors & real-time acquisition",
+        "Arduino (C/C++)",
         "MATLAB",
-        "Catia",
-        "3DEXPERIENCE"
+        "CATIA / 3DEXPERIENCE",
+        "Simulation industrielle / Industrial simulation"
+      ]
+    },
+    "ai_governance": {
+      "label": {
+        "fr": "Adoption IA, gouvernance & conseil",
+        "en": "AI adoption, governance & advisory"
+      },
+      "items": [
+        "Diagnostic de maturité IA / AI maturity assessment",
+        "Cadrage de cas d'usage / Use-case scoping",
+        "Priorisation valeur / faisabilité / Value / feasibility prioritisation",
+        "Business case & ROI",
+        "Analyse d'impact / Impact analysis",
+        "AI Act & RGPD / GDPR — notions / basics (classification des risques / risk classification, obligations)",
+        "IA responsable / Responsible AI (biais / bias, explicabilité / explainability ; SHAP / LIME — notions / basics)",
+        "Gouvernance IA / AI governance — notions / basics (NIST AI RMF, ISO/IEC 42001)",
+        "AI Transformation (maturité / maturity, feuille de route / roadmap, cas d'usage / use cases, business case / ROI)",
+        "Data Advisory (stratégie data / data strategy, DAMA-DMBOK, data products)",
+        "CIO Advisory (operating model, indicateurs DORA / DORA metrics, FinOps, ITIL)",
+        "MLOps (API, Docker, CI/CD ; MLflow, dérive / drift, déploiement progressif / progressive rollout — notions / basics)",
+        "Conduite du changement / Change management (ADKAR — notions / basics)"
       ]
     },
     "management": {
       "label": {
-        "fr": "Gestion de projet & Gouvernance",
-        "en": "Project Management & Governance"
+        "fr": "Pilotage, communication & méthodes",
+        "en": "Steering, communication & methods"
       },
       "items": [
-        "Pilotage de projets AI/GenAI",
-        "Client workshops & demos",
-        "KPI & performance tracking",
-        "Gouvernance & industrialisation",
-        "Transformation digitale",
-        "Lean Six Sigma",
+        "Pilotage de projets IA / AI project management",
+        "Agile / Scrum (sprints, backlog)",
+        "Recueil du besoin & ateliers / Needs gathering & workshops",
+        "Analyse fonctionnelle / Functional analysis",
+        "Démonstrations & documentation / Demos & documentation",
+        "KPI, tableaux de bord & reporting / KPIs, dashboards & reporting",
+        "Power BI",
+        "PowerPoint",
+        "Lean Six Sigma (Yellow Belt)",
+        "Retours d'expérience / Lessons learned",
+        "MECE / Minto",
+        "Jira / Trello / Notion / Slack / Zenhub",
         "Minitab",
         "SPSS",
         "Weka"
@@ -772,28 +1369,37 @@ window.JESUS_KB = {
         "en": "Soft Skills"
       },
       "items_fr": [
-        "Travail en équipe autonome",
-        "Esprit analytique",
+        "Curiosité",
+        "Rigueur",
+        "Esprit d'équipe",
+        "Autonomie & proactivité",
+        "Esprit d'analyse & de synthèse",
         "Communication technique (FR/EN)",
-        "Gestion du temps & livraison",
+        "Vulgarisation & pédagogie",
         "Adaptabilité",
-        "Autonomie"
+        "Gestion du temps"
       ],
       "items_en": [
-        "Autonomous teamwork",
-        "Analytical mindset",
+        "Curiosity",
+        "Rigour",
+        "Team spirit",
+        "Autonomy & proactivity",
+        "Analytical & synthesis mindset",
         "Technical communication (FR/EN)",
-        "Time management & delivery",
+        "Popularisation & pedagogy",
         "Adaptability",
-        "Autonomy"
+        "Time management"
       ],
       "items": [
-        "Travail en équipe / Teamwork",
-        "Esprit analytique / Analytical mindset",
+        "Curiosité / Curiosity",
+        "Rigueur / Rigour",
+        "Esprit d'équipe / Team spirit",
+        "Autonomie & proactivité / Autonomy & proactivity",
+        "Esprit d'analyse & de synthèse / Analytical mindset",
         "Communication technique FR-EN / Technical communication",
-        "Gestion du temps / Time management",
+        "Vulgarisation & pédagogie / Popularisation",
         "Adaptabilité / Adaptability",
-        "Autonomie / Autonomy"
+        "Gestion du temps / Time management"
       ]
     }
   },
@@ -807,7 +1413,8 @@ window.JESUS_KB = {
       "date": {
         "fr": "Mai 2025",
         "en": "May 2025"
-      }
+      },
+      "url": "https://courses.edx.org/certificates/4a4115021977419b9413dd47bc9a444d"
     },
     {
       "name": "Introduction to Agile and Scrum",
@@ -818,7 +1425,8 @@ window.JESUS_KB = {
       "date": {
         "fr": "Avril 2025",
         "en": "April 2025"
-      }
+      },
+      "url": "https://coursera.org/share/ff38612ac83204b81e35332d3d061efa"
     },
     {
       "name": "Lean Six Sigma Yellow Belt",
@@ -836,7 +1444,7 @@ window.JESUS_KB = {
     {
       "role": {
         "fr": "Responsable de projet — Pompage solaire",
-        "en": "Project manager — Solar pumping"
+        "en": "Project lead — Solar pumping"
       },
       "org": {
         "fr": "Club ALHAYAT Caravan",
@@ -847,14 +1455,14 @@ window.JESUS_KB = {
         "en": "May 2025"
       },
       "description": {
-        "fr": "Pilotage et coordination d'équipe pour le déploiement d'un système de pompage solaire en zone isolée.",
-        "en": "Team leadership and coordination for deploying a solar pumping system in an isolated area."
+        "fr": "Pilotage d'un système de pompage solaire en zone montagneuse (rurale isolée), coordination de l'équipe et présentation des résultats aux parties prenantes.",
+        "en": "Running a solar pumping system in a mountainous (isolated rural) area, team coordination and presentation of the results to stakeholders."
       }
     },
     {
       "role": {
-        "fr": "Membre actif",
-        "en": "Active member"
+        "fr": "Membre actif — Développeur",
+        "en": "Active member — Developer"
       },
       "org": {
         "fr": "Club informatique ENSAM Meknès",
@@ -865,8 +1473,8 @@ window.JESUS_KB = {
         "en": "October – November 2023"
       },
       "description": {
-        "fr": "Développement d'une plateforme web de réservation des places d'étude (full-stack).",
-        "en": "Development of a full-stack web platform for booking study spots."
+        "fr": "Conception, développement et déploiement d'une plateforme web full-stack de réservation des places de la salle d'étude.",
+        "en": "Design, development and deployment of a full-stack web platform for booking study-room seats."
       }
     }
   ]

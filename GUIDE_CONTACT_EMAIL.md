@@ -13,7 +13,7 @@ depuis le site** :
 ## ✅ Étape UNIQUE à faire : activer FormSubmit (1 minute)
 
 Le formulaire envoie les messages à **votre email** (`contactEmail` dans
-`js/config.js`, déjà réglé sur `issa.alternance@gmail.com`) grâce au service
+`js/config.js`, déjà réglé sur `issa.pfe@gmail.com`) grâce au service
 gratuit **FormSubmit.co**. Aucune clé, aucun compte à créer.
 
 **La toute première fois seulement**, FormSubmit doit vérifier que l'email vous
@@ -22,18 +22,25 @@ appartient :
 1. Mettez le site en ligne (ou testez-le en local).
 2. Depuis la section Contact, **envoyez-vous un premier message test**.
 3. Vous recevez un email de **FormSubmit** intitulé « Confirm your email » à
-   `issa.alternance@gmail.com` → cliquez sur le **bouton de confirmation**.
+   `issa.pfe@gmail.com` → cliquez sur le **bouton de confirmation**.
 4. C'est fait ✅ — **à partir de là, TOUS les messages du formulaire arrivent
    automatiquement dans votre boîte Gmail.**
 
 > Astuce : si vous ne voyez pas l'email de confirmation, regardez dans
 > **Spam / Promotions**.
 
+> ⚠️ **Changement d'adresse (octobre 2026)** : l'adresse de contact est
+> désormais `issa.pfe@gmail.com` (elle remplace l'ancienne adresse dans
+> `js/config.js`). FormSubmit confirme **chaque adresse séparément** : il faut
+> donc refaire **une fois** les étapes 2 et 3 ci-dessus pour la nouvelle
+> adresse, sinon ni les messages du formulaire ni les notifications de visite
+> et de conversation (`js/notify.js`) ne seront délivrés.
+
 ---
 
 ## 👀 Comment consulter les messages reçus
 
-**Tout simplement dans votre Gmail** (`issa.alternance@gmail.com`) : chaque
+**Tout simplement dans votre Gmail** (`issa.pfe@gmail.com`) : chaque
 message envoyé depuis le site arrive comme un email normal, avec le **nom**,
 l'**email** et le **message** du visiteur. Vous répondez directement depuis
 Gmail. Rien d'autre à installer.

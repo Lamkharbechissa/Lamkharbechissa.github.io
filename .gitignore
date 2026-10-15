@@ -10,3 +10,7 @@ DOCUMENTATION_TECHNIQUE_ISSA.pdf
 
 # Outils locaux (preview)
 .claude/
+
+# Journaux / documentation interne (docs/journal/*.pdf) : ils contiennent
+# l'ancien contenu du site et les noms d'autres personnes -> ne JAMAIS publier
+docs/
