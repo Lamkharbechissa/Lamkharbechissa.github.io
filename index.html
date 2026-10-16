@@ -8,7 +8,9 @@
   <!-- Content-Security-Policy : liste blanche stricte des ressources autorisées.
        script-src 'self' (SANS unsafe-inline) = un pirate ne peut PAS exécuter
        de script injecté → protection anti-XSS forte. connect-src limite les
-       appels réseau au site, à Groq et au worker Cloudflare. -->
+       appels réseau au site et au relais Cloudflare Worker (le navigateur
+       n'appelle plus Groq ; après déploiement, remplacer *.workers.dev par
+       l'origine exacte du Worker, ici ET dans _headers). -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     base-uri 'self';
@@ -19,7 +21,7 @@
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
     script-src 'self';
-    connect-src 'self' https://api.groq.com https://*.workers.dev https://*.supabase.co wss://*.supabase.co https://api.web3forms.com https://formsubmit.co;
+    connect-src 'self' https://*.workers.dev https://*.supabase.co wss://*.supabase.co https://api.web3forms.com https://formsubmit.co;
     upgrade-insecure-requests;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- forçage HTTPS + anti-clickjacking : voir js/security.js (chargé en 1er) -->
@@ -89,7 +91,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=31">
+  <link rel="stylesheet" href="css/style.css?v=32">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%231f55e6'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>IL</text></svg>">
 </head>
 <body>
@@ -385,14 +387,14 @@
   </div>
 
   <!-- Scripts : base de connaissances → chatbot ISSA → site -->
-  <script src="js/config.js?v=33"></script>
+  <script src="js/config.js?v=34"></script>
   <script src="js/config.local.js"></script> <!-- clé locale, absente en production (404 sans gravité) -->
   <script src="js/notify.js?v=33"></script> <!-- tôt : capte les premières actions du visiteur -->
   <script src="js/vendor/supabase.min.js"></script> <!-- client Supabase (historique, optionnel) -->
   <script src="js/kb.js?v=32"></script>
   <script src="js/history.js?v=30"></script>
-  <script src="js/rag.js?v=31"></script>
-  <script src="js/jesus.js?v=38"></script>
+  <script src="js/rag.js?v=32"></script>
+  <script src="js/jesus.js?v=39"></script>
   <script src="js/main.js?v=33"></script>
   <script src="js/admin.js?v=30"></script>
 </body>

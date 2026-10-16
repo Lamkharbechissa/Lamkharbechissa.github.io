@@ -15,7 +15,8 @@
 
   /* Apostrophes isolées ignorées (« 'good ») ; un mot élidé inconnu
      (« you're ») compte par ses morceaux (« you »). Égalité → français. */
-  function detectLanguage(text) {
+  /* [mots-outils FR, mots-outils EN] d'un texte — même décompte que detectLanguage */
+  function langCounts(text) {
     /* passage ENTRE GUILLEMETS (« what's 'stage' in English? ») = citation : ignoré, sauf s'il ne reste rien */
     const low = String(text).toLowerCase().replace(/’/g, "'");
     const pat = /[a-zà-ÿ]+(?:'[a-zà-ÿ]+)*/g;
@@ -27,6 +28,10 @@
       const parts = (FR_HINTS.has(w) || EN_HINTS.has(w) || !w.includes("'")) ? [w] : w.split("'");
       for (const p of parts) { if (FR_HINTS.has(p) || lwFr.has(p)) fr++; if (EN_HINTS.has(p) || lwEn.has(p)) en++; }
     }
+    return [fr, en];
+  }
+  function detectLanguage(text) {
+    const [fr, en] = langCounts(text);
     return en > fr ? "en" : "fr";
   }
 
@@ -1930,7 +1935,12 @@
       "data analytics": "data analysis",
       "c plus plus": "cplusplus",
       "cpp": "cplusplus",
-      "github actions": "cicd", "automatiser ses deploiements": "cicd", "automatiser les deploiements": "cicd", "automatisation des deploiements": "cicd", "automate deployments": "cicd", "deployment automation": "cicd",
+      "github actions": "cicd",
+      "automatiser ses deploiements": "cicd",
+      "automatiser les deploiements": "cicd",
+      "automatisation des deploiements": "cicd",
+      "automate deployments": "cicd",
+      "deployment automation": "cicd",
       "ci pipeline": "cicd",
       "pipeline ci": "cicd",
       "ci cd pipeline": "cicd",
@@ -1952,7 +1962,11 @@
         "api rest",
         "fastapi"
       ],
-      "stats": "statistiques", "statistical analysis": "statistiques", "statistical": "statistiques", "analyse statistique": "statistiques", "analyses statistiques": "statistiques",
+      "stats": "statistiques",
+      "statistical analysis": "statistiques",
+      "statistical": "statistiques",
+      "analyse statistique": "statistiques",
+      "analyses statistiques": "statistiques",
       "lean": "lean six sigma",
       "lean manufacturing": "lean six sigma",
       "lean management": "lean six sigma",
@@ -2869,7 +2883,589 @@
     "deploy_kb_re": "\\b(?:deploiement|deployment|deploye|deployed)\\b",
     "no_deploy_kb_re": "\\b(?:pas de mise en production|no production deployment|not deployed|non deploye)\\b",
     "except_re": "(?:a part|en dehors (?:de|du|des|d)|hormis|sauf|excepte|autres? que|autres? sports? que|other than|besides|apart from|aside from|except|outside of)(?: (?:le|la|les|l|du|de|des|d|ses|son|sa|his|the))?",
-    "outside_studies_re": "\\b(?:a part|en dehors(?: de| des| du| d)?|hors|besides|apart from|aside from|outside(?: of)?|other than) (?:(?:ses|son|sa|les|l|his|the|her) )?(?:etudes|cours|ecole|studies|study|school|classes|scolarite)\\b|\\b(?:when (?:he|issa) (?:s|is) not (?:studying|at school|in class|working)|(?:quand|lorsqu) (?:il|issa) (?:n )?(?:etudie pas|est pas en cours|travaille pas|bosse pas))\\b"
+    "outside_studies_re": "\\b(?:a part|en dehors(?: de| des| du| d)?|hors|besides|apart from|aside from|outside(?: of)?|other than) (?:(?:ses|son|sa|les|l|his|the|her) )?(?:etudes|cours|ecole|studies|study|school|classes|scolarite)\\b|\\b(?:when (?:he|issa) (?:s|is) not (?:studying|at school|in class|working)|(?:quand|lorsqu) (?:il|issa) (?:n )?(?:etudie pas|est pas en cours|travaille pas|bosse pas))\\b",
+    "you_word_re": "\\b(?:tu|toi|te|t|ton|ta|tes|vous|votre|vos|you|your|yours|yourself|u|ur)\\b",
+    "you_res": [
+      "\\b(?:ton|ta|tes|votre|vos|your|ur)(?: [a-z]+){0,2} (?:projets?|projects?|realisations?|stages?|internships?|experiences?|parcours|background|formations?|etudes|studies|education|diplomes?|degrees?|competences?|skills?|expertise|domaine|field|specialite|specialty|points? forts?|forces?|strengths?|atouts?|qualites?|qualities|defauts?|faiblesses?|weakness(?:es)?|points? faibles?|soft skills|langues|languages|certifications?|motivations?|objectifs?|objectives?|goals?|ambitions?|aspirations?|career|carriere|methodes?|methods?|methodologie|methodology|approche|approach|style|facon de travailler|leadership|reussites?|succes|success(?:es)?|achievements?|accomplishments?|erreurs?|mistakes?|echecs?|failures?|difficultes?|challenges?|defis?|obstacles?|lecons?|lessons?|disponibilite|availability|mobilite|mobility|cv|resume|profil|profile|portfolio|linkedin|github|email|mail|contact|coordonnees|loisirs|hobbies|passions?|interets|interests|travail|work|job|salaire|salary|pretentions|valeur ajoutee|added value|equipe|team|role|plus grande?|biggest|greatest|proudest|meilleure?s?|best)\\b",
+      "\\b(?:(?:tu|vous) (?:te |vous |t |l |le |la |les |en |y )?(?:geres|gerez|travailles|travaillez|bosses|bossez|organises|organisez|apprends|apprenez|abordes|abordez|priorises|priorisez|reagis|reagissez|diriges|dirigez|encadres|encadrez|recherches|recherchez|cherches|cherchez|vises|visez|souhaites|souhaitez|formes|formez)|(?:geres|gerez|travailles|travaillez|bosses|bossez|organises|organisez|apprends|apprenez|abordes|abordez|priorises|priorisez|reagis|reagissez|diriges|dirigez|encadres|encadrez|recherches|recherchez|cherches|cherchez|vises|visez|souhaites|souhaitez) (?:tu|vous))\\b",
+      "\\b(?:as tu|avez vous|tu as|vous avez|t as)(?: deja| vraiment| souvent| jamais)? (?:dirige|mene|manage|encadre|travaille|appris|echoue|rate|commis|eu|fait|realise|developpe|construit|concu|gere|pilote|surmonte|rencontre|choisi|suivi|obtenu|reussi)\\b",
+      "\\b(?:es tu|etes vous|tu es|vous etes|t es)(?: plutot| vraiment| bien| deja)? (?:disponible|disponibles|libre|mobile|motive|motivee|base|basee|ouvert|ouverte|pret|prete|a l aise|fort|forte|bon|bonne|organise|autonome|rigoureux|curieux|passionne|interesse)\\b",
+      "\\b(?:how|comment) (?:do|did|would|will|can) (?:you|u) (?:handle|manage|deal|cope|work|learn|organi[sz]e|prioriti[sz]e|approach|react|stay|keep|lead|solve|tackle|overcome|choose|pick|decide)\\b",
+      "\\b(?:have|did|do|would|could|can|were|are) (?:you|u)(?: ever| already| really| usually)? (?:led|lead|manage|managed|worked|work|learn|learned|learnt|fail|failed|make|made|face|faced|overcome|overcame|handle|handled|built|build|deliver|delivered|available|free|mobile|motivated|based|open|willing|comfortable|good|strong|organi[sz]ed|interested|passionate|looking)\\b",
+      "\\b(?:what|which) (?:motivates|drives|excites|interests|inspires|attracts) (?:you|u)\\b",
+      "\\bqu est ce qui (?:te|vous|t) (?:motive|anime|pousse|passionne|interesse|attire|plait|inspire)\\b",
+      "\\b(?:parlez moi de vous|parlez nous de vous|presentez vous|presentez vous rapidement|decrivez vous|decris toi|where do you see yourself|ou te vois tu|ou vous voyez vous|where will you be|what are you looking for|what do you want to do|que recherches tu|que recherchez vous|que cherches tu|que cherchez vous|qu est ce que (?:tu|vous) (?:recherches|recherchez|cherches|cherchez)|why should (?:we|i) (?:hire|recruit|choose|pick) you|pourquoi (?:devrais je|devrions nous|dois je|devrait on|faudrait il) (?:te|vous) (?:recruter|embaucher|choisir|prendre|engager)|why did you (?:choose|pick|study|go into|decide)|pourquoi (?:as tu|avez vous) choisi|what (?:can|could|would|will) you bring|(?:qu est ce que|que) (?:tu|vous) (?:peux|pouvez|pourrais|pourriez) (?:nous |m |me )?apporter|que (?:peux|pouvez) (?:tu|vous) (?:nous |m |me )?apporter|(?:sur quoi|on what) (?:travailles tu|travaillez vous|tu travailles|vous travaillez|are you working)|what are you (?:working on|doing these days|building|up to))\\b",
+      "\\b(?:(?:es tu|etes vous|tu es|vous etes|t es|are you)(?: [a-z]+)? (?:marie|mariee|married|celibataire|single|en couple|fiance|fiancee)|(?:as tu|avez vous|tu as|vous avez|t as|do you have|have you got)(?: des| un| une| a| any| le)? (?:enfants?|kids?|children|voiture|car|permis|driving licen[cs]e|visa|work permit)|(?:ton|ta|tes|votre|vos|your)(?: [a-z]+)? (?:prefere|preferee|preferes|preferees|favou?rite))\\b"
+    ],
+    "you_block_re": "\\b(?:avis|opinion|opinions|penses|pensez|think|crois|croyez|believe|conseil|conseils|conseille|conseiller|conseillerais|advice|advise|recommend|recommande|recommandes|aide moi|aidez moi|m aider|nous aider|help me|help us|joue|jouez|pretend|imagine|imaginons|fais comme si|faites comme si|role play|roleplay|act as|incarne|preferes|preferez|prefer|aimes tu|aimez vous|do you like|do you love|love|amour|mon|ma|mes|my|mot de passe|password|prompt|instructions)\\b",
+    "you_pronoun_map": {
+      "tu": "il",
+      "toi": "lui",
+      "te": "le",
+      "t": "il",
+      "ton": "son",
+      "ta": "sa",
+      "tes": "ses",
+      "vous": "il",
+      "votre": "son",
+      "vos": "ses",
+      "you": "he",
+      "your": "his",
+      "yours": "his",
+      "yourself": "himself",
+      "u": "he",
+      "ur": "his"
+    },
+    "you_imperatives": {
+      "parlez": "parle",
+      "presentez": "presente",
+      "decrivez": "decris",
+      "racontez": "raconte",
+      "presente": "presente",
+      "decris": "decris"
+    },
+    "you_prepositions": [
+      "de",
+      "a",
+      "avec",
+      "pour",
+      "sur",
+      "chez",
+      "about",
+      "with",
+      "for",
+      "to",
+      "of"
+    ],
+    "you_verb_map": {
+      "as": "a",
+      "es": "est",
+      "etes": "est",
+      "avez": "a",
+      "peux": "peut",
+      "pouvez": "peut",
+      "veux": "veut",
+      "voulez": "veut",
+      "fais": "fait",
+      "faites": "fait",
+      "vas": "va",
+      "allez": "va",
+      "dis": "dit",
+      "dites": "dit",
+      "sais": "sait",
+      "savez": "sait",
+      "vois": "voit",
+      "voyez": "voit",
+      "are": "is",
+      "were": "was",
+      "have": "has",
+      "do": "does",
+      "dont": "doesnt",
+      "r": "is"
+    },
+    "interview_bare_re": "^(?:et )?(?:pourquoi|why)(?: (?:avoir choisi|choisir|choose|chose|pick|picked|go into|aller vers))? (?:l |the )?(?:ia|ai|intelligence artificielle|artificial intelligence|data|data science|consulting|conseil|ingenierie|engineering|adoption de l ia|ai adoption)$|^(?:(?:tell|talk to) me about|describe|give me an example of|parle moi|parlez moi|raconte moi|racontez moi|decris moi|decrivez moi|donne moi un exemple|donnez moi un exemple)(?: (?:d|de|a|an|one|un|une|of))*(?: (?:time when|moment ou|fois ou|situation|cas|ou))? (?:failure|mistake|challenge|difficulty|difficult situation|setback|success|achievement|echec|erreur|difficulte|defi|reussite|realisation|situation difficile)\\b",
+    "interview_topics": [
+      [
+        "achievement",
+        "\\b(?:plus grande? (?:reussite|fierte|realisation|succes|accomplissement)|(?:biggest|greatest|main|proudest|best|key|top|major) (?:achievements?|accomplishments?|success(?:es)?|realisations?)|reussites?|realisation (?:principale|majeure|phare)|projets? (?:phare|prefere|favori)|(?:favou?rite|best|flagship) projects?|meilleurs? projets?|proud|proudest|fier|fiere)\\b"
+      ],
+      [
+        "difficulty",
+        "\\b(?:difficultes?|difficult(?:y|ies)|challenges?|defis?|obstacles?|echecs?|echoue|failures?|failed|erreurs?|mistakes?|problemes? (?:rencontres?|majeurs?)|problems? (?:he )?(?:faced|encountered)|setbacks?|lecons? (?:apprises?|tirees?)|lessons? (?:learned|learnt)|ce qui n a pas (?:marche|fonctionne)|what went wrong|surmonte\\w*|overc[oa]me|regrets?)\\b"
+      ],
+      [
+        "motivation",
+        "\\b(?:motivations?|motive|motivates|motivated|(?:qu est ce qui|what) (?:le |l |him )?(?:motive|anime|pousse|passionne|attire|drives?|excites?|inspires?)|passionne|passionate|passion|drives? (?:him|issa)|interet pour l ia|interest in ai|why (?:did (?:he|issa) (?:choose|pick|go into) )?(?:ai|artificial intelligence)$|pourquoi (?:(?:il a|a t il|issa a) choisi )?(?:l ia|l intelligence artificielle)$|(?:pourquoi|why) (?:(?:il a|a t il|issa a|has he|did he) )?(?:choisi|chose|choose|picked|pick) (?:l ia|l intelligence artificielle|ai|artificial intelligence|ce domaine|this field|ce metier|cette voie))\\b"
+      ],
+      [
+        "career",
+        "\\b(?:objectifs? (?:professionnels?|de carriere)|career (?:goals?|plans?|path|objectives?|aspirations?)|ambitions?|aspirations?|projet professionnel|plan de carriere|carriere|career|(?:ou|where) (?:se voit il|il se voit|does he see himself|he sees himself|will he be)|dans (?:5|cinq|10|dix) ans|in (?:5|five|10|ten) years|long terme|long term)\\b"
+      ],
+      [
+        "leadership",
+        "\\b(?:leadership|leader|(?:lead|leads|led|leading) (?:a |the |an )?(?:team|project|group|equipe|projet)|has he (?:ever )?led|il a (?:deja )?dirige|a t il (?:deja )?dirige|dirige (?:une|un|des) (?:equipe|projet|groupe)|diriger|encadre(?:r|ment)?|manage(?:d|r)? (?:a |une |des )?(?:team|equipe|people)|chef (?:de projet|d equipe)|responsable de projet|project lead|piloter (?:un|une|des) (?:projet|equipe)|take (?:the )?lead|prise de responsabilit\\w*|prend(?:re)? des initiatives|initiatives?|ownership)\\b"
+      ],
+      [
+        "teamwork",
+        "\\b(?:travail en equipe|travailler en equipe|comment (?:il )?travaille en equipe|team ?work|team player|esprit d equipe|team spirit|(?:works?|working) well (?:in|with) (?:a |the |others|teams?)|how (?:does )?he works? (?:in|with) (?:a |the )?teams?|collabor\\w+|work with others|travailler avec (?:d autres|les autres))\\b"
+      ],
+      [
+        "work_style",
+        "\\b(?:methodes? de travail|methodologie|methodology|methodes?|methods?|facon de travailler|maniere de travailler|style de travail|work(?:ing)? style|way of working|how (?:does )?he works?|how he works|comment (?:il )?(?:travaille|s organise|organise son travail)|approche|approach|processus de travail|work process)\\b"
+      ],
+      [
+        "pressure",
+        "\\b(?:pression|pressure|stress|stresse|stressful|stressed|deadlines?|delais|echeances?|urgences?|rush|charge de travail|workload|plusieurs projets en parallele|multiple projects|multitask\\w*)\\b"
+      ],
+      [
+        "learning",
+        "\\b(?:apprend|apprendre|apprentissage(?! (?:automatique|profond|supervise|non supervise|par renforcement))|appris|autodidacte|self taught|self learner|se former|se forme|se forme t il|formation continue|veille(?: technologique)?|keeps? learning|keep up|stay(?:s)? up to date|(?:fast|quick|self|rapid|eager) learners?|apprend (?:vite|rapidement)|(?<!machine )(?<!deep )(?<!reinforcement )(?<!transfer )learn(?:s|ed|t|ing)?(?! (?:management|rate)))\\b"
+      ]
+    ],
+    "interview_longterm_re": "\\b(?:dans (?:5|cinq|10|dix) ans|in (?:5|five|10|ten) years|long terme|long term|(?:ou|where) (?:se voit il|il se voit|does he see himself|he sees himself|will he be))\\b",
+    "summary_word_re": "\\b(?:resume|resumer|resume moi|resumes|resumez|synthese|synthetise|apercu|survol|bref|tldr|tl dr|recap|recapitule|summary|summarize|summarise|sum up|sum (?:him|issa|it) up|overview|gist|nutshell|in short|in brief|rundown|run down|topo|quelques mots|quelques lignes|few words|few lines|en (?:une|deux|trois|quatre|cinq|quelques) (?:phrases?|lignes?|mots)|in (?:one|two|three|four|five|a few|few|[1-5]) (?:sentences?|lines?|words))\\b",
+    "interview_entities": [
+      "about",
+      "soft_skills",
+      "objective",
+      "projects_list",
+      "internships_list",
+      "extracurricular"
+    ],
+    "deeper_re": "^(?:et |ok |oui |yes |alors |so |hmm |d accord |okay )?(?:(?:tu peux|peux tu|vous pouvez|pouvez vous|tu pourrais|pourrais tu|pourriez vous|can you|could you|would you|please|merci de) )?(?:plus de details?|davantage de details|plus de precisions?|des details|details?|en detail|en details|dans le detail|approfondis|approfondir|approfondissez|approfondi|creuse|creuser|creusez|detaille|detailler|detaillez|developpe|developper|developpez|explique|expliquer|expliquez|explique moi|expliquez moi|explique nous|explique ca|explique moi ca|precise|preciser|precisez|dis m en plus|dis moi en plus|dites m en plus|dites moi en plus|dive deeper|deeper|go deeper|dig deeper|deep dive|tell me more|more details?|more detail|more info|more information|in more detail|elaborate|elaborate on that|explain|explain more|explain that|go on|keep going|continue|continuez|et ensuite|et apres|ensuite|apres|then what|and then|what next|what then|and after that|comment|comment ca|comment cela|comment ca se fait|how|how so|how come|pourquoi|pourquoi ca|pourquoi cela|why|why so|why is that|c est a dire|meaning|vas y|go ahead|je veux en savoir plus|i want to know more|plus|more|encore|davantage|la suite|the rest|next|suite)(?: (?:please|pls|stp|svp|s il te plait|s il vous plait|moi|nous|un peu|encore|plus|svp merci|sur ce point|sur ca|on that|on this|about that|about it|that|this|ca|cela))*$",
+    "accept_re": "^(?:oui|yes|yeah|yep|yup|ouais|volontiers|avec plaisir|bien sur|carrement|absolument|sure|of course|absolutely|go ahead|vas y|allez y|oui stp|oui svp|oui merci|yes please|please do|why not|pourquoi pas|ok vas y|ok go|ok oui|oui oui|oui volontiers|yes sure)(?: (?:please|pls|stp|svp|merci|thanks|bien sur))?$",
+    "ack_re": "^(?:ok|okay|okk|d accord|dac|compris|entendu|parfait|super|cool|top|genial|tres bien|bien|nickel|ca marche|noted|got it|i see|understood|great|nice|perfect|alright|all right|fine|good|awesome|non|no|nope|ah ok|ah d accord|je vois|interessant|interesting|wow|impressionnant|impressive)(?: (?:merci|thanks))?$",
+    "summary_bare_re": "^(?:et |ok |alors |so )?(?:(?:tu peux|peux tu|vous pouvez|pouvez vous|tu pourrais|pourrais tu|pourriez vous|can you|could you|would you|please) )?(?:me |nous )?(?:faire |donner |give me |make |donne moi |fais moi |donnez moi |faites moi )?(?:un |une |a |le |la )?(?:petit |court |bref |rapide |quick |short |brief )?(?:resume|resumer|resume moi|resume le|resume la|resume ca|resumes|resumez|summary|summarize|summarise|summarize it|summarise it|summarize that|summarise that|sum up|sum it up|en bref|bref|in short|in brief|tl dr|tldr|recap|recapitule|recapitulons|synthese|synthetise|en resume|short version|version courte|l essentiel|the gist|gist|in a nutshell|nutshell|en un mot|en deux mots|in a word)(?: (?:please|pls|stp|svp|s il te plait|s il vous plait|rapide|rapidement|vite|quickly|ca|cela|that|it))*$",
+    "team_followup_re": "^(?:et )?(?:(?:c etait|c est|it was|was it|is it|il etait|il l a fait|did he do it|he did it) )?(?:avec qui|with whom|who with|seul|alone|by himself|tout seul|en equipe|in a team|en groupe|in a group|en binome|solo)(?: (?:please|stp|svp))?$",
+    "other_followup_re": "^(?:et )?(?:sinon|et sinon|what else|quoi d autre|autre chose|anything else|other projects?|autres? projets?|un autre|another one|another|d autres|others)(?: (?:please|stp|svp|\\?))?$",
+    "showcase_order": [
+      "capgemini",
+      "aegisai",
+      "ai_act",
+      "drone",
+      "portfolio_ia",
+      "pa_c27033",
+      "mir100",
+      "multi_agents",
+      "salle_connectee",
+      "cat_emotion",
+      "jesa"
+    ],
+    "deeper_word_re": "\\b(?:plus de details?|davantage|approfondi\\w*|creuse\\w*|detaille\\w*|en detail|in detail|in depth|en profondeur|dive deeper|deep dive|dig deeper|go deeper|tell me more|more about|more details?|en dire plus|dis m en plus|en savoir plus|explique\\w*|explain\\w*|elaborate)\\b",
+    "full_card_re": "\\b(?:fiche complete|fiche detaillee|fiche entiere|toute la fiche|toutes les (?:infos|informations|details)|tout sur|everything about|all (?:the )?details|full (?:card|details|description|picture)|description complete|de a a z|from a to z|everything you know)\\b",
+    "level_role_re": "\\b(?:son role|his role|role|roles|contribution|contributions|qu a t il fait|qu a fait issa|ce qu il a fait|what did he do|what was his part|sa part|comment (?:a t il|il a|issa a) (?:fait|construit|realise|developpe|concu|mene)|comment (?:a ete|est) (?:fait|construit|realise|developpe|concu)|how (?:was|is|did) (?:it|this|the \\w+|he)(?: \\w+)? (?:built|made|developed|designed|created|done)|built|construit|construction|how he built|how did he build)\\b",
+    "level_tech_re": "\\b(?:technique|techniques|technical|technically|techniquement|comment (?:ca|il|elle) (?:marche|fonctionne)|how (?:does )?it works?|fonctionnement|under the hood|architecture|pipeline|algorithme|algorithms?)\\b",
+    "level_limits_re": "\\b(?:limites?|limits?|limitations?|faiblesses? du projet|points? faibles? du projet|bilan|lecons?|lessons?|honnetement|honestly|what didn t work)\\b",
+    "limits_re": "\\b(?:limites?|limits?|limitations?|limite a|limited to|optimistes?|optimistic|simulees?|simulated|aucun gain|no quantified gain|non mesuree?s?|not measured|pas de mise en production|no production|prototype|demonstrateur|demonstrator|honnetement|honestly|aucun juriste|no lawyer|bug|fuite de donnees|data leakage|data leak|n a pas converge|did not converge|reste a coder|still to be coded|aucun resultat|no results?)\\b",
+    "followup_words": [
+      "temps",
+      "resultats",
+      "resultat",
+      "results",
+      "result",
+      "were",
+      "was",
+      "last",
+      "lasted",
+      "took",
+      "take",
+      "long",
+      "outcome",
+      "outcomes",
+      "chiffres",
+      "figures",
+      "numbers",
+      "tools",
+      "outils",
+      "used",
+      "utilise",
+      "utilisees",
+      "utilises",
+      "dure",
+      "ca",
+      "it",
+      "that",
+      "this",
+      "ce",
+      "celui",
+      "ci",
+      "la",
+      "le",
+      "les"
+    ],
+    "followup_max_words": 6,
+    "phrases": {
+      "offer_l1": {
+        "fr": [
+          "Voulez-vous les détails techniques ?",
+          "Je peux entrer dans le détail technique si vous le souhaitez.",
+          "",
+          "Envie d'aller plus loin ? Demandez-moi « plus de détails »."
+        ],
+        "en": [
+          "Want the technical details?",
+          "I can go into the technical details if you like.",
+          "",
+          "Want to go further? Just ask for “more details”."
+        ]
+      },
+      "offer_l2": {
+        "fr": [
+          "Je peux aussi vous donner les résultats et les limites.",
+          "Voulez-vous voir les résultats mesurés, et leurs limites ?",
+          "Prochaine étape possible : les résultats, sans enjoliver."
+        ],
+        "en": [
+          "I can also give you the results and the limits.",
+          "Would you like the measured results, and their limits?",
+          "Possible next step: the results, without embellishment."
+        ]
+      },
+      "offer_l3": {
+        "fr": [
+          "Je peux aussi préciser son rôle et la façon dont le travail a été mené.",
+          "Voulez-vous savoir quel a été son rôle exact ?",
+          "Si vous voulez, je détaille son rôle et l'organisation du travail."
+        ],
+        "en": [
+          "I can also explain his role and how the work was carried out.",
+          "Would you like to know his exact role?",
+          "If you like, I can detail his role and how the work was organised."
+        ]
+      },
+      "offer_l4": {
+        "fr": [
+          "Je peux aussi afficher la fiche complète.",
+          "Voulez-vous la fiche complète ?",
+          "Il reste la fiche complète, si vous la voulez."
+        ],
+        "en": [
+          "I can also show the full card.",
+          "Would you like the full card?",
+          "There is still the full card, if you want it."
+        ]
+      },
+      "offer_topic": {
+        "fr": [
+          "Voulez-vous des exemples concrets ?",
+          "Je peux donner d'autres exemples si vous le souhaitez.",
+          "",
+          "Envie d'approfondir ? Demandez « plus de détails »."
+        ],
+        "en": [
+          "Would you like concrete examples?",
+          "I can give more examples if you like.",
+          "",
+          "Want to dig deeper? Ask for “more details”."
+        ]
+      },
+      "offer_about": {
+        "fr": [
+          "Voulez-vous son parcours en détail ?",
+          "Je peux développer son parcours si vous le souhaitez.",
+          "",
+          "Une question sur un projet ou un stage en particulier ?"
+        ],
+        "en": [
+          "Would you like his background in detail?",
+          "I can expand on his background if you like.",
+          "",
+          "Any question about a specific project or internship?"
+        ]
+      },
+      "open_l2": {
+        "fr": [
+          "🛠️ **Côté technique** —",
+          "🛠️ **Dans le détail** —",
+          "🛠️ **Sous le capot** —"
+        ],
+        "en": [
+          "🛠️ **On the technical side** —",
+          "🛠️ **In more detail** —",
+          "🛠️ **Under the hood** —"
+        ]
+      },
+      "open_l3": {
+        "fr": [
+          "📊 **Résultats et limites, sans enjoliver** —",
+          "📊 **Ce qui a été mesuré, et ses limites** —",
+          "📊 **Les chiffres, et ce qu'ils ne disent pas** —"
+        ],
+        "en": [
+          "📊 **Results and limits, without embellishment** —",
+          "📊 **What was measured, and its limits** —",
+          "📊 **The figures, and what they don't say** —"
+        ]
+      },
+      "open_l4": {
+        "fr": [
+          "🎯 **Son rôle et l'organisation du travail** —",
+          "🎯 **Qui a fait quoi, et comment** —",
+          "🎯 **Son rôle, concrètement** —"
+        ],
+        "en": [
+          "🎯 **His role and how the work was organised** —",
+          "🎯 **Who did what, and how** —",
+          "🎯 **His role, concretely** —"
+        ]
+      },
+      "open_summary": {
+        "fr": [
+          "📝 **En bref** —",
+          "📝 **Pour résumer** —",
+          "📝 **L'essentiel** —"
+        ],
+        "en": [
+          "📝 **In short** —",
+          "📝 **To sum up** —",
+          "📝 **The essentials** —"
+        ]
+      },
+      "metric_lead": {
+        "fr": [
+          "📊 Résultat clé :",
+          "📊 Chiffre marquant :",
+          "📊 Un résultat concret :"
+        ],
+        "en": [
+          "📊 Key result:",
+          "📊 Standout figure:",
+          "📊 A concrete result:"
+        ]
+      },
+      "end_topic": {
+        "fr": [
+          "J'ai fait le tour de ce que son profil dit sur ce sujet.",
+          "C'est tout ce que précise son profil sur ce point — je préfère ne rien inventer.",
+          "Voilà pour ce sujet : son profil n'en dit pas davantage."
+        ],
+        "en": [
+          "That's everything his profile says on this topic.",
+          "That's all his profile specifies on this point — I'd rather not make anything up.",
+          "That covers it: his profile doesn't say more."
+        ]
+      },
+      "end_contact": {
+        "fr": [
+          "Pour aller plus loin, le mieux est d'en parler directement avec Issa : **{email}**.",
+          "Pour en savoir plus, Issa répond volontiers : **{email}**.",
+          "Une question plus précise ? Écrivez-lui : **{email}**."
+        ],
+        "en": [
+          "To go further, the best is to talk to Issa directly: **{email}**.",
+          "To learn more, Issa will gladly answer: **{email}**.",
+          "A more specific question? Write to him: **{email}**."
+        ]
+      },
+      "suggest": {
+        "fr": [
+          "Je peux aussi vous parler de :",
+          "Autres sujets possibles :",
+          "Vous pourriez aussi demander :"
+        ],
+        "en": [
+          "I can also tell you about:",
+          "Other possible topics:",
+          "You could also ask about:"
+        ]
+      },
+      "other_open": {
+        "fr": [
+          "Autre réalisation marquante —",
+          "Dans un autre registre —",
+          "Autre projet qui mérite le détour —"
+        ],
+        "en": [
+          "Another notable piece of work —",
+          "In a different vein —",
+          "Another project worth a look —"
+        ]
+      },
+      "thanks": {
+        "fr": [
+          "Avec plaisir ! 😊 Autre chose sur le parcours d'Issa ?",
+          "Je vous en prie ! 😊 Une autre question sur ses projets ou ses stages ?",
+          "Merci à vous ! 😊 Je reste là si vous voulez creuser un projet ou un stage."
+        ],
+        "en": [
+          "You're welcome! 😊 Anything else about Issa's background?",
+          "My pleasure! 😊 Any other question about his projects or internships?",
+          "Thank you! 😊 I'm here if you want to dig into a project or an internship."
+        ]
+      },
+      "ack": {
+        "fr": [
+          "Parfait ! 😊 Que voulez-vous savoir d'autre sur Issa ?",
+          "Très bien ! Une autre question sur son parcours ?",
+          "D'accord ! Je peux vous parler de ses projets, de ses stages ou de ses compétences."
+        ],
+        "en": [
+          "Great! 😊 What else would you like to know about Issa?",
+          "All right! Any other question about his background?",
+          "Okay! I can tell you about his projects, internships or skills."
+        ]
+      },
+      "clarify": {
+        "fr": [
+          "De quel projet ou stage parlez-vous ?",
+          "Précisez-moi le projet ou le stage visé, et je vous réponds.",
+          "Pour vous répondre précisément, j'ai besoin du projet ou du stage concerné."
+        ],
+        "en": [
+          "Which project or internship do you mean?",
+          "Tell me which project or internship you have in mind, and I'll answer.",
+          "To answer precisely, I need the project or internship concerned."
+        ]
+      },
+      "mixed_tail": {
+        "fr": [
+          "🙅 Pour le reste de ta demande, je ne peux pas t'aider : je ne parle que du profil d'Issa.",
+          "🙅 Le reste de ta demande sort de mon rôle : je ne peux pas t'aider là-dessus, je ne parle que du profil d'Issa.",
+          "🙅 Pour l'autre partie, je ne peux pas t'aider : mon domaine, c'est uniquement le profil d'Issa."
+        ],
+        "en": [
+          "🙅 As for the rest of your request, I can't help with that: I only talk about Issa's profile.",
+          "🙅 The rest of your request is outside my role: I can't help with that, I only talk about Issa's profile.",
+          "🙅 For the other part, I can't help: my only domain is Issa's profile."
+        ]
+      },
+      "greet_open": {
+        "fr": [
+          "🤖 Bonjour ! Je suis **ISSA**, l'assistant personnel d'Issa Lamkharbech.",
+          "🤖 Bonjour et bienvenue ! Je suis **ISSA**, l'assistant personnel d'Issa Lamkharbech.",
+          "🤖 Bonjour ! Je suis **ISSA**, l'assistant personnel d'Issa Lamkharbech — ravi de vous accueillir."
+        ],
+        "en": [
+          "🤖 Hello! I'm **ISSA**, Issa Lamkharbech's personal assistant.",
+          "🤖 Hello and welcome! I'm **ISSA**, Issa Lamkharbech's personal assistant.",
+          "🤖 Hello! I'm **ISSA**, Issa Lamkharbech's personal assistant — glad to have you here."
+        ]
+      },
+      "greet_body": {
+        "fr": [
+          "Je connais en détail ses projets, ses stages, ses compétences et son parcours. Interrogez-moi comme en entretien : je réponds court, puis j'approfondis si vous le demandez.",
+          "Je connais en détail ses projets, ses stages, ses compétences et son parcours. Posez vos questions comme à un candidat : l'essentiel d'abord, le détail à la demande.",
+          "Je connais en détail ses projets, ses stages, ses compétences et son parcours. Demandez-moi un résumé, ou creusez un sujet avec « plus de détails »."
+        ],
+        "en": [
+          "I know his projects, internships, skills and background in detail. Interview me as you would a candidate: short answers first, more depth whenever you ask.",
+          "I know his projects, internships, skills and background in detail. Ask your questions as in an interview: the essentials first, details on demand.",
+          "I know his projects, internships, skills and background in detail. Ask me for a summary, or dig into a topic with “more details”."
+        ]
+      },
+      "greet_examples": {
+        "fr": [
+          "Essayez par exemple :\n• « Qui est Issa ? »\n• « Parle-moi du stage chez Capgemini »\n• « Le projet drone était-il en groupe ? »\n• « Quelles sont ses compétences en IA ? »\n• « Quel est son parcours scolaire ? »",
+          "Essayez par exemple :\n• « Quels sont tes points forts ? »\n• « Parle-moi d'AegisAI »\n• « Pourquoi l'IA ? »\n• « Quelle a été ta plus grande difficulté ? »\n• « Quel est son parcours scolaire ? »",
+          "Essayez par exemple :\n• « Qui est Issa ? »\n• « Sur quoi travailles-tu en ce moment ? »\n• « Le projet drone était-il en groupe ? »\n• « Comment gérez-vous la pression ? »\n• « Quelles sont ses compétences en IA ? »"
+        ],
+        "en": [
+          "Try for example:\n• “Who is Issa?”\n• “Tell me about the Capgemini internship”\n• “Was the drone project a group project?”\n• “What are his AI skills?”\n• “What is his educational background?”",
+          "Try for example:\n• “What are your strengths?”\n• “Tell me about AegisAI”\n• “Why AI?”\n• “What was your biggest challenge?”\n• “What is his educational background?”",
+          "Try for example:\n• “Who is Issa?”\n• “What are you working on right now?”\n• “Was the drone project a group project?”\n• “How do you handle pressure?”\n• “What are his AI skills?”"
+        ]
+      },
+      "iv_achievement": {
+        "fr": [
+          "🏆 **Ses réalisations les plus marquantes** —",
+          "🏆 **Ses résultats phares** —",
+          "🏆 **Ce qui ressort le plus de son parcours** —"
+        ],
+        "en": [
+          "🏆 **His most notable achievements** —",
+          "🏆 **His flagship results** —",
+          "🏆 **What stands out most in his path** —"
+        ]
+      },
+      "iv_difficulty": {
+        "fr": [
+          "🧗 **Difficultés et leçons, documentées honnêtement** —",
+          "🧗 **Ce qui n'a pas marché du premier coup** —",
+          "🧗 **Ses erreurs, et ce qu'il en a fait** —"
+        ],
+        "en": [
+          "🧗 **Difficulties and lessons, documented honestly** —",
+          "🧗 **What didn't work the first time** —",
+          "🧗 **His mistakes, and what he did about them** —"
+        ]
+      },
+      "iv_motivation": {
+        "fr": [
+          "🔥 **Ce qui le motive, d'après son parcours** —",
+          "🔥 **Sa motivation se lit dans ses choix** —",
+          "🔥 **Pourquoi l'IA, et pourquoi ce poste** —"
+        ],
+        "en": [
+          "🔥 **What drives him, judging by his path** —",
+          "🔥 **His motivation shows in his choices** —",
+          "🔥 **Why AI, and why this role** —"
+        ]
+      },
+      "iv_career": {
+        "fr": [
+          "🎯 **Son objectif** —",
+          "🎯 **Ce qu'il vise** —",
+          "🎯 **Où il veut aller** —"
+        ],
+        "en": [
+          "🎯 **His goal** —",
+          "🎯 **What he is aiming for** —",
+          "🎯 **Where he wants to go** —"
+        ]
+      },
+      "iv_leadership": {
+        "fr": [
+          "🚩 **Leadership et prise de responsabilité** —",
+          "🚩 **Quand il a mené un projet** —",
+          "🚩 **Ses expériences de pilotage** —"
+        ],
+        "en": [
+          "🚩 **Leadership and ownership** —",
+          "🚩 **When he led a project** —",
+          "🚩 **His experience leading** —"
+        ]
+      },
+      "iv_teamwork": {
+        "fr": [
+          "👥 **Le travail en équipe** —",
+          "👥 **En équipe, concrètement** —",
+          "👥 **Son esprit d'équipe, en pratique** —"
+        ],
+        "en": [
+          "👥 **Teamwork** —",
+          "👥 **In a team, concretely** —",
+          "👥 **His team spirit, in practice** —"
+        ]
+      },
+      "iv_work_style": {
+        "fr": [
+          "🧭 **Sa façon de travailler, vue à travers ses projets** —",
+          "🧭 **Sa méthode, concrètement** —",
+          "🧭 **Comment il travaille** —"
+        ],
+        "en": [
+          "🧭 **His way of working, as his projects show** —",
+          "🧭 **His method, concretely** —",
+          "🧭 **How he works** —"
+        ]
+      },
+      "iv_pressure": {
+        "fr": [
+          "⏱️ **Pression et délais** —",
+          "⏱️ **Tenir les délais, concrètement** —",
+          "⏱️ **Sous contrainte de temps** —"
+        ],
+        "en": [
+          "⏱️ **Pressure and deadlines** —",
+          "⏱️ **Meeting deadlines, concretely** —",
+          "⏱️ **Under time constraints** —"
+        ]
+      },
+      "iv_learning": {
+        "fr": [
+          "📚 **Apprendre en continu** —",
+          "📚 **Comment il se forme** —",
+          "📚 **Sa façon d'apprendre** —"
+        ],
+        "en": [
+          "📚 **Continuous learning** —",
+          "📚 **How he keeps learning** —",
+          "📚 **His way of learning** —"
+        ]
+      },
+      "iv_current": {
+        "fr": [
+          "📍 **Projets en cours** —",
+          "📍 **En ce moment, ses projets en cours** —",
+          "📍 **Ses projets en cours, actuellement** —"
+        ],
+        "en": [
+          "📍 **Projects ongoing** —",
+          "📍 **Projects ongoing right now** —",
+          "📍 **Currently — projects ongoing** —"
+        ]
+      }
+    }
   };
 
   /* ---------- Étape 4 : intentions ---------- */
@@ -3238,9 +3834,12 @@
         if (intents.includes("company"))
           bits.push(L ? `« ${name} » est un projet (${t(p.context, lang)}), pas un stage en entreprise.`
                       : `“${name}” is a project (${t(p.context, lang)}), not a company internship.`);
-        if (bits.length) return bits.join("\n\n");
+        if (bits.length) {
+          setTopic(entity, Math.max(1, CTX.topic === entity ? CTX.depth : 1));
+          return bits.join("\n\n");
+        }
       }
-      return projectCard(p, lang, intents);
+      return itemAnswer(entity, lang, askLevel(entity, normQ), true, normQ);
     }
 
     if (STAGE_IDS.has(entity)) {
@@ -3256,17 +3855,17 @@
           bits.push(`💼 **${t(s.title, lang)}** (${t(s.company, lang)}) — ` + (L ? "environnement : " : "environment: ") + s.technologies.join(", ") + ".");
         if (intents.includes("metrics")) bits.push(s.metrics[lang].join(" · "));
         if (intents.includes("cv_status")) bits.push(L ? "Oui, ce stage est spécifié dans le CV d'Issa." : "Yes, this internship is listed on Issa's CV.");
-        if (bits.length) return bits.join("\n\n");
+        if (bits.length) {
+          setTopic(entity, Math.max(1, CTX.topic === entity ? CTX.depth : 1));
+          return bits.join("\n\n");
+        }
       }
-      return internshipCard(s, lang, intents);
+      return itemAnswer(entity, lang, askLevel(entity, normQ), true, normQ);
     }
 
     switch (entity) {
-      case "about": {
-        const p = KB.profile;
-        const pos = p.positioning ? "🧭 " + t(p.positioning, lang) + "\n\n" : "\n";
-        return `👋 **${p.name}** — ${t(p.title, lang)}\n` + pos + t(p.summary, lang) + "\n\n🎯 " + t(p.objective, lang);
-      }
+      case "about":
+        return aboutAnswer(lang, 1);
       case "hobbies": {
         const hb = KB.profile.hobbies || {};
         const frL = hb.fr || [], enL = hb.en || [];
@@ -3748,37 +4347,52 @@
     return profileClauses(raw);
   }
 
-  function classify(question) {
+  function classify(question) { return classifyKR(question)[0]; }
+  /* {kind, reason} : pour off_topic, reason = « explicit » (motif hors sujet explicite : tâche, besoin
+     personnel, météo, injection...) ou « default » (question simplement non reconnue) */
+  function classifyDetail(question) {
+    const [kind, reason] = classifyKR(question);
+    return { kind, reason };
+  }
+  function classifyKR(question) {
     const raw = String(question == null ? "" : question);
     const norm = normalize(raw);
-    if (!norm) return "greeting";
+    if (!norm) return ["greeting", "match"];
     const cs = chatspeak(norm);
-    if (CRE.greeting_re.test(cs) || CRE.identity_re.test(cs)) return "greeting";
+    if (CRE.greeting_re.test(cs) || CRE.identity_re.test(cs)) return ["greeting", "match"];
     const raw2 = stripVocative(raw);
     let norm2 = normalize(raw2);
-    if (!norm2) return "greeting";
-    if (INJECTION.test(norm2)) return "off_topic";
+    if (!norm2) return ["greeting", "match"];
+    if (INJECTION.test(norm2)) return ["off_topic", "explicit"];
+    /* relances de conversation (« plus de détails », « pourquoi ? », « résume », « oui », « ok ») */
+    if (CRE.ack_re.test(norm2)) return ["thanks", "ack"];
+    if (CRE.deeper_re.test(norm2) || CRE.accept_re.test(norm2) || CRE.summary_bare_re.test(norm2)
+        || CRE.team_followup_re.test(norm2) || CRE.other_followup_re.test(norm2) || CRE.interview_bare_re.test(norm2)) return ["on_topic", "followup"];
     /* tâche hors sujet : refusée, sauf si une AUTRE proposition demande une entité précise du profil */
-    if (isTask(norm2) || MATH_RAW.test(raw2) || TRANSLATE_RAW.test(raw2)) return profileClauses(raw2).length ? "on_topic" : "off_topic";
-    norm2 = spellFix(norm2);
+    if (isTask(norm2) || MATH_RAW.test(raw2) || TRANSLATE_RAW.test(raw2)) return profileClauses(raw2).length ? ["on_topic", "match"] : ["off_topic", "explicit"];
+    /* tutoiement / vouvoiement sur un sujet professionnel → Issa (« quels sont tes projets ? ») */
+    norm2 = spellFix(interviewee(norm2));
     const [ents, issaRef, foreign, strong, context] = signals(norm2, raw2);
     const specific = ents.filter(e => e !== "about");
     const vocab = CRE.ontopic_re.test(norm2) || CRE.summary_signal_re.test(norm2) || CRE.followup_re.test(norm2) || CRE.strengths_re.test(norm2);
-    if (CRE.thanks_re.test(norm) && !specific.length && !vocab) return "thanks";
+    if (CRE.thanks_re.test(norm) && !specific.length && !vocab) return ["thanks", "match"];
     if (TOPICS.some(r => r.test(norm2))) {
       /* sujet hors périmètre : rattrapé seulement par une entité PRÉCISE (alias fort ou terme de
          loisir / compétence) demandée À PROPOS D'ISSA, ou par une autre proposition du profil.
          Un lieu, une entreprise ou un outil cité seul (« météo à El Jadida », « entretien chez
          Capgemini », « acheter un ESP32 ») ne suffit pas. */
-      if (profileClauses(raw2).length) return "on_topic";
+      if (profileClauses(raw2).length) return ["on_topic", "match"];
       const anchored = specific.filter(e => strong.includes(e));
-      return (anchored.length && issaRef) ? "on_topic" : "off_topic";
+      return (anchored.length && issaRef) ? ["on_topic", "match"] : ["off_topic", "explicit"];
     }
-    if (ents.length || issaRef) return "on_topic";
+    if (ents.length || issaRef) return ["on_topic", "match"];
     /* vocabulaire du profil SANS référence à Issa : pertinent seulement
        s'il ne porte pas sur autre chose (« salaire moyen d'un ingénieur ») */
-    if (vocab && !foreign.length) return "on_topic";
-    return "off_topic";
+    if (vocab && !foreign.length) return ["on_topic", "match"];
+    /* relance d'intention courte (« combien de temps ? », « et les résultats ? ») : le dernier sujet */
+    if (findIntents(norm2).some(i => i !== "description") && words(norm2).length <= CLASSIFIER.followup_max_words
+        && foreign.every(w => CLASSIFIER.followup_words.includes(w))) return ["on_topic", "followup"];
+    return ["off_topic", "default"];
   }
 
   /* ---------- Réponses « profil » sans fiche dédiée ---------- */
@@ -3915,6 +4529,7 @@
       }
     }
     const out = pitch(lang);
+    setTopic("iv:achievement", 0);  /* « plus de détails » → ses réalisations les plus marquantes */
     if (!found.length) return out;
     const q = found.map(x => L ? `« ${x} »` : `“${x}”`).join(", ");
     const head = L ? (found.length === 1 ? `✅ Oui — qualité listée dans son profil : ${q}.` : `✅ Oui — qualités listées dans son profil : ${q}.`)
@@ -4020,8 +4635,7 @@
     let ib = -1;
     scores.forEach((sc, i) => { if (sc === best && (ib < 0 || docs[i][2].size < docs[ib][2].size)) ib = i; });
     const [kind, sid] = docs[ib];
-    if (kind === "project") return projectCard(item("projects", sid), lang, []);
-    if (kind === "internship") return internshipCard(item("internships", sid), lang, []);
+    if (kind === "project" || kind === "internship") return itemAnswer(sid, lang, entryLevel(normQ), true, normQ);
     if (kind === "section") return answerFor(sid, lang, [], normQ);
     /* compétences : toutes celles proches du meilleur score, groupées par catégorie */
     const cut = best * CLASSIFIER.retrieval_ratio;
@@ -4060,7 +4674,7 @@
       if (score > bestScore) { bestScore = score; best = [kind, x]; }
     }
     if (bestScore < 2) return null;
-    return best[0] === "p" ? projectCard(best[1], lang, []) : internshipCard(best[1], lang, []);
+    return itemAnswer(best[1].id, lang, entryLevel(normQ), true, normQ);
   }
 
   /* Refus poli (hors sujet) : pool REFUSALS de js/rag.js (chargé avant ce
@@ -4085,17 +4699,623 @@
       }
       return "🤖 You are chatting with **ISSA**, Issa Lamkharbech's virtual assistant — not with Issa himself, nor with a human. I only answer from his profile (projects, internships, skills, background). To reach him directly: **" + email + "**.\n\nTry for example:\n• “Who is Issa?”\n• “What are his AI skills?”";
     }
-    if (lang === "fr") {
-      return (how ? "Ça va très bien, merci ! 😊 " : "") + "🤖 Bonjour ! Je suis **ISSA**, l'assistant personnel d'Issa Lamkharbech. Je connais en détail ses projets, ses stages, ses compétences et son parcours. Essayez par exemple :\n• « Qui est Issa ? »\n• « Parle-moi du stage chez Capgemini »\n• « Le projet drone était-il en groupe ? »\n• « Quelles sont ses compétences en IA ? »\n• « Quel est son parcours scolaire ? »";
+    const howTxt = how ? (lang === "fr" ? "Ça va très bien, merci ! 😊 " : "I'm doing great, thanks! 😊 ") : "";
+    return howTxt + pick("greet_open", lang) + " " + pick("greet_body", lang) + "\n" + pick("greet_examples", lang);
+  }
+
+  /* ==========================================================================
+     CONVERSATION D'ENTRETIEN : contexte, profondeur, variété (miroir de JesusChatbot)
+       * réponse COURTE d'abord (l'essentiel + un résultat chiffré), puis, à la demande
+         (« plus de détails », « pourquoi ? », « tell me more »), le niveau suivant :
+         vue d'ensemble → détails techniques → résultats & limites → rôle / construction → fiche complète ;
+       * « résume » : résumé du DERNIER sujet (ou de tout le profil) ;
+       * formulations en rotation : jamais deux fois de suite la même.
+     ========================================================================== */
+  let CTX = null, ROT = {}, PENDING = null;
+  function resetContext() {
+    CTX = { topic: null, depth: 0, lang: null, shown: [], next: null };
+    ROT = {};
+    PENDING = null;
+  }
+  resetContext();
+  function getContext() { return Object.assign({}, CTX, { shown: CTX.shown.slice() }); }
+
+  /* Formulation suivante du pool CLASSIFIER.phrases[key] (rotation, jamais deux fois de suite) */
+  function pick(key, lang) {
+    const pool = CLASSIFIER.phrases[key][lang === "en" ? "en" : "fr"];
+    const n = ROT[key] || 0;
+    ROT[key] = n + 1;
+    return pool[n % pool.length];
+  }
+  function setTopic(topic, depth) { PENDING = [topic, depth]; }
+  const emailOf = () => KB.profile.contact.email;
+  /* Assemble des lignes en ignorant les vides en fin de message (offre « vide ») */
+  function joinLines(lines) {
+    while (lines.length && !lines[lines.length - 1]) lines.pop();
+    return lines.join("\n");
+  }
+  const isItem = iid => PROJECT_IDS.has(iid) || STAGE_IDS.has(iid);
+  const getItem = iid => item("projects", iid) || item("internships", iid);
+
+  /* Nom court d'un projet (avant « — », « ( », « : ») ou « Stage chez <entreprise> » */
+  function shortName(iid, lang) {
+    if (STAGE_IDS.has(iid)) {
+      let comp = t(item("internships", iid).company, lang);
+      for (const sep of [" (", ","]) { const i = comp.indexOf(sep); if (i > 0) comp = comp.slice(0, i); }
+      return (lang === "fr" ? "Stage chez " : "Internship at ") + comp;
     }
-    return (how ? "I'm doing great, thanks! 😊 " : "") + "🤖 Hello! I'm **ISSA**, Issa Lamkharbech's personal assistant. I know his projects, internships, skills and background in detail. Try for example:\n• “Who is Issa?”\n• “Tell me about the Capgemini internship”\n• “Was the drone project a group project?”\n• “What are his AI skills?”\n• “What is his educational background?”";
+    let name = t(item("projects", iid).name, lang);
+    for (const sep of [" — ", " (", " : "]) { const i = name.indexOf(sep); if (i > 0) name = name.slice(0, i); }
+    return name;
+  }
+  function sentences(text) { return String(text || "").trim().split(/(?<=[.!?])\s+/).filter(s => s); }
+  /* Nombre de phrases d'accroche : la 1re, plus la 2e si la 1re est courte */
+  function leadN(x, lang) {
+    const ss = sentences(t(x.description, lang));
+    return (ss.length > 1 && ss[0].length < 120) ? 2 : Math.min(1, ss.length);
+  }
+  function leadOf(x, lang) { return sentences(t(x.description, lang)).slice(0, leadN(x, lang)).join(" "); }
+  /* Résultat chiffré mis en avant : celui des pitch_sources, sinon le premier */
+  function keyMetric(iid, lang) {
+    const ms = getItem(iid).metrics[lang];
+    for (const [pid, idxs] of CLASSIFIER.pitch_sources) {
+      if (pid === iid && idxs.length && idxs[0] < ms.length) return ms[idxs[0]];
+    }
+    return ms.length ? ms[0] : "";
+  }
+  /* Résultat chiffré le plus proche de la question (« how much faster » → « ×1000 plus rapide ») */
+  function bestMetric(iid, lang, normQ) {
+    const x = getItem(iid);
+    /* mots-outils courts ignorés ; un mot-outil long et parlant (« faster ») compte */
+    const stop = new Set([...CLASSIFIER.fuzzy_stop, ...CLASSIFIER.leftover_stop, ...[...HINTS_NORM].filter(h => h.length < 6)]);
+    const qw = new Set(words(normQ || "").filter(w => w.length >= 4 && !stop.has(w)).map(fold));
+    let best = "", bestN = 0;
+    if (qw.size) {
+      for (const m of x.metrics[lang]) {
+        const mw = new Set(words(normalize(m)).map(fold));
+        let n = 0;
+        for (const w of qw) if (mw.has(w)) n++;
+        if (n > bestN) { best = m; bestN = n; }
+      }
+    }
+    return best || keyMetric(iid, lang);
+  }
+  function limitSentences(x, lang) { return sentences(t(x.description, lang)).filter(s => CRE.limits_re.test(normalize(s))); }
+  /* Première proposition d'un texte (avant « ; », puis avant « : » si elle reste longue) */
+  function clauseOf(text) {
+    for (const sep of [" ; ", "; "]) { const i = text.indexOf(sep); if (i > 0) text = text.slice(0, i); }
+    if (text.length > 160) {
+      for (const sep of [" : ", ": "]) { const i = text.indexOf(sep); if (i > 0) text = text.slice(0, i); }
+    }
+    return text.replace(/[ .]+$/, "");
+  }
+  /* Premier texte de la liste qui contient l'un des mots-clés (normalisés) */
+  function findText(items, ...keys) {
+    for (const it of items) {
+      const n = normalize(it);
+      if (keys.some(k => new RegExp("\\b" + k + "\\b").test(n))) return it;
+    }
+    return "";
+  }
+  function summarySentence(lang, ...keys) { return findText(sentences(t(KB.profile.summary, lang)), ...keys); }
+
+  /* ---- niveaux d'une fiche (projet / stage) ---- */
+  const MAX_ITEM_LEVEL = 5, MAX_ABOUT_LEVEL = 3;
+  /* Niveau d'entrée selon la question : fiche complète, rôle / construction, limites, technique, ou court */
+  function entryLevel(normQ) {
+    if (CRE.full_card_re.test(normQ)) return 5;
+    if (CRE.level_role_re.test(normQ)) return 4;
+    if (CRE.level_limits_re.test(normQ)) return 3;
+    if (CRE.level_tech_re.test(normQ)) return 2;
+    return 1;
+  }
+  /* Niveau demandé pour un projet / stage nommé ; « tell me more about X » → niveau suivant */
+  function askLevel(iid, normQ) {
+    let lvl = entryLevel(normQ);
+    if (lvl === 1 && CRE.deeper_word_re.test(normQ)) lvl = CTX.topic === iid ? CTX.depth + 1 : 2;
+    return lvl;
+  }
+
+  /* Réponse sur un projet / stage au niveau demandé (1 = court ... 5 = fiche complète) */
+  function itemAnswer(iid, lang, level, offer, normQ) {
+    if (offer === undefined) offer = true;
+    normQ = normQ || "";
+    const L = lang === "fr";
+    const x = getItem(iid);
+    const stage = STAGE_IDS.has(iid);
+    level = Math.max(1, Math.min(level, MAX_ITEM_LEVEL));
+    setTopic(iid, level);
+    if (!CTX.shown.includes(iid)) CTX.shown.push(iid);
+    const title = t(stage ? x.title : x.name, lang);
+    const icon = stage ? "💼" : "🚀";
+    if (level >= 5) return stage ? internshipCard(x, lang, []) : projectCard(x, lang, []);
+    const lines = [];
+    if (level === 1) {
+      if (stage) lines.push(`${icon} **${title}** — ${t(x.company, lang)} · ${t(x.period, lang)} (${t(x.duration, lang)})`);
+      else lines.push(`${icon} **${title}** — ${statusOf(x, lang)} · ${t(x.team_type, lang)} · ${t(x.period, lang)}`);
+      lines.push(leadOf(x, lang));
+      const km = bestMetric(iid, lang, normQ);
+      if (km) lines.push(pick("metric_lead", lang) + " " + km);
+      if (x.live_url) lines.push((L ? "🌐 Site en ligne : " : "🌐 Live site: ") + siteLink(x));
+      if (offer) lines.push(pick("offer_l1", lang));
+      return joinLines(lines);
+    }
+    if (level === 2) {
+      lines.push(`${pick("open_l2", lang)} ${icon} **${shortName(iid, lang)}**`);
+      const lim = new Set(limitSentences(x, lang));
+      const rest = sentences(t(x.description, lang)).slice(leadN(x, lang)).filter(s => !lim.has(s));
+      let body = "";
+      for (const s of rest) {
+        if (body && body.length + s.length > 700) break;
+        body = (body + " " + s).trim();
+      }
+      if (body) lines.push(body);
+      const hl = highlightsOf(x, lang);
+      if (hl.length) lines.push((L ? "✨ Points clés : " : "✨ Highlights: ") + hl.slice(0, 3).join(" · "));
+      lines.push((stage ? (L ? "🛠️ Environnement : " : "🛠️ Environment: ") : (L ? "🛠️ Technologies : " : "🛠️ Technologies: "))
+        + x.technologies.join(", "));
+      if (offer) lines.push(pick("offer_l2", lang));
+      return joinLines(lines);
+    }
+    if (level === 3) {
+      lines.push(`${pick("open_l3", lang)} ${icon} **${shortName(iid, lang)}**`);
+      for (const m of x.metrics[lang]) lines.push("• " + m);
+      const allM = x.metrics[lang].join(" ");
+      const lim = limitSentences(x, lang).filter(s => !allM.includes(s)).slice(0, 2);
+      if (lim.length) lines.push((L ? "⚠️ Limites : " : "⚠️ Limits: ") + lim.join(" "));
+      if (offer) lines.push(pick("offer_l3", lang));
+      return joinLines(lines);
+    }
+    /* level 4 : rôle, équipe, cadre, construction */
+    lines.push(`${pick("open_l4", lang)} ${icon} **${shortName(iid, lang)}**`);
+    if (x.role) lines.push((L ? "🎯 Rôle : " : "🎯 Role: ") + t(x.role, lang));
+    if (stage) {
+      lines.push((L ? "🏷️ Type : " : "🏷️ Type: ") + t(x.type, lang));
+      lines.push((L ? "🏢 Entreprise : " : "🏢 Company: ") + t(x.company, lang));
+    } else {
+      lines.push(teamAnswer(x, lang).split("\n")[0]);
+      lines.push("📌 " + t(x.context, lang));
+    }
+    lines.push((L ? "🗓️ Période : " : "🗓️ Period: ") + t(x.period, lang) + " — " + (L ? "durée : " : "duration: ") + t(x.duration, lang));
+    if (x.how_built) lines.push((L ? "🏗️ Construction : " : "🏗️ How it was built: ") + sentences(t(x.how_built, lang)).slice(0, 3).join(" "));
+    if (x.live_url) lines.push((L ? "🌐 Site en ligne : " : "🌐 Live site: ") + siteLink(x));
+    const links = linksMd(x);
+    if (links) lines.push((L ? "🔗 Liens : " : "🔗 Links: ") + links);
+    if (offer) lines.push(pick("offer_l4", lang));
+    return joinLines(lines);
+  }
+
+  /* Résumé en 4-6 lignes d'un projet / stage */
+  function itemSummary(iid, lang) {
+    const x = getItem(iid);
+    const stage = STAGE_IDS.has(iid);
+    setTopic(iid, Math.max(CTX.topic === iid ? CTX.depth : 1, 1));
+    const lines = [pick("open_summary", lang)];
+    if (stage) lines.push(`💼 **${t(x.title, lang)}** — ${t(x.company, lang)} · ${t(x.period, lang)}`);
+    else lines.push(`🚀 **${t(x.name, lang)}** — ${statusOf(x, lang)} · ${t(x.period, lang)} · ${t(x.team_type, lang)}`);
+    const ss = sentences(t(x.description, lang));
+    if (ss.length) lines.push("• " + ss[0]);
+    if (x.role) lines.push("• 🎯 " + clauseOf(t(x.role, lang)) + ".");
+    const km = keyMetric(iid, lang);
+    if (km) lines.push("• 📊 " + km);
+    return joinLines(lines);
+  }
+
+  /* ---- profil (« Qui est Issa ? ») : 1 = court, 2 = parcours complet, 3 = résultats phares ---- */
+  function aboutAnswer(lang, level) {
+    const p = KB.profile;
+    level = Math.max(1, Math.min(level || 1, MAX_ABOUT_LEVEL));
+    setTopic("about", level);
+    if (level === 2) {
+      const pos = p.positioning ? "🧭 " + t(p.positioning, lang) + "\n\n" : "\n";
+      return `👋 **${p.name}** — ${t(p.title, lang)}\n` + pos + t(p.summary, lang) + "\n\n🎯 " + t(p.objective, lang);
+    }
+    if (level === 3) return pitch(lang);
+    const lines = [`👋 **${p.name}** — ${t(p.title, lang)}`];
+    if (p.positioning) lines.push("🧭 " + t(p.positioning, lang));
+    const cap = summarySentence(lang, "capgemini");
+    if (cap) lines.push("💼 " + cap);
+    lines.push("🎯 " + t(p.objective, lang));
+    lines.push(pick("offer_about", lang));
+    return joinLines(lines);
+  }
+
+  /* Résumé du profil en 4-6 lignes (« résume », « en bref » sans sujet en cours) */
+  function profileSummary(lang) {
+    const p = KB.profile;
+    setTopic("about", 1);
+    const lines = [pick("open_summary", lang), `👋 **${p.name}** — ${t(p.title, lang)}`];
+    if (KB.education && KB.education.length) {
+      const e = KB.education[0];
+      lines.push(`• 🎓 ${t(e.degree, lang)} — ${t(e.school, lang)}`);
+    }
+    for (const key of ["capgemini", "aegisai"]) {
+      const s = summarySentence(lang, key);
+      if (s) lines.push((key === "capgemini" ? "• 💼 " : "• 🚀 ") + s);
+    }
+    lines.push(`• 🎯 ${t(p.objective, lang)} ✉️ ${emailOf()}`);
+    return joinLines(lines);
+  }
+
+  /* ---- sujets d'entretien : niveaux (listes de lignes), uniquement à partir de la base ---- */
+  function ivLevels(topic, lang, normQ) {
+    const L = lang === "fr";
+    const p = KB.profile;
+    const cap = item("internships", "capgemini");
+    const aeg = item("projects", "aegisai");
+    const drone = item("projects", "drone");
+    const soft = (KB.skills || {}).soft_skills || {};
+    const own = soft["items_" + lang];
+    const softItems = (own && own.length) ? own : (soft.items || []).map(x => splitBilingual(x, lang));
+    const softNamed = (...keys) => softItems.filter(s => keys.some(k => new RegExp("\\b" + k + "\\b").test(normalize(s))));
+    const metric = (x, ...keys) => x ? findText(x.metrics[lang], ...keys) : "";
+    const sent = (x, ...keys) => x ? findText(sentences(t(x.description, lang)), ...keys) : "";
+    const persoProjects = () => KB.projects.filter(x => /\b(?:personnel|personal)\b/.test(normalize(t(x.context, lang)))).map(x => shortName(x.id, lang));
+    const lv = [];
+    let rel = null;
+    if (topic === "achievement") {
+      rel = "capgemini";
+      const l1 = [];
+      if (cap) {
+        const src = CLASSIFIER.pitch_sources.find(([pid]) => pid === "capgemini");
+        const idxs = src ? src[1] : [0];
+        const ms = idxs.filter(i => i < cap.metrics[lang].length).map(i => cap.metrics[lang][i]);
+        l1.push(`• 💼 **${shortName("capgemini", lang)}** — ` + ms.join(" · "));
+        const use = metric(cap, "variantes", "variants");
+        if (use) l1.push("  " + use);
+      }
+      if (aeg) l1.push(`• 🚀 **${shortName("aegisai", lang)}** — ` + keyMetric("aegisai", lang));
+      lv.push(l1);
+      const l2 = [];
+      if (cap) {
+        const obj = metric(cap, "objectifs", "objectives");
+        if (obj) l2.push(`• 💼 ${shortName("capgemini", lang)} — ${obj}`);
+      }
+      const ai = item("projects", "ai_act");
+      if (ai) l2.push(`• ⚖️ **${shortName("ai_act", lang)}** — ${ai.metrics[lang][0]}`);
+      if (drone) l2.push(`• 🛠️ **${shortName("drone", lang)}** — ${keyMetric("drone", lang)}`);
+      lv.push(l2);
+    } else if (topic === "difficulty") {
+      rel = "capgemini";
+      const l1 = [];
+      const leak = sent(cap, "fuite de donnees", "data leakage", "data leak");
+      if (leak) l1.push(`• 💼 ${shortName("capgemini", lang)} ` + (L ? "(modèle prédictif)" : "(predictive model)") + ` — ${leak}`);
+      const opt = sent(drone, "optimistes", "optimistic");
+      if (opt) l1.push(`• 🛠️ ${shortName("drone", lang)} — ${opt}`);
+      lv.push(l1);
+      const l2 = [];
+      const simu = sent(drone, "limites", "limits");
+      if (simu && simu !== opt) l2.push(`• 🛠️ ${shortName("drone", lang)} — ${simu}`);
+      const mir = item("projects", "mir100");
+      if (mir) l2.push(`• 🤖 ${shortName("mir100", lang)} — ${mir.metrics[lang][0]}`);
+      const ma = item("projects", "multi_agents");
+      const bug = sent(ma, "bug");
+      if (bug) l2.push(`• 🛰️ ${shortName("multi_agents", lang)} — ${bug}`);
+      lv.push(l2);
+    } else if (topic === "motivation") {
+      rel = "aegisai";
+      const l1 = [];
+      if (p.positioning) l1.push(`• 🧭 **${t(p.positioning, lang)}** — ${t(p.objective, lang)}`);
+      else l1.push("• 🎯 " + t(p.objective, lang));
+      let s = summarySentence(lang, "capgemini");
+      if (s) l1.push("• 💼 " + s);
+      lv.push(l1);
+      const l2 = [];
+      s = summarySentence(lang, "aegisai");
+      if (s) l2.push("• 🚀 " + s);
+      const hb = (p.hobbies || {})[lang] || [];
+      const aiH = hb.filter(h => /\b(?:ia|ai|llms?)\b/.test(normalize(h)));
+      if (aiH.length) l2.push((L ? "• 🎯 Jusque dans ses loisirs : " : "• 🎯 Even in his hobbies: ") + aiH.join(", ") + ".");
+      const perso = persoProjects();
+      if (perso.length) l2.push((L ? "• 🛠️ Projets personnels, en dehors des cours : " : "• 🛠️ Personal projects, outside his courses: ") + perso.join(" · "));
+      lv.push(l2);
+    } else if (topic === "career") {
+      const l1 = [];
+      if (CRE.interview_longterm_re.test(normQ)) {
+        l1.push("• 🔎 " + (L ? "Ses plans à long terme ne figurent pas dans son profil — je préfère ne rien inventer. Ce qu'il vise aujourd'hui :"
+          : "His long-term plans are not in his profile — I'd rather not make anything up. What he is aiming for today:"));
+      }
+      l1.push("• 🎯 " + t(p.objective, lang));
+      if (p.positioning) l1.push("• 🧭 " + t(p.positioning, lang));
+      const mob = (p.contact || {}).mobility;
+      if (mob) l1.push("• 📍 " + t(mob, lang));
+      lv.push(l1);
+      const l2 = [];
+      if (KB.education && KB.education.length) {
+        const e = KB.education[0];
+        l2.push(`• 🎓 ${t(e.degree, lang)} — ${t(e.school, lang)}`);
+      }
+      const gov = (KB.skills || {}).ai_governance;
+      if (gov) l2.push(`• 🧠 **${t(gov.label, lang)}** : ` + gov.items.slice(0, 5).join(", "));
+      lv.push(l2);
+    } else if (topic === "leadership") {
+      rel = "aegisai";
+      const l1 = [];
+      const sn = softNamed("autonomie", "autonomy", "proactivite", "proactivity");
+      if (sn.length) l1.push((L ? "• 🧠 Qualité listée dans son profil : " : "• 🧠 Listed among his qualities: ") + sn.join(", ") + ".");
+      for (const x of KB.extracurricular || []) {
+        if (/\b(?:responsable|lead|leader)\b/.test(normalize(t(x.role, lang))))
+          l1.push(`• 🤝 **${t(x.role, lang)}** | ${t(x.org, lang)} (${t(x.date, lang)}) — ${t(x.description, lang)}`);
+      }
+      if (aeg && aeg.role) l1.push(`• 🚀 **${shortName("aegisai", lang)}** — ${clauseOf(t(aeg.role, lang))}.`);
+      lv.push(l1);
+      const l2 = [];
+      if (drone && drone.role) l2.push(`• 🛠️ **${shortName("drone", lang)}** (${t(drone.team_type, lang)}) — ${clauseOf(t(drone.role, lang))}.`);
+      if (cap && cap.role) l2.push(`• 💼 **${shortName("capgemini", lang)}** — ${t(cap.role, lang)}`);
+      lv.push(l2);
+    } else if (topic === "teamwork") {
+      rel = "drone";
+      const l1 = [];
+      const sn = softNamed("equipe", "team");
+      if (sn.length) l1.push((L ? "• 🧠 Qualité listée dans son profil : " : "• 🧠 Listed among his qualities: ") + sn.join(", ") + ".");
+      const grp = KB.projects.filter(x => Number.isInteger(x.team_size) && x.team_size > 1);
+      if (grp.length) l1.push((L ? "• 👥 Projets d'équipe : " : "• 👥 Team projects: ") + grp.map(x => `${shortName(x.id, lang)} (${t(x.team_type, lang)})`).join(" · "));
+      lv.push(l1);
+      const l2 = [];
+      for (const x of grp) if (x.role) l2.push(`• ${shortName(x.id, lang)} — ${t(x.role, lang)}`);
+      for (const x of KB.extracurricular || []) {
+        if (/\b(?:equipe|team)\b/.test(normalize(t(x.description, lang))))
+          l2.push(`• 🤝 ${t(x.role, lang)} | ${t(x.org, lang)} — ${t(x.description, lang)}`);
+      }
+      l2.push(L ? "(Les noms des coéquipiers ne sont pas communiqués ici.)" : "(Teammates' names are not shared here.)");
+      lv.push(l2);
+    } else if (topic === "work_style") {
+      rel = "aegisai";
+      const l1 = [];
+      const obj = metric(cap, "objectifs", "objectives");
+      if (obj) l1.push(`• 🎯 ${shortName("capgemini", lang)} — ${obj}`);
+      const tests = metric(aeg, "tests");
+      if (tests) l1.push(`• 🧪 ${shortName("aegisai", lang)} — ${tests}`);
+      const mg = (KB.skills || {}).management;
+      if (mg) l1.push(`• 🧭 **${t(mg.label, lang)}** : ` + mg.items.slice(0, 4).join(", "));
+      lv.push(l1);
+      const l2 = [];
+      const sn = softNamed("rigueur", "rigour", "autonomie", "autonomy", "analyse", "analytical");
+      if (sn.length) l2.push((L ? "• 🧠 Qualités listées : " : "• 🧠 Listed qualities: ") + sn.join(", ") + ".");
+      const mir = item("projects", "mir100");
+      if (mir) l2.push((L ? "• 🔎 Il documente aussi ce qui n'est pas prouvé — " : "• 🔎 He also documents what is not proven — ")
+        + `${shortName("mir100", lang)} : ${mir.metrics[lang][0]}`);
+      lv.push(l2);
+    } else if (topic === "pressure") {
+      rel = "capgemini";
+      const l1 = [];
+      if (/\b(?:stress\w*|pression|pressure)\b/.test(normQ)) {
+        l1.push("• 🔎 " + (L ? `Sa gestion du stress ne figure pas dans son profil en tant que telle (pour en parler avec lui : **${emailOf()}**) ; ce qu'il montre concrètement :`
+          : `How he handles stress is not in his profile as such (to discuss it with him: **${emailOf()}**); what he shows concretely:`));
+      }
+      const sn = softNamed("temps", "time");
+      if (sn.length) l1.push((L ? "• 🧠 Qualité listée dans son profil : " : "• 🧠 Listed among his qualities: ") + sn.join(", ") + ".");
+      if (cap) {
+        const obj = metric(cap, "objectifs", "objectives");
+        l1.push(`• 💼 ${shortName("capgemini", lang)} (${t(cap.duration, lang)}) — ${obj}`);
+      }
+      const ai = item("projects", "ai_act");
+      if (ai) l1.push(`• ⚖️ ${shortName("ai_act", lang)} — ${t(ai.duration, lang)}`);
+      lv.push(l1);
+      const l2 = [];
+      const ongoing = KB.projects.filter(x => (x.status || {}).key === "ongoing").map(x => shortName(x.id, lang));
+      if (ongoing.length) l2.push((L ? "• 📍 Projets menés en parallèle en ce moment : " : "• 📍 Projects he is running in parallel right now: ") + ongoing.join(" · "));
+      if (drone) l2.push(`• 🛠️ ${shortName("drone", lang)} — ${t(drone.duration, lang)} · ${t(drone.context, lang)}`);
+      lv.push(l2);
+    } else if (topic === "learning") {
+      rel = "ai_act";
+      const l1 = [];
+      const certs = KB.certifications || [];
+      if (certs.length) l1.push((L ? "• 📜 Certifications : " : "• 📜 Certifications: ") + certs.map(c => `${c.name} (${t(c.issuer, lang)}, ${t(c.date, lang)})`).join(" · "));
+      const perso = persoProjects();
+      if (perso.length) l1.push((L ? "• 🛠️ Projets personnels, en dehors des cours : " : "• 🛠️ Personal projects, outside his courses: ") + perso.join(" · "));
+      const sn = softNamed("curiosite", "curiosity", "adaptabilite", "adaptability");
+      if (sn.length) l1.push((L ? "• 🧠 Qualités listées : " : "• 🧠 Listed qualities: ") + sn.join(", ") + ".");
+      lv.push(l1);
+      const l2 = [];
+      const hb = (p.hobbies || {})[lang] || [];
+      const rd = hb.filter(h => /\b(?:lecture|reading|ia|ai)\b/.test(normalize(h)));
+      if (rd.length) l2.push((L ? "• 📖 Loisirs : " : "• 📖 Hobbies: ") + rd.join(", ") + ".");
+      const basics = Object.values(KB.skills || {}).flatMap(cat => cat.items || []).filter(it => /\bnotions\b/.test(normalize(it)));
+      if (basics.length) l2.push((L ? "• 🌱 Compétences listées au niveau « notions » : " : "• 🌱 Skills listed at a “basics” level: ") + basics.slice(0, 5).join(", "));
+      lv.push(l2);
+    } else if (topic === "current") {
+      rel = "aegisai";
+      const l1 = [];
+      for (const x of KB.projects) {
+        if ((x.status || {}).key !== "ongoing") continue;
+        const solo = isSolo(x) ? (L ? " — mené seul" : " — run alone") : "";
+        l1.push(`• **${t(x.name, lang)}** — ${statusOf(x, lang)} · ${t(x.context, lang)}${solo}`);
+      }
+      l1.push("• 🎯 " + t(p.objective, lang));
+      lv.push(l1);
+      const l2 = [];
+      for (const x of KB.projects) {
+        if ((x.status || {}).key === "ongoing") l2.push(`• **${shortName(x.id, lang)}** — ${leadOf(x, lang)}`);
+      }
+      lv.push(l2);
+    }
+    return [lv.filter(l => l.length), rel];
+  }
+
+  /* Réponse à un sujet d'entretien au niveau demandé ; au-delà, on propose le projet lié */
+  function interviewAnswer(topic, lang, level, normQ) {
+    const [levels, rel] = ivLevels(topic, lang, normQ || "");
+    level = level || 1;
+    if (level > levels.length) return endAnswer(lang, rel);
+    setTopic("iv:" + topic, level);
+    const lines = [];
+    if (level === 1) lines.push(pick("iv_" + topic, lang));
+    lines.push(...levels[level - 1]);
+    if (level < levels.length) lines.push(pick("offer_topic", lang));
+    else if (rel) lines.push(offerItem(rel, lang));
+    return joinLines(lines);
+  }
+
+  /* Proposition de passer à un projet / stage (« oui » → sa présentation courte) */
+  function offerItem(iid, lang) {
+    const name = shortName(iid, lang);
+    CTX.next = iid;
+    return lang === "fr" ? `Voulez-vous que je vous présente « ${name} » ?` : `Would you like me to walk you through “${name}”?`;
+  }
+
+  /* Sujet épuisé : on le dit, on donne l'email, on propose d'autres sujets (jamais d'invention) */
+  function endAnswer(lang, rel) {
+    const lines = [pick("end_topic", lang), pick("end_contact", lang).replace("{email}", emailOf())];
+    const cur = CTX.topic;
+    let sug = CLASSIFIER.showcase_order.filter(i => isItem(i) && i !== cur && !CTX.shown.includes(i)).slice(0, 3);
+    if (rel && rel !== cur && isItem(rel)) sug = [rel].concat(sug.filter(i => i !== rel).slice(0, 2));
+    if (sug.length) {
+      lines.push(pick("suggest", lang) + " " + sug.map(i => shortName(i, lang)).join(" · "));
+      CTX.next = sug[0];
+    }
+    setTopic(cur, CTX.depth || 0);
+    return joinLines(lines);
+  }
+
+  /* Résumé d'une rubrique (compétences : domaines et nombre d'éléments ; sinon la rubrique elle-même) */
+  function sectionSummary(sec, lang, normQ) {
+    setTopic(sec, 1);
+    if (sec === "skills") {
+      const cats = Object.values(KB.skills);
+      return joinLines([pick("open_summary", lang)].concat(cats.map(c => `• **${t(c.label, lang)}** (${c.items.length}) : ` + c.items.slice(0, 3).join(", "))));
+    }
+    if (sec.startsWith("iv:")) return interviewAnswer(sec.slice(3), lang, 1);
+    if (sec === "about") return profileSummary(lang);
+    const a = answerFor(sec, lang, [], normQ || "");
+    return a ? pick("open_summary", lang) + "\n" + a : profileSummary(lang);
+  }
+
+  /* Relance « plus de détails », « pourquoi ? », « oui » : niveau suivant du DERNIER sujet */
+  function deeper(lang, normQ) {
+    const topic = CTX.topic, depth = CTX.depth || 0;
+    const nxt = CTX.next;
+    CTX.next = null;
+    /* « oui » à « Voulez-vous que je vous présente X ? » */
+    if (nxt && CRE.accept_re.test(normQ)) return itemAnswer(nxt, lang, 1);
+    if (!topic) return aboutAnswer(lang, 1);
+    if (isItem(topic)) return depth >= MAX_ITEM_LEVEL ? endAnswer(lang) : itemAnswer(topic, lang, depth + 1);
+    if (topic === "about") return depth >= MAX_ABOUT_LEVEL ? endAnswer(lang) : aboutAnswer(lang, depth + 1);
+    if (topic.startsWith("iv:")) return interviewAnswer(topic.slice(3), lang, depth + 1);
+    if (topic === "skills" && depth < 2) return skillsInProjects(lang);
+    if (topic === "education" && depth < 2) {
+      setTopic("education", 2);
+      return schoolList(schoolProjects(""), lang);
+    }
+    return endAnswer(lang);
+  }
+
+  /* Compétences → où elles ont servi (technologies de chaque projet / stage) */
+  function skillsInProjects(lang) {
+    setTopic("skills", 2);
+    const lines = ["🧩 " + (lang === "fr" ? "Où ces compétences ont servi :" : "Where these skills were used:")];
+    for (const iid of CLASSIFIER.showcase_order) {
+      const x = getItem(iid);
+      if (x && x.technologies && x.technologies.length) lines.push(`• **${shortName(iid, lang)}** — ` + x.technologies.slice(0, 5).join(", "));
+    }
+    return joinLines(lines);
+  }
+
+  /* « Quoi d'autre ? » : la réalisation suivante, pas encore présentée */
+  function otherItem(lang) {
+    const cur = CTX.topic;
+    for (const iid of CLASSIFIER.showcase_order) {
+      if (isItem(iid) && iid !== cur && !CTX.shown.includes(iid)) return pick("other_open", lang) + "\n" + itemAnswer(iid, lang, 1);
+    }
+    return endAnswer(lang);
+  }
+
+  /* Relance d'intention sans sujet (« combien de temps ? ») : on demande de quel projet il s'agit */
+  function clarify(lang) {
+    const sug = CLASSIFIER.showcase_order.slice(0, 4).filter(isItem).map(i => shortName(i, lang));
+    return pick("clarify", lang) + "\n" + (lang === "fr" ? "Par exemple : " : "For example: ") + sug.join(" · ");
+  }
+
+  /* Relances « nues » : résumé, équipe, autre réalisation, approfondissement ; null si ce n'en est pas une */
+  function followupAnswer(normQ, lang) {
+    const topic = CTX.topic;
+    if (CRE.summary_bare_re.test(normQ)) {
+      if (topic && isItem(topic)) return itemSummary(topic, lang);
+      if (topic) return sectionSummary(topic, lang, normQ);
+      return profileSummary(lang);
+    }
+    if (CRE.team_followup_re.test(normQ)) {
+      if (topic && PROJECT_IDS.has(topic)) {
+        setTopic(topic, CTX.depth || 1);
+        return teamAnswer(item("projects", topic), lang);
+      }
+      return null;
+    }
+    if (CRE.other_followup_re.test(normQ)) return otherItem(lang);
+    if (CRE.deeper_re.test(normQ) || CRE.accept_re.test(normQ)) return deeper(lang, normQ);
+    return null;
+  }
+
+  /* Le visiteur interroge le bot comme le candidat (« quels sont tes projets ? », « comment gérez-vous la
+     pression ? ») : sur un sujet PROFESSIONNEL (you_res), le tutoiement / vouvoiement désigne Issa →
+     pronoms de 3e personne. Avis, conseils, aide, jeu de rôle, goûts (you_block_re) : texte inchangé. */
+  const YOU_RES = CLASSIFIER.you_res.map(x => new RegExp(x));
+  const INTERVIEW = CLASSIFIER.interview_topics.map(([k, v]) => [k, new RegExp(v)]);
+  function interviewee(normQ) {
+    if (!normQ || !CRE.you_word_re.test(normQ)) return normQ;
+    const cs = chatspeak(normQ);
+    if (CRE.you_block_re.test(cs) || !YOU_RES.some(r => r.test(cs))) return normQ;
+    const pm = CLASSIFIER.you_pronoun_map, vm = CLASSIFIER.you_verb_map;
+    const has = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+    const toks = cs.split(" ");
+    const out = toks.slice();
+    const imp = CLASSIFIER.you_imperatives;
+    for (let i = 0; i < toks.length; i++) {
+      const w = toks[i];
+      if (has(imp, w) && !has(pm, w)) out[i] = imp[w];  /* « parlez-moi de vous » → « parle moi de lui » */
+      if (!has(pm, w)) continue;
+      out[i] = pm[w];
+      if (["vous", "toi"].includes(w) && i > 0 && has(imp, toks[i - 1])) {
+        /* « présentez-vous » → « presente le » */
+        out[i - 1] = imp[toks[i - 1]];
+        out[i] = "le";
+        continue;
+      }
+      if (["vous", "toi", "you"].includes(w) && i > 0 && CLASSIFIER.you_prepositions.includes(toks[i - 1])) {
+        out[i] = w !== "you" ? "lui" : "him";
+        continue;
+      }
+      if (!["tu", "vous", "you", "u", "t"].includes(w)) continue;
+      for (const j of [i - 1, i + 1]) {
+        if (j < 0 || j >= toks.length || has(pm, toks[j])) continue;
+        const v = toks[j];
+        if (has(vm, v)) out[j] = vm[v];
+        else if (w === "tu" && v.length > 4 && v.endsWith("es")) out[j] = v.slice(0, -1);
+        else if (w === "vous" && v.length > 4 && v.endsWith("ez")) out[j] = v.slice(0, -2) + "e";
+      }
+    }
+    return out.join(" ");
+  }
+  /* Sujet d'entretien (motivation, difficultés, leadership...) d'une question réécrite, ou null */
+  function interviewTopic(normQ) {
+    for (const [k, rx] of INTERVIEW) if (rx.test(normQ)) return k;
+    return null;
   }
 
   /* ---------- Point d'entrée public ---------- */
   function reply(question, forcedLang, inner) {
-    const lang = forcedLang || detectLanguage(question);
+    if (inner) return replyCore(question, forcedLang || detectLanguage(question), true);
+    let lang = forcedLang;
+    if (!lang) {
+      lang = detectLanguage(question);
+      const [fr, en] = langCounts(question);
+      const norm = normalize(stripVocative(question));
+      /* relance sans mot-outil (« oui », « ok », « why? ») : langue de la conversation */
+      if (fr === 0 && en === 0 && CTX.lang && (CRE.accept_re.test(norm) || CRE.ack_re.test(norm)
+          || CRE.deeper_re.test(norm) || CRE.summary_bare_re.test(norm))) lang = CTX.lang;
+    }
+    PENDING = null;
+    const ans = replyCore(question, lang, false);
+    if (PENDING) { CTX.topic = PENDING[0]; CTX.depth = PENDING[1]; }
+    CTX.lang = lang;
+    return ans;
+  }
+  /* Tour traité par le LLM : met à jour le contexte (sujet, profondeur) sans afficher de réponse */
+  function observe(question) { reply(question); }
+
+  function replyCore(question, lang, inner) {
     const L = lang === "fr";
-    const cls = classify(question);
+    const [cls, reason] = classifyKR(question);
     if (cls === "greeting") {
       /* « c'est toi Issa ? », « am I talking to a bot? » : on dit clairement qui répond */
       const cs = chatspeak(normalize(question));
@@ -4103,7 +5323,7 @@
         && CRE.identity_person_re.test(chatspeak(normalize(stripVocative(question))));
       return greeting(lang, false, CRE.howareyou_re.test(normalize(question)), who);
     }
-    if (cls === "thanks") return L ? "Avec plaisir ! 😊 Autre chose sur le parcours d'Issa ?" : "You're welcome! 😊 Anything else about Issa's background?";
+    if (cls === "thanks") return pick(reason === "ack" ? "ack" : "thanks", lang);
     if (cls === "off_topic") return refusal(lang);
 
     /* Question MIXTE : on répond à la partie « profil » et on décline poliment le reste */
@@ -4116,22 +5336,43 @@
           const a = reply(c, lang, true);
           if (!parts.includes(a)) parts.push(a);
         }
-        return parts.join("\n\n———\n\n") + "\n\n" + (L
-          ? "🙅 Pour le reste de ta demande, je ne peux pas t'aider : je ne parle que du profil d'Issa."
-          : "🙅 As for the rest of your request, I can't help with that: I only talk about Issa's profile.");
+        return parts.join("\n\n———\n\n") + "\n\n" + pick("mixed_tail", lang);
       }
     }
 
     /* le visiteur qui se présente (« je suis RH chez ... ») ne pose pas de question sur Issa */
     const rawQ = stripSelfIntro(stripVocative(question));
-    const normQ = spellFix(normalize(rawQ));
+    /* tutoiement / vouvoiement sur un sujet professionnel → Issa (« tes projets » → « ses projets ») */
+    const normQ = spellFix(interviewee(normalize(rawQ)));
     /* vie privée (« Issa a un chat ? ») : absent du profil, même si « chat » désigne aussi un projet */
     if (CRE.personal_re.test(normQ)) return notInProfile(lang);
+    /* relances « nues » : résumé / détails / équipe / autre réalisation du DERNIER sujet */
+    if (!inner) {
+      const fa = followupAnswer(normQ, lang);
+      if (fa) return fa;
+    }
     const sig = signals(normQ, rawQ);
     let entities = sig[0];
     const genericOnly = sig[5];
     const intents = findIntents(normQ);
     const isSpecific = e => PROJECT_IDS.has(e) || STAGE_IDS.has(e);
+    /* relance courte sur le DERNIER projet / stage (« combien de temps ? », « et les résultats ? »,
+       « quel était son rôle ? ») : la question ne nomme aucun projet ni stage et ne dit rien d'autre */
+    const topic = CTX.topic;
+    if (!inner && !entities.some(isSpecific) && entities.every(e => e === "about" || e === "skills")
+        && words(normQ).length <= CLASSIFIER.followup_max_words + 2
+        && sig[2].every(w => CLASSIFIER.followup_words.includes(w))
+        && !CRE.availability_re.test(normQ) && !CRE.current_work_re.test(normQ)) {
+      const asked = intents.filter(i => ["duration", "metrics", "technologies", "team", "status", "cv_status"].includes(i));
+      const lvl = entryLevel(normQ);
+      const bare = !entities.length || (entities.length === 1 && entities[0] === "about");
+      if (topic && isItem(topic)) {
+        if (asked.length && (bare || (asked.length === 1 && asked[0] === "technologies"))) return answerFor(topic, lang, asked, normQ);
+        if (lvl > 1 && bare) return itemAnswer(topic, lang, lvl);
+      } else if (asked.length && !entities.length && !sig[1] && asked.every(i => ["duration", "metrics", "technologies"].includes(i))) {
+        return clarify(lang);
+      }
+    }
     /* projet d'école ACTUEL (« son projet d'école actuel ? ») : le projet académique en cours */
     let genericOnly2 = genericOnly;
     let schoolIds = [];
@@ -4171,7 +5412,14 @@
       /* mises en ligne / déploiements (« has he deployed anything to production? ») */
       if (CRE.deploy_re.test(normQ)) return deployAnswer(lang);
       /* résumé d'un parcours / profil (« sum up his background in two sentences ») */
-      if (CRE.summary_target_re.test(normQ)) return answerFor("about", lang, [], normQ);
+      if (CRE.summary_target_re.test(normQ)) return profileSummary(lang);
+      /* sujet d'entretien (motivation, difficultés, leadership, pression...) : réponse courte, à approfondir */
+      const itop = interviewTopic(normQ);
+      if (itop && !CRE.not_in_kb_re.test(normQ) && !CRE.availability_re.test(normQ)) {
+        const allowed = new Set(CLASSIFIER.interview_entities);
+        if (itop === "difficulty" && !/\b(?:jou\w*|play\w*|aux|partie|parties)\b/.test(normQ)) allowed.add("hobbies");  /* « son plus grand échec » ≠ les échecs (loisir) */
+        if (entities.every(e => allowed.has(e))) return interviewAnswer(itop, lang, 1, normQ);
+      }
       const parts = [];
       /* date de début (« il peut commencer en mars ? ») → disponibilité, avant le statut des projets */
       if (CRE.availability_re.test(normQ)) parts.push(answerFor("objective", lang, [], normQ));
@@ -4203,19 +5451,20 @@
       }
       return teamOverview(lang);
     }
-    /* « Sur quoi travaille-t-il en ce moment ? » → projets en cours */
-    if (CRE.current_work_re.test(normQ) && generic) return statusList(lang, normQ, ["projects_list"], ["ongoing"]);
+    /* « Sur quoi travaille-t-il en ce moment ? » → projets en cours (seul ou non), objectif */
+    if (CRE.current_work_re.test(normQ) && generic) return interviewAnswer("current", lang, 1, normQ);
 
     if (!entities.length || (entities.length === 1 && entities[0] === "about")) {
-      /* Demande de RÉSUMÉ sans sujet précis → résumé du profil */
-      if (SUMMARY_RE.test(normQ) || CRE.summary_signal_re.test(normQ)) return answerFor("about", lang, [], normQ);
+      /* Demande de RÉSUMÉ sans sujet précis → résumé du profil (4-6 lignes) ; présentation → profil court */
+      if (CRE.summary_word_re.test(normQ)) return profileSummary(lang);
+      if (SUMMARY_RE.test(normQ) || CRE.summary_signal_re.test(normQ)) return aboutAnswer(lang, 1);
       const fz = fuzzyBest(normQ, lang);
       if (fz) return fz;
       /* repli : meilleure section de la base (projet, stage, compétence, langues...) */
       const sec = retrieve(normQ, lang);
       if (sec) return sec;
       if (unknownTerms(normQ).length) return notInProfile(lang);
-      return answerFor("about", lang, [], normQ);
+      return aboutAnswer(lang, 1);
     }
 
     const answers = [];
@@ -4223,24 +5472,31 @@
       const a = answerFor(ent, lang, intents, normQ);
       if (a) answers.push(a);
     }
-    if (answers.length) return answers.join("\n\n———\n\n");
+    if (answers.length) {
+      if (!PENDING) setTopic(entities[0], 1);
+      return answers.join("\n\n———\n\n");
+    }
     return retrieve(normQ, lang) || notInProfile(lang);
   }
 
-  /* ---------- Markdown minimal (gras + puces + liens) → HTML sûr ---------- */
-  /* Rendu Markdown minimal → HTML SÛR (protection XSS).
-     On échappe TOUS les caractères dangereux (& < > " ') AVANT toute mise en
-     forme, de sorte qu'aucune entrée (même une réponse LLM manipulée par un
-     visiteur malveillant) ne puisse injecter de balise ou casser un attribut. */
-  function mdToHtml(text) {
-    const esc = String(text)
+  /* ---------- Markdown léger (gras, italique, code, puces, titres, liens) → HTML SÛR ----------
+     Protection XSS : TOUS les caractères dangereux (& < > " ') sont échappés AVANT
+     toute mise en forme ; seules quelques balises fixes sont ensuite produites
+     (strong, em, code, a http/https, span de mise en page). Aucune entrée — même
+     une réponse LLM manipulée — ne peut injecter de balise ni casser un attribut. */
+  function escHtml(text) {
+    return String(text)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#39;");
-    return esc
+  }
+  function mdInline(s) {
+    return s
+      .replace(/`([^`\n]+)`/g, "<code>$1</code>")
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/(^|[\s(])\*(?![\s*])([^*\n]+?)\*(?=[\s).,;:!?]|$)/g, "$1<em>$2</em>")
       /* liens Markdown [texte](url) : le texte visible peut différer de l'URL
          (ex. « lamkharbechissa.com » pointant vers l'URL réelle GitHub Pages).
          Uniquement http/https. À faire AVANT l'auto-lien des URL brutes. */
@@ -4249,211 +5505,560 @@
       /* auto-lien des URL brutes restantes (jamais celles déjà dans un href :
          le caractère précédent ne doit être ni «"» ni «>» ni «=») */
       .replace(/(^|[^"'>=])(https?:\/\/[^\s<>"']+)/g,
-        '$1<a href="$2" target="_blank" rel="noopener noreferrer">$2</a>')
-      .replace(/\n/g, "<br>");
+        '$1<a href="$2" target="_blank" rel="noopener noreferrer">$2</a>');
+  }
+  function mdToHtml(text) {
+    const lines = escHtml(text).replace(/\r\n?/g, "\n").split("\n");
+    let html = "";
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      let m;
+      if (/^\s*$/.test(line)) { if (html) html += '<span class="jw-gap"></span>'; continue; }
+      if (/^\s*(-{3,}|\*{3,}|_{3,})\s*$/.test(line)) { html += '<span class="jw-gap"></span>'; continue; }
+      if ((m = line.match(/^\s{0,3}#{1,4}\s+(.+)$/))) { html += '<span class="jw-h">' + mdInline(m[1].replace(/\*\*/g, "")) + "</span>"; continue; }
+      if ((m = line.match(/^\s*(?:[-*•▪]|&#8226;)\s+(.+)$/))) { html += '<span class="jw-li">' + mdInline(m[1]) + "</span>"; continue; }
+      if ((m = line.match(/^\s*(\d{1,2})[.)]\s+(.+)$/))) { html += '<span class="jw-li jw-ol"><b class="jw-n">' + m[1] + ".</b> " + mdInline(m[2]) + "</span>"; continue; }
+      html += '<span class="jw-p">' + mdInline(line) + "</span>";
+    }
+    return html;
   }
 
   /* ==========================================================================
      WIDGET DE CHAT — injecté dans la page (bouton flottant + fenêtre)
+       * mode « IA conversationnelle » (relais LLM + RAG, js/rag.js) ou
+         « hors ligne » (moteur à règles ci-dessus), badge dans l'en-tête ;
+       * réponse affichée au fil de l'eau (streaming), bouton Arrêter ;
+       * après chaque réponse : puces de relance (Approfondir, Résumer, sujets liés).
+     Points d'accroche utilisés par js/notify.js (NE PAS RENOMMER) :
+       #jw-messages, #jw-form, .jw-chip, #jesus-launcher, .jw-close.
      ========================================================================== */
+  const UI = {
+    fr: {
+      launcher: "Discuter avec ISSA", openChat: "Ouvrir le chat avec ISSA", close: "Fermer le chat",
+      dialog: "ISSA, l'assistant IA d'Issa Lamkharbech",
+      placeholder: "Posez votre question, comme en entretien…", inputLabel: "Votre question",
+      send: "Envoyer", stop: "Arrêter la réponse",
+      modeLlm: "IA conversationnelle", modeOffline: "Mode hors ligne",
+      tipLlm: "Réponses générées par IA, uniquement à partir du parcours réel d'Issa",
+      tipOffline: "Réponses instantanées du moteur local, à partir du parcours réel d'Issa",
+      history: "Historique des conversations", newConv: "Nouvelle conversation",
+      historyTitle: "Mes conversations", closeHistory: "Fermer l'historique",
+      suggestions: "Suggestions de questions", chipAria: "Demander : ",
+      fallback: "Réponse du mode hors ligne : l'IA est momentanément indisponible.",
+      interrupted: "Réponse interrompue (délai dépassé).",
+      stopped: "Réponse arrêtée.",
+      sources: "D'après : ", jump: "Aller au dernier message",
+      greetLlm: "Bonjour ! Je suis **ISSA**, l'assistant IA d'Issa Lamkharbech : je réponds en son nom, à partir de son parcours réel. Interrogez-moi comme en entretien — je peux résumer ou approfondir.",
+      greetOffline: "Bonjour ! Je suis **ISSA**, l'assistant IA d'Issa Lamkharbech. Je réponds à partir de son parcours réel : posez vos questions comme en entretien — je peux résumer ou approfondir.",
+      starters: [["📝 Résume ton parcours", "Résume ton parcours"],
+                 ["🚀 Ton projet le plus impressionnant ?", "Ton projet le plus impressionnant ?"],
+                 ["🎯 Pourquoi te recruter ?", "Pourquoi te recruter ?"]],
+      deeper: ["🔎 Approfondir", "Approfondis"], summary: ["📝 Résumer", "Résume"],
+      whyHire: ["🎯 Pourquoi te recruter ?", "Pourquoi te recruter ?"],
+      project: n => "Parle-moi du projet " + n, internship: n => "Parle-moi de ton stage chez " + n
+    },
+    en: {
+      launcher: "Chat with ISSA", openChat: "Open the chat with ISSA", close: "Close the chat",
+      dialog: "ISSA, Issa Lamkharbech's AI assistant",
+      placeholder: "Ask your question, as in an interview…", inputLabel: "Your question",
+      send: "Send", stop: "Stop the answer",
+      modeLlm: "Conversational AI", modeOffline: "Offline mode",
+      tipLlm: "AI-generated answers, based only on Issa's real background",
+      tipOffline: "Instant answers from the local engine, based on Issa's real background",
+      history: "Conversation history", newConv: "New conversation",
+      historyTitle: "My conversations", closeHistory: "Close history",
+      suggestions: "Suggested questions", chipAria: "Ask: ",
+      fallback: "Offline-mode answer: the AI is temporarily unavailable.",
+      interrupted: "Answer interrupted (time limit reached).",
+      stopped: "Answer stopped.",
+      sources: "Based on: ", jump: "Jump to the latest message",
+      greetLlm: "Hello! I'm **ISSA**, Issa Lamkharbech's AI assistant: I answer on his behalf, from his real background. Ask me anything as in an interview — I can summarize or dive deeper.",
+      greetOffline: "Hello! I'm **ISSA**, Issa Lamkharbech's AI assistant. I answer from his real background: ask your questions as in an interview — I can summarize or dive deeper.",
+      starters: [["📝 Summarize your background", "Summarize your background"],
+                 ["🚀 Your most impressive project?", "Your most impressive project?"],
+                 ["🎯 Why should we hire you?", "Why should we hire you?"]],
+      deeper: ["🔎 Dive deeper", "Dive deeper"], summary: ["📝 Summarize", "Summarize"],
+      whyHire: ["🎯 Why hire you?", "Why should we hire you?"],
+      project: n => "Tell me about the " + n + " project", internship: n => "Tell me about your internship at " + n
+    }
+  };
+  /* sujets transverses proposés en relance quand le relais les a utilisés comme sources */
+  const TOPIC_CHIPS = {
+    skills: { fr: ["🧰 Compétences", "Quelles sont tes compétences ?"], en: ["🧰 Skills", "What are your skills?"] },
+    soft_skills: { fr: ["🤝 Savoir-être", "Quelles sont tes qualités humaines ?"], en: ["🤝 Soft skills", "What are your soft skills?"] },
+    teamwork: { fr: ["👥 Travail en équipe", "Comment travailles-tu en équipe ?"], en: ["👥 Teamwork", "How do you work in a team?"] },
+    lessons: { fr: ["🧗 Leçons apprises", "Qu'as-tu appris de tes difficultés ?"], en: ["🧗 Lessons learned", "What did you learn from your setbacks?"] },
+    education: { fr: ["🎓 Formation", "Parle-moi de ta formation"], en: ["🎓 Education", "Tell me about your education"] },
+    certifications: { fr: ["📜 Certifications", "Quelles certifications as-tu ?"], en: ["📜 Certifications", "What certifications do you have?"] },
+    languages: { fr: ["🌍 Langues", "Quelles langues parles-tu ?"], en: ["🌍 Languages", "Which languages do you speak?"] },
+    extracurricular: { fr: ["🎯 Vie associative", "Parle-moi de tes activités parascolaires"], en: ["🎯 Extracurricular", "Tell me about your extracurricular activities"] }
+  };
+  /* « AegisAI — Autonomous … » → « AegisAI » (même règle que short_name de jesus_rag.py) */
+  function chipName(name) {
+    const s = String(name || "").split(/ — | – | \(| : |: /)[0].trim();
+    return s.length <= 70 ? s : s.slice(0, 67).replace(/\s+\S*$/, "") + "…";
+  }
+  function clipLabel(s, n) { return s.length > n ? s.slice(0, n - 1).trimEnd() + "…" : s; }
+  /* Puce « en parler » pour un projet / stage / sujet transverse, ou null */
+  function topicChip(entity, lang) {
+    const L = UI[lang], tx = f => (f && typeof f === "object") ? (f[lang] || f.fr || "") : (f || "");
+    const pr = (KB.projects || []).find(p => p.id === entity);
+    if (pr) { const n = chipName(tx(pr.name)); return { id: entity, label: "🚀 " + clipLabel(n, 30), prompt: L.project(n) }; }
+    const st = (KB.internships || []).find(s => s.id === entity);
+    if (st) { const n = chipName(tx(st.company)); return { id: entity, label: "💼 " + clipLabel(n, 30), prompt: L.internship(n) }; }
+    const tc = TOPIC_CHIPS[entity];
+    return tc ? { id: entity, label: tc[lang][0], prompt: tc[lang][1] } : null;
+  }
+
   function buildWidget() {
+    const RAG = () => window.JesusRAG;
     const wrap = document.createElement("div");
     wrap.id = "jesus-widget";
     wrap.innerHTML = `
-      <button id="jesus-launcher" aria-label="Ouvrir le chat avec ISSA">
-        <span class="jl-icon">💬</span>
+      <button id="jesus-launcher" type="button" aria-label="Ouvrir le chat avec ISSA" aria-haspopup="dialog" aria-expanded="false">
+        <span class="jl-icon" aria-hidden="true">💬</span>
         <span class="jl-label">Discuter avec ISSA</span>
         <span class="jl-pulse"></span>
       </button>
-      <div id="jesus-window" class="jesus-hidden" role="dialog" aria-label="Chatbot ISSA">
+      <div id="jesus-window" class="jesus-hidden" role="dialog" aria-label="ISSA">
         <div class="jw-header">
-          <div class="jw-avatar">IA</div>
+          <div class="jw-avatar" aria-hidden="true">IA</div>
           <div class="jw-title">
             <strong>ISSA</strong>
-            <span class="jw-status"><span class="jw-dot"></span><span data-jesus-i18n="status">En ligne — répond instantanément</span></span>
+            <span class="jw-status" data-mode="offline" role="status"><span class="jw-dot" aria-hidden="true"></span><span class="jw-mode-label"></span></span>
           </div>
-          <button class="jw-icon-btn jw-history-btn" aria-label="Historique des conversations" title="Historique" hidden>🕑</button>
-          <button class="jw-icon-btn jw-new-btn" aria-label="Nouvelle conversation" title="Nouvelle conversation" hidden>✚</button>
-          <button class="jw-close" aria-label="Fermer">×</button>
+          <button type="button" class="jw-icon-btn jw-history-btn" aria-label="Historique des conversations" title="Historique" hidden>🕑</button>
+          <button type="button" class="jw-icon-btn jw-new-btn" aria-label="Nouvelle conversation" title="Nouvelle conversation" hidden>✚</button>
+          <button type="button" class="jw-close" aria-label="Fermer">×</button>
         </div>
         <div class="jw-history-panel" id="jw-history-panel" hidden>
-          <div class="jw-history-head"><span class="jw-history-title">Mes conversations</span><button class="jw-history-close" aria-label="Fermer l'historique">×</button></div>
+          <div class="jw-history-head"><span class="jw-history-title">Mes conversations</span><button type="button" class="jw-history-close" aria-label="Fermer l'historique">×</button></div>
           <div class="jw-history-list" id="jw-history-list"></div>
         </div>
-        <div class="jw-messages" id="jw-messages"></div>
-        <div class="jw-suggestions" id="jw-suggestions"></div>
+        <div class="jw-body">
+          <div class="jw-messages" id="jw-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+          <button type="button" class="jw-jump" hidden aria-label="Aller au dernier message">↓</button>
+        </div>
+        <div class="jw-suggestions" id="jw-suggestions" role="group" aria-label="Suggestions"></div>
         <form class="jw-inputbar" id="jw-form">
-          <input id="jw-input" type="text" autocomplete="off"
-                 placeholder="Posez une question sur Issa… / Ask about Issa…" aria-label="Votre question">
-          <button type="submit" aria-label="Envoyer">➤</button>
+          <input id="jw-input" type="text" autocomplete="off" maxlength="600" enterkeyhint="send"
+                 placeholder="Posez votre question, comme en entretien…" aria-label="Votre question">
+          <button type="submit" class="jw-send" aria-label="Envoyer"><span aria-hidden="true">➤</span></button>
         </form>
       </div>`;
     document.body.appendChild(wrap);
 
-    const launcher = wrap.querySelector("#jesus-launcher");
-    const win = wrap.querySelector("#jesus-window");
-    const closeBtn = wrap.querySelector(".jw-close");
-    const messages = wrap.querySelector("#jw-messages");
-    const form = wrap.querySelector("#jw-form");
-    const input = wrap.querySelector("#jw-input");
-    const suggestions = wrap.querySelector("#jw-suggestions");
-    const historyBtn = wrap.querySelector(".jw-history-btn");
-    const newBtn = wrap.querySelector(".jw-new-btn");
-    const historyPanel = wrap.querySelector("#jw-history-panel");
-    const historyList = wrap.querySelector("#jw-history-list");
-    const historyCloseBtn = wrap.querySelector(".jw-history-close");
+    const $w = sel => wrap.querySelector(sel);
+    const launcher = $w("#jesus-launcher");
+    const win = $w("#jesus-window");
+    const closeBtn = $w(".jw-close");
+    const messages = $w("#jw-messages");
+    const jumpBtn = $w(".jw-jump");
+    const form = $w("#jw-form");
+    const input = $w("#jw-input");
+    const sendBtn = $w(".jw-send");
+    const suggestions = $w("#jw-suggestions");
+    const status = $w(".jw-status");
+    const modeLabel = $w(".jw-mode-label");
+    const historyBtn = $w(".jw-history-btn");
+    const newBtn = $w(".jw-new-btn");
+    const historyPanel = $w("#jw-history-panel");
+    const historyList = $w("#jw-history-list");
+    const historyCloseBtn = $w(".jw-history-close");
     const HIST = window.ISSAHistory;
 
-    /* persistance (Supabase) — silencieuse si non configurée */
+    /* état de la conversation */
+    let busy = false;            /* une réponse est en cours */
+    let controller = null;       /* AbortController du bouton Arrêter */
+    let epoch = 0;               /* compteur de conversation : une réponse lancée avant un changement de conversation est ignorée */
+    let convLang = null;         /* langue de la conversation (dernière question) */
+    let pinned = true;           /* l'utilisateur est en bas de la conversation */
+    const explored = new Set();  /* sujets déjà abordés (pas reproposés en puce) */
+    const asked = new Set();     /* questions déjà envoyées par puce */
+
+    function currentLang() {
+      return (document.documentElement.getAttribute("data-lang") === "en" ? "en" : "fr");
+    }
+
+    /* persistance (historique local / Supabase) — silencieuse si non configurée */
     function persist(role, content) {
       if (HIST && HIST.enabled) HIST.addMessage(role, content, currentLang());
     }
 
-    const SUGG = {
-      fr: ["Qui est Issa ?", "Ses stages", "Ses projets", "Ses compétences", "Son parcours scolaire", "Le contacter"],
-      en: ["Who is Issa?", "His internships", "His projects", "His skills", "His education", "Contact him"]
-    };
-
-    function currentLang() {
-      return (document.documentElement.getAttribute("data-lang") || "fr");
+    /* ---------- libellés de l'interface (suivent la langue du site) ---------- */
+    function applyChrome() {
+      const L = UI[currentLang()];
+      const lbl = $w(".jl-label");
+      if (lbl) lbl.textContent = L.launcher;
+      launcher.setAttribute("aria-label", L.openChat);
+      win.setAttribute("aria-label", L.dialog);
+      closeBtn.setAttribute("aria-label", L.close);
+      historyBtn.setAttribute("aria-label", L.history); historyBtn.title = L.history;
+      newBtn.setAttribute("aria-label", L.newConv); newBtn.title = L.newConv;
+      $w(".jw-history-title").textContent = L.historyTitle;
+      historyCloseBtn.setAttribute("aria-label", L.closeHistory);
+      input.placeholder = L.placeholder;
+      input.setAttribute("aria-label", L.inputLabel);
+      suggestions.setAttribute("aria-label", L.suggestions);
+      jumpBtn.setAttribute("aria-label", L.jump); jumpBtn.title = L.jump;
+      setBusy(busy);
+      renderMode();
     }
 
-    function renderSuggestions() {
-      /* le label du bouton flottant suit la langue du site */
-      const lbl = wrap.querySelector(".jl-label");
-      if (lbl) lbl.textContent = currentLang() === "fr" ? "Discuter avec ISSA" : "Chat with ISSA";
-      suggestions.innerHTML = "";
-      for (const s of SUGG[currentLang()]) {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = "jw-chip";
-        b.textContent = s;
-        b.addEventListener("click", () => { input.value = s; form.dispatchEvent(new Event("submit")); });
-        suggestions.appendChild(b);
-      }
+    /* ---------- badge de mode : IA conversationnelle / hors ligne ---------- */
+    function currentMode() { const r = RAG(); return r && r.mode ? r.mode() : "offline"; }
+    function renderMode() {
+      const L = UI[currentLang()], m = currentMode();
+      status.dataset.mode = m;
+      modeLabel.textContent = m === "llm" ? L.modeLlm : L.modeOffline;
+      status.title = m === "llm" ? L.tipLlm : L.tipOffline;
     }
+    if (RAG() && RAG().onModeChange) RAG().onModeChange(renderMode);
 
+    /* ---------- défilement : suit la réponse sans lutter contre l'utilisateur ---------- */
+    const nearBottom = () => messages.scrollHeight - messages.scrollTop - messages.clientHeight < 72;
+    messages.addEventListener("scroll", () => {
+      pinned = nearBottom();
+      if (pinned) jumpBtn.hidden = true;
+    }, { passive: true });
+    function autoScroll(force) {
+      if (force) pinned = true;
+      if (pinned) { messages.scrollTop = messages.scrollHeight; jumpBtn.hidden = true; }
+      else jumpBtn.hidden = false;
+    }
+    jumpBtn.addEventListener("click", () => {
+      pinned = true;
+      messages.scrollTo({ top: messages.scrollHeight, behavior: "smooth" });
+      jumpBtn.hidden = true;
+      input.focus();
+    });
+
+    /* ---------- messages ---------- */
     function addMessage(text, who) {
       const div = document.createElement("div");
       div.className = "jw-msg " + who;
       if (who === "bot") {
-        div.innerHTML = `<div class="jw-msg-avatar">IA</div><div class="jw-bubble">${mdToHtml(text)}</div>`;
+        div.innerHTML = `<div class="jw-msg-avatar" aria-hidden="true">IA</div><div class="jw-bubble">${mdToHtml(text)}</div>`;
       } else {
         div.innerHTML = `<div class="jw-bubble">${mdToHtml(text)}</div>`;
       }
       messages.appendChild(div);
-      messages.scrollTop = messages.scrollHeight;
+      autoScroll(who === "user");
+      return div;
     }
-
-    async function botReply(q, cls, mixed) {
-      /* indicateur « écrit… » */
+    function addNote(div, text, kind) {
+      const bubble = div && div.querySelector(".jw-bubble");
+      if (!bubble) return;
+      const n = document.createElement("span");
+      n.className = "jw-note" + (kind ? " jw-note-" + kind : "");
+      n.textContent = text;
+      bubble.appendChild(n);
+    }
+    function addSources(div, meta, lang) {
+      const bubble = div && div.querySelector(".jw-bubble");
+      const src = (meta && Array.isArray(meta.sources)) ? meta.sources : [];
+      if (!bubble || !src.length) return;
+      const seen = [];
+      for (const s of src) {
+        const base = String(s.title || "").split(" — ")[0].replace(/\s*\(\d+\/\d+\)\s*$/, "").trim();
+        if (base && !seen.includes(base)) seen.push(base);
+        if (seen.length >= 3) break;
+      }
+      if (!seen.length) return;
+      const n = document.createElement("span");
+      n.className = "jw-sources";
+      n.textContent = UI[lang].sources + seen.join(" · ");
+      bubble.appendChild(n);
+    }
+    function addSystemNote(text) {
+      const n = document.createElement("div");
+      n.className = "jw-sys";
+      n.textContent = text;
+      messages.appendChild(n);
+      autoScroll();
+    }
+    function showTyping() {
       const typing = document.createElement("div");
-      typing.className = "jw-msg bot";
+      typing.className = "jw-msg bot jw-typing-row";
+      typing.setAttribute("aria-hidden", "true");
       typing.innerHTML = `<div class="jw-msg-avatar">IA</div><div class="jw-bubble jw-typing"><span></span><span></span><span></span></div>`;
       messages.appendChild(typing);
-      messages.scrollTop = messages.scrollHeight;
-
-      /* MODE LLM + RAG (conversationnel) si configuré et question SUR Issa ;
-         salutations / remerciements → moteur local instantané */
-      const rag = window.JesusRAG;
-      if (cls === "on_topic" && !mixed && rag && rag.llmAvailable()) {
-        const lang = detectLanguage(q);
-        /* bulle vide remplie au fil du streaming */
-        const div = document.createElement("div");
-        div.className = "jw-msg bot";
-        div.innerHTML = `<div class="jw-msg-avatar">IA</div><div class="jw-bubble"></div>`;
-        const bubble = div.querySelector(".jw-bubble");
-        let started = false, full = "";
-        try {
-          full = await rag.ask(q, lang, delta => {
-            if (!started) { typing.remove(); messages.appendChild(div); started = true; }
-            bubble.textContent += delta;
-            messages.scrollTop = messages.scrollHeight;
-          });
-          bubble.innerHTML = mdToHtml(full);   /* mise en forme finale */
-          messages.scrollTop = messages.scrollHeight;
-          persist("assistant", full);
-          return;
-        } catch (err) {
-          /* échec LLM → repli transparent sur le moteur local */
-          console.warn("ISSA : LLM indisponible, repli local —", err.message);
-          if (started) div.remove();
-        }
-      }
-
-      /* MOTEUR LOCAL (instantané, toujours disponible) */
-      setTimeout(() => {
-        typing.remove();
-        const ans = reply(q);
-        addMessage(ans, "bot");
-        persist("assistant", ans);
-      }, 300);
+      autoScroll();
+      return typing;
     }
 
+    /* ---------- puces (démarrage et relances) ---------- */
+    function renderChips(list) {
+      suggestions.innerHTML = "";
+      const L = UI[convLang || currentLang()];
+      for (const c of list) {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "jw-chip";
+        b.textContent = c.label;
+        b.setAttribute("aria-label", L.chipAria + c.prompt);
+        b.addEventListener("click", () => {
+          if (busy) return;
+          asked.add(c.prompt);
+          if (c.id) explored.add(c.id);
+          handleQuestion(c.prompt);
+        });
+        suggestions.appendChild(b);
+      }
+      suggestions.hidden = !list.length;
+    }
+    function starterChips(lang) {
+      return UI[lang].starters.filter(s => !asked.has(s[1])).map(s => ({ label: s[0], prompt: s[1] }));
+    }
+    /* sujets suivants à découvrir (stages puis projets, dans l'ordre de la base) */
+    function discoveryChips(lang, n) {
+      const out = [];
+      const ids = (KB.internships || []).map(s => s.id).concat((KB.projects || []).map(p => p.id));
+      for (const id of ids) {
+        if (out.length >= n) break;
+        if (explored.has(id)) continue;
+        const c = topicChip(id, lang);
+        if (c && !asked.has(c.prompt)) out.push(c);
+      }
+      return out;
+    }
+    function followupChips(lang, meta) {
+      const L = UI[lang];
+      const chips = [{ label: L.deeper[0], prompt: L.deeper[1] }, { label: L.summary[0], prompt: L.summary[1] }];
+      const extra = [];
+      const src = (meta && Array.isArray(meta.sources)) ? meta.sources : [];
+      const main = src.length ? src[0].entity : null;
+      for (const s of src) {
+        if (extra.length >= 2) break;
+        if (!s || s.entity === main || explored.has(s.entity) || extra.some(c => c.id === s.entity)) continue;
+        const c = topicChip(s.entity, lang);
+        if (c && !asked.has(c.prompt)) extra.push(c);
+      }
+      if (extra.length < 2 && !asked.has(L.whyHire[1]) && explored.size >= 2) extra.push({ label: L.whyHire[0], prompt: L.whyHire[1] });
+      if (extra.length < 2) extra.push(...discoveryChips(lang, 2 - extra.length));
+      return chips.concat(extra.slice(0, 2));
+    }
+    function engineTopic() {
+      try { return (window.Jesus.getContext() || {}).topic || null; } catch (_) { return null; }
+    }
+
+    /* ---------- état « réponse en cours » : bouton Envoyer ⇄ Arrêter ---------- */
+    function setBusy(on) {
+      busy = on;
+      const L = UI[currentLang()];
+      sendBtn.classList.toggle("jw-stop", on);
+      sendBtn.setAttribute("aria-label", on ? L.stop : L.send);
+      sendBtn.title = on ? L.stop : L.send;
+      sendBtn.firstElementChild.textContent = on ? "■" : "➤";
+      suggestions.classList.toggle("jw-busy", on);
+      suggestions.querySelectorAll(".jw-chip").forEach(b => { b.disabled = on; });
+    }
+
+    /* ---------- réponses ---------- */
+    const isRefusal = ans => {
+      const R = RAG();
+      return Boolean(R && R.REFUSALS && (R.REFUSALS.fr.includes(ans) || R.REFUSALS.en.includes(ans)));
+    };
+
+    /* Moteur hors ligne (instantané) : salutations, refus, questions mixtes, repli */
+    function localAnswer(q, lang, opts) {
+      opts = opts || {};
+      const my = epoch;
+      const finish = () => {
+        if (my !== epoch) return;   /* conversation changée entre-temps : réponse périmée */
+        const ans = opts.answer != null ? opts.answer : reply(q);
+        const div = addMessage(ans, "bot");
+        if (opts.note) addNote(div, UI[lang].fallback, "fallback");
+        persist("assistant", ans);
+        const substantive = opts.kind === "on_topic" && !isRefusal(ans);
+        if (substantive) {
+          const R = RAG();
+          if (R && R.remember) R.remember(q, ans);
+          const tp = engineTopic();
+          if (tp) explored.add(tp);
+          renderChips(followupChips(lang, null));
+        } else {
+          renderChips(starterChips(lang).length ? starterChips(lang) : discoveryChips(lang, 3));
+        }
+      };
+      if (opts.delay === 0) { finish(); return; }
+      busy = true;   /* courte pause « écrit… » (sans basculer le bouton en Arrêter) */
+      const typing = showTyping();
+      setTimeout(() => { typing.remove(); busy = false; finish(); }, opts.delay || 320);
+    }
+
+    /* Mode IA conversationnelle : relais LLM + RAG en streaming */
+    async function llmAnswer(q, lang) {
+      const R = RAG();
+      const my = epoch;   /* « Nouvelle conversation » / conversation rouverte pendant le flux -> on ignore la suite */
+      setBusy(true);
+      controller = new AbortController();
+      const typing = showTyping();
+      let div = null, bubble = null, full = "", meta = null, raf = 0;
+      const paint = () => { raf = 0; if (bubble) { bubble.innerHTML = mdToHtml(full); autoScroll(); } };
+      const open = () => {
+        if (div) return;
+        typing.remove();
+        div = document.createElement("div");
+        div.className = "jw-msg bot";
+        div.innerHTML = `<div class="jw-msg-avatar" aria-hidden="true">IA</div><div class="jw-bubble jw-streaming" aria-busy="true"></div>`;
+        bubble = div.querySelector(".jw-bubble");
+        messages.appendChild(div);
+      };
+      const settle = text => {
+        if (raf) { cancelAnimationFrame(raf); raf = 0; }
+        open();
+        bubble.innerHTML = mdToHtml(text);
+        bubble.classList.remove("jw-streaming");
+        bubble.removeAttribute("aria-busy");
+      };
+      const keep = (text, noteText, kind) => {
+        if (my !== epoch) return;
+        settle(text);
+        if (noteText) addNote(div, noteText, kind);
+        else addSources(div, meta, lang);
+        autoScroll();
+        persist("assistant", text);
+        if (R.remember) R.remember(q, text);
+        try { if (window.Jesus.observe) window.Jesus.observe(q); } catch (_) { /* contexte hors ligne facultatif */ }
+        const src = meta && meta.sources;
+        if (src && src.length && src[0].entity) explored.add(src[0].entity);
+        renderChips(followupChips(lang, meta));
+      };
+      try {
+        const res = await R.ask(q, lang, {
+          signal: controller.signal,
+          onMeta: m => { meta = m; },
+          onToken: (_d, all) => {
+            full = all;
+            open();
+            if (!raf) raf = requestAnimationFrame(paint);
+          }
+        });
+        meta = res.meta || meta;
+        keep(res.text);
+      } catch (err) {
+        if (raf) { cancelAnimationFrame(raf); raf = 0; }
+        typing.remove();
+        if (my !== epoch) return;   /* le finally remet quand même busy / controller à zéro */
+        const partial = (err && err.partial) || full;
+        if (err && err.kind === "aborted") {
+          if (partial.trim()) keep(partial, UI[lang].stopped, "stopped");
+          else {
+            if (div) div.remove();
+            addSystemNote(UI[lang].stopped);
+            renderChips(starterChips(lang).length ? starterChips(lang) : discoveryChips(lang, 3));
+          }
+        } else if (partial.trim() && partial.length > 80) {
+          keep(partial + " …", UI[lang].interrupted, "fallback");
+        } else {
+          /* échec du relais (quota, réseau, délai…) → repli transparent hors ligne */
+          if (div) div.remove();
+          console.warn("ISSA : relais IA indisponible, repli hors ligne —", err && err.message);
+          localAnswer(q, lang, { note: true, kind: "on_topic", delay: 0 });
+        }
+      } finally {
+        controller = null;
+        setBusy(false);
+        renderMode();
+      }
+    }
+
+    /* ======================= CHEMIN D'ENVOI (aiguillage) =======================
+       classifyDetail(q) du moteur décide AVANT tout appel réseau :
+         salutation / remerciement / « ok »        → moteur local, instantané
+         hors sujet « explicit » (tâche, injection…) → refus local, aucun appel
+         garde-fou OFFTOPIC_PATTERNS (rag.js)       → refus local, aucun appel
+         question mixte (profil + tâche hors sujet) → moteur local
+         hors sujet « default » (non reconnu)       → relais IA si disponible (le LLM
+                                                       répond ou décline poliment),
+                                                       sinon moteur local
+         sujet professionnel                        → relais IA si disponible, sinon
+                                                       moteur local ; échec → repli local */
+    function route(q) {
+      const det = classifyDetail(q);
+      const R = RAG();
+      const mixed = det.kind === "on_topic" && mixedClauses(q).length > 0;
+      if (det.kind === "greeting" || det.kind === "thanks") return { path: "local", kind: det.kind };
+      if (det.kind === "off_topic" && det.reason === "explicit") return { path: "refuse", kind: det.kind };
+      if (!mixed && R && R.isOffTopicTask && R.isOffTopicTask(q)) return { path: "refuse", kind: "off_topic" };
+      if (mixed) return { path: "local", kind: "on_topic" };
+      if (R && R.llmAvailable && R.llmAvailable()) return { path: "llm", kind: det.kind };
+      return { path: "local", kind: det.kind };
+    }
+
+    function handleQuestion(raw) {
+      if (busy) return;
+      const q = String(raw || "").trim().slice(0, 600);
+      if (!q) return;
+      addMessage(q, "user");
+      persist("user", q);
+      /* langue : celle de la question ; une relance très courte (« ok », « why? »,
+         « AegisAI ? ») garde la langue de la conversation */
+      let lang = detectLanguage(q) === "en" ? "en" : "fr";
+      if (convLang && normalize(q).split(" ").length <= 2) lang = convLang;
+      convLang = lang;
+      const r = route(q);
+      if (r.path === "refuse") {
+        localAnswer(q, lang, { answer: refusal(lang), kind: "off_topic", delay: 200 });
+      } else if (r.path === "llm") {
+        llmAnswer(q, lang);
+      } else {
+        localAnswer(q, lang, { kind: r.kind, delay: (r.kind === "greeting" || r.kind === "thanks") ? 150 : 320 });
+      }
+    }
+
+    /* ---------- ouverture / fermeture ---------- */
+    function greet() {
+      const lang = currentLang();
+      convLang = null;
+      const L = UI[lang];
+      addMessage(currentMode() === "llm" ? L.greetLlm : L.greetOffline, "bot");
+      renderChips(starterChips(lang));
+    }
     let opened = false;
+    let healthChecked = false;
     function openWin() {
       win.classList.remove("jesus-hidden");
       launcher.classList.add("jl-hidden");
+      launcher.setAttribute("aria-expanded", "true");
+      const R = RAG();
+      if (!healthChecked && R && R.configured && R.configured()) {
+        healthChecked = true;
+        R.health().then(renderMode);   /* relais joignable ? sinon badge « hors ligne » */
+      }
       if (!opened) {
         opened = true;
-        addMessage(greeting(currentLang(), false), "bot");
-        renderSuggestions();
+        applyChrome();
+        greet();
       }
       input.focus();
     }
     function closeWin() {
       win.classList.add("jesus-hidden");
       launcher.classList.remove("jl-hidden");
+      launcher.setAttribute("aria-expanded", "false");
+      launcher.focus();
     }
 
     launcher.addEventListener("click", openWin);
     closeBtn.addEventListener("click", closeWin);
+    win.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        if (!historyPanel.hidden) { historyPanel.hidden = true; return; }
+        if (busy && controller) { controller.abort(); return; }
+        closeWin();
+      }
+    });
     form.addEventListener("submit", e => {
       e.preventDefault();
+      /* pendant une réponse : seul le bouton (devenu « Arrêter ») interrompt ;
+         la touche Entrée ne fait rien, la question tapée attend la fin */
+      if (busy) { if (controller && e.submitter === sendBtn) controller.abort(); return; }
       const q = input.value.trim();
       if (!q) return;
-
-      /* Commande secrète « /key » : active le mode LLM sans éditer de fichier.
-         La clé est stockée dans le localStorage de CE navigateur uniquement
-         (jamais envoyée ailleurs qu'à l'API). « /key off » la supprime. */
-      if (q.toLowerCase().startsWith("/key")) {
-        input.value = "";
-        const val = q.slice(4).trim();
-        try {
-          if (!val || val === "off") {
-            localStorage.removeItem("jesus_groq_key");
-            addMessage("🔌 Mode LLM désactivé — je repasse sur mon moteur local instantané.", "bot");
-          } else {
-            localStorage.setItem("jesus_groq_key", val);
-            addMessage("🧠 **Mode LLM activé !** Je discute maintenant comme ChatGPT (Llama 3.3 70B via Groq), toujours strictement fidèle au dossier d'Issa. Posez-moi une question ! ✨", "bot");
-          }
-        } catch (_) {
-          addMessage("⚠️ Impossible d'enregistrer la clé dans ce navigateur.", "bot");
-        }
-        return;
-      }
-
-      addMessage(q, "user");
       input.value = "";
-      persist("user", q);
-
-      /* CLASSIFICATION avant le LLM et le moteur local : toute question hors
-         sujet (« j'ai faim », météo, blague, culture générale…) est refusée
-         poliment, sans appeler le LLM. Le garde-fou de rag.js (tâches
-         hors sujet) reste une sécurité supplémentaire. */
-      const cls = classify(q);
-      const rag = window.JesusRAG;
-      /* question MIXTE (partie profil + tâche hors sujet) : moteur local, qui répond
-         à la partie profil et décline le reste (ni garde-fou ni LLM) */
-      const mixed = cls === "on_topic" && mixedClauses(q).length > 0;
-      if (cls === "off_topic" || (!mixed && rag && rag.isOffTopicTask && rag.isOffTopicTask(q))) {
-        const ans = refusal(detectLanguage(q));
-        addMessage(ans, "bot");
-        persist("assistant", ans);
-        return;
-      }
-
-      botReply(q, cls, mixed);
+      handleQuestion(q);
     });
 
     /* ===================== HISTORIQUE DES CONVERSATIONS ===================== */
@@ -4477,10 +6082,10 @@
       for (const c of convos) {
         const row = document.createElement("div");
         row.className = "jw-history-item" + (c.id === HIST.currentId ? " active" : "");
-        row.innerHTML = `<div class="jw-hi-main"><div class="jw-hi-title"></div>
-          <div class="jw-hi-date">${fmtDate(c.updated_at)}</div></div>
-          <button class="jw-hi-del" aria-label="Supprimer" title="${L ? "Supprimer" : "Delete"}">🗑</button>`;
-        row.querySelector(".jw-hi-title").textContent = c.title || (L ? "Conversation" : "Conversation");
+        row.innerHTML = `<button type="button" class="jw-hi-main"><span class="jw-hi-title"></span>
+          <span class="jw-hi-date">${escHtml(fmtDate(c.updated_at))}</span></button>
+          <button type="button" class="jw-hi-del" aria-label="${L ? "Supprimer" : "Delete"}" title="${L ? "Supprimer" : "Delete"}">🗑</button>`;
+        row.querySelector(".jw-hi-title").textContent = c.title || "Conversation";
         row.querySelector(".jw-hi-main").addEventListener("click", () => openConversation(c.id));
         row.querySelector(".jw-hi-del").addEventListener("click", async (e) => {
           e.stopPropagation();
@@ -4492,25 +6097,42 @@
       }
     }
 
+    function abortCurrent() { if (controller) controller.abort(); }
+    function resetState() {
+      explored.clear(); asked.clear(); convLang = null;
+      try { if (window.Jesus.resetContext) window.Jesus.resetContext(); } catch (_) { /* ignoré */ }
+    }
+
     async function openConversation(id) {
       if (!(HIST && HIST.enabled)) return;
+      epoch++;
+      abortCurrent();
       const msgs = await HIST.open(id);
+      resetState();
       messages.innerHTML = "";
       for (const m of msgs) addMessage(m.content, m.role === "user" ? "user" : "bot");
-      /* restaure la mémoire du LLM pour pouvoir CONTINUER la conversation */
-      if (window.JesusRAG && window.JesusRAG.setHistory) window.JesusRAG.setHistory(msgs);
+      /* restaure la mémoire du relais et le contexte du moteur hors ligne pour CONTINUER */
+      const R = RAG();
+      if (R && R.setHistory) R.setHistory(msgs);
+      const users = msgs.filter(m => m.role === "user").slice(-4);
+      try { users.forEach(m => window.Jesus.observe(m.content)); } catch (_) { /* ignoré */ }
+      const last = users.length ? users[users.length - 1].content : "";
+      convLang = last ? (detectLanguage(last) === "en" ? "en" : "fr") : currentLang();
       historyPanel.hidden = true;
-      suggestions.style.display = "none";
+      renderChips(last ? followupChips(convLang, null) : starterChips(convLang));
+      autoScroll(true);
       input.focus();
     }
 
     function startNewConversation(silent) {
+      epoch++;
+      abortCurrent();
       if (HIST) HIST.currentId = null;
-      if (window.JesusRAG && window.JesusRAG.resetConversation) window.JesusRAG.resetConversation();
+      const R = RAG();
+      if (R && R.resetConversation) R.resetConversation();
+      resetState();
       messages.innerHTML = "";
-      addMessage(greeting(currentLang(), false), "bot");
-      renderSuggestions();
-      suggestions.style.display = "";
+      greet();
       historyPanel.hidden = true;
       if (!silent) input.focus();
     }
@@ -4523,8 +6145,8 @@
     if (historyCloseBtn) historyCloseBtn.addEventListener("click", () => { historyPanel.hidden = true; });
     if (newBtn) newBtn.addEventListener("click", () => startNewConversation());
 
-    /* Initialise la persistance : si Supabase est configuré, on montre les
-       boutons historique/nouveau ; sinon le chat reste tel quel (sans DB). */
+    /* Initialise la persistance : si l'historique est disponible, on montre les
+       boutons historique/nouveau ; sinon le chat reste tel quel. */
     (async function initHistory() {
       if (!HIST) return;
       const ok = await HIST.init();
@@ -4538,11 +6160,17 @@
     document.querySelectorAll("[data-open-jesus]").forEach(el =>
       el.addEventListener("click", e => { e.preventDefault(); openWin(); }));
 
-    /* Le changement de langue du site rafraîchit les suggestions */
-    document.addEventListener("jesus:langchange", renderSuggestions);
+    /* Le changement de langue du site met à jour l'interface et, avant toute
+       question, les puces de démarrage */
+    document.addEventListener("jesus:langchange", () => {
+      applyChrome();
+      if (opened && !convLang && !busy) renderChips(starterChips(currentLang()));
+    });
+    applyChrome();
   }
 
-  window.Jesus = { reply, classify, mixedClauses, refusal, detectLanguage, findEntities, findIntents, normalize, greeting };
+  window.Jesus = { reply, classify, classifyDetail, mixedClauses, refusal, detectLanguage, findEntities, findIntents, normalize, greeting,
+                   resetContext, getContext, observe };
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", buildWidget);
   } else {

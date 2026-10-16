@@ -1,27 +1,35 @@
 /* ============================================================================
-   Configuration du chatbot Jesus (mode LLM + RAG)
+   Configuration du chatbot ISSA (mode IA conversationnelle = relais LLM + RAG)
    ----------------------------------------------------------------------------
-   apiUrl : URL de votre proxy Cloudflare Worker (voir GUIDE_JESUS_LLM.md).
-            Le worker garde votre clé API Groq SECRÈTE et gratuite.
+   apiUrl : URL du relais = votre Cloudflare Worker (worker/jesus-worker.js),
+            SANS « / » final. Voir GUIDE_JESUS_LLM.md (déploiement par copier-coller
+            dans le tableau de bord Cloudflare).
             Exemple : "https://jesus-llm.VOTRE-SOUS-DOMAINE.workers.dev"
-            → Tant que ce champ est vide, Jesus utilise automatiquement son
-              moteur local instantané (aucune dépendance, déjà fonctionnel).
+            Le Worker garde la clé Groq SECRÈTE, fait la recherche (embeddings
+            bge-m3 + BM25) et choisit le modèle. Le navigateur n'envoie que
+            {question, history, lang} à {apiUrl}/chat.
+            → Champ vide : ISSA reste en « mode hors ligne » (moteur à règles
+              instantané, aucune dépendance). En cas de panne ou de quota du
+              relais, le chat bascule aussi tout seul sur ce moteur.
+            → En local : js/config.local.js (git-ignoré) pose apiUrl = "/api",
+              servi par « python serve.py » (relais de développement).
 
-   groqApiKey : UNIQUEMENT pour tester en local sur votre machine.
-                ⚠️ NE JAMAIS remplir ce champ sur le site publié : une clé dans
-                le code du site est visible par tout le monde. En production,
-                utilisez apiUrl (le worker) et laissez groqApiKey vide.
+   groqApiKey : N'EST PLUS LU PAR LE NAVIGATEUR (l'appel direct à Groq a été
+                supprimé). Laisser VIDE ici. La clé de TEST locale se met dans
+                js/config.local.js, où seul serve.py (côté machine) la lit.
 
-   model : modèle Groq (gratuit, ultra-rapide).
+   Modèles : choisis par le relais, plus par le site (cascade définie dans
+   js/rag-prompt.json → generation.models, ex. openai/gpt-oss-120b →
+   qwen/qwen3.8-27b → openai/gpt-oss-20b ; variable MODELS du Worker).
+
+   Délais côté navigateur (facultatifs) : firstTokenTimeoutMs (13 000 = échéance du relais 10 s + 3 s) et
+   totalTimeoutMs (40 000) ; au-delà, repli sur le moteur hors ligne.
    ============================================================================ */
 window.JESUS_CONFIG = {
   apiUrl: "",
   groqApiKey: "",
-  model: "llama-3.3-70b-versatile",
-  temperature: 0.75,    /* 0 = toujours pareil, 1 = très varié. 0.75 = vivant + fidèle */
-  maxHistory: 10,       /* nombre de messages de conversation conservés (mémoire) */
-  topK: 6,              /* nombre de passages RAG injectés dans le prompt */
-  timeoutMs: 15000,     /* au-delà : repli automatique sur le moteur local */
+  firstTokenTimeoutMs: 13000,
+  totalTimeoutMs: 40000,
 
   /* ---- Historique des conversations ----
      Par DÉFAUT, l'historique fonctionne déjà (stocké dans le navigateur du

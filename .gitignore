@@ -14,3 +14,6 @@ DOCUMENTATION_TECHNIQUE_ISSA.pdf
 # Journaux / documentation interne (docs/journal/*.pdf) : ils contiennent
 # l'ancien contenu du site et les noms d'autres personnes -> ne JAMAIS publier
 docs/
+
+# Outils de développement locaux (banc d'essai du Worker, cache des embeddings Ollama)
+dev/
